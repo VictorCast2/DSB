@@ -259,49 +259,17 @@ ul {
 
 
 .contenido .remember-forgot {
-    justify-content: space-between;
     font-size: 13.5px;
     margin: 10px;
 }
 
 .remember-forgot label {
     accent-color: #fff;
-    margin-right: 90px;
+    margin-right: 80px;
 }
 
 .remember-forgot input {
-    margin-right: 20px;
-}
-
-.remember-forgot a {
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-
-}
-
-.contenido .registre-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 8px 0 8px;
-}
-
-.registre-link a {
-    margin: 20px;
-}
-
-.registre-link p a {
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.registre-link p a:hover {
-    text-decoration: underline;
+    margin-right: 10px;
 }
 
 

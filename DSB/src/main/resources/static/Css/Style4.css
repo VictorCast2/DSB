@@ -8,6 +8,7 @@
 }
 
 body {
+    margin: 20px;
     background-color: #c9d6ff;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
@@ -15,6 +16,12 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
 }
 
 .contenido {
@@ -25,7 +32,7 @@ body {
     overflow: hidden;
     width: 1000px;
     max-width: 100%;
-    min-height: 550px;
+    min-height: 800px;
 }
 
 .contenido p {
@@ -44,6 +51,123 @@ body {
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0 10px;
+}
+
+.contenido form {
+    background-color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.form-contenido {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+/** Estilo para las clases llamadas input-box */
+.input-box {
+    position: relative;
+}
+
+.input-box label {
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    background-color: transparent;
+    left: 30px;
+    top: 15px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+}
+
+.input-box input {
+    margin: 10px;
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    width: 187px;
+    height: 50px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    outline: none;
+    border: solid 1px #0034de;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+}
+
+/** Estilo para las clases llamados input */
+.input {
+    position: relative;
+}
+
+.input label {
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    background-color: transparent;
+    left: 30px;
+    top: 15px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+}
+
+.input input {
+    margin: 10px;
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    width: 400px;
+    height: 50px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input input:focus,
+.input input:valid {
+    outline: none;
+    border: solid 1px #0034de;
+}
+
+.input input:focus~label,
+.input input:valid~label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
 }
 
 
@@ -80,75 +204,6 @@ body {
 
 .contenido button:hover::before{
     width: 400px;
-}
-
-.contenido form {
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
-}
-
-.input-box {
-    position: relative;
-}
-
-.input-box label {
-    position: absolute;
-    color: #8d8d8d;
-    pointer-events: none;
-    background-color: transparent;
-    left: 30px;
-    top: 15px;
-    transform: translateY(0.6rem);
-    transition: all 0.3s ease;
-}
-
-.input-box input {
-    margin: 10px;
-    background-color: #eee;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 8px;
-    width: 400px;
-    height: 50px;
-    letter-spacing: 1px;
-    outline: none;
-}
-
-.input-box input:focus,
-.input-box input:valid {
-    outline: none;
-    border: solid 1px #0034de;
-}
-
-.input-box input:focus~label,
-.input-box input:valid~label {
-    background-color: #fff;
-    transform: translateY(-80%) translateX(-10px) scale(0.8);
-    padding: 0 5px;
-    color: #0034de;
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 100px;
-}
-
-.form-contenido {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    min-height: 100vh;
-}
-
-.sign-in {
-    left: 0;
-    width: 50%;
-    z-index: 2;
 }
 
 /* * Estilo para el login los iconos*/
@@ -257,31 +312,18 @@ ul {
     background-color: #ff0000;
 }
 
-
 .contenido .remember-forgot {
-    justify-content: space-between;
     font-size: 13.5px;
     margin: 10px;
 }
 
 .remember-forgot label {
     accent-color: #fff;
-    margin-right: 90px;
+    margin-right: 200px;
 }
 
 .remember-forgot input {
-    margin-right: 20px;
-}
-
-.remember-forgot a {
-    color: gray;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
-
+    margin-right: 10px;
 }
 
 .contenido .registre-link {
@@ -303,7 +345,6 @@ ul {
 .registre-link p a:hover {
     text-decoration: underline;
 }
-
 
 .palanca-contenido {
     position: absolute;

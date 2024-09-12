@@ -18,6 +18,21 @@ public class UserController {
         return "Registro";
     }
 
+    @GetMapping("/OlvidoContraseña")
+    public String OlvidoContraseña() {
+        return "OlvidoContraseña";
+    }
+
+    @GetMapping("/EliminarContraseña")
+    public String EliminarContraseña() {
+        return "EliminarContraseña";
+    }
+
+    @GetMapping("/EscribaContraseña")
+    public String EscribaContraseña() {
+        return "EscribaContraseña";
+    }
+
     @GetMapping("/Login")
     public String Login() {
         return "Login";
