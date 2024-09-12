@@ -5,24 +5,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
+
     @GetMapping({" ","DSB"})
     public String index() {
         return "Index";
     }
 
-    @GetMapping({"Nosotros"})
-    public String Nosotros() {
+    @GetMapping("Nosotros")
+    public String nosotros() {
         return "Nosotros";
     }
 
-    @GetMapping({"OficinaVirtual"})
-    public String OficinaVirtual() {
+    @GetMapping("OficinaVirtual")
+    public String oficinaVirtual() {
         return "OficinaVirtual";
     }
 
-    @GetMapping({"Conctatos"})
-    public String Conctatos() {
-        return "Conctatos";
+    @GetMapping("Contactos")
+    public String contactos() {
+        return "Contactos";
     }
-
 }

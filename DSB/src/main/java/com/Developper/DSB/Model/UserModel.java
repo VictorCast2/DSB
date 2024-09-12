@@ -19,6 +19,7 @@ public class UserModel {
     private String FirstName;
     private String LastName;
     private String Sex;
+    private String EmailAddress;
     private String User;
     private String Password;
     private Double Weight;
