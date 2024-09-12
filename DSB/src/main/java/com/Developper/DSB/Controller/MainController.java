@@ -24,5 +24,9 @@ public class MainController {
     public String Conctatos() {
         return "Conctatos";
     }
+    @GetMapping({"sss"})
+    public String Conctatos() {
+        return "sss";
+    }
 
 }
