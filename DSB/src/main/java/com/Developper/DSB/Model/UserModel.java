@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +17,7 @@ public class UserModel {
     private Long Id;
 
     @Basic
+    @NonNull
     private String FirstName;
     private String LastName;
     private String Sex;
