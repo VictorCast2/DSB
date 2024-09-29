@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping({" ","DSB"})
+    @GetMapping({"","/DSB"})
     public String Index() {
         return "Index";
     }
 
-    @GetMapping("Nosotros")
+    @GetMapping("/Nosotros")
     public String Nosotros() {
         return "Nosotros";
     }
 
-    @GetMapping("OficinaVirtual")
+    @GetMapping("/OficinaVirtual")
     public String OficinaVirtual() {
         return "OficinaVirtual";
     }
 
-    @GetMapping("Contactos")
+    @GetMapping("/Contactos")
     public String Contactos() {
         return "Contactos";
     }
