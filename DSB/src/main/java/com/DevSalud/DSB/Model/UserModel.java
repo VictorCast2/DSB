@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.lang.Nullable;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +21,7 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
+    @Column(name = "EmailAddress",  nullable = false, unique = true)
     private String EmailAddress;
     private String User;
     private String Password;

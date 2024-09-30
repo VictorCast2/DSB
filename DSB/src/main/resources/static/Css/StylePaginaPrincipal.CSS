@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.contenido {
+    display: flex;
+    font-size: 15px;
+    background: #d8d8d8;
+}
+
+.navbar {
+    padding: 0.5rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-enlaces {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-enlace, .deslizar li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.deslizar {
+    position: absolute;
+    padding: 0.5rem 0;
+    margin: 0.5rem -0.5rem;
+    background: antiquewhite;
+    color: black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    font-size: 12px;
+    display: none;
+}
+
+.nav-enlace:hover{
+    background-color: black;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.servicios:hover .deslizar{
+    display: block;
+}
+
