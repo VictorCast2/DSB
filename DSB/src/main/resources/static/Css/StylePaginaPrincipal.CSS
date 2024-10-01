@@ -1,6 +1,8 @@
-body{
+*{
     margin: 0;
     padding: 0;
+    font-family: "Montserrat";
+    font-weight: 700;
 }
 .contenido {
     display: flex;
