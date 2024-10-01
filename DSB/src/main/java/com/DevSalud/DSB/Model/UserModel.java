@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +18,8 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
+    private String username;
     private String EmailAddress;
-    private String User;
     private String Password;
     private Double Weight;
     private Double Height;

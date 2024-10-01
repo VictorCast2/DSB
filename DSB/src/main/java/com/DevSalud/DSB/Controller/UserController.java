@@ -1,7 +1,7 @@
 package com.DevSalud.DSB.Controller;
 
-import com.DevSalud.DSB.Exception.NoDataFoundException;
-import com.DevSalud.DSB.Model.UserModel;
+import com.DevSalud.DSB.Exception.*;
+import com.DevSalud.DSB.Model.*;
 import com.DevSalud.DSB.Service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,6 +85,30 @@ public class UserController {
     @GetMapping("/Login")
     public String Login() {
         return "/Users/Login";
+    }
+
+    /**
+     * Procesa el inicio de sesión de un usuario.
+     * @param loginModel El modelo de inicio de sesión del usuario.
+     * @param bindingResult Resultado de la validación.
+     * @param redirect Atributos de redirección.
+     * @param model El modelo para la vista.
+     * @return La vista de redirección o la vista de inicio de sesión en caso de error.
+     */
+    @PostMapping("/Login")
+    public String loginUser(@Validated @ModelAttribute("loginModel") UserModel loginModel, BindingResult bindingResult, RedirectAttributes redirect, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("loginModel", loginModel);
+            return "/Users/Login";
+        }
+        try {
+            redirect.addFlashAttribute("msgExito", "Inicio de sesión exitoso");
+            return "redirect:/"; // Redirige a la página principal o al dashboard
+        } catch (ValidateServiceException e) {
+            model.addAttribute("loginModel", loginModel);
+            model.addAttribute("error", e.getMessage());
+            return "/Users/Login";
+        }
     }
 
     /**

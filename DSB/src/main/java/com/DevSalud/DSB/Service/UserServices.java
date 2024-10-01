@@ -77,4 +77,28 @@ public class UserServices {
         }
     }
 
+    /**
+     * Autentica un usuario.
+     *
+     * @param loginModel El modelo de inicio de sesión del usuario.
+     * @return El usuario autenticado.
+     * @throws ValidateServiceException si el nombre de usuario, correo electrónico o contraseña son inválidos.
+     */
+    /*
+    public UserModel loginUser(UserModel loginModel) {
+        if ((loginModel.getUsername() == null || loginModel.getUsername().isEmpty()) &&
+                (loginModel.getEmailAddress() == null || loginModel.getEmailAddress().isEmpty())) {
+            throw new ValidateServiceException("Debe proporcionar un nombre de usuario o un correo electrónico");
+        }
+        if (loginModel.getPassword() == null || loginModel.getPassword().isEmpty()) {
+            throw new ValidateServiceException("La contraseña no puede estar vacía");
+        }
+
+        UserModel user = userRepository.findByUsernameOrEmailAddress(loginModel.getUsername(), loginModel.getEmailAddress());
+        if (user == null || !user.getPassword().equals(loginModel.getPassword())) {
+            throw new ValidateServiceException("Credenciales inválidas");
+        }
+        return user;
+    }
+     */
 }
