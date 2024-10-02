@@ -15,7 +15,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form th:action="@{/users/registro}" th:object="${usuario}"
+                <form th:action="@{/Api/Users/Registro}" th:object="${usuario}"
                     method="post">
                     <h1>Registrar</h1>
                     <div class="icono">
@@ -160,7 +160,7 @@
                         <span th:if="${#fields.hasErrors('termsAccepted')}"
                             th:errors="*{termsAccepted}"></span>
                     </div>
-                    <button type="submit">Sig Up</button>
+                    <button type="submit" href="/">Sig Up</button>
                     <div class="registre-link">
                         <p>Ya tienes una cuenta?<a href="/Api/Users/Login">Sign
                                 Up</a></p>
