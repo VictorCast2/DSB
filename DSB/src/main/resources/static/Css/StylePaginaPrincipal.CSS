@@ -2,17 +2,17 @@
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
-    font-weight: 700;
+    font-weight: 800;
 }
 .contenido {
     display: flex;
     font-size: 15px;
-    background: #d8d8d8;
 }
 
 .navbar {
-    padding: 0.5rem 1.5rem;
-    background: #fff;
+    width: 100%;
+    padding: 2rem;
+    background: purple;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,7 +23,7 @@
 
 .nav-enlace, .deslizar li {
     list-style: none;
-    padding: 0.5rem 1rem;
+    padding: 10px 20px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -35,7 +35,7 @@ a {
 
 .deslizar {
     position: absolute;
-    padding: 0.5rem 0;
+    padding: 0.10rem;
     margin: 0.5rem -0.5rem;
     background: antiquewhite;
     color: black;
@@ -46,7 +46,7 @@ a {
 }
 
 .nav-enlace:hover{
-    background-color: black;
+    background-color: blue;
     color: #fff;
     border-radius: 0.5rem;
 }
@@ -55,3 +55,28 @@ a {
     display: block;
 }
 
+.servicios .servi{
+    display: flex;
+}
+
+.servicios  .dropdown-icon {
+    font-size: 20px;
+    position: relative;
+    right: -5px;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out all;
+}
+
+.servicios:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.deslizar li:hover{
+    background-color: blue;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+.width{
+    width: 155px;
+}
