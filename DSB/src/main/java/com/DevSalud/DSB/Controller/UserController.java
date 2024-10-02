@@ -23,29 +23,22 @@ public class UserController {
      * @return La vista de registro.
      */
     @GetMapping("/Registro")
-    public String registro() {
-        return "/Users/Registro";
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("usuario", new UserModel());
+        return "Users/Registro";
     }
 
     /**
      * Procesa el registro de un usuario.
-     * @param user El modelo de usuario.
-     * @param bindingResult Resultado de la validación.
-     * @param redirect Atributos de redirección.
      * @param model El modelo para la vista.
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
-    public String registrarUser(@Validated @ModelAttribute("Usuario") UserModel user, BindingResult bindingResult, RedirectAttributes redirect, Model model) {
-        if (bindingResult.hasErrors() || !user.isTermsAccepted()) {
-            model.addAttribute("Usuario", user);
-            if (!user.isTermsAccepted()) {
-                model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
-            }
-            return "/Users/Registro";
+    public String registerUser(@ModelAttribute("Usuario") UserModel usuario, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "Users/Registro";
         }
-        userService.saveUsers(user);
-        redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
+        // Lógica para guardar el usuario
         return "redirect:/";
     }
 

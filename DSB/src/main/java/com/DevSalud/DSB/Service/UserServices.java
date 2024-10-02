@@ -30,20 +30,11 @@ public class UserServices {
 
     /**
      * Guarda un usuario.
-     * @param model El modelo de usuario a guardar.
+     * @param user El modelo de usuario a guardar.
      * @return El usuario guardado.
-     * @throws ValidateServiceException si el nombre del usuario es nulo o vacío.
-     * @throws GeneralServiceException si ocurre un error al guardar el usuario.
      */
-    public UserModel saveUsers(UserModel model) {
-        if (model == null || model.getName().isEmpty()) {
-            throw new ValidateServiceException("User name cannot be null or empty");
-        }
-        try {
-            return userRepository.save(model);
-        } catch (Exception e) {
-            throw new GeneralServiceException("Error saving user", e);
-        }
+    public void saveUsers(UserModel user) {
+        userRepository.save(user);
     }
 
     /**
@@ -84,7 +75,6 @@ public class UserServices {
      * @return El usuario autenticado.
      * @throws ValidateServiceException si el nombre de usuario, correo electrónico o contraseña son inválidos.
      */
-    /*
     public UserModel loginUser(UserModel loginModel) {
         if ((loginModel.getUsername() == null || loginModel.getUsername().isEmpty()) &&
                 (loginModel.getEmailAddress() == null || loginModel.getEmailAddress().isEmpty())) {
@@ -100,5 +90,5 @@ public class UserServices {
         }
         return user;
     }
-     */
+
 }

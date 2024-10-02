@@ -19,7 +19,7 @@ public class UserModel {
     private String Sex;
     private Integer Age;
     private String username;
-    private String EmailAddress;
+    private String emailAddress;
     private String Password;
     private Double Weight;
     private Double Height;

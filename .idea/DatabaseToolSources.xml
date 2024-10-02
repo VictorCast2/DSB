@@ -18,13 +18,6 @@
           </node>
         </introspection-scope>
       </schema-mapping>
-      <choose-schema-mapping>
-        <introspection-scope>
-          <node kind="schema">
-            <name qname="db_DSB" operator="@" />
-          </node>
-        </introspection-scope>
-      </choose-schema-mapping>
       <url>jdbc:mysql://localhost:3306/db_DSB</url>
       <remarks />
       <vm-options />
