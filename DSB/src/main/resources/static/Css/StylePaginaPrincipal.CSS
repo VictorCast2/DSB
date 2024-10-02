@@ -69,7 +69,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--black-color);
+    background-color: #294CFC;
     box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
     z-index: var(--z-fixed);
 }
@@ -147,14 +147,14 @@ a {
     }
 
     .nav__list {
-        background-color: var(--black-color);
+        background-color: #294CFC;
         padding-top: 1rem;
     }
 }
 
 .nav__link {
     color: var(--white-color);
-    background-color: var(--black-color);
+    background-color: #294CFC;
     font-weight: var(--font-semi-bold);
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -200,7 +200,7 @@ a {
 .dropdown__sublink {
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: var(--white-color);
-    background-color: var(--black-color-light);
+    background-color:#294CFC;
     display: flex;
     align-items: center;
     column-gap: .5rem;
@@ -216,7 +216,7 @@ a {
 
 .dropdown__link:hover,
 .dropdown__sublink:hover {
-    background-color: var(--black-color);
+    background-color: #1d27de;
 }
 
 .dropdown__menu,
@@ -244,7 +244,7 @@ a {
 }
 
 .dropdown__sublink {
-    background-color: var(--black-color-lighten);
+    background-color:#294CFC;;
 }
 
 /*=============== BREAKPOINTS ===============*/
