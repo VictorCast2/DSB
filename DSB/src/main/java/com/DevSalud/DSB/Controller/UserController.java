@@ -20,12 +20,10 @@ public class UserController {
 
     /**
      * Muestra la página de registro.
-     * @param model El modelo para la vista.
      * @return La vista de registro.
      */
     @GetMapping("/Registro")
-    public String registro(Model model) {
-        model.addAttribute("Usuario", new UserModel());
+    public String registro() {
         return "/Users/Registro";
     }
 
