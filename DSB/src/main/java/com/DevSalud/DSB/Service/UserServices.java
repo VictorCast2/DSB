@@ -83,7 +83,6 @@ public class UserServices {
         if (loginModel.getPassword() == null || loginModel.getPassword().isEmpty()) {
             throw new ValidateServiceException("La contraseña no puede estar vacía");
         }
-
         UserModel user = userRepository.findByUsernameOrEmailAddress(loginModel.getUsername(), loginModel.getEmailAddress());
         if (user == null || !user.getPassword().equals(loginModel.getPassword())) {
             throw new ValidateServiceException("Credenciales inválidas");

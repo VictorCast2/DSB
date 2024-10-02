@@ -34,11 +34,16 @@ public class UserController {
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Usuario") UserModel usuario, BindingResult result, Model model) {
+    public String registerUser(@ModelAttribute("Usuario") UserModel usuario, RedirectAttributes redirect, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "Users/Registro";
         }
-        // Lógica para guardar el usuario
+        if (!usuario.isTermsAccepted()) {
+            model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
+            return "Users/Registro";
+        }
+        userService.saveUsers(usuario);
+        redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
         return "redirect:/";
     }
 
