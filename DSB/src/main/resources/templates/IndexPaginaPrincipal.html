@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/Css/StylePaginaPrincipal.CSS">
     <link rel="stylesheet" href="/Css/fonts.css">
 </head>
+
 <body>
     <div class="contenido">
         <nav class="navbar">
@@ -23,11 +27,15 @@
                 <li class="nav-enlace">
                     <a href="#">Noticias</a>
                 </li>
-                <li class="nav-enlace servicios">
-                    <a href="#">Servicios</a>
+                <li class="nav-enlace servicios width">
+                    <a class="servi" href="#">Funcionalidad
+                        <span class="material-icons dropdown-icon">
+                            arrow_drop_down
+                        </span>
+                    </a>
                     <ul class="deslizar">
-                        <li><a href="#">Registro Alimenticios</a></li>
-                        <li><a href="#">Registro Ejercicios</a></li>
+                        <li><a href="#">Alimenticios</a></li>
+                        <li><a href="#">Ejercicios</a></li>
                         <li><a href="#">Planes Alimenticios</a></li>
                         <li><a href="#">Planes Ejericicios</a></li>
                         <li><a href="#">Enfermedades</a></li>
@@ -35,7 +43,11 @@
                     </ul>
                 </li>
                 <li class="nav-enlace servicios">
-                    <a href="#">Usuarios</a>
+                    <a class="servi" href="#">Usuarios
+                        <span class="material-icons dropdown-icon">
+                            arrow_drop_down
+                        </span>
+                    </a>
                     <ul class="deslizar">
                         <li><a href="#">Perfiles</a></li>
                         <li><a href="#">Cuenta</a></li>
@@ -43,8 +55,10 @@
                     </ul>
                 </li>
             </ul>
-            
+
         </nav>
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
