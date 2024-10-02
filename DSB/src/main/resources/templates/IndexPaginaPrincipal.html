@@ -4,61 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Principal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== CSS ===============-->
     <link rel="stylesheet" href="/Css/StylePaginaPrincipal.CSS">
-    <link rel="stylesheet" href="/Css/fonts.css">
+
+    <title>Paginas Principal</title>
 </head>
 
 <body>
-    <div class="contenido">
-        <nav class="navbar">
-            <ul class="nav-enlaces">
-                <li class="nav-enlace">
-                    <a href="#">Inicio</a>
-                </li>
-                <li class="nav-enlace">
-                    <a href="#">Contactos</a>
-                </li>
-                <li class="nav-enlace">
-                    <a href="#">Quienes Somos</a>
-                </li>
-                <li class="nav-enlace">
-                    <a href="#">Noticias</a>
-                </li>
-                <li class="nav-enlace servicios width">
-                    <a class="servi" href="#">Funcionalidad
-                        <span class="material-icons dropdown-icon">
-                            arrow_drop_down
-                        </span>
-                    </a>
-                    <ul class="deslizar">
-                        <li><a href="#">Alimenticios</a></li>
-                        <li><a href="#">Ejercicios</a></li>
-                        <li><a href="#">Planes Alimenticios</a></li>
-                        <li><a href="#">Planes Ejericicios</a></li>
-                        <li><a href="#">Enfermedades</a></li>
-                        <li><a href="#">Estado Salud</a></li>
-                    </ul>
-                </li>
-                <li class="nav-enlace servicios">
-                    <a class="servi" href="#">Usuarios
-                        <span class="material-icons dropdown-icon">
-                            arrow_drop_down
-                        </span>
-                    </a>
-                    <ul class="deslizar">
-                        <li><a href="#">Perfiles</a></li>
-                        <li><a href="#">Cuenta</a></li>
-                        <li><a href="#">Mensajes</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="#" class="nav__logo">
+                    <i class="ri-planet-line"></i> Company
+                </a>
 
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link">Inicio</a></li>
+
+                    <li><a href="#" class="nav__link">Company</a></li>
+
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Servicios <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Alimentos
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-arrow-up-down-line"></i> Ejercicios
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-arrow-up-down-line"></i> Estado Salud
+                                </a>
+                            </li>
+
+                            <!--=============== DROPDOWN SUBMENU ===============-->
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-bar-chart-line"></i> Planes <i class="ri-add-line dropdown__add"></i>
+                                </div>
+
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-file-list-line"></i> Alimenticios
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-cash-line"></i> Ejercicios
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Refunds
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="nav__link">Products</a></li>
+
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Usarios <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-user-line"></i> Perfiles
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-lock-line"></i> Cuentas
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-message-3-line"></i> Mensajes
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
         </nav>
-    </div>
-    <script src="script.js"></script>
+    </header>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
