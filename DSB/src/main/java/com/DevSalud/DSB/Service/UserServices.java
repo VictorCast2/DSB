@@ -1,5 +1,8 @@
 package com.DevSalud.DSB.Service;
 
+import com.DevSalud.DSB.Exception.GeneralServiceException;
+import com.DevSalud.DSB.Exception.NoDataFoundException;
+import com.DevSalud.DSB.Exception.ValidateServiceException;
 import com.DevSalud.DSB.Model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,49 +16,89 @@ public class UserServices {
     private UserRepository userRepository;
 
     /**
-     * @return Todos los Usuarios encontrados
+     * Obtiene todos los usuarios.
+     * @return Lista de usuarios.
+     * @throws NoDataFoundException si no se encuentran usuarios.
      */
     public List<UserModel> getAllUsers() {
-        return userRepository.findAll();
+        List<UserModel> users = userRepository.findAll();
+        if (users.isEmpty()) {
+            throw new NoDataFoundException("No users found");
+        }
+        return users;
     }
 
     /**
-     * Guarda un nuevo usuario o actualiza uno existente en la base de datos.
-     *
-     * @param model El objeto UserModel que contiene los datos del usuario a guardar o actualizar.
-     * @return El objeto UserModel guardado, incluyendo cualquier modificación hecha por la base de datos (como la asignación de un ID).
+     * Guarda un usuario.
+     * @param model El modelo de usuario a guardar.
+     * @return El usuario guardado.
+     * @throws ValidateServiceException si el nombre del usuario es nulo o vacío.
+     * @throws GeneralServiceException si ocurre un error al guardar el usuario.
      */
     public UserModel saveUsers(UserModel model) {
-        return userRepository.save(model);
+        if (model == null || model.getName().isEmpty()) {
+            throw new ValidateServiceException("User name cannot be null or empty");
+        }
+        try {
+            return userRepository.save(model);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error saving user", e);
+        }
     }
 
-
-        /**
-     * Recupera un usuario por su ID.
-     *
-     * @param id El ID del usuario a recuperar.
-     * @return El objeto UserModel correspondiente al ID proporcionado, o null si no se encuentra ningún usuario con ese ID.
-     * @throws IllegalArgumentException Si el ID proporcionado es nulo.
+    /**
+     * Obtiene un usuario por su ID.
+     * @param id El ID del usuario.
+     * @return El usuario encontrado.
+     * @throws ValidateServiceException si el ID del usuario es nulo.
+     * @throws NoDataFoundException si no se encuentra un usuario con el ID proporcionado.
      */
     public UserModel getUserById(Long id) {
         if (id == null) {
-            throw new IllegalArgumentException("El ID del usuario no puede ser nulo");
+            throw new ValidateServiceException("User ID cannot be null");
         }
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElseThrow(() -> new NoDataFoundException("User not found with ID: " + id));
     }
 
     /**
-     * Elimina un usuario de la base de datos por su ID.
-     *
-     * @param id El ID del usuario a eliminar.
-     * @throws IllegalArgumentException Si el ID proporcionado es nulo.
+     * Elimina un usuario por su ID.
+     * @param id El ID del usuario.
+     * @throws ValidateServiceException si el ID del usuario es nulo.
+     * @throws GeneralServiceException si ocurre un error al eliminar el usuario.
      */
     public void deleteUserById(Long id) {
         if (id == null) {
-            throw new IllegalArgumentException("El ID del usuario no puede ser nulo");
+            throw new ValidateServiceException("User ID cannot be null");
         }
-        userRepository.deleteById(id);
+        try {
+            userRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error deleting user", e.getCause());
+        }
     }
 
+    /**
+     * Autentica un usuario.
+     *
+     * @param loginModel El modelo de inicio de sesión del usuario.
+     * @return El usuario autenticado.
+     * @throws ValidateServiceException si el nombre de usuario, correo electrónico o contraseña son inválidos.
+     */
+    /*
+    public UserModel loginUser(UserModel loginModel) {
+        if ((loginModel.getUsername() == null || loginModel.getUsername().isEmpty()) &&
+                (loginModel.getEmailAddress() == null || loginModel.getEmailAddress().isEmpty())) {
+            throw new ValidateServiceException("Debe proporcionar un nombre de usuario o un correo electrónico");
+        }
+        if (loginModel.getPassword() == null || loginModel.getPassword().isEmpty()) {
+            throw new ValidateServiceException("La contraseña no puede estar vacía");
+        }
 
+        UserModel user = userRepository.findByUsernameOrEmailAddress(loginModel.getUsername(), loginModel.getEmailAddress());
+        if (user == null || !user.getPassword().equals(loginModel.getPassword())) {
+            throw new ValidateServiceException("Credenciales inválidas");
+        }
+        return user;
+    }
+     */
 }
