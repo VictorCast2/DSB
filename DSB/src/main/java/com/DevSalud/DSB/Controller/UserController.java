@@ -25,7 +25,7 @@ public class UserController {
     @GetMapping("/Registro")
     public String showRegistrationForm(Model model) {
         model.addAttribute("usuario", new UserModel());
-        return "Users/Registro";
+        return "/Users/Registro";
     }
 
     /**
