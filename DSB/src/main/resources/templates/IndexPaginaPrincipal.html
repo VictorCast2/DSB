@@ -10,135 +10,130 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/StylePaginaPrincipal.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 
     <title>Paginas Principal</title>
 </head>
 
 <body>
-    <!--=============== HEADER ===============-->
-    <header class="header">
-        <nav class="nav container">
-            <div class="nav__data">
-                <a href="#" class="nav__logo">
-                    <i class="ri-planet-line"></i> DSB
+    <div class="sidebar close">
+        <div class="logo">
+            <i class="fas fa-bars"></i>
+            <span class="logo-name">DSB</span>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class="fab fa-microsoft"></i>
+                    <span class="link-name">Inicio</span>
                 </a>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line nav__burger"></i>
-                    <i class="ri-close-line nav__close"></i>
-                </div>
-            </div>
-
-            <!--=============== NAV MENU ===============-->
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="#" class="nav__link">Inicio</a></li>
-
-                    <li><a href="#" class="nav__link">Quienes Somos</a></li>
-
-                    <!--=============== DROPDOWN 1 ===============-->
-                    <li class="dropdown__item">
-                        <div class="nav__link">
-                            Servicios <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-
-                        <ul class="dropdown__menu">
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-restaurant-line"></i> Alimentos
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-arrow-up-down-line"></i> Ejercicios
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-first-aid-kit-fill"></i> Estado Salud
-                                </a>
-                            </li>
-
-                            <!--=============== DROPDOWN SUBMENU ===============-->
-                            <li class="dropdown__subitem">
-                                <div class="dropdown__link">
-                                    <i class="ri-virus-fill"></i> Enfermedades <i class="ri-add-line dropdown__add"></i>
-                                </div>
-
-                                <ul class="dropdown__submenu">
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-lungs-fill"></i> Cronicas
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-mental-health-fill"></i> No Cronicas
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown__subitem">
-                                <div class="dropdown__link">
-                                    <i class="ri-calendar-todo-fill"></i> Planes <i class="ri-add-line dropdown__add"></i>
-                                </div>
-
-                                <ul class="dropdown__submenu">
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-restaurant-line"></i> Alimenticios
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#" class="dropdown__sublink">
-                                            <i class="ri-arrow-up-down-line"></i> Ejercicios
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#" class="nav__link">Noticias</a></li>
-
-                    <!--=============== DROPDOWN 2 ===============-->
-                    <li class="dropdown__item">
-                        <div class="nav__link">
-                            Usarios <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                        </div>
-
-                        <ul class="dropdown__menu">
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-user-line"></i> Perfiles
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-lock-line"></i> Cuentas
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="dropdown__link">
-                                    <i class="ri-message-3-line"></i> Mensajes
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#" class="nav__link">Contactos</a></li>
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link-name">Inicio</a></li>
                 </ul>
-            </div>
-        </nav>
-    </header>
+            </li>
+
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class="fab fa-codepen"></i>
+                        <span class="link-name">Record</span>
+                    </a>
+                    <i class="fas fa-caret-down arrow"></i>
+                </div>
+
+                <ul class="sub-menu">
+                    <li><a href="#" class="link-name">Record</a></li>
+                    <li><a href="#">Registro Alimenticio</a></li>
+                    <li><a href="#">Registro Ejercicio</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class="fab fa-blogger"></i>
+                        <span class="link-name">Plans</span>
+                    </a>
+                    <i class="fas fa-caret-down arrow"></i>
+                </div>
+
+                <ul class="sub-menu">
+                    <li><a href="#" class="link-name">Plans</a></li>
+                    <li><a href="#">Planes Alimenticios</a></li>
+                    <li><a href="#">Planes Ejercicios</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fas fa-clock-rotate-left"></i>
+                    <span class="link-name">Estado Salud</span>
+                </a>
+
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link-name">Estado Salud</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fas fa-heart"></i>
+                    <span class="link-name">Favourite</span>
+                </a>
+
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link-name">Favourite</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="icon-link">
+                    <a href="#">
+                        <i class="fas fa-laptop-code"></i>
+                        <span class="link-name">Diseases</span>
+                    </a>
+                    <i class="fas fa-caret-down arrow"></i>
+                </div>
+
+                <ul class="sub-menu">
+                    <li><a href="#" class="link-name">Diseases</a></li>
+                    <li><a href="#">Cronicas</a></li>
+                    <li><a href="#">No Cronicas</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fas fa-gear"></i>
+                    <span class="link-name">Settings</span>
+                </a>
+
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link-name">Settings</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="https://www.semana.com/resizer/v2/27SQRL4NG5AGJFONSLHIEMXA44.jpg?auth=f1b2ba47798801518ef2f0abcd93bc4f00637bdc687096961faf5511745ef043&smart=true&quality=75&width=1280&height=720" alt="" />
+                    </div>
+
+                    <div class="name-job">
+                        <div class="name">Mary Karen</div>
+                        <div class="job">Web Developer</div>
+                    </div>
+                    <i class="fas fa-right-to-bracket"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+
     <script src="assets/js/principal.js"></script>
+    <script src="/assets/js/pagina.js"></script>
+
 </body>
 
 </html>
