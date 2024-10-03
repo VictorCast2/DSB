@@ -168,10 +168,10 @@ a {
 }
 
 /* Show menu */
-.show-menu {
+.show-menu{
     opacity: 1;
     top: 3.5rem;
-    pointer-events: initial;
+    pointer-events:initial;
 }
 
 /* Show icon */
