@@ -164,7 +164,7 @@ a {
 }
 
 .nav__link:hover {
-    background-color: var(--black-color-light);
+    background-color: #1d27de;
 }
 
 /* Show menu */
