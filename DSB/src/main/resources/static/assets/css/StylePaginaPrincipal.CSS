@@ -168,10 +168,10 @@ a {
 }
 
 /* Show menu */
-.show-menu{
+.show-menu {
     opacity: 1;
     top: 3.5rem;
-    pointer-events:initial;
+    pointer-events: initial;
 }
 
 /* Show icon */
@@ -200,7 +200,7 @@ a {
 .dropdown__sublink {
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: var(--white-color);
-    background-color:#294CFC;
+    background-color: #294CFC;
     display: flex;
     align-items: center;
     column-gap: .5rem;
@@ -244,7 +244,8 @@ a {
 }
 
 .dropdown__sublink {
-    background-color:#294CFC;;
+    background-color: #294CFC;
+    ;
 }
 
 /*=============== BREAKPOINTS ===============*/
