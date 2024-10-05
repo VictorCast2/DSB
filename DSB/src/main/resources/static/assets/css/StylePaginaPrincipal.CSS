@@ -65,7 +65,7 @@ a {
 
 /*=============== HEADER ===============*/
 .header {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -339,3 +339,47 @@ a {
         transition: top .3s;
     }
 }
+
+
+.section-inicio{
+    color: #fff;
+    width: 100%;
+    background-color: #000091;
+    padding: 200px 0 100px 0;
+}
+
+.section-inicio .contenido-texto h1{
+    margin-bottom: 50px;
+    margin-left: 50px;
+    font-size: 70px;
+    letter-spacing: 1.5px;
+    font-family: "Montserrat";
+    font-weight: 900;
+    
+}
+
+.section-inicio .contenido-texto h2{
+    width: 75%;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    font-size: 50px;
+    letter-spacing: 1.5px;
+    font-family: "Montserrat";
+    font-weight: 900;
+    
+}
+
+.section-inicio .contenido-texto p{
+    width: 40%;
+    margin-left: 50px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: #fff;
+}
+
+.section-inicio .imagen{
+    position: absolute;
+    right: 10px;
+}
+
+
