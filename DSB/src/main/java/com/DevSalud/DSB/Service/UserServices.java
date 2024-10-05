@@ -23,7 +23,7 @@ public class UserServices {
     public List<UserModel> getAllUsers() {
         List<UserModel> users = userRepository.findAll();
         if (users.isEmpty()) {
-            throw new NoDataFoundException("No users found");
+            throw new NoDataFoundException("El usuario con ID no puede estar vacia");
         }
         return users;
     }
@@ -33,7 +33,7 @@ public class UserServices {
      * @param user El modelo de usuario a guardar.
      * @return El usuario guardado.
      */
-    public void saveUsers(UserModel user) {
+    public void saveOrUpdateUsers(UserModel user) {
         userRepository.save(user);
     }
 
@@ -46,9 +46,9 @@ public class UserServices {
      */
     public UserModel getUserById(Long id) {
         if (id == null) {
-            throw new ValidateServiceException("User ID cannot be null");
+            throw new ValidateServiceException("El usuario con ID no puede estar vacia");
         }
-        return userRepository.findById(id).orElseThrow(() -> new NoDataFoundException("User not found with ID: " + id));
+        return userRepository.findById(id).orElseThrow(() -> new NoDataFoundException("El usuaio no pudo ser encontrado con la Id: " + id));
     }
 
     /**
@@ -59,12 +59,12 @@ public class UserServices {
      */
     public void deleteUserById(Long id) {
         if (id == null) {
-            throw new ValidateServiceException("User ID cannot be null");
+            throw new ValidateServiceException("El usuario con ID no puede estar vacia");
         }
         try {
             userRepository.deleteById(id);
         } catch (Exception e) {
-            throw new GeneralServiceException("Error deleting user", e.getCause());
+            throw new GeneralServiceException("Error al eliminar el usuario", e.getCause());
         }
     }
 

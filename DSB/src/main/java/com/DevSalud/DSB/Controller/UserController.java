@@ -42,7 +42,7 @@ public class UserController {
             model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
             return "Users/Registro";
         }
-        userService.saveUsers(usuario);
+        userService.saveOrUpdateUsers(usuario);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
         return "redirect:/";
     }
@@ -153,7 +153,7 @@ public class UserController {
             modelo.addAttribute("Usuario", Users);
             return "Editar";
         }
-        userService.saveUsers(Users);
+        userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido actualizado con éxito");
         return "redirect:/Api/Users/Lista";
     }
