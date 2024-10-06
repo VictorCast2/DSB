@@ -168,10 +168,10 @@ a {
 }
 
 /* Show menu */
-.show-menu{
+.show-menu {
     opacity: 1;
     top: 3.5rem;
-    pointer-events:initial;
+    pointer-events: initial;
 }
 
 /* Show icon */
@@ -200,7 +200,7 @@ a {
 .dropdown__sublink {
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: var(--white-color);
-    background-color:#294CFC;
+    background-color: #294CFC;
     display: flex;
     align-items: center;
     column-gap: .5rem;
@@ -244,7 +244,8 @@ a {
 }
 
 .dropdown__sublink {
-    background-color:#294CFC;;
+    background-color: #294CFC;
+    ;
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -341,24 +342,24 @@ a {
 }
 
 
-.section-inicio{
+.section-inicio {
     color: #fff;
     width: 100%;
     background-color: #000091;
     padding: 200px 0 100px 0;
 }
 
-.section-inicio .contenido-texto h1{
+.section-inicio .contenido-texto h1 {
     margin-bottom: 50px;
     margin-left: 50px;
     font-size: 70px;
     letter-spacing: 1.5px;
     font-family: "Montserrat";
     font-weight: 900;
-    
+
 }
 
-.section-inicio .contenido-texto h2{
+.section-inicio .contenido-texto h2 {
     width: 75%;
     margin-bottom: 50px;
     margin-left: 50px;
@@ -366,10 +367,10 @@ a {
     letter-spacing: 1.5px;
     font-family: "Montserrat";
     font-weight: 900;
-    
+
 }
 
-.section-inicio .contenido-texto p{
+.section-inicio .contenido-texto p {
     width: 40%;
     margin-left: 50px;
     font-family: "Montserrat";
@@ -377,9 +378,75 @@ a {
     color: #fff;
 }
 
-.section-inicio .imagen{
+.section-inicio .imagen {
     position: absolute;
     right: 10px;
 }
 
+.quienes-somos {
+    background-color: #3020cf;
+    padding: 100px 0 100px 0;
+}
 
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cards .red {
+    background-color: #007e9e;
+}
+
+.cards .blue {
+    background-color: #0062ff;
+}
+
+.cards .green {
+    background-color: #18cd5e;
+}
+
+.cards .card {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.cards .card p.tip {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-family: "Montserrat";
+    font-weight: 900;
+
+}
+
+.cards .card p.second-text {
+    font-size: 15px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    text-align: justify;
+    letter-spacing: 1.3px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.cards .card:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.cards:hover>.card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}
