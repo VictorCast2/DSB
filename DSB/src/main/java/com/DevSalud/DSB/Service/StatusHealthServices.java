@@ -1,13 +1,13 @@
 package com.DevSalud.DSB.Service;
 
-import com.DevSalud.DSB.Model.StatusHealthModel;
-import com.DevSalud.DSB.Repository.StatusHealthRepository;
-import com.DevSalud.DSB.Repository.UserRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.DevSalud.DSB.Model.StatusHealthModel;
+import com.DevSalud.DSB.Repository.StatusHealthRepository;
 
 @Service
 public class StatusHealthServices {
@@ -28,7 +28,8 @@ public class StatusHealthServices {
      * Obtiene una entrada de StatusHealth por su ID.
      *
      * @param id el ID de la entrada de StatusHealth.
-     * @return un Optional que contiene la entrada de StatusHealth si existe, o vacío si no.
+     * @return un Optional que contiene la entrada de StatusHealth si existe, o
+     *         vacío si no.
      */
     public Optional<StatusHealthModel> getStatusHealthById(Long id) {
         return statusHealthRepository.findById(id);
