@@ -341,12 +341,19 @@ a {
     }
 }
 
-
+/*<!--=============== Section inicio ===============-->*/
 .section-inicio {
-    color: #fff;
     width: 100%;
-    background-color: #000091;
     padding: 200px 0 100px 0;
+    position: relative;
+    /* Asegúrate de que esta sección sea un contenedor relativo */
+}
+
+.section-inicio .contenido-texto {
+    position: relative;
+    /* Esto permite que el contenido esté por encima del video */
+    z-index: 5;
+    /* Asegúrate de que el texto esté sobre el video */
 }
 
 .section-inicio .contenido-texto h1 {
@@ -356,10 +363,11 @@ a {
     letter-spacing: 1.5px;
     font-family: "Montserrat";
     font-weight: 900;
-
+    color: #ffff;
 }
 
 .section-inicio .contenido-texto h2 {
+    color: #ffff;
     width: 75%;
     margin-bottom: 50px;
     margin-left: 50px;
@@ -367,86 +375,911 @@ a {
     letter-spacing: 1.5px;
     font-family: "Montserrat";
     font-weight: 900;
+}
 
+.section-inicio video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    /* Baja la opacidad para permitir que los textos se vean mejor */
+    z-index: 1;
+    /* Asegúrate de que el video esté detrás */
 }
 
 .section-inicio .contenido-texto p {
-    width: 40%;
-    margin-left: 50px;
-    font-family: "Montserrat";
-    font-weight: 600;
+    font-size: 1.1em;
     color: #fff;
+    margin: 20px 50px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    max-width: 700px;
+    line-height: 22px;
 }
 
 .section-inicio .imagen {
     position: absolute;
     right: 10px;
+    z-index: 5;
+    /* La imagen está por encima del video */
 }
 
+
+/*<!--=============== Section quienes somos ===============-->*/
 .quienes-somos {
-    background-color: #3020cf;
-    padding: 100px 0 100px 0;
+    padding: 30px 0 100px 0;
+    background-color: aliceblue;
+    width: 100%;
+    height: auto;
 }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    flex-direction: row;
-    gap: 15px;
+
+.quienes-somos h2 {
+    font-family: "Montserrat";
+    color: black;
+    letter-spacing: 1.3px;
+    font-weight: 900;
+    font-size: 50px;
+    margin-left: 30px;
 }
 
-.cards .red {
-    background-color: #007e9e;
+/*<!--=============== ecard1 ===============-->*/
+
+.contenido-somos1 .imagen-card {
+    width: 100%;
+
 }
 
-.cards .blue {
-    background-color: #0062ff;
-}
-
-.cards .green {
-    background-color: #18cd5e;
-}
-
-.cards .card {
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 400px;
-    width: 400px;
+.contenido-somos1 .imagen-card img {
     border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: right;
+    margin-right: 80px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.e-card1 {
+    margin: 90px 50px;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name1 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop1 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.back-content{
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+
+}
+
+.e-card1:hover .card-content {
+    transform: rotateY(180deg); /* Gira la tarjeta */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back {
+    background-color: #5b42f3;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
+.wave1 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+
+.playing1 .wave1:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave1:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s;
+}
+
+.playing1 .wave1:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave1:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s;
+}
+
+.wave-trasera {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing1 .wave-trasera {
+    animation-duration: 3000ms;
+}
+
+.playing1 .wave-trasera:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing1 .wave-trasera:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/*<!--=============== ecard2 ===============-->*/
+.e-card2 {
+    margin: 10px 65%;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contenido-somos1 .imagen-card2 {
+    width: 100%;
+
+}
+
+.contenido-somos1 .imagen-card2 img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: left;
+    margin-left: 45px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.wave2 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop2 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name2 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.wave2:nth-child(2),
+.wave2:nth-child(3) {
+    top: 210px;
+}
+
+.playing2 .wave2 {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave2 {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing2 .wave2:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave2:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing2 .wave2:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave2:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*<!--=============== ecard3 ===============-->*/
+.e-card3 {
+    margin: 90px 50px;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contenido-somos1 .imagen-card3 {
+    width: 100%;
+
+}
+
+.contenido-somos1 .imagen-card3 img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: right;
+    margin: 80px 70px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.wave3 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop3 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name3 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.wave3:nth-child(2),
+.wave3:nth-child(3) {
+    top: 210px;
+}
+
+.playing3 .wave3 {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave3 {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing3 .wave3:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave3:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing3 .wave3:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave3:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*<!--=============== ecard4 ===============-->*/
+.e-card4 {
+    margin: 10px 65%;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contenido-somos2 .imagen-card4 {
+    width: 100%;
+
+}
+
+.contenido-somos2 .imagen-card4 img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: left;
+    margin-left: 45px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.wave4 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop4 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name4 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.wave4:nth-child(2),
+.wave4:nth-child(3) {
+    top: 210px;
+}
+
+.playing4 .wave4 {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave4 {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing4 .wave4:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave4:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing4 .wave4:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave4:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*<!--=============== ecard5 ===============-->*/
+.e-card5 {
+    margin: 90px 50px;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contenido-somos2 .imagen-card5 {
+    width: 100%;
+
+}
+
+.contenido-somos2 .imagen-card5 img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: right;
+    margin: 80px 70px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.wave5 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop5 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name5 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.wave5:nth-child(2),
+.wave5:nth-child(3) {
+    top: 210px;
+}
+
+.playing5 .wave5 {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave5 {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing5 .wave5:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave5:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing5 .wave5:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave5:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*<!--=============== ecard6 ===============-->*/
+.e-card6 {
+    margin: 10px 65%;
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contenido-somos2 .imagen-card6 {
+    width: 100%;
+
+}
+
+.contenido-somos2 .imagen-card6 img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    height: 400px;
+    float: left;
+    margin-left: 45px;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;
+}
+
+.wave6 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+}
+
+.icon {
+    width: 3em;
+    margin-top: -1em;
+    padding-bottom: 1em;
+}
+
+.infotop6 {
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    top: 5.6em;
+    left: 0;
+    right: 0;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.name6 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
+}
+
+.wave6:nth-child(2),
+.wave6:nth-child(3) {
+    top: 210px;
+}
+
+.playing6 .wave6 {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+}
+
+.wave6 {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.playing6 .wave6:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.wave6:nth-child(2) {
+    animation-duration: 50s;
+}
+
+.playing6 .wave6:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+.wave6:nth-child(3) {
+    animation-duration: 45s;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*<!--=============== Equipo ===============-->*/
+
+.contenido-somo3 {
+    margin-top: 100px;
+    background-color: #1d27de;
+    width: 100%;
+    height: auto;
+    padding: 40px 60px;
+
+}
+
+.contenido-principal {
+    display: flex;
+}
+
+.card {
+    --main-color: #000;
+    --submain-color: #78858F;
+    --bg-color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    width: 300px;
+    height: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--bg-color);
+    margin: 10px 30px;
     cursor: pointer;
     transition: 400ms;
 }
 
-.cards .card p.tip {
-    margin-bottom: 30px;
-    font-size: 30px;
-    font-family: "Montserrat";
-    font-weight: 900;
-
+.contenido-principal:hover>.card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
 }
 
-.cards .card p.second-text {
-    font-size: 15px;
-    font-family: "Montserrat";
-    font-weight: 600;
-    text-align: justify;
-    letter-spacing: 1.3px;
-    line-height: 20px;
-    color: #fff;
-}
-
-.cards .card:hover {
+.card:hover {
     transform: scale(1.2, 1.2);
 }
 
-.cards:hover>.card:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
+.card__img {
+    height: 192px;
+    width: 100%;
+}
+
+.card__img svg {
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.card__avatar {
+    position: absolute;
+    width: 114px;
+    height: 114px;
+    background: var(--bg-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: calc(50% - 57px);
+}
+
+.card__avatar svg {
+    width: 100px;
+    height: 100px;
+}
+
+.card__title {
+    margin-top: 60px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+.card__subtitle {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--submain-color);
+}
+
+.card__btn {
+    cursor: pointer;
+    margin-top: 15px;
+    width: 76px;
+    height: 31px;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--main-color);
+    background: var(--bg-color);
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.card__btn-solid {
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.card__btn:hover {
+    cursor: pointer;
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.card__btn-solid:hover {
+    cursor: pointer;
+    background: var(--bg-color);
+    color: var(--main-color);
 }

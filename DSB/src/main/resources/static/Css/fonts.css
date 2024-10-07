@@ -15,3 +15,9 @@
     src: url('../Fonts/Montserrat-ExtraBoldItalic.ttf') format("truetype");
     font-weight: 600;
 }
+
+@font-face {
+    font-family: "Montserrat";
+    src: url('../Fonts/Montserrat-LightItalic.ttf') format("truetype");
+    font-weight: 700;
+}
