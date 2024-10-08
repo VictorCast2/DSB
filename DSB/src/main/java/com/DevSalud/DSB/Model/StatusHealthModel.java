@@ -15,7 +15,11 @@ public class StatusHealthModel {
 
     @Basic
     @NonNull
+<<<<<<< HEAD
     public String HealthClassification;
+=======
+    public String HealthClassification;;
+>>>>>>> parent of dc284d4 (commit al main)
     public float BodyMass;
 
     @ManyToOne

@@ -3,11 +3,14 @@ package com.DevSalud.DSB.Model.Dao;
 import jakarta.persistence.Basic;
 import lombok.*;
 
+<<<<<<< HEAD
 import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+=======
+>>>>>>> parent of dc284d4 (commit al main)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +20,7 @@ public class PersonModel {
     private String Name;
     private String username;
     private String Password;
+<<<<<<< HEAD
 
     public static final Calendar birth = Calendar.getInstance();
 
@@ -33,4 +37,6 @@ public class PersonModel {
         return age;
     }
 
+=======
+>>>>>>> parent of dc284d4 (commit al main)
 }

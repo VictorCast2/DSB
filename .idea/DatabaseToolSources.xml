@@ -8,6 +8,11 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="db_dsb" operator="@" />
+<<<<<<< HEAD
+=======
+            <name qname="db_agendacontactos" operator="@" />
+            <name qname="db_apilistclients" operator="@" />
+>>>>>>> parent of dc284d4 (commit al main)
             <name qname="mysql" operator="@" />
             <name qname="performance_schema" operator="@" />
             <name qname="sakila" operator="@" />
