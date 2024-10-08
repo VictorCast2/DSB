@@ -29,9 +29,6 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
                 case 400:
                     ErrorPage = "Error/400";
                     break;
-                default:
-                    ErrorPage = "Error/Index";
-                    break;
             }
         }
         return ErrorPage;

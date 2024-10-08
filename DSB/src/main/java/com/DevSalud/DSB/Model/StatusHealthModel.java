@@ -15,7 +15,7 @@ public class StatusHealthModel {
 
     @Basic
     @NonNull
-    public String HealthClassification;;
+    public String HealthClassification;
     public float BodyMass;
 
     @ManyToOne

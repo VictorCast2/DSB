@@ -20,7 +20,7 @@ public class UserModel extends PersonModel {
     @NonNull
     private String Sex;
     private Date BirthDate;
-    private Integer Age;
+    private Integer Age = CalcularEdad(BirthDate);
     private String emailAddress;
     private Double Weight;
     private Double Height;
@@ -29,4 +29,5 @@ public class UserModel extends PersonModel {
     // Campo transitorio para el checkbox de términos y condiciones
     @Transient
     private boolean termsAccepted;
+
 }
