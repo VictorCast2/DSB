@@ -539,8 +539,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -614,16 +614,6 @@ a {
 
 
 /*<!--=============== ecard2 ===============-->*/
-.e-card2 {
-    margin: 10px 65%;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-}
 
 .contenido-somos1 .imagen-card2 {
     width: 100%;
@@ -642,16 +632,34 @@ a {
     aspect-ratio: 16/9;
 }
 
-.wave2 {
-    position: absolute;
-    width: 640px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+
+.e-card2 {
+    margin: 10px 65%;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content2 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name2 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
 }
 
 .icon {
@@ -671,7 +679,7 @@ a {
     font-weight: 600;
 }
 
-.name2 {
+.back-content2{
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -681,28 +689,58 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
 }
 
-.wave2:nth-child(2),
-.wave2:nth-child(3) {
-    top: 210px;
+.e-card2:hover .card-content2 {
+    transform: rotateY(180deg); /* Gira la tarjeta */
 }
 
-.playing2 .wave2 {
-    border-radius: 40%;
-    animation: wave 3000ms infinite linear;
+.card-front2, .card-back2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
+.card-front2 {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back2 {
+    background-color: #5b42f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
 .wave2 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -40%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
 }
+
 
 .playing2 .wave2:nth-child(2) {
     animation-duration: 4000ms;
 }
 
 .wave2:nth-child(2) {
+    top: 210px;
     animation-duration: 50s;
 }
 
@@ -711,31 +749,58 @@ a {
 }
 
 .wave2:nth-child(3) {
+    top: 210px;
     animation-duration: 45s;
 }
+
+.wave-trasera2 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera2:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera2:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing2 .wave-trasera2 {
+    animation-duration: 3000ms;
+}
+
+.playing2 .wave-trasera2:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing2 .wave-trasera2:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
 
 @keyframes wave {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
 
-/*<!--=============== ecard3 ===============-->*/
-.e-card3 {
-    margin: 90px 50px;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-}
 
+/*<!--=============== ecard3 ===============-->*/
 .contenido-somos1 .imagen-card3 {
     width: 100%;
 
@@ -753,16 +818,33 @@ a {
     aspect-ratio: 16/9;
 }
 
-.wave3 {
-    position: absolute;
-    width: 640px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+.e-card3 {
+    margin: 90px 50px;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content3 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name3 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
 }
 
 .icon {
@@ -782,7 +864,7 @@ a {
     font-weight: 600;
 }
 
-.name3 {
+.back-content3{
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -792,28 +874,58 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
 }
 
-.wave3:nth-child(2),
-.wave3:nth-child(3) {
-    top: 210px;
+.e-card3:hover .card-content3 {
+    transform: rotateY(180deg); /* Gira la tarjeta */
 }
 
-.playing3 .wave3 {
-    border-radius: 40%;
-    animation: wave 3000ms infinite linear;
+.card-front3, .card-back3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
+.card-front3 {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back3 {
+    background-color: #5b42f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
 .wave3 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -40%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
 }
+
 
 .playing3 .wave3:nth-child(2) {
     animation-duration: 4000ms;
 }
 
 .wave3:nth-child(2) {
+    top: 210px;
     animation-duration: 50s;
 }
 
@@ -822,31 +934,59 @@ a {
 }
 
 .wave3:nth-child(3) {
+    top: 210px;
     animation-duration: 45s;
 }
+
+.wave-trasera3 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera3:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera3:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing3 .wave-trasera3 {
+    animation-duration: 3000ms;
+}
+
+.playing3 .wave-trasera3:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing3 .wave-trasera3:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
 
 @keyframes wave {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
 
 
+
 /*<!--=============== ecard4 ===============-->*/
-.e-card4 {
-    margin: 10px 65%;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-}
 
 .contenido-somos2 .imagen-card4 {
     width: 100%;
@@ -865,16 +1005,33 @@ a {
     aspect-ratio: 16/9;
 }
 
-.wave4 {
-    position: absolute;
-    width: 640px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+.e-card4 {
+    margin: 10px 65%;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content4 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name4 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
 }
 
 .icon {
@@ -894,7 +1051,7 @@ a {
     font-weight: 600;
 }
 
-.name4 {
+.back-content4{
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -904,28 +1061,58 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
 }
 
-.wave4:nth-child(2),
-.wave4:nth-child(3) {
-    top: 210px;
+.e-card4:hover .card-content4 {
+    transform: rotateY(180deg); /* Gira la tarjeta */
 }
 
-.playing4 .wave4 {
-    border-radius: 40%;
-    animation: wave 3000ms infinite linear;
+.card-front4, .card-back4 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
+.card-front4 {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back4 {
+    background-color: #5b42f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
 .wave4 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -40%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
 }
+
 
 .playing4 .wave4:nth-child(2) {
     animation-duration: 4000ms;
 }
 
 .wave4:nth-child(2) {
+    top: 210px;
     animation-duration: 50s;
 }
 
@@ -934,30 +1121,57 @@ a {
 }
 
 .wave4:nth-child(3) {
+    top: 210px;
     animation-duration: 45s;
 }
+
+.wave-trasera4 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera4:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera4:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing4 .wave-trasera4 {
+    animation-duration: 3000ms;
+}
+
+.playing4 .wave-trasera4:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing4 .wave-trasera4:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
 
 @keyframes wave {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
 
 /*<!--=============== ecard5 ===============-->*/
-.e-card5 {
-    margin: 90px 50px;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-}
 
 .contenido-somos2 .imagen-card5 {
     width: 100%;
@@ -976,16 +1190,33 @@ a {
     aspect-ratio: 16/9;
 }
 
-.wave5 {
-    position: absolute;
-    width: 640px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+.e-card5 {
+    margin: 90px 50px;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content5 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name5 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
 }
 
 .icon {
@@ -1005,7 +1236,7 @@ a {
     font-weight: 600;
 }
 
-.name5 {
+.back-content5{
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -1015,28 +1246,58 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
 }
 
-.wave5:nth-child(2),
-.wave5:nth-child(3) {
-    top: 210px;
+.e-card5:hover .card-content5 {
+    transform: rotateY(180deg); /* Gira la tarjeta */
 }
 
-.playing5 .wave5 {
-    border-radius: 40%;
-    animation: wave 3000ms infinite linear;
+.card-front5, .card-back5 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
+.card-front5 {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back5 {
+    background-color: #5b42f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
 .wave5 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -40%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
 }
+
 
 .playing5 .wave5:nth-child(2) {
     animation-duration: 4000ms;
 }
 
 .wave5:nth-child(2) {
+    top: 210px;
     animation-duration: 50s;
 }
 
@@ -1045,30 +1306,57 @@ a {
 }
 
 .wave5:nth-child(3) {
+    top: 210px;
     animation-duration: 45s;
 }
+
+.wave-trasera5 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera5:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera5:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing5 .wave-trasera5 {
+    animation-duration: 3000ms;
+}
+
+.playing5 .wave-trasera5:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing5 .wave-trasera5:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
 
 @keyframes wave {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
 
 /*<!--=============== ecard6 ===============-->*/
-.e-card6 {
-    margin: 10px 65%;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 16px;
-    overflow: hidden;
-}
 
 .contenido-somos2 .imagen-card6 {
     width: 100%;
@@ -1087,16 +1375,33 @@ a {
     aspect-ratio: 16/9;
 }
 
-.wave6 {
-    position: absolute;
-    width: 640px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+.e-card6 {
+    margin: 10px 65%;
+    background: transparent;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1000px; /* Necesario para el efecto 3D */
+}
+
+.card-content6 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+}
+
+.name6 {
+    margin: 10px 20px;
+    font-family: "Montserrat";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    top: 1em;
+    text-align: justify;
+    text-transform: lowercase;
 }
 
 .icon {
@@ -1116,7 +1421,7 @@ a {
     font-weight: 600;
 }
 
-.name6 {
+.back-content6{
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -1126,28 +1431,58 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
 }
 
-.wave6:nth-child(2),
-.wave6:nth-child(3) {
-    top: 210px;
+.e-card6:hover .card-content6 {
+    transform: rotateY(180deg); /* Gira la tarjeta */
 }
 
-.playing6 .wave6 {
-    border-radius: 40%;
-    animation: wave 3000ms infinite linear;
+.card-front6, .card-back6 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    border-radius: 16px;
+    overflow: hidden;
 }
 
+.card-front6 {
+    background-color: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+}
+
+.card-back6 {
+    background-color: #5b42f3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Reversa de la tarjeta */
+}
+
+/* Estilos de las ondas, compartidos entre ambas caras */
 .wave6 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -30%;
+    margin-top: -40%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
 }
+
 
 .playing6 .wave6:nth-child(2) {
     animation-duration: 4000ms;
 }
 
 .wave6:nth-child(2) {
+    top: 210px;
     animation-duration: 50s;
 }
 
@@ -1156,18 +1491,56 @@ a {
 }
 
 .wave6:nth-child(3) {
+    top: 210px;
     animation-duration: 45s;
 }
+
+.wave-trasera6 {
+    position: absolute;
+    width: 640px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+}
+
+.wave-trasera6:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s; 
+}
+
+.wave-trasera6:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s; 
+}
+
+.playing6 .wave-trasera6 {
+    animation-duration: 3000ms;
+}
+
+.playing6 .wave-trasera6:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.playing6 .wave-trasera6:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
 
 @keyframes wave {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
 }
+
 
 /*<!--=============== Equipo ===============-->*/
 
