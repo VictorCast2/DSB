@@ -8,8 +8,6 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="db_dsb" operator="@" />
-            <name qname="db_agendacontactos" operator="@" />
-            <name qname="db_apilistclients" operator="@" />
             <name qname="mysql" operator="@" />
             <name qname="performance_schema" operator="@" />
             <name qname="sakila" operator="@" />
