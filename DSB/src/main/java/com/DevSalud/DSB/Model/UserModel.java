@@ -20,11 +20,17 @@ public class UserModel {
     @NonNull
     private String Name;
     private String Sex;
+<<<<<<< HEAD
     private Integer Age;
     @Column(name = "EmailAddress",  nullable = false, unique = true)
     private String EmailAddress;
     private String User;
     private String Password;
+=======
+    private Date BirthDate;
+    private Integer Age = CalcularEdad(BirthDate);
+    private String emailAddress;
+>>>>>>> 1476cc1eec84222d1dd9b995941450bf6e99f071
     private Double Weight;
     private Double Height;
     private String Disease;
@@ -32,4 +38,5 @@ public class UserModel {
     // Campo transitorio para el checkbox de términos y condiciones
     @Transient
     private boolean termsAccepted;
+
 }
