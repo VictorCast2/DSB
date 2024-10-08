@@ -3,7 +3,6 @@ package com.DevSalud.DSB.Service;
 import com.DevSalud.DSB.Exception.GeneralServiceException;
 import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Exception.ValidateServiceException;
-import com.DevSalud.DSB.Model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Repository.UserRepository;
