@@ -2,9 +2,16 @@ package com.DevSalud.DSB.Model;
 
 import com.DevSalud.DSB.Model.Dao.PersonModel;
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import lombok.*;
 
 import java.util.Date;
+=======
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+>>>>>>> testPaginaPrincipal
 
 @Data
 @AllArgsConstructor

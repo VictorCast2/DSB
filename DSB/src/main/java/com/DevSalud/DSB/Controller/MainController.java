@@ -8,7 +8,7 @@ public class MainController {
 
     @GetMapping({"","/DSB"})
     public String Index() {
-        return "Index";
+        return "indexPaginaPrincipal";
     }
 
     @GetMapping("/Nosotros")
