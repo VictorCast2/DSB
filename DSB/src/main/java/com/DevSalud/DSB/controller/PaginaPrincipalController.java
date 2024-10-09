@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PaginaPrincipalController {
 
-    @GetMapping("/DSB")
-    public String  paginaPrincipal(){
+    @GetMapping({ "DSB", " " })
+    public String paginaPrincipal() {
         return "indexPaginaPrincipal";
     }
-
 
 }
