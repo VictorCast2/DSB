@@ -16,8 +16,6 @@ public class UserModel extends PersonModel {
     @NonNull
     private String Sex;
     private Integer Age;
-    @Column(name = "emailAddress", unique = true)
-    private String emailAddress;
     private Double Weight;
     private Double Height;
     private String Disease;

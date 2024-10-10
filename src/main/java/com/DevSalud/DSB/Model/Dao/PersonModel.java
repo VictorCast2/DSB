@@ -1,10 +1,7 @@
 package com.DevSalud.DSB.Model.Dao;
 
 import jakarta.persistence.Basic;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -13,6 +10,7 @@ public class PersonModel {
     @Basic
     @NonNull
     private String Name;
-    private String username;
+    private String userName;
+    private String emailAddress;
     private String Password;
 }
