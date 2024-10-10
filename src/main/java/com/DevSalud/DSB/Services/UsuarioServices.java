@@ -1,10 +1,10 @@
-package com.DevSalud.DSB.services;
+package com.DevSalud.DSB.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.DevSalud.DSB.model.UsuarioModel;
-import com.DevSalud.DSB.repository.UsuarioRepository;
+import com.DevSalud.DSB.Model.UsuarioModel;
+import com.DevSalud.DSB.Repository.UsuarioRepository;
 
 @Service
 public class UsuarioServices {
