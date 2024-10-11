@@ -411,9 +411,9 @@ a {
 /*<!--=============== Section quienes somos ===============-->*/
 .quienes-somos {
     padding: 30px 0 100px 0;
-    background-color: aliceblue;
+    background-color: #ffff;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 
@@ -451,7 +451,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content {
@@ -459,7 +460,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name1 {
@@ -491,7 +493,7 @@ a {
     font-weight: 600;
 }
 
-.back-content{
+.back-content {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -505,14 +507,17 @@ a {
 }
 
 .e-card1:hover .card-content {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -528,7 +533,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -581,12 +587,12 @@ a {
 
 .wave-trasera:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing1 .wave-trasera {
@@ -606,6 +612,7 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -639,7 +646,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content2 {
@@ -647,7 +655,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name2 {
@@ -679,7 +688,7 @@ a {
     font-weight: 600;
 }
 
-.back-content2{
+.back-content2 {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -693,14 +702,17 @@ a {
 }
 
 .e-card2:hover .card-content2 {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front2, .card-back2 {
+.card-front2,
+.card-back2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -716,7 +728,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -769,12 +782,12 @@ a {
 
 .wave-trasera2:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera2:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing2 .wave-trasera2 {
@@ -794,6 +807,7 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -824,7 +838,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content3 {
@@ -832,7 +847,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name3 {
@@ -864,7 +880,7 @@ a {
     font-weight: 600;
 }
 
-.back-content3{
+.back-content3 {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -878,14 +894,17 @@ a {
 }
 
 .e-card3:hover .card-content3 {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front3, .card-back3 {
+.card-front3,
+.card-back3 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -901,7 +920,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -954,12 +974,12 @@ a {
 
 .wave-trasera3:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera3:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing3 .wave-trasera3 {
@@ -979,6 +999,7 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -1011,7 +1032,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content4 {
@@ -1019,7 +1041,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name4 {
@@ -1051,7 +1074,7 @@ a {
     font-weight: 600;
 }
 
-.back-content4{
+.back-content4 {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -1065,14 +1088,17 @@ a {
 }
 
 .e-card4:hover .card-content4 {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front4, .card-back4 {
+.card-front4,
+.card-back4 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -1088,7 +1114,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -1141,12 +1168,12 @@ a {
 
 .wave-trasera4:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera4:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing4 .wave-trasera4 {
@@ -1166,6 +1193,7 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -1196,7 +1224,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content5 {
@@ -1204,7 +1233,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name5 {
@@ -1236,7 +1266,7 @@ a {
     font-weight: 600;
 }
 
-.back-content5{
+.back-content5 {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -1250,14 +1280,17 @@ a {
 }
 
 .e-card5:hover .card-content5 {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front5, .card-back5 {
+.card-front5,
+.card-back5 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -1273,7 +1306,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -1326,12 +1360,12 @@ a {
 
 .wave-trasera5:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera5:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing5 .wave-trasera5 {
@@ -1351,6 +1385,7 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -1381,7 +1416,8 @@ a {
     position: relative;
     width: 400px;
     height: 400px;
-    perspective: 1000px; /* Necesario para el efecto 3D */
+    perspective: 1000px;
+    /* Necesario para el efecto 3D */
 }
 
 .card-content6 {
@@ -1389,7 +1425,8 @@ a {
     height: 100%;
     position: relative;
     transition: transform 0.6s;
-    transform-style: preserve-3d; /* Para que las caras se comporten como 3D */
+    transform-style: preserve-3d;
+    /* Para que las caras se comporten como 3D */
 }
 
 .name6 {
@@ -1421,7 +1458,7 @@ a {
     font-weight: 600;
 }
 
-.back-content6{
+.back-content6 {
     margin: 10px 20px;
     font-family: "Montserrat";
     color: #fff;
@@ -1435,14 +1472,17 @@ a {
 }
 
 .e-card6:hover .card-content6 {
-    transform: rotateY(180deg); /* Gira la tarjeta */
+    transform: rotateY(180deg);
+    /* Gira la tarjeta */
 }
 
-.card-front6, .card-back6 {
+.card-front6,
+.card-back6 {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta el reverso cuando no se muestra */
+    backface-visibility: hidden;
+    /* Oculta el reverso cuando no se muestra */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -1458,7 +1498,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg); /* Reversa de la tarjeta */
+    transform: rotateY(180deg);
+    /* Reversa de la tarjeta */
 }
 
 /* Estilos de las ondas, compartidos entre ambas caras */
@@ -1511,12 +1552,12 @@ a {
 
 .wave-trasera6:nth-child(2) {
     top: 210px;
-    animation-duration: 50s; 
+    animation-duration: 50s;
 }
 
 .wave-trasera6:nth-child(3) {
     top: 210px;
-    animation-duration: 45s; 
+    animation-duration: 45s;
 }
 
 .playing6 .wave-trasera6 {
@@ -1536,123 +1577,428 @@ a {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
 
-
 /*<!--=============== Equipo ===============-->*/
+.equipos {
+    margin: 100px 40px;
+}
 
-.contenido-somo3 {
-    margin-top: 100px;
-    background-color: #1d27de;
+.contenido-carta {
+    display: flex;
+}
+
+/**Contenido-carta1 */
+.contenido-carta1 {
+    margin-top: -40px;
+    display: flex;
+}
+
+.contenido-titulo h2 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.contenido-titulo p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 700;
+    text-align: justify;
+}
+
+.carta {
+    border-radius: 10px;
+    margin: 40px 20px;
+    background-color: var(--surface-color);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     height: auto;
-    padding: 40px 60px;
-
+    padding: 20px 20px;
 }
 
-.contenido-principal {
+.contenido {
     display: flex;
+    margin: 20px 20px;
+
 }
 
-.card {
-    --main-color: #000;
-    --submain-color: #78858F;
-    --bg-color: #fff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    position: relative;
-    width: 300px;
-    height: 384px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    background: var(--bg-color);
-    margin: 10px 30px;
-    cursor: pointer;
-    transition: 400ms;
+.informacion {
+    margin: 0 40px;
 }
 
-.contenido-principal:hover>.card:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
+.informacion h4 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #00368b;
 }
 
-.card:hover {
-    transform: scale(1.2, 1.2);
+.informacion span {
+    margin-top: 10px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: #505867;
 }
 
-.card__img {
-    height: 192px;
-    width: 100%;
+.informacion p {
+    margin-top: 20px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 14px;
+    color: #505867;
 }
 
-.card__img svg {
-    height: 100%;
-    border-radius: 20px 20px 0 0;
-}
-
-.card__avatar {
+.informacion .icono {
+    margin: 20px 0;
     position: absolute;
-    width: 114px;
-    height: 114px;
-    background: var(--bg-color);
-    border-radius: 100%;
+    left: 275px;
+
+}
+
+/** iconos 1 */
+
+ul {
+    list-style: none;
+}
+
+.example-2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: calc(50% - 57px);
 }
 
-.card__avatar svg {
-    width: 100px;
-    height: 100px;
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
 }
 
-.card__title {
-    margin-top: 60px;
-    font-weight: 500;
-    font-size: 18px;
-    color: var(--main-color);
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-.card__subtitle {
-    margin-top: 10px;
-    font-weight: 400;
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #e3eadb;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"]~.tooltip {
+    background-color: #24262a;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+    background: linear-gradient(45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f);
+}
+
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"]~.tooltip {
+    background-color: #ff0000;
+}
+
+
+/** iconos 2*/
+ul {
+    list-style: none;
+}
+
+.example-2-equipo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-content-equipo {
+    /*quiero que se mueva los iconos hacia la izquierda */
+    top: 20px;
+    position: absolute;
+    right: 15px;
+}
+
+.example-2-equipo .icon-content-equipo {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2-equipo .icon-content-equipo .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2-equipo .icon-content-equipo:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2-equipo .icon-content-equipo a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #e3eadb;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2-equipo .icon-content-equipo a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2-equipo .icon-content-equipo a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2-equipo .icon-content-equipo a:hover {
+    color: white;
+}
+
+.example-2-equipo .icon-content-equipo a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2-equipo .icon-content-equipo a:hover .filled {
+    height: 100%;
+}
+
+.example-2-equipo .icon-content-equipo a[data-social="linkedin"] .filled,
+.example-2-equipo .icon-content-equipo a[data-social="linkedin"]~.tooltip {
+    background-color: #0274b3;
+}
+
+.example-2-equipo .icon-content-equipo a[data-social="github"] .filled,
+.example-2-equipo .icon-content-equipo a[data-social="github"]~.tooltip {
+    background-color: #24262a;
+}
+
+.example-2-equipo .icon-content-equipo a[data-social="instagram"] .filled,
+.example-2-equipo .icon-content-equipo a[data-social="instagram"]~.tooltip {
+    background: linear-gradient(45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f);
+}
+
+.example-2-equipo .icon-content-equipo a[data-social="youtube"] .filled,
+.example-2-equipo .icon-content-equipo a[data-social="youtube"]~.tooltip {
+    background-color: #ff0000;
+}
+
+/**section servicios */
+
+
+/** card servicios */
+.contenido-servicios1 {
+    display: flex;
+    margin: 0 100px;
+}
+
+.contenido-servicios2 {
+    display: flex;
+    margin: 0 100px;
+}
+
+/**button*/
+/* From Uiverse.io by xueyuantan */
+button {
+    margin: 20px 0;
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
     font-size: 15px;
-    color: var(--submain-color);
-}
-
-.card__btn {
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     cursor: pointer;
-    margin-top: 15px;
-    width: 76px;
-    height: 31px;
-    border: 2px solid var(--main-color);
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 11px;
-    color: var(--main-color);
-    background: var(--bg-color);
-    text-transform: uppercase;
-    transition: all 0.3s;
 }
 
-.card__btn-solid {
-    background: var(--main-color);
-    color: var(--bg-color);
+
+.card-title {
+    color: #262626;
+    font-size: 1.5em;
+    line-height: normal;
+    font-family: "Montserrat";
+    font-weight: 900;
+    margin-bottom: 0.5em;
 }
 
-.card__btn:hover {
+.small-desc {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #452c2c;
+}
+
+.small-desc {
+    font-size: 1em;
+}
+
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #6293c8, #384c6c);
+    border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+}
+
+.card {
     cursor: pointer;
-    background: var(--main-color);
-    color: var(--bg-color);
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    max-width: 400px;
+    max-height: 350px;
+    background-color: #f2f8f9;
+    border-radius: 10px;
+    padding: 2em 1.2em;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.card__btn-solid:hover {
-    cursor: pointer;
-    background: var(--bg-color);
-    color: var(--main-color);
+.card:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: linear-gradient(135deg, #364a60, #384c6c);
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s ease-out;
+}
+
+.card:hover:before {
+    transform: scale(30);
+}
+
+.card:hover .small-desc {
+    transition: all 0.5s ease-out;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.card:hover .card-title {
+    transition: all 0.5s ease-out;
+    color: #ffffff;
 }
