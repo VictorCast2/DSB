@@ -410,7 +410,7 @@ a {
 
 /*<!--=============== Section quienes somos ===============-->*/
 .quienes-somos {
-    padding: 30px 0 100px 0;
+    padding: 100px 0 40px 0;
     background-color: #ffff;
     width: 100%;
     height: 100%;
@@ -424,6 +424,7 @@ a {
     font-weight: 900;
     font-size: 50px;
     margin-left: 30px;
+    text-align: center;
 }
 
 /*<!--=============== ecard1 ===============-->*/
@@ -1885,17 +1886,37 @@ ul {
 }
 
 /**section servicios */
+.servicios {
+    margin: 50px 0;
+    
+}
+
+
+.contenido-titulo-servicios p {
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.contenido-titulo-servicios h2 {
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 50px;
+    font-weight: 900;
+}
 
 
 /** card servicios */
 .contenido-servicios1 {
     display: flex;
-    margin: 0 100px;
+    margin: 0 50px;
 }
 
 .contenido-servicios2 {
     display: flex;
-    margin: 0 100px;
+    margin: 0 50px;
 }
 
 /**button*/
@@ -1990,7 +2011,7 @@ button {
 }
 
 .card:hover:before {
-    transform: scale(30);
+    transform: scale(31);
 }
 
 .card:hover .small-desc {
@@ -2002,3 +2023,77 @@ button {
     transition: all 0.5s ease-out;
     color: #ffffff;
 }
+
+.contenido-alimento {
+    display: flex;
+    margin: 100px 0;
+}
+
+.contenido-alimento .imagen .img-movimiento {
+    position: absolute;
+    right: 100px;
+    animation: movimientoVertical 3s ease-in-out infinite;
+}
+
+@keyframes movimientoVertical {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.contenido-texto-alimento {
+    width: 30%;
+    margin: 70px 85px;
+    padding: 20px 20px;
+}
+
+.contenido-texto-alimento h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.contenido-texto-alimento p {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+/**Button Registro Alimenticio*/
+.btn {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+}
+
+.btn {
+    width: 190px;
+    height: 50px;
+    border-radius: 50px;
+    background-image:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    box-shadow: -1px 21px 36px -10px rgba(35,32,217,1);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+
+}
+
+.btn:active {
+    opacity: 0.5;
+}
+
+/** Categoria de alimentos */
