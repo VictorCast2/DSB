@@ -24,28 +24,31 @@ public class UserController {
      * @return La vista de registro.
      */
     @GetMapping("/Registro")
-    public String showRegistrationForm(Model model) {
+    public String Registro(Model model) {
         model.addAttribute("usuario", new UserModel());
         return "/Users/Registro";
     }
 
     /**
      * Procesa el registro de un usuario.
+     * @param Users El modelo de usuario.
+     * @param redirect Atributos de redirección.
+     * @param result Resultado de la validación del formulario.
      * @param model El modelo para la vista.
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Usuario") UserModel usuario, RedirectAttributes redirect, BindingResult result, Model model) {
+    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/Users/Registro";
         }
-        if (!usuario.isTermsAccepted()) {
+        if (!Users.isTermsAccepted()) {
             model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
             return "/Users/Registro";
         }
-        userService.saveOrUpdateUsers(usuario);
+        userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/";
+        return "redirect:/success";
     }
 
     /**
@@ -58,15 +61,6 @@ public class UserController {
     }
 
     /**
-     * Muestra la página de eliminación de contraseña.
-     * @return La vista de eliminación de contraseña.
-     */
-    @GetMapping("/EliminarContraseña")
-    public String EliminarContraseña() {
-        return "/Users/EliminarContraseña";
-    }
-
-    /**
      * Muestra la página para escribir una nueva contraseña.
      * @return La vista para escribir una nueva contraseña.
      */
@@ -75,36 +69,24 @@ public class UserController {
         return "/Users/EscribaContraseña";
     }
 
-    /**
-     * Muestra la página de inicio de sesión.
-     * @return La vista de inicio de sesión.
-     */
-    @GetMapping("/login")
+    @GetMapping("/Login")
     public String Login() {
-        return "/Users/Login";
+        return "Users/Login";
     }
 
-    /**
-     * Procesa el inicio de sesión de un usuario.
-     *
-     * @param personModel El modelo de inicio de sesión del usuario.
-     * @param result El objeto BindingResult que contiene errores de validación.
-     * @return La respuesta HTTP con el usuario autenticado o un error.
+    @PostMapping("/Login")
+    public String handleLogin(@RequestParam String usernameOrEmail,
+                              @RequestParam String password,
+                              Model model) {
+        UserModel user = userService.findByUsernameOrEmail(usernameOrEmail);
 
-    @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody PersonModel personModel, BindingResult result) {
-        if (result.hasErrors()) {
-            return ResponseEntity.badRequest().body("Errores de validación en los datos proporcionados");
-        }
-
-        try {
-            UserModel user = userService.);
-            return ResponseEntity.ok(user);
-        } catch (ValidateServiceException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        if (user != null && user.getPassword().equals(password)) {
+            return "redirect:/";
+        } else {
+            model.addAttribute("error", "Credenciales incorrectas");
+            return "Users/Api/Users/Login";
         }
     }
-    **/
 
     /**
      * Muestra la lista de usuarios.

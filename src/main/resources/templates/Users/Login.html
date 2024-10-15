@@ -15,7 +15,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form>
+                <form th:action="@{/Api/Users/Login}" method="post">
                     <h1>Iniciar Seccion</h1>
                     <div class="icono">
                         <ul class="example-2">
@@ -93,13 +93,13 @@
                     <span>use su contraseña para iniciar seccion</span>
                     <div class="input-box">
                         <input type="text" required autocomplete="off"
-                            name="text" id="userame">
-                        <label for="userNameOrEmail">Username Or Email</label>
+                            name="usernameOrEmail" id="userame">
+                        <label for="userame">Username Or Email</label>
                     </div>
                     <div class="input-box">
                         <input type="password" required autocomplete="off"
-                            name="text" id="password">
-                        <label for="Password">Password</label>
+                            name="password" id="password">
+                        <label for="password">Password</label>
                     </div>
                     <div class="remember-forgot">
                         <label><input type="checkbox">Remember me</label>
