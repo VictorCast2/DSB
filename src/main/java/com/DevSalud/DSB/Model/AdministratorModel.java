@@ -1,5 +1,6 @@
 package com.DevSalud.DSB.Model;
 
+import com.DevSalud.DSB.Model.Dao.PersonModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,15 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Administrator")
-public class AdministratorModel {
+public class AdministratorModel extends PersonModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
-    @Basic
-    @NonNull
-    private String Name;
-    private String username;
-    private String emailAddress;
-    private String Password;
 }

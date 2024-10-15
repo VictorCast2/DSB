@@ -5,6 +5,7 @@ import com.DevSalud.DSB.Model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Repository.UserRepository;
+
 import java.util.List;
 
 @Service
@@ -64,14 +65,6 @@ public class UserServices {
         } catch (Exception e) {
             throw new GeneralServiceException("Error al eliminar el usuario", e.getCause());
         }
-    }
-
-    public UserModel findByUsernameOrEmail(String usernameOrEmail) {
-        UserModel user = userRepository.findByUsername(usernameOrEmail);
-        if (user == null) {
-            user = userRepository.findByEmailAddress(usernameOrEmail);
-        }
-        return user;
     }
 
 }
