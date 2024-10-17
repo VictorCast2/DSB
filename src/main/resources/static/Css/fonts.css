@@ -18,12 +18,6 @@
 
 @font-face {
     font-family: "Montserrat";
-    src: url('../Fonts/Montserrat-SemiBoldItalic.ttf') format("truetype");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "Montserrat";
-    src: url('../Fonts/Montserrat-ExtraLightItalic.ttf') format("truetype");
-    font-weight: 400;
+    src: url('../Fonts/Montserrat-LightItalic.ttf') format("truetype");
+    font-weight: 700;
 }
