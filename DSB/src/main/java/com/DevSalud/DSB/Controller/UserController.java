@@ -53,7 +53,7 @@ public class UserController {
         }
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/";
+        return "redirect:/DSB";
     }
 
     /**
@@ -87,16 +87,16 @@ public class UserController {
     }
 
     @GetMapping("/Login")
-    public String Login(Model model) {
+    public String loginForm(Model model) {
         model.addAttribute("Users", new UserModel());
         return "Users/Login";
     }
 
-    @PostMapping("/Api/Users/Login")
-    public String login(@RequestParam String usernameOrEmail, @RequestParam String password, Model model) {
-        UserModel user = userService.findByUserOrEmail(usernameOrEmail);
-        if (user != null && user.getPassword().equals(password)) {
-            return "/User/InicioSeccion";
+    @PostMapping("/Login")
+    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password, Model model) {
+        UserModel user = userService.findByUserOrEmail(UserOrEmail);
+        if (user != null && user.getPassword().equals(Password)) {
+            return "redirect:/DSB";  // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
             return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas

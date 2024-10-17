@@ -12,7 +12,7 @@ import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.UserRepository;
 
 @Service
-public class UserServices {
+public class UserServices{
 
     @Autowired
     private UserRepository userRepository;
@@ -42,16 +42,14 @@ public class UserServices {
         userRepository.save(Users);
     }
 
-    public UserModel findByUserOrEmail(String UserOrEmail) {
-        // Primero, intenta buscar por nombre de usuario
-        UserModel user = userRepository.findByUsername(UserOrEmail);
-
-        // Si no se encontró un usuario por nombre de usuario, intenta buscar por
-        // dirección de correo electrónico
+    public UserModel findByUserOrEmail(String userOrEmail) {
+        // First, try to find by username
+        UserModel user = userRepository.findByuser(userOrEmail);
+        // If not found by username, try to find by email address
         if (user == null) {
-            user = userRepository.findByEmailAddress(UserOrEmail);
+            user = userRepository.findByemailAddress(userOrEmail);
         }
-        return user; // Retorna el usuario encontrado o null si no se encontró
+        return user; // Return the found user or null if not found
     }
 
     /**
