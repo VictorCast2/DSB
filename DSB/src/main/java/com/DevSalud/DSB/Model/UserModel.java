@@ -1,6 +1,13 @@
 package com.DevSalud.DSB.Model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +28,7 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
-    @Column(name = "EmailAddress",  nullable = false, unique = true)
+    @Column(name = "EmailAddress", nullable = false, unique = true)
     private String EmailAddress;
     private String User;
     private String Password;
@@ -32,4 +39,5 @@ public class UserModel {
     // Campo transitorio para el checkbox de términos y condiciones
     @Transient
     private boolean termsAccepted;
+
 }
