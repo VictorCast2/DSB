@@ -2722,5 +2722,86 @@ button {
 }
 
 /**Beneficios del ejercicios */
+.service{
+    margin: -200px 0;
+    background-color: #0a0f2c;
+}
+
+
+.section__container h2{
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    color: #fff;
+    margin:0 -10px;
+    padding: 60px;
+}
+
+
+.service__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.service__card {
+    background-color: transparent;
+    position: relative;
+    text-align: left;
+}
+
+.service__card span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.1);
+    
+}
+
+.service__card h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.service__card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c1c1c1;
+    margin-top: 10px;
+}
+
+.service__image {
+    grid-column: 2 / 3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -560px; 
+}
+
+.service__image img {
+    max-width: 380px;
+    height: auto;
+}
+
+.service__card:nth-child(1),
+.service__card:nth-child(3) {
+    grid-column: 1;
+    margin-left: 70px;
+}
+
+.service__card:nth-child(2),
+.service__card:nth-child(4) {
+    grid-column: 3;
+    text-align: left;
+    margin-right: 70px;
+}
+
+
+
 
 
