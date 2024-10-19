@@ -15,7 +15,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form>
+                <form action="/Api/Users/OlvidoContraseña" method="post">
                     <h1>Olvidaste tu contraseña?</h1>
                     <div class="icono">
                         <ul class="example-2">
@@ -93,18 +93,20 @@
                     <span>use su usuario para recuperar su contraseña</span>
                     <div class="input-box">
                         <input type="text" required autocomplete="off"
-                            name="text" id="username">
+                            name="username" id="username">
                         <label for="username">Username</label>
                     </div>
                     <button type="submit">Enviar</button>
+                    <!-- Mensaje de error -->
+                    <div th:if="${error}" style="color:red;">[[${error}]]</div>
                 </form>
             </div>
             <div class="palanca-contenido">
                 <div class="palanca">
                     <div class="palanca-panel">
                         <h2>Bienvenido</h2>
-                        <p>No te preocupes care verga por recuperar tu maldita
-                            contraseña esta monda ya este robada xd.</p>
+                        <p>No te preocupes, puedes recuperar tu
+                            contraseña, ya que contamos con este servicio. </p>
                     </div>
                 </div>
             </div>

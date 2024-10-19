@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.DevSalud.DSB.Exception.NoDataFoundException;
+import com.DevSalud.DSB.Exception.ValidateServiceException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
 
@@ -62,8 +63,56 @@ public class UserController {
      * @return La vista de olvido de contraseña.
      */
     @GetMapping("/OlvidoContraseña")
-    public String OlvidoContraseña() {
+    public String OlvidoContraseña(Model model) {
+        model.addAttribute("Users", new UserModel());
         return "/Users/OlvidoContraseña";
+    }
+
+    @PostMapping("/OlvidoContraseña")
+    public String manejarOlvidoContraseña(@RequestParam("username") String username, Model model) {
+        UserModel user = userService.getUserByUsername(username);
+        if (user != null) {
+            return "redirect:/DSB";
+        } else {
+            model.addAttribute("error", "Usuario no encontrado.");
+            return "Api/Users/OlvidoContraseña";
+        }
+    }
+
+    /**
+     * Muestra la página para escribir la nueva contraseña.
+     * 
+     * @param userId El ID del usuario.
+     * @return La vista de escribir la nueva contraseña.
+     */
+    @GetMapping("/EscribirContraseña/{userId}")
+    public String mostrarEscribirContraseña(@PathVariable("userId") Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return "Users/EscribirContraseña";
+    }
+
+    /**
+     * Maneja el envío del formulario para restablecer la contraseña.
+     * 
+     * @param userId      El ID del usuario.
+     * @param newPassword La nueva contraseña.
+     * @param model       El modelo para la vista.
+     * @return La vista de confirmación o error.
+     */
+    @PostMapping("/EscribirContraseña/{userId}")
+    public String manejarEscribirContraseña(@PathVariable("userId") Long userId,
+            @RequestParam("newPassword") String newPassword, Model model) {
+        try {
+            userService.olvidarContrasenna(userId, newPassword);
+            model.addAttribute("message", "Contraseña restablecida exitosamente.");
+            return "redirect:/DSB";
+        } catch (ValidateServiceException e) {
+            model.addAttribute("error", e.getMessage());
+            return "Users/EscribirContraseña"; // Regresa a la vista de escribir la nueva contraseña en caso de error
+        } catch (Exception e) {
+            model.addAttribute("error", "Ocurrió un error al restablecer la contraseña.");
+            return "Users/EscribirContraseña"; // Regresa a la vista de escribir la nueva contraseña en caso de error
+        }
     }
 
     /**
@@ -72,18 +121,9 @@ public class UserController {
      * @return La vista de eliminación de contraseña.
      */
     @GetMapping("/EliminarContraseña")
-    public String EliminarContraseña() {
+    public String EliminarContraseña(Model model) {
+        model.addAttribute("Users", new UserModel());
         return "/Users/EliminarContraseña";
-    }
-
-    /**
-     * Muestra la página para escribir una nueva contraseña.
-     * 
-     * @return La vista para escribir una nueva contraseña.
-     */
-    @GetMapping("/EscribaContraseña")
-    public String EscribaContraseña() {
-        return "/Users/EscribaContraseña";
     }
 
     @GetMapping("/Login")
@@ -93,10 +133,11 @@ public class UserController {
     }
 
     @PostMapping("/Login")
-    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password, Model model) {
+    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
+            Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            return "redirect:/DSB";  // Redirecciona a la página principal
+            return "redirect:/DSB"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
             return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas

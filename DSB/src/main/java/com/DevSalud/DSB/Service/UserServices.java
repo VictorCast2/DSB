@@ -12,7 +12,7 @@ import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.UserRepository;
 
 @Service
-public class UserServices{
+public class UserServices {
 
     @Autowired
     private UserRepository userRepository;
@@ -91,6 +91,41 @@ public class UserServices{
         } catch (Exception e) {
             throw new GeneralServiceException("Error al eliminar el usuario", e.getCause());
         }
+    }
+
+    /**
+     * Restablece la contraseña de un usuario por su ID.
+     * 
+     * @param id          El ID del usuario.
+     * @param NewPassword La nueva contraseña.
+     * @throws ValidateServiceException                           si el ID del
+     *                                                            usuario es nulo.
+     * @throws com.DevSalud.DSB.Exception.GeneralServiceException si ocurre un error
+     *                                                            al restablecer la
+     *                                                            contraseña.
+     */
+    public void olvidarContrasenna(Long id, String NewPassword) {
+        if (id == null) {
+            throw new ValidateServiceException("El ID del usuario no puede estar vacío");
+        }
+        try {
+            UserModel user = getUserById(id);
+            user.setPassword(NewPassword); // Establece la nueva contraseña sin cifrar
+            userRepository.save(user);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al restablecer la contraseña del usuario ...", e.getCause());
+        }
+    }
+
+    /**
+     * Obtiene un usuario por su nombre de usuario.
+     * 
+     * @param userOrEmail El nombre de usuario a buscar.
+     * @return El UserModel correspondiente al nombre de usuario, o null si no se
+     *         encuentra.
+     */
+    public UserModel getUserByUsername(String userOrEmail) {
+        return findByUserOrEmail(userOrEmail);
     }
 
 }
