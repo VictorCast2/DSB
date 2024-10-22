@@ -13,8 +13,8 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form>
-                    <h1>Escriba su contraseña</h1>
+                <form action="@{/Api/Users/EscribirContrasenna/{userId}" method="post">
+                <h1>Escriba su contraseña</h1>
                     <div class="icono">
                         <ul class="example-2">
                             <li class="icon-content">
@@ -91,16 +91,21 @@
                     <span>Crea una nueva contraseña</span>
                     <div class="input-box">
                         <input type="password" required autocomplete="off"
-                            name="text" id="password">
-                        <label for="password">Nueva contraseña</label>
+                            name="newPassword" id="password">
+                        <label for="newPassword">Nueva contraseña</label>
                     </div>
                     <div class="input-box">
-                        <input type="password" required autocomplete="off"
-                            name="text" id="password">
-                        <label for="password">Repetir contraseña</label>
+                        <input type="password" required autocomplete="off" id="password">
+                        <label for="newPassword">Repetir contraseña</label>
                     </div>
                     <button type="submit">Cambiar contraseña</button>
                 </form>
+                <div th:if="${error}">
+                    <p style="color:red;" th:text="${error}"></p>
+                </div>
+                <div th:if="${message}">
+                    <p style="color:green;" th:text="${message}"></p>
+                </div>
             </div>
             <div class="palanca-contenido">
                 <div class="palanca">

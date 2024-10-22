@@ -62,30 +62,31 @@ public class UserController {
      * 
      * @return La vista de olvido de contraseña.
      */
-    @GetMapping("/OlvidoContraseña")
+    @GetMapping("/OlvidoContrasenna")
     public String OlvidoContraseña(Model model) {
         model.addAttribute("Users", new UserModel());
         return "/Users/OlvidoContraseña";
     }
 
-    @PostMapping("/OlvidoContraseña")
+    @PostMapping("/OlvidoContrasenna")
     public String manejarOlvidoContraseña(@RequestParam("username") String username, Model model) {
         UserModel user = userService.getUserByUsername(username);
         if (user != null) {
-            return "redirect:/DSB";
+            return "redirect:/Api/Users/EscribirContrasenna/" + user.getId();
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
-            return "Api/Users/OlvidoContraseña";
+            return "Users/OlvidoContraseña";
         }
     }
 
     /**
      * Muestra la página para escribir la nueva contraseña.
-     * 
+     *
      * @param userId El ID del usuario.
+     * @param model  El modelo para la vista.
      * @return La vista de escribir la nueva contraseña.
      */
-    @GetMapping("/EscribirContraseña/{userId}")
+    @GetMapping("/EscribirContrasenna/{userId}")
     public String mostrarEscribirContraseña(@PathVariable("userId") Long userId, Model model) {
         model.addAttribute("userId", userId);
         return "Users/EscribirContraseña";
@@ -93,7 +94,7 @@ public class UserController {
 
     /**
      * Maneja el envío del formulario para restablecer la contraseña.
-     * 
+     *
      * @param userId      El ID del usuario.
      * @param newPassword La nueva contraseña.
      * @param model       El modelo para la vista.
@@ -101,17 +102,19 @@ public class UserController {
      */
     @PostMapping("/EscribirContraseña/{userId}")
     public String manejarEscribirContraseña(@PathVariable("userId") Long userId,
-            @RequestParam("newPassword") String newPassword, Model model) {
+                                            @RequestParam("newPassword") String newPassword, Model model) {
         try {
             userService.olvidarContrasenna(userId, newPassword);
             model.addAttribute("message", "Contraseña restablecida exitosamente.");
             return "redirect:/DSB";
         } catch (ValidateServiceException e) {
             model.addAttribute("error", e.getMessage());
-            return "Users/EscribirContraseña"; // Regresa a la vista de escribir la nueva contraseña en caso de error
+            model.addAttribute("userId", userId);
+            return "Users/EscribirContraseña";
         } catch (Exception e) {
             model.addAttribute("error", "Ocurrió un error al restablecer la contraseña.");
-            return "Users/EscribirContraseña"; // Regresa a la vista de escribir la nueva contraseña en caso de error
+            model.addAttribute("userId", userId);
+            return "Users/EscribirContraseña";
         }
     }
 
