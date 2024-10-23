@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.DevSalud.DSB.Exception.NoDataFoundException;
-import com.DevSalud.DSB.Exception.ValidateServiceException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
 
@@ -60,61 +59,34 @@ public class UserController {
     /**
      * Muestra la página de olvido de contraseña.
      * 
+     * @param model Modelo para la vista.
      * @return La vista de olvido de contraseña.
      */
     @GetMapping("/OlvidoContrasenna")
     public String OlvidoContraseña(Model model) {
-        model.addAttribute("Users", new UserModel());
-        return "/Users/OlvidoContraseña";
+        model.addAttribute("error", null);
+        model.addAttribute("message", null);
+        return "Users/OlvidoContraseña"; // Asegúrate que la ruta es correcta
     }
 
     @PostMapping("/OlvidoContrasenna")
-    public String manejarOlvidoContraseña(@RequestParam("username") String username, Model model) {
+    public String manejarOlvidoContraseña(@RequestParam("username") String username,
+            @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
+            Model model) {
+        // Verificar que el nuevo password y confirmación coinciden
+        if (!newPassword.equals(confirmPassword)) {
+            model.addAttribute("error", "Las contraseñas no coinciden.");
+            return "Users/OlvidoContraseña"; // Volver al formulario
+        }
+        // Obtener el usuario por nombre de usuario
         UserModel user = userService.getUserByUsername(username);
         if (user != null) {
-            return "redirect:/Api/Users/EscribirContrasenna/" + user.getId();
+            userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
+            model.addAttribute("message", "Contraseña cambiada con éxito.");
+            return "redirect:/DSB"; // Opcional: Redirigir a una página diferente si lo deseas
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
-            return "Users/OlvidoContraseña";
-        }
-    }
-
-    /**
-     * Muestra la página para escribir la nueva contraseña.
-     *
-     * @param userId El ID del usuario.
-     * @param model  El modelo para la vista.
-     * @return La vista de escribir la nueva contraseña.
-     */
-    @GetMapping("/EscribirContrasenna/{userId}")
-    public String mostrarEscribirContraseña(@PathVariable("userId") Long userId, Model model) {
-        model.addAttribute("userId", userId);
-        return "Users/EscribirContraseña";
-    }
-
-    /**
-     * Maneja el envío del formulario para restablecer la contraseña.
-     *
-     * @param userId      El ID del usuario.
-     * @param newPassword La nueva contraseña.
-     * @param model       El modelo para la vista.
-     * @return La vista de confirmación o error.
-     */
-    @PostMapping("/EscribirContraseña/{userId}")
-    public String manejarEscribirContraseña(@PathVariable("userId") Long userId,
-                                            @RequestParam("newPassword") String newPassword, Model model) {
-        try {
-            userService.olvidarContrasenna(userId, newPassword);
-            model.addAttribute("message", "Contraseña restablecida exitosamente.");
-            return "redirect:/DSB";
-        } catch (ValidateServiceException e) {
-            model.addAttribute("error", e.getMessage());
-            model.addAttribute("userId", userId);
-            return "Users/EscribirContraseña";
-        } catch (Exception e) {
-            model.addAttribute("error", "Ocurrió un error al restablecer la contraseña.");
-            model.addAttribute("userId", userId);
-            return "Users/EscribirContraseña";
+            return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
         }
     }
 
@@ -123,7 +95,7 @@ public class UserController {
      * 
      * @return La vista de eliminación de contraseña.
      */
-    @GetMapping("/EliminarContraseña")
+    @GetMapping("/EliminarUsuario")
     public String EliminarContraseña(Model model) {
         model.addAttribute("Users", new UserModel());
         return "/Users/EliminarContraseña";

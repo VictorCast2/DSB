@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title> Olvidaste Tu Contraseña </title>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-        <link rel="stylesheet" href="/Css/Style1.css"
-            th:href="@{/Css/Style1.css}" />
+        <link rel="stylesheet" href="/Css/Style2.css">
     </head>
 
     <body>
@@ -88,7 +86,6 @@
                                 <div class="tooltip">Youtube</div>
                             </li>
                         </ul>
-
                     </div>
                     <span>use su usuario para recuperar su contraseña</span>
                     <div class="input-box">
@@ -96,22 +93,37 @@
                             name="username" id="username">
                         <label for="username">Username</label>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <div class="input-box">
+                        <input type="password" required autocomplete="off"
+                            name="newPassword" id="newPassword">
+                        <label for="newPassword">Nueva contraseña</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required autocomplete="off"
+                            name="confirmPassword" id="confirmPassword">
+                        <label for="confirmPassword">Repetir contraseña</label>
+                    </div>
+                    <button type="submit">Cambiar contraseña</button>
                     <!-- Mensaje de error -->
                     <div th:if="${error}" style="color:red;">[[${error}]]</div>
                 </form>
+                <div th:if="${error}">
+                    <p style="color:red;" th:text="${error}"></p>
+                </div>
+                <div th:if="${message}">
+                    <p style="color:green;" th:text="${message}"></p>
+                </div>
             </div>
             <div class="palanca-contenido">
                 <div class="palanca">
                     <div class="palanca-panel">
                         <h2>Bienvenido</h2>
-                        <p>No te preocupes, puedes recuperar tu
-                            contraseña, ya que contamos con este servicio. </p>
+                        <p>Su anterior contraseña fue robado por nuestra pagina
+                            todo fue planeado por aizen.</p>
                     </div>
                 </div>
             </div>
         </div>
         <script src="script.js"></script>
     </body>
-
 </html>
