@@ -63,14 +63,22 @@ public class UserController {
      * @return La vista de olvido de contraseña.
      */
     @GetMapping("/OlvidoContrasenna")
-    public String OlvidoContraseña(Model model) {
+    public String OlvidoContrasenna(Model model) {
         model.addAttribute("error", null);
         model.addAttribute("message", null);
         return "Users/OlvidoContraseña"; // Asegúrate que la ruta es correcta
     }
 
+    /**
+     * 
+     * @param username
+     * @param newPassword
+     * @param confirmPassword
+     * @param model
+     * @return
+     */
     @PostMapping("/OlvidoContrasenna")
-    public String manejarOlvidoContraseña(@RequestParam("username") String username,
+    public String manejarOlvidoContrasenna(@RequestParam("username") String username,
             @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
             Model model) {
         // Verificar que el nuevo password y confirmación coinciden
@@ -83,7 +91,7 @@ public class UserController {
         if (user != null) {
             userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
-            return "redirect:/DSB"; // Opcional: Redirigir a una página diferente si lo deseas
+            return "redirect:/DSB";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
@@ -91,22 +99,52 @@ public class UserController {
     }
 
     /**
-     * Muestra la página de eliminación de contraseña.
+     * Muestra la página de eliminación de usuario.
      * 
-     * @return La vista de eliminación de contraseña.
+     * @return La vista de eliminación de usuario.
      */
     @GetMapping("/EliminarUsuario")
-    public String EliminarContraseña(Model model) {
-        model.addAttribute("Users", new UserModel());
-        return "/Users/EliminarContraseña";
+    public String mostrarEliminarUsuario(Model model) {
+        model.addAttribute("user", new UserModel());
+        return "Users/EliminarUsuario";
     }
 
+    @PostMapping("/EliminarUsuario")
+    public String manejarEliminarUsuario(@RequestParam("username") String username,
+            @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword,
+            Model model) {
+        if (!password.equals(confirmPassword)) {
+            model.addAttribute("error", "Las contraseñas no coinciden.");
+            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+        }
+        UserModel user = userService.getUserByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            userService.deleteUserById(user.getId()); // Elimina el usuario
+            return "redirect:/DSB";
+        } else {
+            model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
+            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+        }
+    }
+
+    /**
+     * 
+     * @param model
+     * @return
+     */
     @GetMapping("/Login")
     public String loginForm(Model model) {
         model.addAttribute("Users", new UserModel());
         return "Users/Login";
     }
 
+    /**
+     * 
+     * @param UserOrEmail
+     * @param Password
+     * @param model
+     * @return
+     */
     @PostMapping("/Login")
     public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
             Model model) {
@@ -171,24 +209,6 @@ public class UserController {
         }
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido actualizado con éxito");
-        return "redirect:/Api/Users/Lista";
-    }
-
-    /**
-     * Elimina un usuario por su ID.
-     * 
-     * @param id       El ID del usuario.
-     * @param redirect Atributos de redirección.
-     * @return La vista de redirección.
-     */
-    @GetMapping("/Eliminar/{id}")
-    public String EliminarUsuario(@PathVariable Long id, RedirectAttributes redirect) {
-        try {
-            userService.deleteUserById(id);
-            redirect.addFlashAttribute("msgExito", "El Usuario ha sido eliminado con éxito");
-        } catch (NoDataFoundException e) {
-            redirect.addFlashAttribute("error", e.getMessage());
-        }
         return "redirect:/Api/Users/Lista";
     }
 
