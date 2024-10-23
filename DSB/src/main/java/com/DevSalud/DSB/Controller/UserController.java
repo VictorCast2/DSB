@@ -53,17 +53,41 @@ public class UserController {
         }
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/";
+        return "redirect:/DSB";
     }
 
     /**
      * Muestra la página de olvido de contraseña.
      * 
+     * @param model Modelo para la vista.
      * @return La vista de olvido de contraseña.
      */
-    @GetMapping("/OlvidoContraseña")
-    public String OlvidoContraseña() {
-        return "/Users/OlvidoContraseña";
+    @GetMapping("/OlvidoContrasenna")
+    public String OlvidoContraseña(Model model) {
+        model.addAttribute("error", null);
+        model.addAttribute("message", null);
+        return "Users/OlvidoContraseña"; // Asegúrate que la ruta es correcta
+    }
+
+    @PostMapping("/OlvidoContrasenna")
+    public String manejarOlvidoContraseña(@RequestParam("username") String username,
+            @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
+            Model model) {
+        // Verificar que el nuevo password y confirmación coinciden
+        if (!newPassword.equals(confirmPassword)) {
+            model.addAttribute("error", "Las contraseñas no coinciden.");
+            return "Users/OlvidoContraseña"; // Volver al formulario
+        }
+        // Obtener el usuario por nombre de usuario
+        UserModel user = userService.getUserByUsername(username);
+        if (user != null) {
+            userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
+            model.addAttribute("message", "Contraseña cambiada con éxito.");
+            return "redirect:/DSB"; // Opcional: Redirigir a una página diferente si lo deseas
+        } else {
+            model.addAttribute("error", "Usuario no encontrado.");
+            return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
+        }
     }
 
     /**
@@ -71,32 +95,24 @@ public class UserController {
      * 
      * @return La vista de eliminación de contraseña.
      */
-    @GetMapping("/EliminarContraseña")
-    public String EliminarContraseña() {
+    @GetMapping("/EliminarUsuario")
+    public String EliminarContraseña(Model model) {
+        model.addAttribute("Users", new UserModel());
         return "/Users/EliminarContraseña";
     }
 
-    /**
-     * Muestra la página para escribir una nueva contraseña.
-     * 
-     * @return La vista para escribir una nueva contraseña.
-     */
-    @GetMapping("/EscribaContraseña")
-    public String EscribaContraseña() {
-        return "/Users/EscribaContraseña";
-    }
-
     @GetMapping("/Login")
-    public String Login(Model model) {
+    public String loginForm(Model model) {
         model.addAttribute("Users", new UserModel());
         return "Users/Login";
     }
 
-    @PostMapping("/Api/Users/Login")
-    public String login(@RequestParam String usernameOrEmail, @RequestParam String password, Model model) {
-        UserModel user = userService.findByUserOrEmail(usernameOrEmail);
-        if (user != null && user.getPassword().equals(password)) {
-            return "/User/InicioSeccion";
+    @PostMapping("/Login")
+    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
+            Model model) {
+        UserModel user = userService.findByUserOrEmail(UserOrEmail);
+        if (user != null && user.getPassword().equals(Password)) {
+            return "redirect:/DSB"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
             return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas

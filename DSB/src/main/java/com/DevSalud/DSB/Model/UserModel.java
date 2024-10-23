@@ -1,17 +1,7 @@
 package com.DevSalud.DSB.Model;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -28,9 +18,8 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
-    @Column(name = "EmailAddress", nullable = false, unique = true)
-    private String EmailAddress;
-    private String User;
+    private String user;
+    private String emailAddress;
     private String Password;
     private Double Weight;
     private Double Height;

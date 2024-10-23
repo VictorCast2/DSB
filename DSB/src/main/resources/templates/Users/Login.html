@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title> Login </title>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         <link rel="stylesheet" href="/Css/Style.css"
@@ -15,7 +15,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form>
+                <form action="/Api/Users/Login" method="post">
                     <h1>Iniciar Seccion</h1>
                     <div class="icono">
                         <ul class="example-2">
@@ -93,17 +93,17 @@
                     <span>use su contraseña para iniciar seccion</span>
                     <div class="input-box">
                         <input type="text" required autocomplete="off"
-                            name="text" id="userame">
+                            name="UserOrEmail" id="userame">
                         <label for="UserOrEmail">Username Or Email</label>
                     </div>
                     <div class="input-box">
                         <input type="password" required autocomplete="off"
-                            name="text" id="password">
+                            name="Password" id="password">
                         <label for="Password">Password</label>
                     </div>
                     <div class="remember-forgot">
                         <label><input type="checkbox">Remember me</label>
-                        <a href="/Api/Users/OlvidoContraseña">Remember
+                        <a href="/Api/Users/OlvidoContrasenna">Remember
                             Password?</a>
                     </div>
                     <button type="submit">Sig In</button>

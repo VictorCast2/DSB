@@ -42,16 +42,14 @@ public class UserServices {
         userRepository.save(Users);
     }
 
-    public UserModel findByUserOrEmail(String UserOrEmail) {
-        // Primero, intenta buscar por nombre de usuario
-        UserModel user = userRepository.findByUsername(UserOrEmail);
-
-        // Si no se encontró un usuario por nombre de usuario, intenta buscar por
-        // dirección de correo electrónico
+    public UserModel findByUserOrEmail(String userOrEmail) {
+        // First, try to find by username
+        UserModel user = userRepository.findByuser(userOrEmail);
+        // If not found by username, try to find by email address
         if (user == null) {
-            user = userRepository.findByEmailAddress(UserOrEmail);
+            user = userRepository.findByemailAddress(userOrEmail);
         }
-        return user; // Retorna el usuario encontrado o null si no se encontró
+        return user; // Return the found user or null if not found
     }
 
     /**
@@ -93,6 +91,41 @@ public class UserServices {
         } catch (Exception e) {
             throw new GeneralServiceException("Error al eliminar el usuario", e.getCause());
         }
+    }
+
+    /**
+     * Restablece la contraseña de un usuario por su ID.
+     * 
+     * @param id          El ID del usuario.
+     * @param NewPassword La nueva contraseña.
+     * @throws ValidateServiceException                           si el ID del
+     *                                                            usuario es nulo.
+     * @throws com.DevSalud.DSB.Exception.GeneralServiceException si ocurre un error
+     *                                                            al restablecer la
+     *                                                            contraseña.
+     */
+    public void olvidarContrasenna(Long id, String NewPassword) {
+        if (id == null) {
+            throw new ValidateServiceException("El ID del usuario no puede estar vacío");
+        }
+        try {
+            UserModel user = getUserById(id);
+            user.setPassword(NewPassword); // Establece la nueva contraseña sin cifrar
+            userRepository.save(user);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al restablecer la contraseña del usuario ...", e.getCause());
+        }
+    }
+
+    /**
+     * Obtiene un usuario por su nombre de usuario.
+     * 
+     * @param userOrEmail El nombre de usuario a buscar.
+     * @return El UserModel correspondiente al nombre de usuario, o null si no se
+     *         encuentra.
+     */
+    public UserModel getUserByUsername(String userOrEmail) {
+        return findByUserOrEmail(userOrEmail);
     }
 
 }
