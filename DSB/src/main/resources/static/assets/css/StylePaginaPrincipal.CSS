@@ -3145,7 +3145,13 @@ button {
     width: 100%;
     padding: 100px 0 100px 0;
     background-color: #fff;
+    background-image: url(../img/hero-bg.jpg);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
+
 
 .titulo-enfermedades {
     margin-left: 50px;
@@ -3167,7 +3173,8 @@ button {
 
 }
 
-.contenido-parrafo-enfermedades{
+
+.contenido-parrafo-enfermedades {
     display: flex;
     gap: 15px;
 }
@@ -3175,7 +3182,7 @@ button {
 .contenido-informacioncronica {
     width: 30%;
     height: 460px;
-    background-color: #0274b3;
+    background-color: #007bff;
     padding: 20px 40px;
     margin: 30px 50px;
     border-radius: 10px;
@@ -3198,7 +3205,7 @@ button {
 }
 
 /* From Uiverse.io by gharsh11032000 */
-.button {
+.button-enfermedades {
     width: 230px;
     cursor: pointer;
     position: relative;
@@ -3213,7 +3220,7 @@ button {
     overflow: hidden;
 }
 
-.button::before {
+.button-enfermedades::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -3227,97 +3234,328 @@ button {
     transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.button:hover::before {
+.button-enfermedades:hover::before {
     scale: 3;
 }
 
-.button:hover {
+.button-enfermedades:hover {
     color: #212121;
     scale: 1.1;
     box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
 }
 
-.button:active {
+.button-enfermedades:active {
     scale: 1;
 }
 
-.contenido-tipoenfermedades1{
-    width: 35%;
-    background-color: #00368b;
+.contenido-tipoenfermedades1 {
+    width: 30%;
     height: 360px;
-    border-radius: 10px;
     padding: 0 25px;
     margin: 85px 50px 0 -50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    backdrop-filter: blur(15px);
+    /* Efecto de desenfoque */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contenido-tipoenfermedades1 h4{
+.contenido-tipoenfermedades1 h4 {
     font-family: "Montserrat";
     font-size: 20px;
-    color: #c1c1c1;
+    color: #1d27de;
     font-weight: 900;
     text-align: center;
     margin: 150px 0 20px 0;
 }
 
-.contenido-tipoenfermedades1 p{
+.contenido-tipoenfermedades1 p {
     font-family: "Montserrat";
     font-size: 15px;
-    color: #c1c1c1;
+    color: #262626;
     font-weight: 700;
     text-align: center;
-    
+
 }
 
-.contenido-tipoenfermedades2{
-    width: 35%;
-    background-color: #00368b;
+.contenido-tipoenfermedades2 {
+    width: 30%;
     height: 360px;
-    border-radius: 10px;
     padding: 0 25px;
     margin: 85px 40px 0 -50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    backdrop-filter: blur(15px);
+    /* Efecto de desenfoque */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contenido-tipoenfermedades2 h4{
+.contenido-tipoenfermedades2 h4 {
     font-family: "Montserrat";
     font-size: 20px;
-    color: #c1c1c1;
+    color: #1d27de;
     font-weight: 900;
     text-align: center;
     margin: 150px 0 20px 0;
 }
 
-.contenido-tipoenfermedades2 p{
+.contenido-tipoenfermedades2 p {
     font-family: "Montserrat";
     font-size: 15px;
-    color: #c1c1c1;
+    color: #262626;
     font-weight: 700;
     text-align: center;
-    
+
 }
 
-.contenido-tipoenfermedades3{
-    width: 35%;
-    background-color: #00368b;
+.contenido-tipoenfermedades3 {
+    width: 30%;
     height: 360px;
-    border-radius: 10px;
     padding: 0 25px;
     margin: 85px 30px 0 -40px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contenido-tipoenfermedades3 h4{
+.contenido-tipoenfermedades3 h4 {
     font-family: "Montserrat";
     font-size: 20px;
-    color: #c1c1c1;
+    color: #1d27de;
     font-weight: 900;
     text-align: center;
     margin: 150px 0 20px 0;
 }
 
-.contenido-tipoenfermedades3 p{
+.contenido-tipoenfermedades3 p {
     font-family: "Montserrat";
     font-size: 15px;
-    color: #c1c1c1;
+    color: #262626;
     font-weight: 700;
     text-align: center;
+
+}
+
+/**Enfermedades cronicas */
+.section-cronico{
+    max-width: 1500px;
+}
+
+.contenidocronico-diabetes1{
+    width: 100%;
+    background-color: #0b0757;
+    padding: 40px 30px 40px 30px;
+}
+
+.contenidocronico-diabetes1 h2{
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenidocronico-diabetes1 p{
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: #eae8f6;
+    text-align: justify;
+}
+
+.parrafo-debeshacerdiabetes{
+    background-color: #1f8c62;
+    padding: 40px 40px 40px 40px;
+    width: 70%;
+}
+
+.parrafo-debeshacerdiabetes h3{
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    padding-bottom: 30px;
+}
+
+.contenido-debeshacerdiabetes1{
+    display: flex;
+}
+
+.contenido-principal1{
+    display: flex;
+}
+
+.loquedebenhacer1{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
     
+}
+
+.loquedebenhacer1 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer1 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer2{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+.loquedebenhacer2 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer2 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.contenido-principal2{
+    display: flex;
+}
+
+.loquedebenhacer3{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer3 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer3 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer4{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer4 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer4 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-principal3{
+    display: flex;
+}
+
+.loquedebenhacer5{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer5 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer5 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer6{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer6 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer6 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-nodebeshacerdiabetes1{
+    background-color: #27709c;
+    padding: 40px 40px 40px 40px;
+    max-width: 1200px;
+}
+
+.titulo-nodebeshacerdiabetes1 h2{
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #fff;
+
+}
+
+.titulo-nodebeshacerdiabetes1 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: #f2f8f9;
+    text-align: justify;
 }
