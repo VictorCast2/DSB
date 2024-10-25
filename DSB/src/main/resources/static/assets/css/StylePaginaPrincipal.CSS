@@ -2142,6 +2142,7 @@ button {
 }
 
 .about__container .section_description {
+    width: 95%;
     text-align: justify;
     font-size: 15px;
     font-weight: 500;
@@ -2183,25 +2184,28 @@ button {
 }
 
 /** Categoria de alimentos */
-.slider{
+.slider {
     height: 100vh;
     margin-top: -50px;
     width: 100vw;
     overflow: hidden;
     position: relative;
 }
-.slider .list .item{
+
+.slider .list .item {
     width: 100%;
     height: 100%;
     position: absolute;
     inset: 0 0 0 0;
 }
-.slider .list .item img{
+
+.slider .list .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.slider .list .item .content{
+
+.slider .list .item .content {
     position: absolute;
     top: 20%;
     width: 1140px;
@@ -2215,22 +2219,25 @@ button {
 }
 
 .slider .list .item .content .title,
-.slider .list .item .content .type{
+.slider .list .item .content .type {
     font-size: 5em;
     font-weight: bold;
     line-height: 1.3em;
 }
-.slider .list .item .type{
+
+.slider .list .item .type {
     color: #14ff72cb;
 }
-.slider .list .item .button{
+
+.slider .list .item .button {
     display: grid;
     grid-template-columns: repeat(2, 130px);
     grid-template-rows: 40px;
     gap: 5px;
     margin-top: 20px;
 }
-.slider .list .item .button button{
+
+.slider .list .item .button button {
     border: none;
     background-color: #eee;
     font-family: Poppins;
@@ -2241,10 +2248,11 @@ button {
 }
 
 
-.slider .list .item .button button:hover{
+.slider .list .item .button button:hover {
     letter-spacing: 3px;
 }
-.slider .list .item .button button:nth-child(2){
+
+.slider .list .item .button button:nth-child(2) {
     background-color: transparent;
     border: 1px solid #fff;
     color: #eee;
@@ -2252,7 +2260,7 @@ button {
 
 
 /* Thumbnail Section  */
-.thumbnail{
+.thumbnail {
     position: absolute;
     bottom: 50px;
     left: 50%;
@@ -2262,14 +2270,14 @@ button {
     gap: 20px;
 }
 
-.thumbnail .item{
+.thumbnail .item {
     width: 150px;
     height: 220px;
     flex-shrink: 0;
     position: relative;
 }
 
-.thumbnail .item img{
+.thumbnail .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2278,7 +2286,7 @@ button {
 }
 
 /* nextPrevArrows Section  */
-.nextPrevArrows{
+.nextPrevArrows {
     position: absolute;
     top: 80%;
     right: 52%;
@@ -2289,7 +2297,8 @@ button {
     gap: 10px;
     align-items: center;
 }
-.nextPrevArrows button{
+
+.nextPrevArrows button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -2301,13 +2310,14 @@ button {
     transition: .5s;
     cursor: pointer;
 }
-.nextPrevArrows button:hover{
+
+.nextPrevArrows button:hover {
     background-color: #fff;
     color: #000;
 }
 
 /* Animation Part */
-.slider .list .item:nth-child(1){
+.slider .list .item:nth-child(1) {
     z-index: 1;
 }
 
@@ -2315,39 +2325,43 @@ button {
 .slider .list .item:nth-child(1) .content .title,
 .slider .list .item:nth-child(1) .content .type,
 .slider .list .item:nth-child(1) .content .description,
-.slider .list .item:nth-child(1) .content .buttons
-{
+.slider .list .item:nth-child(1) .content .buttons {
     transform: translateY(50px);
     filter: blur(20px);
     opacity: 0;
     animation: showContent .5s 1s linear 1 forwards;
 }
-@keyframes showContent{
-    to{
+
+@keyframes showContent {
+    to {
         transform: translateY(0px);
         filter: blur(0px);
         opacity: 1;
     }
 }
-.slider .list .item:nth-child(1) .content .title{
+
+.slider .list .item:nth-child(1) .content .title {
     animation-delay: 0.4s !important;
 }
-.slider .list .item:nth-child(1) .content .type{
+
+.slider .list .item:nth-child(1) .content .type {
     animation-delay: 0.6s !important;
 }
-.slider .list .item:nth-child(1) .content .description{
+
+.slider .list .item:nth-child(1) .content .description {
     animation-delay: 0.8s !important;
 }
-.slider .list .item:nth-child(1) .content .buttons{
+
+.slider .list .item:nth-child(1) .content .buttons {
     animation-delay: 1s !important;
 }
 
-.description{
+.description {
     width: 80%;
 }
 
 /* Animation for next button click */
-.slider.next .list .item:nth-child(1) img{
+.slider.next .list .item:nth-child(1) img {
     width: 150px;
     height: 220px;
     position: absolute;
@@ -2357,8 +2371,8 @@ button {
     animation: showImage .5s linear 1 forwards;
 }
 
-@keyframes showImage{
-    to{
+@keyframes showImage {
+    to {
         bottom: 0;
         left: 0;
         width: 100%;
@@ -2367,47 +2381,49 @@ button {
     }
 }
 
-.slider.next .thumbnail .item:nth-last-child(1){
+.slider.next .thumbnail .item:nth-last-child(1) {
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
 }
-.slider.prev .list .item img{
+
+.slider.prev .list .item img {
     z-index: 100;
 }
 
 
-@keyframes showThumbnail{
-    from{
+@keyframes showThumbnail {
+    from {
         width: 0;
         opacity: 0;
     }
 }
 
 
-.slider.next .thumbnail{
+.slider.next .thumbnail {
     animation: effectNext .5s linear 1 forwards;
 }
 
-@keyframes effectNext{
-    from{
+@keyframes effectNext {
+    from {
         transform: translateX(150px);
     }
 }
 
 
 /* Animation for prev button click */
-.slider.prev .list .item:nth-child(2){
+.slider.prev .list .item:nth-child(2) {
     z-index: 2;
 }
 
-.slider.prev .list .item:nth-child(2) img{
+.slider.prev .list .item:nth-child(2) img {
     animation: outFrame 0.5s linear 1 forwards;
     position: absolute;
     bottom: 0;
     left: 0;
 }
-@keyframes outFrame{
-    to{
+
+@keyframes outFrame {
+    to {
         width: 150px;
         height: 220px;
         bottom: 50px;
@@ -2416,13 +2432,14 @@ button {
     }
 }
 
-.slider.prev .thumbnail .item:nth-child(1){
+.slider.prev .thumbnail .item:nth-child(1) {
     overflow: hidden;
     opacity: 0;
     animation: showThumbnail .5s linear 1 forwards;
 }
+
 .slider.next .nextPrevArrows button,
-.slider.prev .nextPrevArrows button{
+.slider.prev .nextPrevArrows button {
     pointer-events: none;
 }
 
@@ -2430,23 +2447,1115 @@ button {
 .slider.prev .list .item:nth-child(2) .content .title,
 .slider.prev .list .item:nth-child(2) .content .type,
 .slider.prev .list .item:nth-child(2) .content .description,
-.slider.prev .list .item:nth-child(2) .content .buttons
-{
-    animation: contentOut 1.5s linear 1 forwards!important;
+.slider.prev .list .item:nth-child(2) .content .buttons {
+    animation: contentOut 1.5s linear 1 forwards !important;
 }
 
-@keyframes contentOut{
-    to{
+@keyframes contentOut {
+    to {
         transform: translateY(-150px);
         filter: blur(20px);
         opacity: 0;
     }
 }
+
 @media screen and (max-width: 678px) {
-    .slider .list .item .content{
+    .slider .list .item .content {
         padding-right: 0;
     }
-    .slider .list .item .content .title{
+
+    .slider .list .item .content .title {
         font-size: 50px;
     }
+}
+
+/** Desayuno */
+.contenido_desayuno {
+    margin: 100px 0;
+}
+
+.desayuno-imagen {
+    display: flex;
+    background-color: #00368b;
+}
+
+.desayuno-imagen img {
+    width: 150%;
+    height: 630px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+
+.texto-desayuno h2 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 40px;
+    margin: 30px 60px;
+}
+
+.texto-desayuno h3 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin: 30px 60px;
+}
+
+.texto-desayuno p {
+    text-align: justify;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Montserrat";
+    font-size: 15px;
+    margin: 30px 60px;
+}
+
+/**Almuerzo */
+.contenido_almuerzo {
+    margin: -100px 0;
+}
+
+.almuerzo-imagen {
+    background-color: #384c6c;
+}
+
+.almuerzo-imagen .almuerzo {
+    height: 630px;
+    width: 675px;
+    float: right;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+
+.texto-almuerzo {
+    height: 630px;
+    width: 50%;
+    padding-top: 30px;
+    position: relative;
+}
+
+.texto-almuerzo h2 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 40px;
+    margin: 0 60px;
+}
+
+.texto-almuerzo h3 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin: 30px 60px;
+}
+
+.texto-almuerzo p {
+    text-align: justify;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Montserrat";
+    font-size: 15px;
+    margin: 30px 60px;
+}
+
+/** Cena */
+.contenido_cena {
+    margin: 100px 0;
+}
+
+.cena-imagen {
+    display: flex;
+    background-color: #00368b;
+}
+
+.cena-imagen img {
+    width: 150%;
+    height: 630px;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+
+.texto-cena h2 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 40px;
+    margin: 30px 60px;
+}
+
+.texto-cena h3 {
+    color: #fff;
+    font-weight: 900;
+    font-family: "Montserrat";
+    font-size: 20px;
+    margin: 30px 60px;
+}
+
+.texto-cena p {
+    text-align: justify;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Montserrat";
+    font-size: 15px;
+    margin: 30px 60px;
+}
+
+/**Ejercicios bienvenida */
+
+
+
+.contenido-ejercicios .imagen-ejercicios .ejercicios {
+    float: right;
+    margin-right: 80px;
+    width: 40%;
+    /* O el tamaño específico que necesites */
+    height: 10%;
+    /* Altura específica */
+    object-fit: cover;
+}
+
+.contenido-texto-ejercicio {
+    width: 45%;
+    margin: 0 85px;
+    padding-top: 130px;
+}
+
+.contenido-texto-ejercicio h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+.contenido-texto-ejercicio p {
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.btn-ejercicio {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+}
+
+.btn-ejercicio {
+    width: 190px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    box-shadow: -1px 21px 36px -10px rgba(35, 32, 217, 1);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    color: white;
+}
+
+.btn-ejercicio:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+
+}
+
+.btn-ejercicio:active {
+    opacity: 0.5;
+}
+
+/**Informacion about */
+.about {
+    margin: 300px 0;
+    overflow: hidden;
+}
+
+.about__container {
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+}
+
+.about__image {
+    position: relative;
+    isolation: isolate;
+}
+
+.about__image::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, -50%);
+    width: calc(100% - 5rem);
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #294CFC, #af40ff);
+    border-radius: 100%;
+    z-index: -1;
+}
+
+.about__image img {
+    max-width: 550px;
+    margin-left: 40px;
+}
+
+.about__content {
+    width: 45%;
+}
+
+.about__content h2 {
+    margin: 30px 0;
+    font-family: "Montserrat";
+    font-size: 40px;
+    color: #000;
+    font-weight: 900;
+}
+
+.about__content p {
+    margin: 30px 0;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: #000;
+    text-align: justify;
+}
+
+/**Beneficios del ejercicios */
+.service {
+    margin: -200px 0 90px 0;
+    background-color: #0a0f2c;
+}
+
+
+.section__container h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    color: #fff;
+    margin: 0 -10px;
+    padding: 60px;
+}
+
+
+.service__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.service__card {
+    background-color: transparent;
+    position: relative;
+    text-align: left;
+}
+
+.service__card span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.1);
+
+}
+
+.service__card h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.service__card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c1c1c1;
+    margin-top: 10px;
+}
+
+.service__image {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -560px;
+}
+
+.service__image img {
+    max-width: 380px;
+    height: auto;
+}
+
+.service__card:nth-child(1),
+.service__card:nth-child(3) {
+    grid-column: 1;
+    margin-left: 70px;
+}
+
+.service__card:nth-child(2),
+.service__card:nth-child(4) {
+    grid-column: 3;
+    text-align: left;
+    margin-right: 70px;
+}
+
+/** Carrusel ejercicio */
+.carousel {
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list1 .item1 {
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+
+.carousel .list1 .item1:nth-child(1),
+.carousel .list1 .item1:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list1 .item1:nth-child(3) {
+    left: 67%;
+}
+
+.carousel .list1 .item1:nth-child(4) {
+    left: calc(67% + 200px);
+}
+
+.carousel .list1 .item1:nth-child(5) {
+    left: calc(67% + 400px);
+}
+
+.carousel .list1 .item1:nth-child(6) {
+    left: calc(67% + 600px);
+}
+
+.carousel .list1 .item1:nth-child(n+7) {
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+.list1 .item1 .content1 {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list1 .item1:nth-child(2) .content1 {
+    display: block;
+}
+
+.content1 .title1 {
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content1 .name {
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content1 .des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content1 .btn1 {
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content1 .btn1 button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content1 .btn button:nth-child(1) {
+    margin-right: 15px;
+}
+
+.content1 .btn1 button:nth-child(2) {
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content1 .btn1 button:nth-child(2):hover {
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.arrows {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* time running */
+.carousel .timeRunning {
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 999px) {
+
+    header {
+        padding-left: 50px;
+    }
+
+    .list1 .item1 .content1 {
+        left: 50px;
+    }
+
+    .content1 .title1,
+    .content1 .name {
+        font-size: 70px;
+    }
+
+    .content1 .des {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px) {
+    header nav a {
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list1 .item1 .content1 {
+        top: 40%;
+    }
+
+    .content1 .title1,
+    .content1 .name {
+        font-size: 45px;
+    }
+
+    .content1 .btn1 button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/**Estado salud */
+.estado-salud {
+    padding: 150px 0 100px 0;
+    background: linear-gradient(130deg, #231a6f, #0f054c);
+}
+
+.contenido-texto-salud h2 {
+    font-family: "Montserrat";
+    font-size: 70px;
+    font-weight: 900;
+    color: #fff;
+    margin: 30px 50px;
+}
+
+.contenido-texto-salud p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 600;
+    color: #ddd;
+    margin: 30px 50px;
+    width: 45%;
+    text-align: justify;
+}
+
+.button-salud {
+    font-family: "Montserrat";
+    font-weight: 800;
+    padding: 20px 10px;
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+    width: 300px;
+    height: 60px;
+    border-radius: 1px;
+}
+
+.button-salud::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #00bbf0;
+    transition: 0.5s ease;
+}
+
+.button-salud:hover {
+    color: #fff;
+    transition-delay: 0.5s;
+}
+
+.button-salud:hover::before {
+    width: 100%;
+}
+
+.button-salud::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: #00bbf0;
+    transition: 0.4s ease;
+    z-index: -1;
+}
+
+.button-salud:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+}
+
+
+.contenido-texto-salud .button-salud {
+    margin: 10px 50px;
+}
+
+.imagen-salud img {
+    width: 40%;
+    height: 40%;
+    float: right;
+    margin-right: 40px;
+}
+
+/** Enfermedades cronicas */
+.section-Enfermedadescronica {
+    width: 100%;
+    padding: 100px 0 100px 0;
+    background-color: #fff;
+    background-image: url(../img/hero-bg.jpg);
+    background-position: center right;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+.titulo-enfermedades {
+    margin-left: 50px;
+}
+
+.titulo-enfermedades h2 {
+    color: #00368b;
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.titulo-enfermedades p {
+    color: #262626;
+    font-family: "Montserrat";
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+
+.contenido-parrafo-enfermedades {
+    display: flex;
+    gap: 15px;
+}
+
+.contenido-informacioncronica {
+    width: 30%;
+    height: 460px;
+    background-color: #007bff;
+    padding: 20px 40px;
+    margin: 30px 50px;
+    border-radius: 10px;
+}
+
+.contenido-informacioncronica h3 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    margin: 20px 0;
+}
+
+.contenido-informacioncronica p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ddd;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* From Uiverse.io by gharsh11032000 */
+.button-enfermedades {
+    width: 230px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px 10px;
+    font-size: 18px;
+    color: rgb(193, 163, 98);
+    border: 2px solid rgb(193, 163, 98);
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+.button-enfermedades::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(193, 163, 98);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button-enfermedades:hover::before {
+    scale: 3;
+}
+
+.button-enfermedades:hover {
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+.button-enfermedades:active {
+    scale: 1;
+}
+
+.contenido-tipoenfermedades1 {
+    width: 30%;
+    height: 360px;
+    padding: 0 25px;
+    margin: 85px 50px 0 -50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    backdrop-filter: blur(15px);
+    /* Efecto de desenfoque */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenido-tipoenfermedades1 h4 {
+    font-family: "Montserrat";
+    font-size: 20px;
+    color: #1d27de;
+    font-weight: 900;
+    text-align: center;
+    margin: 150px 0 20px 0;
+}
+
+.contenido-tipoenfermedades1 p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    color: #262626;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.contenido-tipoenfermedades2 {
+    width: 30%;
+    height: 360px;
+    padding: 0 25px;
+    margin: 85px 40px 0 -50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo blanco semitransparente */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    backdrop-filter: blur(15px);
+    /* Efecto de desenfoque */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenido-tipoenfermedades2 h4 {
+    font-family: "Montserrat";
+    font-size: 20px;
+    color: #1d27de;
+    font-weight: 900;
+    text-align: center;
+    margin: 150px 0 20px 0;
+}
+
+.contenido-tipoenfermedades2 p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    color: #262626;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.contenido-tipoenfermedades3 {
+    width: 30%;
+    height: 360px;
+    padding: 0 25px;
+    margin: 85px 30px 0 -40px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenido-tipoenfermedades3 h4 {
+    font-family: "Montserrat";
+    font-size: 20px;
+    color: #1d27de;
+    font-weight: 900;
+    text-align: center;
+    margin: 150px 0 20px 0;
+}
+
+.contenido-tipoenfermedades3 p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    color: #262626;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+/**Enfermedades cronicas */
+.section-cronico{
+    max-width: 1500px;
+}
+
+.contenidocronico-diabetes1{
+    width: 100%;
+    background-color: #0b0757;
+    padding: 40px 30px 40px 30px;
+}
+
+.contenidocronico-diabetes1 h2{
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenidocronico-diabetes1 p{
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: #eae8f6;
+    text-align: justify;
+}
+
+.parrafo-debeshacerdiabetes{
+    background-color: #1f8c62;
+    padding: 40px 40px 40px 40px;
+    width: 70%;
+}
+
+.parrafo-debeshacerdiabetes h3{
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    padding-bottom: 30px;
+}
+
+.contenido-debeshacerdiabetes1{
+    display: flex;
+}
+
+.contenido-principal1{
+    display: flex;
+}
+
+.loquedebenhacer1{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    
+}
+
+.loquedebenhacer1 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer1 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer2{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+.loquedebenhacer2 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer2 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.contenido-principal2{
+    display: flex;
+}
+
+.loquedebenhacer3{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer3 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer3 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer4{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer4 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer4 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-principal3{
+    display: flex;
+}
+
+.loquedebenhacer5{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer5 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer5 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer6{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer6 h4{
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer6 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-nodebeshacerdiabetes1{
+    background-color: #27709c;
+    padding: 40px 40px 40px 40px;
+    max-width: 1200px;
+}
+
+.titulo-nodebeshacerdiabetes1 h2{
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #fff;
+
+}
+
+.titulo-nodebeshacerdiabetes1 p{
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 15px;
+    color: #f2f8f9;
+    text-align: justify;
 }
