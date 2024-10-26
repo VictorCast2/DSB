@@ -22,6 +22,11 @@ public class ExerciseLogModel {
     public String ExerciseIntensity;
 
     @ManyToOne
-    @JoinColumn(name = "UsersId", nullable = false)
+    @JoinColumn(name = "MenuOfTheDayModel", referencedColumnName = "Id")
+    private MenuOfTheDayModel menuOfTheDayModel;
+
+    @ManyToOne
+    @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel User;
+
 }

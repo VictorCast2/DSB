@@ -20,6 +20,6 @@ public class MenuOfTheDayModel {
     private String Dinner;
 
     @ManyToOne
-    @JoinColumn(name = "UsersId", nullable = false)
+    @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel User;
 }

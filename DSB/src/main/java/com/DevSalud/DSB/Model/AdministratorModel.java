@@ -9,6 +9,7 @@ import lombok.*;
 @Entity
 @Table(name = "Administrator")
 public class AdministratorModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -19,4 +20,5 @@ public class AdministratorModel {
     private String userName;
     private String emailAddress;
     private String Password;
+
 }

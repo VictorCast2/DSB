@@ -25,7 +25,6 @@ public class UserModel {
     private Double Height;
     private String Disease;
 
-    // Campo transitorio para el checkbox de términos y condiciones
     @Transient
     private boolean termsAccepted;
 
