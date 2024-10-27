@@ -3342,17 +3342,17 @@ button {
 }
 
 /**Enfermedades cronicas */
-.section-cronico{
+.section-cronico {
     max-width: 1500px;
 }
 
-.contenidocronico-diabetes1{
+.contenidocronico-diabetes1 {
     width: 100%;
     background-color: #0b0757;
     padding: 40px 30px 40px 30px;
 }
 
-.contenidocronico-diabetes1 h2{
+.contenidocronico-diabetes1 h2 {
     font-family: "Montserrat";
     font-size: 45px;
     font-weight: 900;
@@ -3361,7 +3361,7 @@ button {
     margin-bottom: 20px;
 }
 
-.contenidocronico-diabetes1 p{
+.contenidocronico-diabetes1 p {
     font-family: "Montserrat";
     font-size: 15px;
     font-weight: 500;
@@ -3369,13 +3369,13 @@ button {
     text-align: justify;
 }
 
-.parrafo-debeshacerdiabetes{
+.parrafo-debeshacerdiabetes {
     background-color: #1f8c62;
     padding: 40px 40px 40px 40px;
     width: 70%;
 }
 
-.parrafo-debeshacerdiabetes h3{
+.parrafo-debeshacerdiabetes h3 {
     font-family: "Montserrat";
     font-size: 30px;
     font-weight: 900;
@@ -3383,23 +3383,23 @@ button {
     padding-bottom: 30px;
 }
 
-.contenido-debeshacerdiabetes1{
+.contenido-debeshacerdiabetes1 {
     display: flex;
 }
 
-.contenido-principal1{
+.contenido-principal1 {
     display: flex;
 }
 
-.loquedebenhacer1{
+.loquedebenhacer1 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
     padding: 10px 20px;
-    
+
 }
 
-.loquedebenhacer1 h4{
+.loquedebenhacer1 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3407,14 +3407,14 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer1 p{
+.loquedebenhacer1 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.loquedebenhacer2{
+.loquedebenhacer2 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3422,7 +3422,7 @@ button {
     margin-left: 10px;
 }
 
-.loquedebenhacer2 h4{
+.loquedebenhacer2 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3430,18 +3430,18 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer2 p{
+.loquedebenhacer2 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.contenido-principal2{
+.contenido-principal2 {
     display: flex;
 }
 
-.loquedebenhacer3{
+.loquedebenhacer3 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3449,7 +3449,7 @@ button {
     margin-top: 10px;
 }
 
-.loquedebenhacer3 h4{
+.loquedebenhacer3 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3457,64 +3457,14 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer3 p{
+.loquedebenhacer3 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.loquedebenhacer4{
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer4 h4{
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer4 p{
-    font-family: "Montserrat";
-    font-weight: 500;
-    color: #eae8f6;
-}
-
-.contenido-principal3{
-    display: flex;
-}
-
-.loquedebenhacer5{
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer5 h4{
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer5 p{
-    font-family: "Montserrat";
-    font-weight: 500;
-    text-align: justify;
-    color: #eae8f6;
-}
-
-.loquedebenhacer6{
+.loquedebenhacer4 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3523,7 +3473,7 @@ button {
     margin-top: 10px;
 }
 
-.loquedebenhacer6 h4{
+.loquedebenhacer4 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3531,19 +3481,69 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer6 p{
+.loquedebenhacer4 p {
     font-family: "Montserrat";
     font-weight: 500;
     color: #eae8f6;
 }
 
-.contenido-nodebeshacerdiabetes1{
+.contenido-principal3 {
+    display: flex;
+}
+
+.loquedebenhacer5 {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer5 h4 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer5 p {
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer6 {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer6 h4 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer6 p {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-nodebeshacerdiabetes1 {
     background-color: #27709c;
     padding: 40px 40px 40px 40px;
     max-width: 1200px;
 }
 
-.titulo-nodebeshacerdiabetes1 h2{
+.titulo-nodebeshacerdiabetes1 h2 {
     font-family: "Montserrat";
     font-size: 30px;
     font-weight: 900;
@@ -3552,10 +3552,157 @@ button {
 
 }
 
-.titulo-nodebeshacerdiabetes1 p{
+.titulo-nodebeshacerdiabetes1 p {
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 15px;
     color: #f2f8f9;
     text-align: justify;
 }
+
+/**Planes de salud */
+.restaurant-section {
+    display: flex;
+    gap: 20px;
+    padding: 100px 0 0 0;
+    max-width: 1500px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-info {
+    flex: 2;
+    margin: 50px 0 0 70px;
+}
+
+.welcome-message {
+    font-family: "Montserrat";
+    color: #0b0757;
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.restaurant-name {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.restaurant-description {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.plan-button {
+    width: 250px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.plan-button:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 24px;
+}
+
+.restaurant-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+    margin-right: 70px;
+}
+
+.image-large {
+    grid-row: 1 / span 2;
+    /* La imagen grande ocupa dos filas */
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.image-small-container {
+    display: grid;
+    gap: 10px;
+}
+
+.image-small {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/**Planes alimenticios */
+
+.contenido-planessalud {
+    padding: 100px 0 200px 0;
+    background-image: url(../img/planesalimenticios.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-planessalud {
+    margin-left: 50px;
+}
+
+.texto-planessalud h3 {
+    font-family: "Montserrat";
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.texto-planessalud h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #00ddeb;
+}
+
+.texto-planessalud p {
+    width: 60%;
+    text-align: justify;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.btn-planesalimenticios {
+    width: 250px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.btn-planesalimenticios:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 24px;
+}
+
+/**que es un plan */
