@@ -3706,3 +3706,48 @@ button {
 }
 
 /**que es un plan */
+.contenido-queesunplan{
+    max-width: 1500px;
+    background-color: #0a0f2c;
+    padding: 100px 0 170px 0;
+}
+
+.imagen-queesunplan img{
+    float: right;
+    margin-right: 50px;
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+}
+
+.texto-queesunplan{
+    width: 50%;
+    margin-left: 30px;
+}
+
+.texto-queesunplan .titulo-queesunplan{
+    font-family: "Montserrat";
+    font-size:40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.texto-queesunplan .parrafo1{
+    font-family: "Montserrat";
+    font-size:15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+.texto-queesunplan .parrafo2{
+    font-family: "Montserrat";
+    font-size:15px;
+    font-weight: 500;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+
