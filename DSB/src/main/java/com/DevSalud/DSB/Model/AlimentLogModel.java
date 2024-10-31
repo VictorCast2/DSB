@@ -19,11 +19,11 @@ public class AlimentLogModel {
     private String Food;
 
     @ManyToOne
-    @JoinColumn(name = "MenuOfTheDayModel", nullable = false)
+    @JoinColumn(name = "MenuOfTheDayModel", referencedColumnName = "Id")
     private MenuOfTheDayModel menuOfTheDayModel;
 
-
     @ManyToOne
-    @JoinColumn(name = "UsersId", nullable = false)
+    @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel User;
+
 }
