@@ -410,7 +410,7 @@ a {
 
 /*<!--=============== Section quienes somos ===============-->*/
 .quienes-somos {
-    padding: 100px 0 40px 0;
+    padding: 100px 0 0 0;
     background-color: #ffff;
     width: 100%;
     height: 100%;
@@ -495,7 +495,7 @@ a {
 }
 
 .back-content {
-    margin: 10px 20px;
+    margin: 50px 20px;
     font-family: "Montserrat";
     color: #fff;
     font-size: 14px;
@@ -504,6 +504,21 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
+}
+
+.back-content h5 {
+    margin-top: -50px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content p {
+    text-align: justify;
+    font-family: "Montserrat";
 
 }
 
@@ -579,8 +594,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -702,6 +717,21 @@ a {
 
 }
 
+.back-content2 h5 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content2 p {
+    text-align: justify;
+    font-family: "Montserrat";
+
+}
+
 .e-card2:hover .card-content2 {
     transform: rotateY(180deg);
     /* Gira la tarjeta */
@@ -774,8 +804,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -894,6 +924,21 @@ a {
 
 }
 
+.back-content3 h5 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content3 p {
+    text-align: justify;
+    font-family: "Montserrat";
+
+}
+
 .e-card3:hover .card-content3 {
     transform: rotateY(180deg);
     /* Gira la tarjeta */
@@ -966,8 +1011,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -1088,6 +1133,21 @@ a {
 
 }
 
+.back-content4 h5 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content4 p {
+    text-align: justify;
+    font-family: "Montserrat";
+
+}
+
 .e-card4:hover .card-content4 {
     transform: rotateY(180deg);
     /* Gira la tarjeta */
@@ -1160,8 +1220,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -1280,6 +1340,21 @@ a {
 
 }
 
+.back-content5 h5 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content5 p {
+    text-align: justify;
+    font-family: "Montserrat";
+
+}
+
 .e-card5:hover .card-content5 {
     transform: rotateY(180deg);
     /* Gira la tarjeta */
@@ -1352,8 +1427,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -1459,6 +1534,8 @@ a {
     font-weight: 600;
 }
 
+
+
 .back-content6 {
     margin: 10px 20px;
     font-family: "Montserrat";
@@ -1469,6 +1546,21 @@ a {
     top: 1em;
     text-align: justify;
     text-transform: lowercase;
+
+}
+
+.back-content6 h5 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Montserrat";
+    font-weight: 900;
+}
+
+.back-content6 p {
+    text-align: justify;
+    font-family: "Montserrat";
 
 }
 
@@ -1544,8 +1636,8 @@ a {
     opacity: 0.6;
     left: 0;
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -30%;
+    margin-top: -40%;
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
     border-radius: 40%;
     animation: wave 55s infinite linear;
@@ -1587,6 +1679,13 @@ a {
 /*<!--=============== Equipo ===============-->*/
 .equipos {
     margin: 100px 40px;
+}
+
+.contenido-titulo .titulo-programadores {
+    font-family: "Montserrat";
+    font-size: 60px;
+    font-weight: 900;
+    margin-bottom: 20px;
 }
 
 .contenido-carta {
@@ -1891,7 +1990,6 @@ ul {
 
 }
 
-
 .contenido-titulo-servicios p {
     text-align: center;
     font-family: "Montserrat";
@@ -2011,7 +2109,7 @@ button {
 }
 
 .card:hover:before {
-    transform: scale(31);
+    transform: scale(34);
 }
 
 .card:hover .small-desc {
@@ -2052,14 +2150,14 @@ button {
 }
 
 .contenido-texto-alimento {
-    width: 30%;
+    width: 45%;
     margin: 45px 85px;
     padding: 20px 20px;
 }
 
 .contenido-texto-alimento h2 {
     font-family: "Montserrat";
-    font-size: 45px;
+    font-size: 50px;
     font-weight: 900;
     margin: 20px 0;
 }
@@ -2183,8 +2281,8 @@ button {
     text-align: justify;
 }
 
-/** Categoria de alimentos */
-.slider {
+/**Categoria de alimentos */
+.carousel1 {
     height: 100vh;
     margin-top: -50px;
     width: 100vw;
@@ -2192,101 +2290,114 @@ button {
     position: relative;
 }
 
-.slider .list .item {
-    width: 100%;
-    height: 100%;
+.carousel1 .list1 .item1 {
+    width: 180px;
+    height: 250px;
     position: absolute;
-    inset: 0 0 0 0;
-}
-
-.slider .list .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider .list .item .content {
-    position: absolute;
-    top: 20%;
-    width: 1140px;
-    max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding-right: 30%;
-    box-sizing: border-box;
-    color: #fff;
-    text-shadow: 0 5px 10px #0004;
-}
-
-.slider .list .item .content .title,
-.slider .list .item .content .type {
-    font-size: 5em;
-    font-weight: bold;
-    line-height: 1.3em;
-}
-
-.slider .list .item .type {
-    color: #14ff72cb;
-}
-
-.slider .list .item .button {
-    display: grid;
-    grid-template-columns: repeat(2, 130px);
-    grid-template-rows: 40px;
-    gap: 5px;
-    margin-top: 20px;
-}
-
-.slider .list .item .button button {
-    border: none;
-    background-color: #eee;
-    font-family: Poppins;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.4s;
-    letter-spacing: 2px;
-}
-
-
-.slider .list .item .button button:hover {
-    letter-spacing: 3px;
-}
-
-.slider .list .item .button button:nth-child(2) {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
-}
-
-
-/* Thumbnail Section  */
-.thumbnail {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    width: max-content;
-    z-index: 100;
-    display: flex;
-    gap: 20px;
-}
-
-.thumbnail .item {
-    width: 150px;
-    height: 220px;
-    flex-shrink: 0;
-    position: relative;
-}
-
-.thumbnail .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
     border-radius: 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
 }
 
-/* nextPrevArrows Section  */
-.nextPrevArrows {
+.carousel1 .list1 .item1:nth-child(1),
+.carousel1 .list1 .item1:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel1 .list1 .item1:nth-child(3) {
+    left: 67%;
+}
+
+.carousel1 .list1 .item1:nth-child(4) {
+    left: calc(67% + 200px);
+}
+
+.carousel1 .list1 .item1:nth-child(5) {
+    left: calc(67% + 400px);
+}
+
+.carousel1 .list1 .item1:nth-child(6) {
+    left: calc(67% + 600px);
+}
+
+.carousel1 .list1 .item1:nth-child(n+7) {
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+.list1 .item1 .content1 {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list1 .item1:nth-child(2) .content1 {
+    display: block;
+}
+
+.content1 .title1 {
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content1 .name7 {
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content1 .des1 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+
+@keyframes animate {
+
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.arrows1 {
     position: absolute;
     top: 80%;
     right: 52%;
@@ -2298,175 +2409,86 @@ button {
     align-items: center;
 }
 
-.nextPrevArrows button {
-    width: 40px;
-    height: 40px;
+.arrows1 button {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #14ff72cb;
-    border: none;
     color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
     font-family: monospace;
     font-weight: bold;
     transition: .5s;
     cursor: pointer;
 }
 
-.nextPrevArrows button:hover {
-    background-color: #fff;
+.arrows1 button:hover {
+    background: #fff;
     color: #000;
 }
 
-/* Animation Part */
-.slider .list .item:nth-child(1) {
-    z-index: 1;
-}
-
-/* animation text in first item */
-.slider .list .item:nth-child(1) .content .title,
-.slider .list .item:nth-child(1) .content .type,
-.slider .list .item:nth-child(1) .content .description,
-.slider .list .item:nth-child(1) .content .buttons {
-    transform: translateY(50px);
-    filter: blur(20px);
-    opacity: 0;
-    animation: showContent .5s 1s linear 1 forwards;
-}
-
-@keyframes showContent {
-    to {
-        transform: translateY(0px);
-        filter: blur(0px);
-        opacity: 1;
-    }
-}
-
-.slider .list .item:nth-child(1) .content .title {
-    animation-delay: 0.4s !important;
-}
-
-.slider .list .item:nth-child(1) .content .type {
-    animation-delay: 0.6s !important;
-}
-
-.slider .list .item:nth-child(1) .content .description {
-    animation-delay: 0.8s !important;
-}
-
-.slider .list .item:nth-child(1) .content .buttons {
-    animation-delay: 1s !important;
-}
-
-.description {
-    width: 80%;
-}
-
-/* Animation for next button click */
-.slider.next .list .item:nth-child(1) img {
-    width: 150px;
-    height: 220px;
+/* time running */
+.carousel1 .timeRunning1 {
     position: absolute;
-    bottom: 50px;
-    left: 50%;
-    border-radius: 30px;
-    animation: showImage .5s linear 1 forwards;
-}
-
-@keyframes showImage {
-    to {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
-}
-
-.slider.next .thumbnail .item:nth-last-child(1) {
-    overflow: hidden;
-    animation: showThumbnail .5s linear 1 forwards;
-}
-
-.slider.prev .list .item img {
-    z-index: 100;
-}
-
-
-@keyframes showThumbnail {
-    from {
-        width: 0;
-        opacity: 0;
-    }
-}
-
-
-.slider.next .thumbnail {
-    animation: effectNext .5s linear 1 forwards;
-}
-
-@keyframes effectNext {
-    from {
-        transform: translateX(150px);
-    }
-}
-
-
-/* Animation for prev button click */
-.slider.prev .list .item:nth-child(2) {
-    z-index: 2;
-}
-
-.slider.prev .list .item:nth-child(2) img {
-    animation: outFrame 0.5s linear 1 forwards;
-    position: absolute;
-    bottom: 0;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
     left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
 }
 
-@keyframes outFrame {
+@keyframes runningTime {
+
+    from {
+        width: 0%;
+    }
+
     to {
-        width: 150px;
-        height: 220px;
-        bottom: 50px;
-        left: 50%;
-        border-radius: 20px;
-    }
-}
-
-.slider.prev .thumbnail .item:nth-child(1) {
-    overflow: hidden;
-    opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
-}
-
-.slider.next .nextPrevArrows button,
-.slider.prev .nextPrevArrows button {
-    pointer-events: none;
-}
-
-
-.slider.prev .list .item:nth-child(2) .content .title,
-.slider.prev .list .item:nth-child(2) .content .type,
-.slider.prev .list .item:nth-child(2) .content .description,
-.slider.prev .list .item:nth-child(2) .content .buttons {
-    animation: contentOut 1.5s linear 1 forwards !important;
-}
-
-@keyframes contentOut {
-    to {
-        transform: translateY(-150px);
-        filter: blur(20px);
-        opacity: 0;
-    }
-}
-
-@media screen and (max-width: 678px) {
-    .slider .list .item .content {
-        padding-right: 0;
+        width: 100%;
     }
 
-    .slider .list .item .content .title {
-        font-size: 50px;
+}
+
+@media screen and (max-width: 999px) {
+
+    header {
+        padding-left: 50px;
     }
+
+    .list1 .item1 .content1 {
+        left: 50px;
+    }
+
+    .content1 .title1,
+    .content1 .name7 {
+        font-size: 70px;
+    }
+
+    .content1 .des1 {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px) {
+    header nav a {
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list1 .item1 .content1 {
+        top: 40%;
+    }
+
+    .content1 .title1,
+    .content1 .name7 {
+        font-size: 45px;
+    }
+
 }
 
 /** Desayuno */
@@ -2803,7 +2825,7 @@ button {
 }
 
 /** Carrusel ejercicio */
-.carousel {
+.carousel2 {
     height: 100vh;
     margin-top: -50px;
     width: 100vw;
@@ -2811,7 +2833,7 @@ button {
     position: relative;
 }
 
-.carousel .list1 .item1 {
+.carousel2 .list2 .item2 {
     width: 180px;
     height: 250px;
     position: absolute;
@@ -2826,8 +2848,8 @@ button {
     transition: 1s;
 }
 
-.carousel .list1 .item1:nth-child(1),
-.carousel .list1 .item1:nth-child(2) {
+.carousel2 .list2 .item2:nth-child(1),
+.carousel2 .list2 .item2:nth-child(2) {
     top: 0;
     left: 0;
     transform: translate(0, 0);
@@ -2836,29 +2858,29 @@ button {
     height: 100%;
 }
 
-.carousel .list1 .item1:nth-child(3) {
+.carousel2 .list2 .item2:nth-child(3) {
     left: 67%;
 }
 
-.carousel .list1 .item1:nth-child(4) {
+.carousel2 .list2 .item2:nth-child(4) {
     left: calc(67% + 200px);
 }
 
-.carousel .list1 .item1:nth-child(5) {
+.carousel2 .list2 .item2:nth-child(5) {
     left: calc(67% + 400px);
 }
 
-.carousel .list1 .item1:nth-child(6) {
+.carousel2 .list2 .item2:nth-child(6) {
     left: calc(67% + 600px);
 }
 
-.carousel .list1 .item1:nth-child(n+7) {
+.carousel2 .list2 .item2:nth-child(n+7) {
     left: calc(67% + 800px);
     opacity: 0;
 }
 
 
-.list1 .item1 .content1 {
+.list2 .item2 .content2 {
     position: absolute;
     top: 50%;
     left: 100px;
@@ -2869,11 +2891,11 @@ button {
     display: none;
 }
 
-.list1 .item1:nth-child(2) .content1 {
+.list2 .item2:nth-child(2) .content2 {
     display: block;
 }
 
-.content1 .title1 {
+.content2 .title2 {
     font-size: 100px;
     text-transform: uppercase;
     color: #14ff72cb;
@@ -2883,7 +2905,7 @@ button {
     animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 
-.content1 .name {
+.content2 .name8 {
     font-size: 100px;
     text-transform: uppercase;
     font-weight: bold;
@@ -2893,45 +2915,13 @@ button {
     animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
 
-.content1 .des {
+.content2 .des2 {
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 18px;
     margin-left: 5px;
     opacity: 0;
     animation: animate 1s ease-in-out 0.9s 1 forwards;
-}
-
-.content1 .btn1 {
-    margin-left: 5px;
-
-    opacity: 0;
-    animation: animate 1s ease-in-out 1.2s 1 forwards;
-}
-
-.content1 .btn1 button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border: 2px solid #fff;
-}
-
-.content1 .btn button:nth-child(1) {
-    margin-right: 15px;
-}
-
-.content1 .btn1 button:nth-child(2) {
-    background: transparent;
-    color: #14ff72cb;
-    border: 2px solid #fff;
-    transition: 0.3s;
-}
-
-.content1 .btn1 button:nth-child(2):hover {
-    background-color: #14ff72cb;
-    color: #fff;
-    border-color: #14ff72cb;
 }
 
 
@@ -2950,7 +2940,7 @@ button {
     }
 }
 
-.arrows {
+.arrows2 {
     position: absolute;
     top: 80%;
     right: 52%;
@@ -2962,7 +2952,7 @@ button {
     align-items: center;
 }
 
-.arrows button {
+.arrows2 button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -2977,13 +2967,13 @@ button {
     cursor: pointer;
 }
 
-.arrows button:hover {
+.arrows2 button:hover {
     background: #fff;
     color: #000;
 }
 
 /* time running */
-.carousel .timeRunning {
+.carousel2 .timeRunning2 {
     position: absolute;
     z-index: 1000;
     width: 0%;
@@ -3012,16 +3002,16 @@ button {
         padding-left: 50px;
     }
 
-    .list1 .item1 .content1 {
+    .list2 .item2 .content2 {
         left: 50px;
     }
 
-    .content1 .title1,
-    .content1 .name {
+    .content2 .title2,
+    .content2 .name8 {
         font-size: 70px;
     }
 
-    .content1 .des {
+    .content2 .des2 {
         font-size: 16px;
     }
 
@@ -3033,19 +3023,15 @@ button {
         margin-right: 0;
     }
 
-    .list1 .item1 .content1 {
+    .list2 .item2 .content2 {
         top: 40%;
     }
 
-    .content1 .title1,
-    .content1 .name {
+    .content2 .title2,
+    .content2 .name8 {
         font-size: 45px;
     }
 
-    .content1 .btn1 button {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
 }
 
 /**Estado salud */
@@ -3342,17 +3328,17 @@ button {
 }
 
 /**Enfermedades cronicas */
-.section-cronico{
+.section-cronico {
     max-width: 1500px;
 }
 
-.contenidocronico-diabetes1{
+.contenidocronico-diabetes1 {
     width: 100%;
     background-color: #0b0757;
     padding: 40px 30px 40px 30px;
 }
 
-.contenidocronico-diabetes1 h2{
+.contenidocronico-diabetes1 h2 {
     font-family: "Montserrat";
     font-size: 45px;
     font-weight: 900;
@@ -3361,7 +3347,7 @@ button {
     margin-bottom: 20px;
 }
 
-.contenidocronico-diabetes1 p{
+.contenidocronico-diabetes1 p {
     font-family: "Montserrat";
     font-size: 15px;
     font-weight: 500;
@@ -3369,13 +3355,13 @@ button {
     text-align: justify;
 }
 
-.parrafo-debeshacerdiabetes{
+.parrafo-debeshacerdiabetes {
     background-color: #1f8c62;
     padding: 40px 40px 40px 40px;
     width: 70%;
 }
 
-.parrafo-debeshacerdiabetes h3{
+.parrafo-debeshacerdiabetes h3 {
     font-family: "Montserrat";
     font-size: 30px;
     font-weight: 900;
@@ -3383,23 +3369,23 @@ button {
     padding-bottom: 30px;
 }
 
-.contenido-debeshacerdiabetes1{
+.contenido-debeshacerdiabetes1 {
     display: flex;
 }
 
-.contenido-principal1{
+.contenido-principal1 {
     display: flex;
 }
 
-.loquedebenhacer1{
+.loquedebenhacer1 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
     padding: 10px 20px;
-    
+
 }
 
-.loquedebenhacer1 h4{
+.loquedebenhacer1 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3407,14 +3393,14 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer1 p{
+.loquedebenhacer1 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.loquedebenhacer2{
+.loquedebenhacer2 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3422,7 +3408,7 @@ button {
     margin-left: 10px;
 }
 
-.loquedebenhacer2 h4{
+.loquedebenhacer2 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3430,18 +3416,18 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer2 p{
+.loquedebenhacer2 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.contenido-principal2{
+.contenido-principal2 {
     display: flex;
 }
 
-.loquedebenhacer3{
+.loquedebenhacer3 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3449,7 +3435,7 @@ button {
     margin-top: 10px;
 }
 
-.loquedebenhacer3 h4{
+.loquedebenhacer3 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3457,64 +3443,14 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer3 p{
+.loquedebenhacer3 p {
     font-family: "Montserrat";
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
 }
 
-.loquedebenhacer4{
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer4 h4{
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer4 p{
-    font-family: "Montserrat";
-    font-weight: 500;
-    color: #eae8f6;
-}
-
-.contenido-principal3{
-    display: flex;
-}
-
-.loquedebenhacer5{
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer5 h4{
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer5 p{
-    font-family: "Montserrat";
-    font-weight: 500;
-    text-align: justify;
-    color: #eae8f6;
-}
-
-.loquedebenhacer6{
+.loquedebenhacer4 {
     width: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
@@ -3523,7 +3459,7 @@ button {
     margin-top: 10px;
 }
 
-.loquedebenhacer6 h4{
+.loquedebenhacer4 h4 {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
@@ -3531,19 +3467,69 @@ button {
     color: #ffffff;
 }
 
-.loquedebenhacer6 p{
+.loquedebenhacer4 p {
     font-family: "Montserrat";
     font-weight: 500;
     color: #eae8f6;
 }
 
-.contenido-nodebeshacerdiabetes1{
+.contenido-principal3 {
+    display: flex;
+}
+
+.loquedebenhacer5 {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer5 h4 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer5 p {
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: justify;
+    color: #eae8f6;
+}
+
+.loquedebenhacer6 {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.loquedebenhacer6 h4 {
+    font-family: "Montserrat";
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.loquedebenhacer6 p {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #eae8f6;
+}
+
+.contenido-nodebeshacerdiabetes1 {
     background-color: #27709c;
     padding: 40px 40px 40px 40px;
     max-width: 1200px;
 }
 
-.titulo-nodebeshacerdiabetes1 h2{
+.titulo-nodebeshacerdiabetes1 h2 {
     font-family: "Montserrat";
     font-size: 30px;
     font-weight: 900;
@@ -3552,10 +3538,741 @@ button {
 
 }
 
-.titulo-nodebeshacerdiabetes1 p{
+.titulo-nodebeshacerdiabetes1 p {
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 15px;
     color: #f2f8f9;
     text-align: justify;
+}
+
+/**Planes de salud */
+.restaurant-section {
+    display: flex;
+    gap: 20px;
+    padding: 100px 0 0 0;
+    max-width: 1500px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-info {
+    flex: 2;
+    margin: 50px 0 0 70px;
+}
+
+.welcome-message {
+    font-family: "Montserrat";
+    color: #0b0757;
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.restaurant-name {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.restaurant-description {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.plan-button {
+    width: 250px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.plan-button:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 24px;
+}
+
+.restaurant-images {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+    margin-right: 70px;
+}
+
+.image-large {
+    grid-row: 1 / span 2;
+    /* La imagen grande ocupa dos filas */
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.image-small-container {
+    display: grid;
+    gap: 10px;
+}
+
+.image-small {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/**Planes alimenticios */
+
+.contenido-planessalud {
+    padding: 100px 0 200px 0;
+    background-image: url(../img/planesalimenticios.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-planessalud {
+    margin-left: 50px;
+}
+
+.texto-planessalud h3 {
+    font-family: "Montserrat";
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.texto-planessalud h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #00ddeb;
+}
+
+.texto-planessalud p {
+    width: 60%;
+    text-align: justify;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.btn-planesalimenticios {
+    width: 250px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.btn-planesalimenticios:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 24px;
+}
+
+/**que es un plan */
+.contenido-queesunplan {
+    max-width: 1500px;
+    background-color: #0a0f2c;
+    padding: 100px 0 170px 0;
+}
+
+.imagen-queesunplan img {
+    float: right;
+    margin-right: 50px;
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+}
+
+.texto-queesunplan {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.texto-queesunplan .titulo-queesunplan {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.texto-queesunplan .parrafo1 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+.texto-queesunplan .parrafo2 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+.imagen-nutricionista img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenido-nutricionista {
+    display: flex;
+}
+
+.texto-nutricionista {
+    width: 80%;
+    padding: 300px 40px 0 40px;
+}
+
+.texto-nutricionista h2 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    color: #0a0f2c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.texto-nutricionista p {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    text-align: justify;
+}
+
+.planescontainer-card {
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0 40px 0;
+}
+
+.planes-title-cards h2 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    width: 200%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 25px 0 0 0;
+    margin-top: 20px;
+    text-align: center;
+    color: #00368b;
+}
+
+.card-planes {
+    width: 200%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.card-planes:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card-planes img {
+    width: 100%;
+    height: 210px;
+
+}
+
+.card-planes .planescontenido-card {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-planes .planescontenido-card h3 {
+    margin-bottom: 15px;
+    color: #7a7a7a;
+}
+
+.card-planes .planescontenido-card p {
+    line-height: 1.8;
+    color: #6a6a6a;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card-planes .planescontenido-card a {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    margin-bottom: 5px;
+}
+
+.card-planes .planescontenido-card a:hover {
+    background: #2fb4cc;
+    color: #fff;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .planescontenido-card {
+        flex-wrap: wrap;
+    }
+
+    .card-planes {
+        margin: 15px;
+    }
+}
+
+/**Carta planes 2*/
+.planescontainer-card2 {
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 0 100px 0;
+}
+
+
+.card-planes2 {
+    width: 200%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.card-planes2:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card-planes2 img {
+    width: 100%;
+    height: 210px;
+
+}
+
+.card-planes2 .planescontenido-card2 {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-planes2 .planescontenido-card2 h3 {
+    margin-bottom: 15px;
+    color: #7a7a7a;
+}
+
+.card-planes2 .planescontenido-card2 p {
+    line-height: 1.8;
+    color: #6a6a6a;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card-planes2 .planescontenido-card2 a {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    margin-bottom: 5px;
+}
+
+.card-planes2 .planescontenido-card2 a:hover {
+    background: #2fb4cc;
+    color: #fff;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .planescontenido-card2 {
+        flex-wrap: wrap;
+    }
+
+    .card-planes2 {
+        margin: 15px;
+    }
+}
+
+.contenido-planesejercicio {
+    padding: 100px 0 250px 0;
+    background-image: url(../img/planes-ejercicio.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.texto-planesejercicio {
+    margin-left: 50px;
+}
+
+.texto-planesejercicio h3 {
+    font-family: "Montserrat";
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.texto-planesejercicio h2 {
+    font-family: "Montserrat";
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #00ddeb;
+}
+
+.texto-planesejercicio p {
+    width: 60%;
+    text-align: justify;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.btn-planesejercicio {
+    width: 250px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 20px;
+    font-weight: 550;
+}
+
+.btn-planesejercicio:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 24px;
+}
+
+.section-contactos {
+    padding: 80px 0 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0 0 0 / .8), rgba(0 0 0 / .8)), url(../img/bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.container-contactos {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    padding: 20px;
+    gap: 10px;
+    width: 1000px;
+}
+
+.box-info {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.box-info>h1 {
+    text-align: left;
+    letter-spacing: 5px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+
+.data>p {
+    font-size: 1rem;
+}
+
+.data>p>i {
+    color: crimson;
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+
+
+.links {
+    display: flex;
+    gap: 15px;
+}
+
+.links>a {
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background: crimson;
+    text-align: center;
+    transition: .1s;
+}
+
+.links>a>i {
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box>input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    outline: none;
+    background: rgba(255 255 255 / .1);
+    border: 3px solid transparent;
+    letter-spacing: 1px;
+    transition: .3s;
+    color: #fff;
+
+}
+
+.input-box>input::placeholder,
+.input-box>textarea::placeholder {
+    color: #a3a3a3;
+
+}
+
+.input-box>input:focus::placeholder,
+.input-box>textarea:focus::placeholder {
+    color: transparent;
+}
+
+.input-box>input:focus,
+.input-box>textarea:focus {
+    border-bottom: 3px solid crimson;
+    animation: shake .2s;
+}
+
+.input-box>textarea {
+    width: 100%;
+    height: 130px;
+    padding: 10px;
+    background: rgba(255 255 255 / .1);
+    border: 3px solid transparent;
+    letter-spacing: 1px;
+    outline: none;
+    transition: .3s;
+    color: #fff;
+    letter-spacing: 1.5px;
+}
+
+
+.input-box>i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: rgba(255 255 255 / .3);
+    transition: .3s;
+}
+
+.input-box>input:focus~i {
+    color: crimson;
+}
+
+form>button {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    background: crimson;
+    color: #fff;
+    border: none;
+    transition: .1s;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+form>button:hover,
+.links>a:hover {
+    background: rgb(172, 16, 47);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-10px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .container-contactos {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .box-info {
+        gap: 15px;
+    }
+
+    .box-info>h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.container-footer {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
 }
