@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping({ " ", "/", "/DSB" })
+    @GetMapping({ " ", "/", "/DSBSinConection" })
     public String Index() {
+        return "Index";
+    }
+
+    @GetMapping("/DSBConection")
+    public String IndexPaginaPrincipal() {
         return "IndexPaginaPrincipal";
     }
 
@@ -20,4 +25,5 @@ public class MainController {
     public String Contactos() {
         return "Contactos";
     }
+
 }
