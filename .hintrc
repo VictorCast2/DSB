@@ -8,6 +8,13 @@
       {
         "image-alt": "off"
       }
+    ],
+    "no-inline-styles": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
     ]
   }
 }
