@@ -16,6 +16,9 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
         if (status != null) {
             Integer statusCode = Integer.valueOf(status.toString());
             switch (statusCode) {
+                case 405:
+                    ErrorPage = "Error/405";
+                    break;
                 case 404:
                     ErrorPage = "Error/404";
                     break;

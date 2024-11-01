@@ -52,7 +52,7 @@ public class UserController {
         }
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/DSB";
+        return "redirect:/DSBSinConection";
     }
 
     /**
@@ -90,7 +90,7 @@ public class UserController {
         if (user != null) {
             userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
-            return "redirect:/DSB";
+            return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
@@ -119,7 +119,7 @@ public class UserController {
         UserModel user = userService.getUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
-            return "redirect:/DSB";
+            return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
             return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
@@ -149,10 +149,10 @@ public class UserController {
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            return "redirect:/DSB"; // Redirecciona a la página principal
+            return "redirect:/DSBConection";
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
-            return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
+            return "Users/Login";
         }
     }
 
