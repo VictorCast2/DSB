@@ -41,7 +41,7 @@ public class UserController {
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
+    public String registerUser(@ModelAttribute UserModel Users, RedirectAttributes redirect,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/Users/Registro";
@@ -77,8 +77,8 @@ public class UserController {
      * @return
      */
     @PostMapping("/OlvidoContrasenna")
-    public String manejarOlvidoContrasenna(@RequestParam("username") String username,
-            @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
+    public String manejarOlvidoContrasenna(@RequestParam String username,
+            @RequestParam String newPassword, @RequestParam String confirmPassword,
             Model model) {
         // Verificar que el nuevo password y confirmación coinciden
         if (!newPassword.equals(confirmPassword)) {
@@ -109,8 +109,8 @@ public class UserController {
     }
 
     @PostMapping("/EliminarUsuario")
-    public String manejarEliminarUsuario(@RequestParam("username") String username,
-            @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword,
+    public String manejarEliminarUsuario(@RequestParam String username,
+            @RequestParam String password, @RequestParam String confirmPassword,
             Model model) {
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Las contraseñas no coinciden.");
@@ -145,7 +145,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/Login")
-    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
+    public String login(@RequestParam String UserOrEmail, @RequestParam String Password,
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
