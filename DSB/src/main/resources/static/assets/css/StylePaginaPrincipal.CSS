@@ -349,7 +349,7 @@ a {
     position: relative;
 }
 
-.contenido-texto{
+.contenido-texto {
     width: 100%;
 }
 
@@ -402,7 +402,7 @@ a {
 
 /*<!--=============== Section quienes somos ===============-->*/
 .quienes-somos {
-    padding: 100px 0 0 0;
+    padding: 100px 0 100px 0;
     background-color: #ffff;
     width: 100%;
     height: auto;
@@ -420,7 +420,7 @@ a {
 }
 
 /*<!--=============== ecard1 ===============-->*/
-.contenido-somos1{
+.contenido-somos1 {
     width: 100%;
 }
 
@@ -1050,9 +1050,10 @@ a {
 
 
 /*<!--=============== ecard4 ===============-->*/
-.contenido-somos2{
+.contenido-somos2 {
     width: 100%;
 }
+
 .contenido-somos2 .imagen-card4 {
     width: 100%;
 
@@ -1675,317 +1676,87 @@ a {
 }
 
 /*<!--=============== Equipo ===============-->*/
-.equipos {
-    margin: 100px 40px;
+/*Team Programadores */
+.team{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: radial-gradient(#163163,#001441);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.team-content{
+	width: 100%;
+	max-width: 1150px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+	align-items: center;
+	gap: 2rem;
+	text-align: center;
+	margin-top: 4rem;
+}
+.team-content img{
+	width: 100%;
+	height: auto;
+	border-radius: 15px;
+	margin-bottom: 15px;
+}
+.center h2{
+	color: #fff;
+	font-size: 4rem;
+	text-align: center;
+}
+.box{
+	padding: 16px;
+	background: #2c4d84;
+	border-radius: 15px;
+	transition: all .38s ease;
+}
+.box h3{
+	font-size: 23px;
+	font-weight: 600;
+	color: #fff;
+	margin-bottom: 8px;
+}
+.box h5{
+	font-size: 15px;
+	font-weight: 600;
+	color: #b7b4bb;
+	margin-bottom: 15px;
+	letter-spacing: 2px;
+}
+.icons i{
+	display: inline-block;
+	color: #fff;
+	font-size: 20px;
+	margin: 0 8px;
+	transition: all .38s ease;
+}
+.icons i:hover{
+	transform: scale(1.2);
+}
+.box:hover{
+	transform: translateY(-10px);
+	cursor: pointer;
 }
 
-.contenido-titulo .titulo-programadores {
-    font-family: "Montserrat";
-    font-size: 60px;
-    font-weight: 900;
-    margin-bottom: 20px;
-}
-
-.contenido-carta {
-    display: flex;
-}
-
-/**Contenido-carta1 */
-.contenido-carta1 {
-    margin-top: -40px;
-    display: flex;
-}
-
-.contenido-titulo h2 {
-    font-family: "Montserrat";
-    font-size: 40px;
-    font-weight: 900;
-    text-align: center;
-}
-
-.contenido-titulo p {
-    font-family: "Montserrat";
-    font-size: 15px;
-    font-weight: 700;
-    text-align: justify;
-}
-
-.carta {
-    border-radius: 10px;
-    margin: 40px 20px;
-    background-color: var(--surface-color);
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: auto;
-    padding: 20px 20px;
-}
-
-.contenido {
-    display: flex;
-    margin: 20px 20px;
-
-}
-
-.informacion {
-    margin: 0 40px;
-}
-
-.informacion h4 {
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #00368b;
-}
-
-.informacion span {
-    margin-top: 10px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 15px;
-    color: #505867;
-}
-
-.informacion p {
-    margin-top: 20px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 14px;
-    color: #505867;
-}
-
-.informacion .icono {
-    margin: 20px 0;
-    position: absolute;
-    left: 275px;
-
-}
-
-/** iconos 1 */
-
-ul {
-    list-style: none;
-}
-
-.example-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.example-2 .icon-content {
-    margin: 0 10px;
-    position: relative;
-}
-
-.example-2 .icon-content .tooltip {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.example-2 .icon-content:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    top: -50px;
-}
-
-.example-2 .icon-content a {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #4d4d4d;
-    background-color: #e3eadb;
-    transition: all 0.3s ease-in-out;
-}
-
-.example-2 .icon-content a:hover {
-    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
-}
-
-.example-2 .icon-content a svg {
-    position: relative;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
-}
-
-.example-2 .icon-content a:hover {
-    color: white;
-}
-
-.example-2 .icon-content a .filled {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #000;
-    transition: all 0.3s ease-in-out;
-}
-
-.example-2 .icon-content a:hover .filled {
-    height: 100%;
-}
-
-.example-2 .icon-content a[data-social="linkedin"] .filled,
-.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
-    background-color: #0274b3;
-}
-
-.example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"]~.tooltip {
-    background-color: #24262a;
-}
-
-.example-2 .icon-content a[data-social="instagram"] .filled,
-.example-2 .icon-content a[data-social="instagram"]~.tooltip {
-    background: linear-gradient(45deg,
-            #405de6,
-            #5b51db,
-            #b33ab4,
-            #c135b4,
-            #e1306c,
-            #fd1f1f);
-}
-
-.example-2 .icon-content a[data-social="youtube"] .filled,
-.example-2 .icon-content a[data-social="youtube"]~.tooltip {
-    background-color: #ff0000;
-}
-
-
-/** iconos 2*/
-ul {
-    list-style: none;
-}
-
-.example-2-equipo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon-content-equipo {
-    /*quiero que se mueva los iconos hacia la izquierda */
-    top: 20px;
-    position: absolute;
-    right: 15px;
-}
-
-.example-2-equipo .icon-content-equipo {
-    margin: 0 10px;
-    position: relative;
-}
-
-.example-2-equipo .icon-content-equipo .tooltip {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.example-2-equipo .icon-content-equipo:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    top: -50px;
-}
-
-.example-2-equipo .icon-content-equipo a {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #4d4d4d;
-    background-color: #e3eadb;
-    transition: all 0.3s ease-in-out;
-}
-
-.example-2-equipo .icon-content-equipo a:hover {
-    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
-}
-
-.example-2-equipo .icon-content-equipo a svg {
-    position: relative;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
-}
-
-.example-2-equipo .icon-content-equipo a:hover {
-    color: white;
-}
-
-.example-2-equipo .icon-content-equipo a .filled {
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: #000;
-    transition: all 0.3s ease-in-out;
-}
-
-.example-2-equipo .icon-content-equipo a:hover .filled {
-    height: 100%;
-}
-
-.example-2-equipo .icon-content-equipo a[data-social="linkedin"] .filled,
-.example-2-equipo .icon-content-equipo a[data-social="linkedin"]~.tooltip {
-    background-color: #0274b3;
-}
-
-.example-2-equipo .icon-content-equipo a[data-social="github"] .filled,
-.example-2-equipo .icon-content-equipo a[data-social="github"]~.tooltip {
-    background-color: #24262a;
-}
-
-.example-2-equipo .icon-content-equipo a[data-social="instagram"] .filled,
-.example-2-equipo .icon-content-equipo a[data-social="instagram"]~.tooltip {
-    background: linear-gradient(45deg,
-            #405de6,
-            #5b51db,
-            #b33ab4,
-            #c135b4,
-            #e1306c,
-            #fd1f1f);
-}
-
-.example-2-equipo .icon-content-equipo a[data-social="youtube"] .filled,
-.example-2-equipo .icon-content-equipo a[data-social="youtube"]~.tooltip {
-    background-color: #ff0000;
+@media(max-width: 1240px){
+	.team{
+		width: 100%;
+		height: auto;
+		padding: 90px 2%;
+	}
+	.center h1{
+		font-size: 3.2rem;
+	}
 }
 
 /**section servicios */
 .servicios {
     margin: 50px 0;
-
 }
 
 .contenido-titulo-servicios p {
@@ -2120,6 +1891,7 @@ button {
     color: #ffffff;
 }
 
+/** Contenido Alimento*/
 .contenido-alimento {
     display: flex;
     margin: 100px 0;
@@ -2283,8 +2055,8 @@ button {
 .carousel1 {
     height: 100vh;
     margin-top: -50px;
-    width: 100vw;
-    overflow-x: hidden;
+    width: 100%;
+    overflow: hidden;
     position: relative;
 }
 
@@ -2506,6 +2278,9 @@ button {
     border-bottom-right-radius: 150px;
 }
 
+.texto-desayuno {
+    padding: 50px 0 0 0;
+}
 
 .texto-desayuno h2 {
     color: #fff;
@@ -2625,22 +2400,22 @@ button {
 }
 
 /**Ejercicios bienvenida */
+.contenido-ejercicios {
+    width: 100%;
+    height: 100%;
+}
 
-
-
-.contenido-ejercicios .imagen-ejercicios .ejercicios {
+.imagen-ejercicios .ejercicios {
     float: right;
-    margin-right: 80px;
+    margin-right: 50px;
     width: 40%;
-    /* O el tamaño específico que necesites */
-    height: 10%;
-    /* Altura específica */
+    height: auto;
     object-fit: cover;
 }
 
 .contenido-texto-ejercicio {
     width: 45%;
-    margin: 0 85px;
+    margin: 0 80px;
     padding-top: 130px;
 }
 
@@ -2687,23 +2462,23 @@ button {
 }
 
 /**Informacion about */
-.about {
-    margin: 300px 0;
-    overflow: hidden;
+.contenido_cambio {
+    width: 100%;
+    padding: 250px 0 100px 0;
 }
 
-.about__container {
+.cambio__container {
     display: flex;
     width: 100%;
     padding: 40px 0;
 }
 
-.about__image {
+.cambio__image {
     position: relative;
     isolation: isolate;
 }
 
-.about__image::before {
+.cambio__image::before {
     position: absolute;
     content: "";
     top: 50%;
@@ -2716,16 +2491,16 @@ button {
     z-index: -1;
 }
 
-.about__image img {
+.cambio__image img {
     max-width: 550px;
     margin-left: 40px;
 }
 
-.about__content {
+.cambio__content {
     width: 45%;
 }
 
-.about__content h2 {
+.cambio__content h2 {
     margin: 30px 0;
     font-family: "Montserrat";
     font-size: 40px;
@@ -2733,7 +2508,7 @@ button {
     font-weight: 900;
 }
 
-.about__content p {
+.cambio__content p {
     margin: 30px 0;
     font-family: "Montserrat";
     font-weight: 500;
@@ -2744,20 +2519,19 @@ button {
 
 /**Beneficios del ejercicios */
 .service {
-    margin: -200px 0 90px 0;
+    width: 100%;
+    margin: 0 0 90px 0;
     background-color: #0a0f2c;
 }
-
 
 .section__container h2 {
     font-family: "Montserrat";
     font-size: 45px;
     font-weight: 900;
     color: #fff;
-    margin: 0 -10px;
+    margin: 0 19px 0 0;
     padding: 60px;
 }
-
 
 .service__grid {
     display: grid;
@@ -2815,6 +2589,7 @@ button {
     margin-left: 70px;
 }
 
+
 .service__card:nth-child(2),
 .service__card:nth-child(4) {
     grid-column: 3;
@@ -2824,10 +2599,10 @@ button {
 
 /** Carrusel ejercicio */
 .carousel2 {
-    
+
     height: 100vh;
     margin-top: -50px;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -3767,168 +3542,64 @@ button {
     text-align: justify;
 }
 
-.planescontainer-card {
-    width: 100%;
+/** Carta platos alimenticios */
+
+.carta-contenidoplatos {
+    background-color: #8299b0;
     display: flex;
-    max-width: 1100px;
-    margin: auto;
-    padding: 50px 0 40px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 150px 0 150px;
 }
 
-.planes-title-cards h2 {
-    font-family: "Montserrat";
-    font-size: 40px;
-    font-weight: 900;
-    width: 200%;
-    max-width: 1080px;
-    margin: auto;
-    padding: 25px 0 0 0;
-    margin-top: 20px;
-    text-align: center;
-    color: #00368b;
-}
-
-.card-planes {
-    width: 200%;
-    margin: 20px;
-    border-radius: 6px;
+.carta-plato {
+    width: 325px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
     overflow: hidden;
-    background: #fff;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-    transition: all 400ms ease-out;
-    cursor: default;
+    box-shadow: 0px 2px 4px rgba (0, 0, 0, 0.3);
+    transition: transform 0.6s ease;
 }
 
-.card-planes:hover {
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3%);
+.carta-plato:hover{
+    transform:translateY(-20px);
+
 }
 
-.card-planes img {
+.carta-plato img{
     width: 100%;
-    height: 210px;
+    height: auto;
+    object-fit: cover;
+}
+
+.carta-contentplatos{
+    padding:20px;
 
 }
 
-.card-planes .planescontenido-card {
-    padding: 15px;
-    text-align: center;
+.carta-contentplatos h3{
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.card-planes .planescontenido-card h3 {
-    margin-bottom: 15px;
-    color: #7a7a7a;
+.carta-contentplatos p{
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
-.card-planes .planescontenido-card p {
-    line-height: 1.8;
-    color: #6a6a6a;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.card-planes .planescontenido-card a {
+.btn-platos{
     display: inline-block;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #3498db;
     text-decoration: none;
-    color: #2fb4cc;
-    border: 1px solid #2fb4cc;
-    border-radius: 4px;
-    transition: all 400ms ease;
-    margin-bottom: 5px;
-}
-
-.card-planes .planescontenido-card a:hover {
-    background: #2fb4cc;
+    border-radius: 5px;
+    margin-top: 16px;
     color: #fff;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
-    .planescontenido-card {
-        flex-wrap: wrap;
-    }
 
-    .card-planes {
-        margin: 15px;
-    }
-}
-
-/**Carta planes 2*/
-.planescontainer-card2 {
-    width: 100%;
-    display: flex;
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 0 100px 0;
-}
-
-
-.card-planes2 {
-    width: 200%;
-    margin: 20px;
-    border-radius: 6px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-    transition: all 400ms ease-out;
-    cursor: default;
-}
-
-.card-planes2:hover {
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3%);
-}
-
-.card-planes2 img {
-    width: 100%;
-    height: 210px;
-
-}
-
-.card-planes2 .planescontenido-card2 {
-    padding: 15px;
-    text-align: center;
-}
-
-.card-planes2 .planescontenido-card2 h3 {
-    margin-bottom: 15px;
-    color: #7a7a7a;
-}
-
-.card-planes2 .planescontenido-card2 p {
-    line-height: 1.8;
-    color: #6a6a6a;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.card-planes2 .planescontenido-card2 a {
-    display: inline-block;
-    padding: 10px;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #2fb4cc;
-    border: 1px solid #2fb4cc;
-    border-radius: 4px;
-    transition: all 400ms ease;
-    margin-bottom: 5px;
-}
-
-.card-planes2 .planescontenido-card2 a:hover {
-    background: #2fb4cc;
-    color: #fff;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 768px) {
-    .planescontenido-card2 {
-        flex-wrap: wrap;
-    }
-
-    .card-planes2 {
-        margin: 15px;
-    }
-}
 
 .contenido-planesejercicio {
     padding: 100px 0 250px 0;
@@ -3985,6 +3656,75 @@ button {
     font-size: 24px;
 }
 
+.wrapper{
+    padding: 10px 10%;
+}
+#card-area{
+    padding: 50px 0;
+}
+.box-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.box-ejercicio {
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+.box-ejercicio img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.overlay {
+	width: 100%;
+	height: 0;
+	background: linear-gradient(transparent,#1c1c1c 58%);
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	font-size: 14px;
+	transition: height 0.5s;
+}
+.overlay h3 {
+	font-weight: 500;
+	margin-bottom: 5px;
+	margin-top: 80%;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+.overlay a {
+	margin-top: 10px;
+	color: #262626;
+	text-decoration: none;
+	font-size: 14px;
+	background: #fff;
+	border-radius: 50px;
+	text-align: center;
+	padding: 5px 15px;
+}
+.box-ejercicio:hover img{
+    transform: scale(1.1);
+}
+.box-ejercicio:hover .overlay{
+    height: 100%;
+}
+
+
+/** Section Contactos */
 .section-contactos {
     padding: 80px 0 80px 0;
     display: flex;
