@@ -3543,14 +3543,38 @@ button {
 }
 
 /** Carta platos alimenticios */
+.contenido-mainalimentos{
+    padding: 20px 0 0 0;
+    background-color: #8299b0;
+}
+
+.parrafo-planesAlimento{
+    margin:100px 0 0 0;
+}
+
+.parrafo-planesAlimento h2{
+    font-size: 40px;
+    margin:0 0 20px 160px ;
+    font-weight: 900;
+    font-family: "Montserrat";
+    color: #315cfd;
+}
+
+.parrafo-planesAlimento p{
+    width: 70%;
+    margin:0 0 0 160px ;
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 500;
+    font-family: "Montserrat";
+}
 
 .carta-contenidoplatos {
-    background-color: #8299b0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
-    padding: 150px 0 150px;
+    padding: 50px 0 150px;
 }
 
 .carta-plato {
@@ -3656,12 +3680,35 @@ button {
     font-size: 24px;
 }
 
+/** Carta Ejercicios */
 .wrapper{
     padding: 10px 10%;
 }
 #card-area{
     padding: 50px 0;
 }
+
+.texto-ejercicio{
+    margin:0 0 20px 0;
+}
+
+.texto-ejercicio h2{
+    font-size: 40px;
+    margin:0 0 20px 140px ;
+    font-weight: 900;
+    font-family: "Montserrat";
+    color: #315cfd;
+}
+
+.texto-ejercicio p{
+    width: 70%;
+    margin:0 0 0 140px ;
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 500;
+    font-family: "Montserrat";
+}
+
 .box-area{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -3699,6 +3746,7 @@ button {
 	transition: height 0.5s;
 }
 .overlay h3 {
+    color: #ffff;
 	font-weight: 500;
 	margin-bottom: 5px;
 	margin-top: 80%;
@@ -3706,16 +3754,11 @@ button {
 	font-size: 30px;
 	letter-spacing: 2px;
 }
-.overlay a {
-	margin-top: 10px;
-	color: #262626;
-	text-decoration: none;
-	font-size: 14px;
-	background: #fff;
-	border-radius: 50px;
-	text-align: center;
-	padding: 5px 15px;
+
+.overlay p{
+    color: #ffff;
 }
+
 .box-ejercicio:hover img{
     transform: scale(1.1);
 }
