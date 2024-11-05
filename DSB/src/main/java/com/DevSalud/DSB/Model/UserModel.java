@@ -2,6 +2,7 @@ package com.DevSalud.DSB.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -18,6 +19,7 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
+    private LocalDate DateBirthday;
     private String user;
     private String emailAddress;
     private String Password;

@@ -1,5 +1,7 @@
 package com.DevSalud.DSB.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class UserServices {
 
     /**
      * Obtiene todos los usuarios.
-     * 
+     *
      * @return Lista de usuarios.
      * @throws com.DevSalud.DSB.Exception.NoDataFoundException si no se encuentran
      *                                                         usuarios.
@@ -34,7 +36,7 @@ public class UserServices {
 
     /**
      * Guarda un usuario.
-     * 
+     *
      * @param Users El modelo de usuario a guardar.
      * @return El usuario guardado.
      */
@@ -54,7 +56,7 @@ public class UserServices {
 
     /**
      * Obtiene un usuario por su ID.
-     * 
+     *
      * @param id El ID del usuario.
      * @return El usuario encontrado.
      * @throws com.DevSalud.DSB.Exception.ValidateServiceException si el ID del
@@ -74,7 +76,7 @@ public class UserServices {
 
     /**
      * Elimina un usuario por su ID.
-     * 
+     *
      * @param id El ID del usuario.
      * @throws ValidateServiceException                           si el ID del
      *                                                            usuario es nulo.
@@ -95,7 +97,7 @@ public class UserServices {
 
     /**
      * Restablece la contraseña de un usuario por su ID.
-     * 
+     *
      * @param id          El ID del usuario.
      * @param NewPassword La nueva contraseña.
      * @throws ValidateServiceException                           si el ID del
@@ -119,7 +121,7 @@ public class UserServices {
 
     /**
      * Obtiene un usuario por su nombre de usuario.
-     * 
+     *
      * @param userOrEmail El nombre de usuario a buscar.
      * @return El UserModel correspondiente al nombre de usuario, o null si no se
      *         encuentra.
@@ -128,4 +130,15 @@ public class UserServices {
         return findByUserOrEmail(userOrEmail);
     }
 
+    /**
+     * Calcula la edad en base a la fecha de nacimiento.
+     *
+     * @param DateBirthday La fecha de nacimiento.
+     * @return La edad calculada.
+     */
+    public Integer calculateYourAge(LocalDate DateBirthday) {
+        // Obtenemos la fecha actual del dia de hoy
+        LocalDate today = LocalDate.now();
+        return Period.between(DateBirthday, today).getYears();
+    }
 }
