@@ -41,7 +41,7 @@ public class UserController {
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute UserModel Users, RedirectAttributes redirect,
+    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
             BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/Users/Registro";
@@ -52,7 +52,7 @@ public class UserController {
         }
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/DSBSinConection";
+        return "redirect:/DSB";
     }
 
     /**
@@ -77,8 +77,8 @@ public class UserController {
      * @return
      */
     @PostMapping("/OlvidoContrasenna")
-    public String manejarOlvidoContrasenna(@RequestParam String username,
-            @RequestParam String newPassword, @RequestParam String confirmPassword,
+    public String manejarOlvidoContrasenna(@RequestParam("username") String username,
+            @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
             Model model) {
         // Verificar que el nuevo password y confirmación coinciden
         if (!newPassword.equals(confirmPassword)) {
@@ -90,7 +90,7 @@ public class UserController {
         if (user != null) {
             userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
-            return "redirect:/DSBSinConection";
+            return "redirect:/DSB";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
@@ -109,8 +109,8 @@ public class UserController {
     }
 
     @PostMapping("/EliminarUsuario")
-    public String manejarEliminarUsuario(@RequestParam String username,
-            @RequestParam String password, @RequestParam String confirmPassword,
+    public String manejarEliminarUsuario(@RequestParam("username") String username,
+            @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword,
             Model model) {
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Las contraseñas no coinciden.");
@@ -119,7 +119,7 @@ public class UserController {
         UserModel user = userService.getUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
-            return "redirect:/DSBSinConection";
+            return "redirect:/DSB";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
             return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
@@ -145,14 +145,14 @@ public class UserController {
      * @return
      */
     @PostMapping("/Login")
-    public String login(@RequestParam String UserOrEmail, @RequestParam String Password,
+    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            return "redirect:/DSBConection";
+            return "redirect:/DSB"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
-            return "Users/Login";
+            return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
         }
     }
 
