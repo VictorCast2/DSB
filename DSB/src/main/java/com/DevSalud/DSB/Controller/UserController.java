@@ -16,6 +16,8 @@ import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping(path = "/Api/Users")
 public class UserController {
@@ -36,13 +38,13 @@ public class UserController {
 
     /**
      * Procesa el registro de un usuario.
-     * 
+     *
      * @param model El modelo para la vista.
      * @return La vista de redirección.
      */
     @PostMapping("/Registro")
     public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
-            BindingResult result, Model model) {
+                               BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/Users/Registro";
         }
@@ -50,6 +52,8 @@ public class UserController {
             model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
             return "/Users/Registro";
         }
+        LocalDate Date = Users.getDateBirthday();
+        Users.setAge(userService.calculateYourAge(Date));
         userService.saveOrUpdateUsers(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
         return "redirect:/DSB";
