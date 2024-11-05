@@ -121,8 +121,8 @@ a:hover {
 
 .contenido-registroejercicio {
     background-color: #331055;
-    width: 50%;
-    height:680px;
+    width: 70%;
+    height: auto;
     padding: 20px 30px;
     border-radius: 20px;
     margin: 100px auto;
@@ -145,7 +145,7 @@ a:hover {
 /** Opciones De tipo Ejercicio */
 .container {
     position: relative;
-    max-width: 320px;
+    max-width: 450px;
     width: 100%;
     margin: 80px auto 30px;
     margin-right: 30px;
@@ -187,16 +187,23 @@ a:hover {
 }
 
 .list-items {
-    position: absolute; /* Cambia a absolute */
-    top: 100%; /* Coloca el menú debajo del botón */
-    left: 0; /* Alinea el menú a la izquierda del contenedor */
-    z-index: 1000; /* Asegúrate de que el menú esté en la parte superior */
-    margin-top: 10px; /* Espacio entre el botón y el menú */
+    width: 100%;
+    position: absolute;
+    /* Cambia a absolute */
+    top: 100%;
+    /* Coloca el menú debajo del botón */
+    left: 0;
+    /* Alinea el menú a la izquierda del contenedor */
+    z-index: 1000;
+    /* Asegúrate de que el menú esté en la parte superior */
+    margin-top: 10px;
+    /* Espacio entre el botón y el menú */
     border-radius: 8px;
     padding: 16px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    display: none; /* Mantén esto como está, oculto por defecto */
+    display: none;
+    /* Mantén esto como está, oculto por defecto */
 }
 
 .scrollable-content {
@@ -271,7 +278,7 @@ a:hover {
 /**Nombre Ejercicio */
 .container1 {
     position: relative;
-    max-width: 320px;
+    max-width: 450px;
     width: 100%;
     margin: 80px auto 30px;
 }
@@ -312,16 +319,22 @@ a:hover {
 }
 
 .list-items1 {
-    position: absolute; /* Cambia a absolute */
-    top: 100%; /* Coloca el menú debajo del botón */
-    left: 0; /* Alinea el menú a la izquierda del contenedor */
-    z-index: 1000; /* Asegúrate de que el menú esté en la parte superior */
-    margin-top: 10px; /* Espacio entre el botón y el menú */
+    width: 100%;
+    position: absolute;
+    /* Cambia a absolute */
+    top: 100%;
+    /* Coloca el menú debajo del botón */
+    left: 0;
+    /* Alinea el menú a la izquierda del contenedor */
+    z-index: 1000;
+    /* Asegúrate de que el menú esté en la parte superior */
+    margin-top: 10px;
+    /* Espacio entre el botón y el menú */
     border-radius: 8px;
     padding: 16px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    display: none; 
+    display: none;
 }
 
 .scrollable-content1 {
@@ -396,9 +409,9 @@ a:hover {
 /**Menu INTESIDAD EJERCICIOS */
 .container2 {
     position: relative;
-    max-width: 320px;
+    max-width: 450px;
     width: 100%;
-    margin: 40px auto 70px;
+    margin: 30px auto 40px;
 }
 
 .select-btn2 {
@@ -437,11 +450,17 @@ a:hover {
 }
 
 .list-items2 {
-    position: absolute; /* Cambia a absolute */
-    top: 100%; /* Coloca el menú debajo del botón */
-    left: 0; /* Alinea el menú a la izquierda del contenedor */
-    z-index: 1000; /* Asegúrate de que el menú esté en la parte superior */
-    margin-top: 10px; /* Espacio entre el botón y el menú */
+    width: 100%;
+    position: absolute;
+    /* Cambia a absolute */
+    top: 100%;
+    /* Coloca el menú debajo del botón */
+    left: 0;
+    /* Alinea el menú a la izquierda del contenedor */
+    z-index: 1000;
+    /* Asegúrate de que el menú esté en la parte superior */
+    margin-top: 10px;
+    /* Espacio entre el botón y el menú */
     border-radius: 8px;
     padding: 16px;
     background-color: #fff;
@@ -520,101 +539,209 @@ a:hover {
     border: 1px solid #b3b3b3;
 }
 
-/**Fechas de inicio y Fecha Final */
-.contenido-fechatime {
-    display: flex;
-    gap: 110px;
-    flex-wrap: wrap;
+
+/* From Uiverse.io by alexroumi */
+.btn-ejercicio {
+    width: 90%;
+    margin: 50px 0 100px 50px;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #00145f;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+    overflow: hidden;
 }
 
-.input-fechatimeinicio,
-.input-fechatimefinal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+.btn-ejercicio::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #00145f;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
 }
 
-/* Estilo para los labels */
-.input-fechatimeinicio label,
-.input-fechatimefinal label {
-    font-weight: 800;
-    font-size: 20px;
-    margin-bottom: 10px;
+.btn-ejercicio:hover {
+    color: #e8e8e8;
+}
+
+.btn-ejercicio:hover::before {
+    width: 100%;
+}
+
+.contenido-reloj {
+    display: flex;
+}
+
+/* Fecha Inicio */
+.clock-container {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clock-container h2 {
     color: #ffffff;
 }
 
-/* Estilo para los inputs */
-.contenido-fechatime input[type="datetime-local"] {
-    width: 250px;
+.digital-clock {
+    color: #ffffff;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.date-display {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.date-picker {
+    margin: 10px 0;
+}
+
+.date-picker label {
+    margin: 0 70px 0 0;
+    color: #ffff;
+}
+
+/* Estilos mejorados para el input de datetime-local */
+input[type="datetime-local"] {
     padding: 10px;
     font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    background-color: #178bc3;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #444, #555);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo al pasar el mouse */
+input[type="datetime-local"]:hover {
+    background: linear-gradient(135deg, #555, #666);
+}
+
+/* Estilo cuando el input está enfocado */
+input[type="datetime-local"]:focus {
+    border-color: #007bff;
+    background: linear-gradient(135deg, #333, #444);
+}
+
+/* Botón */
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
     border: none;
     border-radius: 8px;
-    text-align: center;
-}
-
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit {
-    color: #ffffff;
-    /* Color del texto */
-}
-
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-month-field,
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-day-field,
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-year-field,
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
-    padding: 0 2px;
-}
-
-.contenido-fechatime input[type="datetime-local"]::-webkit-datetime-edit-ampm-field {
-    margin-left: 8px;
-}
-
-.contenido-fechatime input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    cursor: pointer; 
-}
-
-.contenido-fechatime input[type="datetime-local"]:focus {
-    outline: none;
-    /* Efecto de enfoque */
-}
-
-/* Estilo para los botones */
-.contenido-fechatime input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-    background-color: #64ffda;
-    padding: 5px;
-    border-radius: 50%;
-}
-
-/* From Uiverse.io by ShrinilDhorda */
-.btn {
-    width: 100%;
-    margin-top: 40px;
-    font-size: 1.2rem;
-    padding: 1rem 2.5rem;
-    border: none;
-    outline: none;
-    border-radius: 0.4rem;
     cursor: pointer;
-    text-transform: uppercase;
-    background-color: rgb(14, 14, 26);
-    color: rgb(234, 234, 234);
-    font-weight: 700;
-    transition: 0.6s;
-    box-shadow: 0px 0px 60px #1f4c65;
-    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+    transition: background-color 0.3s;
 }
 
-.btn:active {
-    scale: 0.92;
+button:hover {
+    background-color: #0056b3;
 }
 
-.btn:hover {
-    background: rgb(2, 29, 78);
-    background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-    color: rgb(4, 4, 38);
+
+/*Fecha Final */
+.clock-container1 {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clock-container1 h2 {
+    color: #ffffff;
+}
+
+.digital-clock1 {
+    color: #ffffff;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.date-display1 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.date-picker1 {
+    margin: 10px 0;
+}
+
+.date-picker1 label {
+    margin: 0 70px 0 0;
+    /* Ajuste del espaciado */
+    color: #ffff;
+}
+
+/* Estilos mejorados para el input de datetime-local */
+input[type="datetime-local"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #444, #555);
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo al pasar el mouse */
+input[type="datetime-local"]:hover {
+    background: linear-gradient(135deg, #555, #666);
+}
+
+/* Estilo cuando el input está enfocado */
+input[type="datetime-local"]:focus {
+    border-color: #007bff;
+    background: linear-gradient(135deg, #333, #444);
+}
+
+/* Botón */
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
