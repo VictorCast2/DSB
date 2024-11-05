@@ -53,10 +53,12 @@ public class UserController {
             return "/Users/Registro";
         }
         LocalDate Date = Users.getDateBirthday();
-        Users.setAge(userService.calculateYourAge(Date));
-        userService.saveOrUpdateUsers(Users);
+        Integer calculatedAge = userService.calculateYourAge(Date);
+        System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
+        Users.setAge(calculatedAge); // Calcula y asigna la edad
+        userService.saveOrUpdateUsers(Users); // Guarda el usuario con la edad calculada
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/DSB";
+        return "redirect:/DSBSinConection";
     }
 
     /**
@@ -94,7 +96,7 @@ public class UserController {
         if (user != null) {
             userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
-            return "redirect:/DSB";
+            return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
@@ -123,7 +125,7 @@ public class UserController {
         UserModel user = userService.getUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
-            return "redirect:/DSB";
+            return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
             return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
@@ -153,7 +155,7 @@ public class UserController {
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            return "redirect:/DSB"; // Redirecciona a la página principal
+            return "redirect:/DSBSinConection"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
             return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
