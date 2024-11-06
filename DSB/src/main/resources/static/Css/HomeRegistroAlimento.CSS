@@ -75,6 +75,7 @@ a:hover {
     }
 }
 
+/* Responsive media query code for small screen */
 @media (max-width: 890px) {
     .checkbtn {
         display: block;
@@ -116,110 +117,70 @@ a:hover {
     }
 }
 
-/*Table  */
-.contenido-tabla{
-    margin: 100px 0 0 0 ;
-    width: 100%;
-    overflow-x: auto;
+.section-home {
+    background-image: url(../Img/bg-hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-table{
-    border-collapse: collapse;
-    margin: 0;
-    width: 100%;
-    box-shadow: 0 0 5px rgba(0,0, 0, .25);
+.container-home {
+    padding: 138px 0; /* Ajusta el padding según sea necesario */
 }
 
-table tr{
-    padding: .45em;
+.parrafo-bienvenida {
+    margin: 0 0 0 80px; /* Ajusta si es necesario */
 }
 
-thead tr{
-    background-color: #000082;
-}
-
-thead th{
+.parrafo-bienvenida .texto1 {
+    font-size: 30px;
+    font-weight: 900;
     color: #ffffff;
-    font-size: 1.15em;
+    margin-bottom: 10px;
 }
 
-tbody tr:nth-child(even){
-    background-color: #eaeaea;
-}
-
-table th,
-table td{
-    font-size: 1em;
-    padding: 1em;
-    text-align: center;
-}
-
-thead th{
+.parrafo-bienvenida h1 {
+    font-size: 60px;
+    font-weight: 900;
     color: #ffffff;
-    font-size: 1.15em
+    margin-bottom: 10px;
 }
 
-a{
-    text-decoration: none;
-    outline: none;
-    border: none;
-    border-radius: 6px;
+.parrafo-bienvenida .texto2 {
+    font-size: 30px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    border: 3px solid #0081aa;
     cursor: pointer;
-    padding: 10px;
-    color: #ffffff;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+    position: relative;
 }
 
-td a:nth-child(1){
-    background-color: #009900;
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
 }
 
-td a:nth-child(2){
-    background-color: #c60501;
-}
-
-@media (max-width:440px){
-    table{
-        border: 3px solid #000082;
-    }
-
-    table thead tr{
-        display: none;
-    }
-    table tr{
-        display: block;
-    }
-    table th,table td{
-        padding: .5em
-    }
-    table td{
-        text-align: right;
-        display: block;
-        font-size: 1em
-    }
-
-    table td::before{
-        content: attr(data-title) ": ";
-        float: left;
-    }
-
-    tbody tr:nth-child(even){
-        background-color: #000082;
-        color: #fff;
-    }
-
-}
-
-@media (min-width: 440px) and (max-width: 1178px) {
-    table td[data-title="Action"] {
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    table td[data-title="Action"] a {
-        padding: 8px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
+.btn:hover::before {
+    transform: translateX(0);
 }
