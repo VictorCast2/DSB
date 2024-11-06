@@ -28,10 +28,12 @@ public class UserModel {
     private Double Weight;
     private Double Height;
     private String Disease;
+    private Double MasaCorporal;
+    private String ClasificacionSalud;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate DateBirthday;
-
+    
     @Transient
     private boolean termsAccepted;
-
 }

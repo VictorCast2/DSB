@@ -143,4 +143,13 @@ public class UserServices {
         LocalDate today = LocalDate.now();
         return Period.between(DateBirthday, today).getYears();
     }
+
+    private Double calcularMasaCorporal(){
+        return .0;
+    }
+
+    private String ClasificacionSalud(){
+        return "";
+    }
+
 }
