@@ -44,7 +44,7 @@ public class UserController {
      */
     @PostMapping("/Registro")
     public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
-                               BindingResult result, Model model) {
+            BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "/Api/Users/Registro";
         }
