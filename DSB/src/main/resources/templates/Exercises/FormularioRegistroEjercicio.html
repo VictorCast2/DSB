@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/Css/FormularioRegistroEjercicio.CSS">
+    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <!-- Checkbox for toggling menu -->
+        <input type="checkbox" id="check">
+        <!-- Menu icon -->
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <!-- Site logo -->
+        <label class="logo">REGISTRO EJERCICIOS</label>
+        <!-- Navigation links -->
+        <ul>
+            <li><a class="active" href="#">HOME</a></li>
+            <li><a href="#">REGISTRO EJERCICIO</a></li>
+            <li><a href="#">LISTA EJERCICIO</a></li>
+        </ul>
+    </nav>
+
+    <div class="contenido-registroejercicio">
+        <h1>Registro Ejercicio</h1>
+        <form action="">
+            <div class="contenido-principal">
+
+                <div class="container"> <!---Tipo Ejercicio-->
+                    <div class="select-btn">
+                        <span class="btn-text">Tipo Ejercicio</span>
+                        <span class="arrow-dwn">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <ul class="list-items">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="scrollable-content"> <!-- New wrapper -->
+                            <li th:each="ejercicio : ${allTipEjercicios}" class="item">
+                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox">
+                                <label th:for="${ejercicio}" th:text="${ejercicio}"></label>
+                            </li>
+                        </div> <!-- Close the new wrapper -->
+                    </ul>
+                </div> <!---Tipo Ejercicio-->
+
+                <div class="container1"> <!--Nombre Ejercicio-->
+                    <div class="select-btn1">
+                        <span class="btn-text1">Nombre Ejercicio</span>
+                        <span class="arrow-dwn1">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <ul class="list-items1">
+                        <div class="search1">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="scrollable-content1"> <!-- New wrapper -->
+                            <ul>
+                                <li th:each="tipo, ejercicios : ${allNameEjercicios}">
+                                    <div>
+                                        <ul>
+                                            <li th:each="nombreEjercicio : ${ejercicios}">
+                                                <input type="checkbox" th:id="${nombreEjercicio}" th:value="${nombreEjercicio}" class="checkbox1">
+                                                <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}"></label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div> <!-- Close the new wrapper -->
+                    </ul>
+                </div> <!--Nombre Ejercicio-->
+            </div>
+
+            <div class="container2"> <!--Intesidad Ejercicio-->
+                <div class="select-btn2">
+                    <span class="btn-text2">Intesidad Ejercicio</span>
+                    <span class="arrow-dwn2">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                </div>
+                <ul class="list-items2">
+                    <div class="search2">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="scrollable-content2"> <!-- New wrapper -->
+                        <li class="item2">
+                            <input type="checkbox" id="baja" class="checkbox2">
+                            <label for="baja" class="item-text2">Baja</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="baja-media" class="checkbox2">
+                            <label for="baja-media" class="item-text2">Baja Media</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="baja-alta" class="checkbox2">
+                            <label for="baja-alta" class="item-text2">Baja Alta</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="media" class="checkbox2">
+                            <label for="media" class="item-text2">Media</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="media-media" class="checkbox2">
+                            <label for="media-media" class="item-text2">Media Media</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="media-alta" class="checkbox2">
+                            <label for="media-alta" class="item-text2">Media Alta</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="alta" class="checkbox2">
+                            <label for="alta" class="item-text2">Alta</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="alta-media" class="checkbox2">
+                            <label for="alta-media" class="item-text2">Alta Media</label>
+                        </li>
+                        <li class="item2">
+                            <input type="checkbox" id="alta-alta" class="checkbox2">
+                            <label for="alta-alta" class="item-text2">Alta Alta</label>
+                        </li>
+                    </div> <!-- Close the new wrapper -->
+                </ul>
+            </div> <!--Intesidad Ejercicio-->
+
+            <!--Datetime-local-->
+            <div class="contenido-reloj">
+                <div class="clock-container">
+                    <h2>Fecha Inicial</h2>
+                    <div class="digital-clock" id="clock">00:00:00</div>
+                    <div class="date-display" id="date-display">Fecha Actual</div>
+                    <div class="date-picker">
+                        <label for="datetime">Cambiar Fecha y Hora</label>
+                        <input type="datetime-local" id="datetime" onchange="updateDisplay()">
+                    </div>
+                    <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                </div>
+
+                <div class="clock-container1">
+                    <h2>Fecha Final</h2>
+                    <div class="digital-clock1" id="clock1">00:00:00</div>
+                    <div class="date-display1" id="date-display1">Fecha Actual</div>
+                    <div class="date-picker1">
+                        <label for="datetime1">Cambiar Fecha y Hora</label>
+                        <input type="datetime-local" id="datetime1" onchange="updateDisplay()">
+                    </div>
+                    <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                </div>
+            </div>
+            
+            <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
+
+
+        </form>
+    </div>
+
+    <script src="/Js/datetime-local.js"></script>
+    <script src="/Js/chexbox.js"></script>
+    <script src="/Js/chexbox1.js"></script>
+    <script src="/Js/chexbox2.js"></script>
+
+
+</body>
+
+</html>
