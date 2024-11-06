@@ -17,7 +17,7 @@
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
                 <form th:action="@{/Api/Users/Registro}" th:object="${Users}"
-                    method="post" onsubmit="validatePasswords(event)">
+                    method="post">
                     <h1>Registrar</h1>
                     <div class="icono">
                         <ul class="example-2">
@@ -152,8 +152,8 @@
                     </div>
                     <div class="input">
                         <input type="password" required autocomplete="off"
-                            name="NewPassword" id="password">
-                        <label for="NewPassword">Repetir contraseña</label>
+                            name="Password" id="password">
+                        <label for="Password">Repetir contraseña</label>
                     </div>
                     <div class="remember-forgot">
                         <label><input type="checkbox"
@@ -182,6 +182,5 @@
                 </div>
             </div>
         </div>
-        <script src="/Js/Registro/Main"></script>
     </body>
 </html>
