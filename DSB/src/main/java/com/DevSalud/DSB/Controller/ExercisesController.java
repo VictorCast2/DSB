@@ -3,7 +3,6 @@ package com.DevSalud.DSB.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import ch.qos.logback.core.model.Model;
 
 
 @Controller
@@ -11,13 +10,23 @@ import ch.qos.logback.core.model.Model;
 public class ExercisesController {
 
     @GetMapping("/RegistroEjercicio")
-    public String formularioRegistroEjercicio(Model model) {
+    public String formularioRegistroEjercicio() {
         return "/Exercises/FormularioRegistroEjercicio";
     }
 
     @GetMapping("/home")
-    public String homeRegistroEjercicio(Model model) {
+    public String homeRegistroEjercicio() {
         return "/Exercises/HomeRegistroEjercicio";
     }
 
+
+    @GetMapping("/EditarEjercicio")
+    public String formularioEditarEjercicio() {
+        return "/Exercises/FormularioEditarEjercicio";
+    }
+
+    @GetMapping("/TablaRegistroEjercicio")
+    public String TablaRegistroEjercicio() {
+        return "/Exercises/TablaRegistroEjercicio";
+    }
 }
