@@ -44,11 +44,10 @@
                             <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content">
-                            <!-- New wrapper -->
-                            <li th:each="ejercicio : ${allTipEjercicios}" class="item">
-                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox">
-                                <label th:for="${ejercicio}" th:text="${ejercicio}"></label>
-                            </li>
+                            <div th:each="tipo : ${allTipEjercicios}">
+                                <input type="checkbox" th:id="${tipo}" th:value="${tipo}" onclick="cargarEjercicios()">
+                                <label th:for="${tipo}" th:text="${tipo}"></label>
+                            </div>
                         </div>
                     </ul>
                 </div> <!--- Final de Tipo Ejercicio-->
@@ -65,13 +64,13 @@
                             <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content1"> <!-- New wrapper -->
-                            <li th:each="nombreEjercicio : ${allNameEjercicios[ejercicio]}" class="item1">
-                                <input type="checkbox" th:id="${nombreEjercicio}" th:value="${nombreEjercicio}" class="checkbox1">
-                                <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}"></label>
-                            </li>
-                        </div>
+                            <div id="ejerciciosContainer">
+                                <!-- Los ejercicios se llenarán aquí con JavaScript -->
+                            </div>
+                        </div> <!-- Close the new wrapper -->
                     </ul>
                 </div> <!--Nombre Ejercicio-->
+            </div>
 
             <div class="container2"> <!--Intesidad Ejercicio-->
 
@@ -151,9 +150,45 @@
                 </div>
             </div>
             
-            <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
+            <button class="btn-ejercicio" type="submit">REGISTRO EJERCICIO</button>
         </form>
     </div>
+
+    <script>
+        // Esta función se llama cuando se selecciona o deselecciona un tipo de ejercicio
+        function cargarEjercicios() {
+            var selectedTypes = document.querySelectorAll("input[type='checkbox']:checked");
+            var ejerciciosContainer = document.getElementById("ejerciciosContainer");
+
+            // Limpiar los ejercicios previos
+            ejerciciosContainer.innerHTML = '';
+
+            selectedTypes.forEach(function(checkbox) {
+                var tipoEjercicio = checkbox.value;
+
+                // Llamar al backend para obtener los ejercicios de ese tipo
+                fetch(`/Api/Users/Exercises/ejerciciosPorTipo?tipo=${tipoEjercicio}`)
+                    .then(response => response.json())
+                    .then(ejercicios => {
+                        ejercicios.forEach(function(ejercicio) {
+                            var div = document.createElement("div");
+                            var input = document.createElement("input");
+                            input.type = "checkbox";
+                            input.id = ejercicio;
+                            input.value = ejercicio;
+                            var label = document.createElement("label");
+                            label.setAttribute("for", ejercicio);
+                            label.textContent = ejercicio;
+
+                            div.appendChild(input);
+                            div.appendChild(label);
+                            ejerciciosContainer.appendChild(div);
+                        });
+                    })
+                    .catch(error => console.error('Error al cargar los ejercicios:', error));
+            });
+        }
+    </script>
     <script src="/Js/datetime-local.js"></script>
     <script src="/Js/chexbox.js"></script>
     <script src="/Js/chexbox1.js"></script>
