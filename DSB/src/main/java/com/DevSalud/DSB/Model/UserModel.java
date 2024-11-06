@@ -2,11 +2,14 @@ package com.DevSalud.DSB.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter @Setter
 @Entity
 @Table(name = "Users")
 public class UserModel {
@@ -19,13 +22,14 @@ public class UserModel {
     private String Name;
     private String Sex;
     private Integer Age;
-    private LocalDate DateBirthday;
     private String user;
     private String emailAddress;
     private String Password;
     private Double Weight;
     private Double Height;
     private String Disease;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate DateBirthday;
 
     @Transient
     private boolean termsAccepted;

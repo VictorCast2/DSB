@@ -46,15 +46,22 @@ public class UserController {
     public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
                                BindingResult result, Model model) {
         if (result.hasErrors()) {
-            return "/Users/Registro";
+            return "/Api/Users/Registro";
         }
         if (!Users.isTermsAccepted()) {
             model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
+            return "/Api/Users/Registro";
+        }
+        LocalDate DateOfBirth = Users.getDateBirthday();
+
+        Integer calculatedAge = userService.calculateYourAge(DateOfBirth);
+        System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
+
+        if (calculatedAge == null || calculatedAge < 0) {
+            model.addAttribute("Error", "La fecha de nacimiento no es válida.");
             return "/Users/Registro";
         }
-        LocalDate Date = Users.getDateBirthday();
-        Integer calculatedAge = userService.calculateYourAge(Date);
-        System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
+
         Users.setAge(calculatedAge); // Calcula y asigna la edad
         userService.saveOrUpdateUsers(Users); // Guarda el usuario con la edad calculada
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
