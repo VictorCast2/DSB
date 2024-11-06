@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
@@ -45,7 +46,6 @@
                         <div class="search">
                             <input type="text" placeholder="Search">
                         </div>
-
                         <div class="scrollable-content">
                             <div th:each="tipo : ${allTipEjercicios}">
                                 <input type="checkbox" th:id="${tipo}" th:value="${tipo}" onclick="cargarEjercicios()">
@@ -155,7 +155,6 @@
                                 <input type="checkbox" id="flexiones-palmas" class="checkbox1">
                                 <label for="flexiones-palmas" class="item-text1">Flexiones Con Palma</label>
                             </li>
-
                         </div> <!-- Close the new wrapper -->
                     </ul>
                 </div> <!--Nombre Ejercicio-->
@@ -278,6 +277,12 @@
         }
     </script>
 
+            <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
+
+
+        </form>
+    </div>
+            
             <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
 
 
