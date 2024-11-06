@@ -42,5 +42,4 @@ public class ExercisesController {
     public String homeRegistroEjercicio(Model model) {
         return "/Exercises/HomeRegistroEjercicio";
     }
-
 }

@@ -53,17 +53,17 @@ public class UserController {
             return "/Api/Users/Registro";
         }
         LocalDate DateOfBirth = Users.getDateBirthday();
-
-        Integer calculatedAge = userService.calculateYourAge(DateOfBirth);
+        Integer calculatedAge = userService.calculateAge(DateOfBirth);
         System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-
         if (calculatedAge == null || calculatedAge < 0) {
             model.addAttribute("Error", "La fecha de nacimiento no es válida.");
             return "/Users/Registro";
         }
-
         Users.setAge(calculatedAge); // Calcula y asigna la edad
-        userService.saveOrUpdateUsers(Users); // Guarda el usuario con la edad calculada
+
+
+
+        userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
         return "redirect:/DSBSinConection";
     }
@@ -99,9 +99,9 @@ public class UserController {
             return "Users/OlvidoContraseña"; // Volver al formulario
         }
         // Obtener el usuario por nombre de usuario
-        UserModel user = userService.getUserByUsername(username);
+        UserModel user = userService.findByUserOrEmail(username);
         if (user != null) {
-            userService.olvidarContrasenna(user.getId(), newPassword); // Cambiar la contraseña
+            userService.resetPassword(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
             return "redirect:/DSBSinConection";
         } else {
@@ -129,7 +129,7 @@ public class UserController {
             model.addAttribute("error", "Las contraseñas no coinciden.");
             return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
         }
-        UserModel user = userService.getUserByUsername(username);
+        UserModel user = userService.findByUserOrEmail(username);
         if (user != null && user.getPassword().equals(password)) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
             return "redirect:/DSBSinConection";
@@ -219,7 +219,7 @@ public class UserController {
             modelo.addAttribute("Usuario", Users);
             return "Editar";
         }
-        userService.saveOrUpdateUsers(Users);
+        userService.saveOrUpdateUser(Users);
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido actualizado con éxito");
         return "redirect:/Api/Users/Lista";
     }

@@ -41,7 +41,7 @@ public class UserServicesTest {
     @Test
     public void testSaveOrUpdateUsers() {
         UserModel user = new UserModel();
-        userService.saveOrUpdateUsers(user);
+        userService.saveOrUpdateUser(user);
         verify(userRepository).save(user);
     }
 
@@ -63,7 +63,7 @@ public class UserServicesTest {
     public void testOlvidarContrasenna() {
         UserModel user = new UserModel();
         when(userRepository.findById(any(Long.class))).thenReturn(Optional.of(user));
-        userService.olvidarContrasenna(1L, "newPassword");
+        userService.resetPassword(1L, "newPassword");
         verify(userRepository).save(user);
     }
 }
