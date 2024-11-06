@@ -241,42 +241,6 @@
         </form>
     </div>
 
-    <script>
-        // Esta función se llama cuando se selecciona o deselecciona un tipo de ejercicio
-        function cargarEjercicios() {
-            var selectedTypes = document.querySelectorAll("input[type='checkbox']:checked");
-            var ejerciciosContainer = document.getElementById("ejerciciosContainer");
-
-            // Limpiar los ejercicios previos
-            ejerciciosContainer.innerHTML = '';
-
-            selectedTypes.forEach(function(checkbox) {
-                var tipoEjercicio = checkbox.value;
-
-                // Llamar al backend para obtener los ejercicios de ese tipo
-                fetch(`/Api/Users/Exercises/ejerciciosPorTipo?tipo=${tipoEjercicio}`)
-                    .then(response => response.json())
-                    .then(ejercicios => {
-                        ejercicios.forEach(function(ejercicio) {
-                            var div = document.createElement("div");
-                            var input = document.createElement("input");
-                            input.type = "checkbox";
-                            input.id = ejercicio;
-                            input.value = ejercicio;
-                            var label = document.createElement("label");
-                            label.setAttribute("for", ejercicio);
-                            label.textContent = ejercicio;
-
-                            div.appendChild(input);
-                            div.appendChild(label);
-                            ejerciciosContainer.appendChild(div);
-                        });
-                    })
-                    .catch(error => console.error('Error al cargar los ejercicios:', error));
-            });
-        }
-    </script>
-
             <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
 
 
