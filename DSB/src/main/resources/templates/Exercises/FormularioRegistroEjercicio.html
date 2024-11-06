@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -71,7 +70,8 @@
                                     <strong th:text="${entry.key}"></strong> <!-- Mostrar el nombre de la categoría -->
                                     <ul>
                                         <li th:each="nombreEjercicio : ${entry.value}">
-                                            <input type="checkbox" th:id="${nombreEjercicio}" th:value="${nombreEjercicio}" class="checkbox1">
+                                            <input type="checkbox" th:id="${nombreEjercicio}"
+                                                th:value="${nombreEjercicio}" class="checkbox1">
                                             <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}"></label>
                                         </li>
                                     </ul>
@@ -158,7 +158,7 @@
                     <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
                 </div>
             </div>
-            
+
             <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
 
 
