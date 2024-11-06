@@ -28,8 +28,8 @@
         </ul>
     </nav>
 
-    <div class="contenido-registroejercicio"> 
-        <h1>Registro Alimenticios</h1>
+    <div class="contenido-registroejercicio">
+        <h1>Registro Ejercicio</h1>
         <form action="">
             <div class="contenido-principal">
 
@@ -42,7 +42,7 @@
                     </div>
                     <ul class="list-items">
                         <div class="search">
-                            <input type="text" placeholder="Search">             
+                            <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content"> <!-- New wrapper -->
                             <li class="item">
@@ -118,7 +118,7 @@
                     </div>
                     <ul class="list-items1">
                         <div class="search1">
-                            <input type="text" placeholder="Search">             
+                            <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content1"> <!-- New wrapper -->
                             <li class="item1">
@@ -155,7 +155,7 @@
                 </div>
                 <ul class="list-items2">
                     <div class="search2">
-                        <input type="text" placeholder="Search">             
+                        <input type="text" placeholder="Search">
                     </div>
                     <div class="scrollable-content2"> <!-- New wrapper -->
                         <li class="item2">
@@ -198,27 +198,43 @@
                 </ul>
             </div> <!--Intesidad Ejercicio-->
 
-            <div class="contenido-fechatime"> <!--Fechas Ejercicio-->  
-                <div class="input-fechatimeinicio">
-                    <label for="fechaInicio">Fecha Inicio</label>
-                    <input type="datetime-local" id="fechaInicio">
+            <!--Datetime-local-->
+            <div class="contenido-reloj">
+                <div class="clock-container">
+                    <h2>Fecha Inicial</h2>
+                    <div class="digital-clock" id="clock">00:00:00</div>
+                    <div class="date-display" id="date-display">Fecha Actual</div>
+                    <div class="date-picker">
+                        <label for="datetime">Cambiar Fecha y Hora</label>
+                        <input type="datetime-local" id="datetime" onchange="updateDisplay()">
+                    </div>
+                    <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
                 </div>
-                <div class="input-fechatimefinal">
-                    <label for="fechaFinal">Fecha Final</label>
-                    <input type="datetime-local" id="fechaFinal">
+
+                <div class="clock-container1">
+                    <h2>Fecha Final</h2>
+                    <div class="digital-clock1" id="clock1">00:00:00</div>
+                    <div class="date-display1" id="date-display1">Fecha Actual</div>
+                    <div class="date-picker1">
+                        <label for="datetime1">Cambiar Fecha y Hora</label>
+                        <input type="datetime-local" id="datetime1" onchange="updateDisplay()">
+                    </div>
+                    <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
                 </div>
             </div>
+            
+            <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
 
-            <button class="btn" type="submit">Registrar</button>
 
         </form>
     </div>
-    
+
+    <script src="/Js/datetime-local.js"></script>
     <script src="/Js/chexbox.js"></script>
     <script src="/Js/chexbox1.js"></script>
     <script src="/Js/chexbox2.js"></script>
-    
-    
+
+
 </body>
 
 </html>

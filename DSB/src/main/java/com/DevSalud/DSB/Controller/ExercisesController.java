@@ -15,7 +15,7 @@ public class ExercisesController {
         return "/Exercises/FormularioRegistroEjercicio";
     }
 
-    @GetMapping("/h")
+    @GetMapping("/home")
     public String homeRegistroEjercicio(Model model) {
         return "/Exercises/HomeRegistroEjercicio";
     }
