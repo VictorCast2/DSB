@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -67,11 +66,14 @@
                         </div>
                         <div class="scrollable-content1"> <!-- New wrapper -->
                             <ul>
+                                <!-- Dentro de Nombre Ejercicio -->
                                 <li th:each="entry : ${allNameEjercicios}" class="item">
-                                    <strong th:text="${entry.key}"></strong> <!-- Mostrar el nombre de la categoría -->
+                                    <strong th:text="${entry.key}"></strong>
                                     <ul>
                                         <li th:each="nombreEjercicio : ${entry.value}">
-                                            <input type="checkbox" th:id="${nombreEjercicio}" th:value="${nombreEjercicio}" class="checkbox1">
+                                            <input type="checkbox" th:id="${nombreEjercicio}"
+                                                th:value="${nombreEjercicio}" class="checkbox1"
+                                                th:data-tipo="${entry.key}"> <!-- Añadir atributo data-tipo -->
                                             <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}"></label>
                                         </li>
                                     </ul>
