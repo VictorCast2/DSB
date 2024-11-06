@@ -11,7 +11,7 @@ import ch.qos.logback.core.model.Model;
 public class ExercisesController {
 
     @GetMapping("/RegistroEjercicio")
-    public String formularioRegistroEjercicio(Model model) {
+    public String formularioRegistroEjercicio() {
         return "/Exercises/FormularioRegistroEjercicio";
     }
 

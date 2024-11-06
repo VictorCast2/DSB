@@ -137,7 +137,9 @@ public class UserServices {
      * @return La edad calculada.
      */
     public Integer calculateYourAge(LocalDate DateBirthday) {
-        // Obtenemos la fecha actual del dia de hoy
+        if (DateBirthday == null) {
+            throw new IllegalArgumentException("La fecha de nacimiento no puede ser nula");
+        }
         LocalDate today = LocalDate.now();
         return Period.between(DateBirthday, today).getYears();
     }
