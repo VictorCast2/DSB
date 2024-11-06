@@ -17,7 +17,6 @@ selectBtn.addEventListener("click", () => {
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
         const labelText = checkbox.nextElementSibling.innerText;
-
         if (checkbox.checked) {
             // Agregar al final si se selecciona
             selectedOptions.push(labelText);
@@ -25,9 +24,7 @@ checkboxes.forEach(checkbox => {
             // Remover si se deselecciona
             selectedOptions = selectedOptions.filter(item => item !== labelText);
         }
-
         const selectedCount = selectedOptions.length;
-
         if (selectedCount > 0) {
             if (selectedCount >= 3) {
                 btnText.innerText = `All selected (${selectedCount})`;
@@ -44,10 +41,8 @@ checkboxes.forEach(checkbox => {
 searchInput.addEventListener("input", () => {
     const filter = searchInput.value.toLowerCase();
     const items = listItems.querySelectorAll(".item");
-
     items.forEach(item => {
         const label = item.querySelector(".item-text").innerText.toLowerCase();
-
         if (label.includes(filter)) {
             item.style.display = "";
         } else {
@@ -63,5 +58,3 @@ document.addEventListener("click", (event) => {
         listItems.classList.remove("open");
     }
 });
-
-

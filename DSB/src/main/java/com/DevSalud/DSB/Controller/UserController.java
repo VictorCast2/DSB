@@ -162,7 +162,7 @@ public class UserController {
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            return "redirect:/DSBSinConection"; // Redirecciona a la página principal
+            return "redirect:/DSBConection"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
             return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
