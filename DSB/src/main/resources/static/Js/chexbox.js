@@ -4,64 +4,49 @@ const selectBtn = document.querySelector(".select-btn"),
     btnText = document.querySelector(".btn-text"),
     searchInput = document.querySelector(".search input");
 
-// Array para almacenar opciones seleccionadas en el orden en que se seleccionan
-let selectedOptions = [];
+let selectedOption = null;
 
-// Toggle dropdown visibility when the button is clicked
+// Mostrar u ocultar el dropdown
 selectBtn.addEventListener("click", () => {
     selectBtn.classList.toggle("open");
     listItems.classList.toggle("open");
 });
 
-// Update button text based on selected checkboxes
+// Cambiar el texto del botón según la opción seleccionada
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
-        const labelText = checkbox.nextElementSibling.innerText;
+        // Desmarcar todas las casillas excepto la seleccionada
+        checkboxes.forEach(cb => {
+            if (cb !== checkbox) cb.checked = false;
+        });
 
+        // Actualizar la opción seleccionada
         if (checkbox.checked) {
-            // Agregar al final si se selecciona
-            selectedOptions.push(labelText);
+            selectedOption = checkbox.nextElementSibling.innerText;
         } else {
-            // Remover si se deselecciona
-            selectedOptions = selectedOptions.filter(item => item !== labelText);
+            selectedOption = null;
         }
 
-        const selectedCount = selectedOptions.length;
-
-        if (selectedCount > 0) {
-            if (selectedCount >= 3) {
-                btnText.innerText = `All selected (${selectedCount})`;
-            } else {
-                btnText.innerText = selectedOptions.join(", ");
-            }
-        } else {
-            btnText.innerText = "Tipo Ejercicio";
-        }
+        // Actualizar el texto del botón
+        btnText.innerText = selectedOption || "Tipo Ejercicio";
     });
 });
 
-// Implement search functionality
+// Función de búsqueda
 searchInput.addEventListener("input", () => {
     const filter = searchInput.value.toLowerCase();
     const items = listItems.querySelectorAll(".item");
 
     items.forEach(item => {
         const label = item.querySelector(".item-text").innerText.toLowerCase();
-
-        if (label.includes(filter)) {
-            item.style.display = "";
-        } else {
-            item.style.display = "none";
-        }
+        item.style.display = label.includes(filter) ? "" : "none";
     });
 });
 
-// Close the dropdown when clicking outside of it
+// Cerrar el dropdown si se hace clic fuera de él
 document.addEventListener("click", (event) => {
     if (!selectBtn.contains(event.target) && !listItems.contains(event.target)) {
         selectBtn.classList.remove("open");
         listItems.classList.remove("open");
     }
 });
-
-

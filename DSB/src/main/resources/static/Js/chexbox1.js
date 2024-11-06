@@ -1,63 +1,49 @@
-/* Menu de NOMBRE EJERCICIO*/
 const selectBtn1 = document.querySelector(".select-btn1"),
     listItems1 = document.querySelector(".list-items1"),
     checkboxes1 = document.querySelectorAll(".checkbox1"),
     btnText1 = document.querySelector(".btn-text1"),
     searchInput1 = document.querySelector(".search1 input");
 
-// Array para almacenar opciones seleccionadas en el orden en que se seleccionan
-let selectedOptions1 = [];
+let selectedOption1 = null;
 
-// Toggle dropdown visibility when the button is clicked
+// Mostrar u ocultar el dropdown
 selectBtn1.addEventListener("click", () => {
     selectBtn1.classList.toggle("open");
     listItems1.classList.toggle("open");
 });
 
-// Update button text based on selected checkboxes
+// Cambiar el texto del botón según la opción seleccionada
 checkboxes1.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
-        const labelText = checkbox.nextElementSibling.innerText;
+        // Desmarcar todas las casillas excepto la seleccionada
+        checkboxes1.forEach(cb => {
+            if (cb !== checkbox) cb.checked = false;
+        });
 
+        // Actualizar la opción seleccionada
         if (checkbox.checked) {
-            // Agregar al final si se selecciona
-            selectedOptions1.push(labelText);
+            selectedOption1 = checkbox.nextElementSibling.innerText;
         } else {
-            // Remover si se deselecciona
-            selectedOptions1 = selectedOptions1.filter(item => item !== labelText);
+            selectedOption1 = null;
         }
 
-        const selectedCount = selectedOptions1.length;
-
-        if (selectedCount > 0) {
-            if (selectedCount >= 3) {
-                btnText1.innerText = `All selected (${selectedCount})`;
-            } else {
-                btnText1.innerText = selectedOptions1.join(", ");
-            }
-        } else {
-            btnText1.innerText = "Nombre Ejercicio";
-        }
+        // Actualizar el texto del botón
+        btnText1.innerText = selectedOption1 || "Nombre Ejercicio";
     });
 });
 
-// Implement search functionality
+// Función de búsqueda
 searchInput1.addEventListener("input", () => {
     const filter = searchInput1.value.toLowerCase();
     const items1 = listItems1.querySelectorAll(".item1");
 
     items1.forEach(item => {
         const label = item.querySelector(".item-text1").innerText.toLowerCase();
-
-        if (label.includes(filter)) {
-            item.style.display = "";
-        } else {
-            item.style.display = "none";
-        }
+        item.style.display = label.includes(filter) ? "" : "none";
     });
 });
 
-// Close the dropdown when clicking outside of it
+// Cerrar el dropdown si se hace clic fuera de él
 document.addEventListener("click", (event) => {
     if (!selectBtn1.contains(event.target) && !listItems1.contains(event.target)) {
         selectBtn1.classList.remove("open");
