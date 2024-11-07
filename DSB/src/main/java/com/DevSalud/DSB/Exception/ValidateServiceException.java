@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class ValidateServiceException extends RuntimeException {
+
     public ValidateServiceException(String message, Throwable cause, boolean enableSuppression,
             boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
@@ -24,4 +25,5 @@ public class ValidateServiceException extends RuntimeException {
 
     public ValidateServiceException() {
     }
+    
 }

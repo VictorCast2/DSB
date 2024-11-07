@@ -9,7 +9,7 @@ public class MainController {
     /**
      * Maneja las solicitudes GET para las rutas raíz (" "), "/", y
      * "/DSBSinConection".
-     *
+     * 
      * @return La vista "Index".
      */
     @GetMapping({ " ", "/", "/DSBSinConection" })
