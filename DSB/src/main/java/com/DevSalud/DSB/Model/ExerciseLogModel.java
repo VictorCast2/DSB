@@ -1,5 +1,6 @@
 package com.DevSalud.DSB.Model;
 
+import java.time.LocalDate;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,13 +18,9 @@ public class ExerciseLogModel {
     @NonNull
     public String ExerciseName;
     public String ExerciseType;
-    public Integer Hours;
-    public Integer Minutes;
+    private LocalDate StrartDate;
+    private LocalDate FinalDate;
     public String ExerciseIntensity;
-
-    @ManyToOne
-    @JoinColumn(name = "MenuOfTheDayModel", referencedColumnName = "Id")
-    private MenuOfTheDayModel menuOfTheDayModel;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
