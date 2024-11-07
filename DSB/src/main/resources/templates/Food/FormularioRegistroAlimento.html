@@ -46,37 +46,9 @@
                             <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content"> <!-- New wrapper -->
-                            <li class="item">
-                                <input type="checkbox" id="proteina-desayuno" class="checkbox">
-                                <label for="proteina-desayuno" class="item-text">Proteinas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="fruta-desayuno" class="checkbox">
-                                <label for="fruta-desayuno" class="item-text">Frutas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="verduras-desayuno" class="checkbox">
-                                <label for="verduras-desayuno" class="item-text">Verduras</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="granos-desayuno" class="checkbox">
-                                <label for="granos-desayuno" class="item-text">Granos</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="lacteos-desayuno" class="checkbox">
-                                <label for="lacteos-desayuno" class="item-text">Productos Lacteos</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="harinas-desayuno" class="checkbox">
-                                <label for="harinas-desayuno" class="item-text">Harinas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="saturadas-desayuno" class="checkbox">
-                                <label for="saturadas-desayuno" class="item-text">Grasas Saturadas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="carbohidratos-desayuno" class="checkbox">
-                                <label for="carbohidratos-desayuno" class="item-text">Carbohidratos</label>
+                            <li th:each="Desayuno : ${allCategoriaDesayuno}" class="item">
+                                <input type="checkbox" th:id="${Desayuno}" th:value="${Desayuno}" class="checkbox" onchange="filtrarEjercicios()">
+                                <label th:for="${Desayuno}" th:text="${Desayuno}"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
                     </ul>
@@ -131,38 +103,10 @@
                         <div class="search3">
                             <input type="text" placeholder="Search">
                         </div>
-                        <div class="scrollable-content3"> <!-- New wrapper -->
-                            <li class="item3">
-                                <input type="checkbox" id="proteina-almuerzo" class="checkbox3">
-                                <label for="proteina-almuerzo" class="item-text3">Proteinas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="fruta-almuerzo" class="checkbox3">
-                                <label for="fruta-almuerzo" class="item-text3">Frutas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="verduras-almuerzo" class="checkbox3">
-                                <label for="verduras-almuerzo" class="item-text3">Verduras</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="granos-almuerzo" class="checkbox3">
-                                <label for="granos-almuerzo" class="item-text3">Granos</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="lacteos-almuezo" class="checkbox3">
-                                <label for="lacteos-almuezo" class="item-text3">Productos Lacteos</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="harinas-almuerzo" class="checkbox3">
-                                <label for="harinas-almuerzo" class="item-text3">Harinas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="saturadas-almuerzo" class="checkbox3">
-                                <label for="saturadas-almuerzo" class="item-text3">Grasas Saturadas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="carbohidratos-almuerzo" class="checkbox3">
-                                <label for="carbohidratos-almuerzo" class="item-text3">Carbohidratos</label>
+                        <div class="scrollable-content"> <!-- New wrapper -->
+                            <li th:each="Almuerzo : ${allCategoriaAlmuerzo}" class="item">
+                                <input type="checkbox" th:id="${Almuerzo}" th:value="${Almuerzo}" class="checkbox" onchange="filtrarEjercicios()">
+                                <label th:for="${Almuerzo}" th:text="${Almuerzo}"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
                     </ul>
@@ -217,38 +161,10 @@
                         <div class="search5">
                             <input type="text" placeholder="Search">
                         </div>
-                        <div class="scrollable-content5"> <!-- New wrapper -->
-                            <li class="item5">
-                                <input type="checkbox" id="proteina-cena" class="checkbox5">
-                                <label for="proteina-cena" class="item-text5">Proteinas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="fruta-cena" class="checkbox5">
-                                <label for="fruta-cena" class="item-text5">Frutas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="verduras-cena" class="checkbox5">
-                                <label for="verduras-cena" class="item-text5">Verduras</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="granos-cena" class="checkbox5">
-                                <label for="granos-cena" class="item-text5">Granos</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="lacteos-cena" class="checkbox5">
-                                <label for="lacteos-cena" class="item-text5">Productos Lacteos</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="harinas-cena" class="checkbox5">
-                                <label for="harinas-cena" class="item-text5">Harinas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="saturadas-cena" class="checkbox5">
-                                <label for="saturadas-cena" class="item-text5">Grasas Saturadas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="carbohidratos-cena" class="checkbox5">
-                                <label for="carbohidratos-cena" class="item-text5">Carbohidratos</label>
+                        <div class="scrollable-content"> <!-- New wrapper -->
+                            <li th:each="Cena : ${allCategoriaCena}" class="item">
+                                <input type="checkbox" th:id="${Cena}" th:value="${Cena}" class="checkbox" onchange="filtrarEjercicios()">
+                                <label th:for="${Cena}" th:text="${Cena}"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
                     </ul>
