@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
 public class GeneralServiceException extends RuntimeException {
+    
     public GeneralServiceException() {
     }
 
@@ -24,4 +25,5 @@ public class GeneralServiceException extends RuntimeException {
             boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
+
 }
