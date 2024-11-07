@@ -54,7 +54,8 @@ public class UserServices {
      * @param id El ID del usuario.
      * @return El usuario encontrado.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws NoDataFoundException si no se encuentra un usuario con el ID proporcionado.
+     * @throws NoDataFoundException     si no se encuentra un usuario con el ID
+     *                                  proporcionado.
      */
     public UserModel getUserById(Long id) {
         if (id == null) {
@@ -69,7 +70,7 @@ public class UserServices {
      *
      * @param id El ID del usuario.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws GeneralServiceException si ocurre un error al eliminar el usuario.
+     * @throws GeneralServiceException  si ocurre un error al eliminar el usuario.
      */
     public void deleteUserById(Long id) {
         if (id == null) {
@@ -85,10 +86,11 @@ public class UserServices {
     /**
      * Restablece la contraseña de un usuario por su ID.
      *
-     * @param id El ID del usuario.
+     * @param id          El ID del usuario.
      * @param newPassword La nueva contraseña.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws GeneralServiceException si ocurre un error al restablecer la contraseña.
+     * @throws GeneralServiceException  si ocurre un error al restablecer la
+     *                                  contraseña.
      */
     public void resetPassword(Long id, String newPassword) {
         if (id == null) {

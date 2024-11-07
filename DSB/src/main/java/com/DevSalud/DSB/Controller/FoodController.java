@@ -15,27 +15,24 @@ public class FoodController {
     @ModelAttribute("allCategoriaDesayuno")
     public List<String> categoriaDelDesayuno() {
         return Arrays.asList(
-            "Proteinas", "Frutas", "Verduras", "Granos", 
-            "Productos Lacteos", "Azucares", "Grasas Saturadas", 
-            "Harinas", "Carbohidratos"
-        );
+                "Proteinas", "Frutas", "Verduras", "Granos",
+                "Productos Lacteos", "Azucares", "Grasas Saturadas",
+                "Harinas", "Carbohidratos");
     }
 
     @ModelAttribute("allCategoriaAlmuerzo")
     public List<String> categoriaDelAlmuerzo() {
         return Arrays.asList(
-            "Proteinas", "Verduras", "Granos", "Productos Lacteos", 
-            "Azucares", "Grasas Saturadas", "Harinas", "Carbohidratos"
-        );
+                "Proteinas", "Verduras", "Granos", "Productos Lacteos",
+                "Azucares", "Grasas Saturadas", "Harinas", "Carbohidratos");
     }
 
     @ModelAttribute("allCategoriaCena")
     public List<String> categoriaDeLaCena() {
         return Arrays.asList(
-            "Proteinas", "Frutas", "Verduras", "Granos", 
-            "Productos Lacteos", "Azucares", "Grasas Saturadas", 
-            "Harinas", "Carbohidratos"
-        );
+                "Proteinas", "Frutas", "Verduras", "Granos",
+                "Productos Lacteos", "Azucares", "Grasas Saturadas",
+                "Harinas", "Carbohidratos");
     }
 
     @GetMapping("/RegistroAlimento")

@@ -2,320 +2,422 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="/Css/FormularioEditarAlimento.CSS">
-    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="/Css/FormularioEditarAlimento.CSS">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
 
-<body>
-    <nav>
-        <!-- Checkbox for toggling menu -->
-        <input type="checkbox" id="check">
-        <!-- Menu icon -->
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-        <!-- Site logo -->
-        <label class="logo">Editar Alimenticio</label>
-        <!-- Navigation links -->
-        <ul>
-            <li><a class="active" href="#">HOME</a></li>
-            <li><a href="#">EDITAR ALIMENTICIO</a></li>
-            <li><a href="#">LISTA ALIMENTICIO</a></li>
-        </ul>
-    </nav>
+    <body>
+        <nav>
+            <!-- Checkbox for toggling menu -->
+            <input type="checkbox" id="check">
+            <!-- Menu icon -->
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <!-- Site logo -->
+            <label class="logo">Editar Alimenticio</label>
+            <!-- Navigation links -->
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="#">EDITAR ALIMENTICIO</a></li>
+                <li><a href="#">LISTA ALIMENTICIO</a></li>
+            </ul>
+        </nav>
 
-    <div class="contenido-registroalimento">
-        <h1>Editar Alimenticios</h1>
-        <form action="">
-            <div class="contenido-principal">
+        <div class="contenido-registroalimento">
+            <h1>Editar Alimenticios</h1>
+            <form action>
+                <div class="contenido-principal">
 
-                <div class="container"> <!---Desayuno-->
-                    <div class="select-btn">
-                        <span class="btn-text">Categoria Desayuno</span>
-                        <span class="arrow-dwn">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items">
-                        <div class="search">
-                            <input type="text" placeholder="Search">
+                    <div class="container"> <!---Desayuno-->
+                        <div class="select-btn">
+                            <span class="btn-text">Categoria Desayuno</span>
+                            <span class="arrow-dwn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
                         </div>
-                        <div class="scrollable-content"> <!-- New wrapper -->
-                            <li class="item">
-                                <input type="checkbox" id="proteina-desayuno" class="checkbox">
-                                <label for="proteina-desayuno" class="item-text">Proteinas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="fruta-desayuno" class="checkbox">
-                                <label for="fruta-desayuno" class="item-text">Frutas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="verduras-desayuno" class="checkbox">
-                                <label for="verduras-desayuno" class="item-text">Verduras</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="granos-desayuno" class="checkbox">
-                                <label for="granos-desayuno" class="item-text">Granos</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="lacteos-desayuno" class="checkbox">
-                                <label for="lacteos-desayuno" class="item-text">Productos Lacteos</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="harinas-desayuno" class="checkbox">
-                                <label for="harinas-desayuno" class="item-text">Harinas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="saturadas-desayuno" class="checkbox">
-                                <label for="saturadas-desayuno" class="item-text">Grasas Saturadas</label>
-                            </li>
-                            <li class="item">
-                                <input type="checkbox" id="carbohidratos-desayuno" class="checkbox">
-                                <label for="carbohidratos-desayuno" class="item-text">Carbohidratos</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!---Desayuno-->
+                        <ul class="list-items">
+                            <div class="search">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content">
+                                <!-- New wrapper -->
+                                <li class="item">
+                                    <input type="checkbox"
+                                        id="proteina-desayuno" class="checkbox">
+                                    <label for="proteina-desayuno"
+                                        class="item-text">Proteinas</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="fruta-desayuno"
+                                        class="checkbox">
+                                    <label for="fruta-desayuno"
+                                        class="item-text">Frutas</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox"
+                                        id="verduras-desayuno" class="checkbox">
+                                    <label for="verduras-desayuno"
+                                        class="item-text">Verduras</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="granos-desayuno"
+                                        class="checkbox">
+                                    <label for="granos-desayuno"
+                                        class="item-text">Granos</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="lacteos-desayuno"
+                                        class="checkbox">
+                                    <label for="lacteos-desayuno"
+                                        class="item-text">Productos
+                                        Lacteos</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="harinas-desayuno"
+                                        class="checkbox">
+                                    <label for="harinas-desayuno"
+                                        class="item-text">Harinas</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox"
+                                        id="saturadas-desayuno"
+                                        class="checkbox">
+                                    <label for="saturadas-desayuno"
+                                        class="item-text">Grasas
+                                        Saturadas</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox"
+                                        id="carbohidratos-desayuno"
+                                        class="checkbox">
+                                    <label for="carbohidratos-desayuno"
+                                        class="item-text">Carbohidratos</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Desayuno-->
 
-                <div class="container1"> <!--Comida Desayuno-->
-                    <div class="select-btn1">
-                        <span class="btn-text1">Comida Desayuno</span>
-                        <span class="arrow-dwn1">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items1">
-                        <div class="search1">
-                            <input type="text" placeholder="Search">
+                    <div class="container1"> <!--Comida Desayuno-->
+                        <div class="select-btn1">
+                            <span class="btn-text1">Comida Desayuno</span>
+                            <span class="arrow-dwn1">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
                         </div>
-                        <div class="scrollable-content1"> <!-- New wrapper -->
-                            <li class="item1">
-                                <input type="checkbox" id="pollo" class="checkbox1">
-                                <label for="pollo" class="item-text1">Pollo</label>
-                            </li>
-                            <li class="item1">
-                                <input type="checkbox" id="cerdo" class="checkbox1">
-                                <label for="cerdo" class="item-text1">Cerdo</label>
-                            </li>
-                            <li class="item1">
-                                <input type="checkbox" id="pescado" class="checkbox1">
-                                <label for="pescado" class="item-text1">Pescado</label>
-                            </li>
-                            <li class="item1">
-                                <input type="checkbox" id="pato" class="checkbox1">
-                                <label for="pato" class="item-text1">Pato</label>
-                            </li>
-                            <li class="item1">
-                                <input type="checkbox" id="queso" class="checkbox1">
-                                <label for="queso" class="item-text1">Queso</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!--Comida Desayuno-->
-            </div>
-
-            <div class="contenido-principal1">
-                <div class="container3"> <!---Almuerzo-->
-                    <div class="select-btn3">
-                        <span class="btn-text3">Categoria Almuerzo</span>
-                        <span class="arrow-dwn3">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items3">
-                        <div class="search3">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="scrollable-content3"> <!-- New wrapper -->
-                            <li class="item3">
-                                <input type="checkbox" id="proteina-almuerzo" class="checkbox3">
-                                <label for="proteina-almuerzo" class="item-text3">Proteinas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="fruta-almuerzo" class="checkbox3">
-                                <label for="fruta-almuerzo" class="item-text3">Frutas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="verduras-almuerzo" class="checkbox3">
-                                <label for="verduras-almuerzo" class="item-text3">Verduras</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="granos-almuerzo" class="checkbox3">
-                                <label for="granos-almuerzo" class="item-text3">Granos</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="lacteos-almuezo" class="checkbox3">
-                                <label for="lacteos-almuezo" class="item-text3">Productos Lacteos</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="harinas-almuerzo" class="checkbox3">
-                                <label for="harinas-almuerzo" class="item-text3">Harinas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="saturadas-almuerzo" class="checkbox3">
-                                <label for="saturadas-almuerzo" class="item-text3">Grasas Saturadas</label>
-                            </li>
-                            <li class="item3">
-                                <input type="checkbox" id="carbohidratos-almuerzo" class="checkbox3">
-                                <label for="carbohidratos-almuerzo" class="item-text3">Carbohidratos</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!---Almuerzo-->
-
-                <div class="container4"> <!--Comida Almuerzo-->
-                    <div class="select-btn4">
-                        <span class="btn-text4">Comida Almuerzo</span>
-                        <span class="arrow-dwn4">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items4">
-                        <div class="search4">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="scrollable-content4"> <!-- New wrapper -->
-                            <li class="item4">
-                                <input type="checkbox" id="atun" class="checkbox4">
-                                <label for="atun" class="item-text4">Atun</label>
-                            </li>
-                            <li class="item4">
-                                <input type="checkbox" id="manzana" class="checkbox4">
-                                <label for="manzana" class="item-text4">Manzana</label>
-                            </li>
-                            <li class="item4">
-                                <input type="checkbox" id="papa" class="checkbox4">
-                                <label for="papa" class="item-text4">Papa</label>
-                            </li>
-                            <li class="item4">
-                                <input type="checkbox" id="cangrejo" class="checkbox4">
-                                <label for="cangrejo" class="item-text4">Cangrejo</label>
-                            </li>
-                            <li class="item4">
-                                <input type="checkbox" id="pechuga" class="checkbox4">
-                                <label for="pechuga" class="item-text4">Pechuga</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!--Comida Almuerzo-->
-            </div>
-
-            <div class="contenido-principal2">
-                <div class="container5"> <!---Cena-->
-                    <div class="select-btn5">
-                        <span class="btn-text5">Categoria Cena</span>
-                        <span class="arrow-dwn5">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items5">
-                        <div class="search5">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="scrollable-content5"> <!-- New wrapper -->
-                            <li class="item5">
-                                <input type="checkbox" id="proteina-cena" class="checkbox5">
-                                <label for="proteina-cena" class="item-text5">Proteinas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="fruta-cena" class="checkbox5">
-                                <label for="fruta-cena" class="item-text5">Frutas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="verduras-cena" class="checkbox5">
-                                <label for="verduras-cena" class="item-text5">Verduras</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="granos-cena" class="checkbox5">
-                                <label for="granos-cena" class="item-text5">Granos</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="lacteos-cena" class="checkbox5">
-                                <label for="lacteos-cena" class="item-text5">Productos Lacteos</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="harinas-cena" class="checkbox5">
-                                <label for="harinas-cena" class="item-text5">Harinas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="saturadas-cena" class="checkbox5">
-                                <label for="saturadas-cena" class="item-text5">Grasas Saturadas</label>
-                            </li>
-                            <li class="item5">
-                                <input type="checkbox" id="carbohidratos-cena" class="checkbox5">
-                                <label for="carbohidratos-cena" class="item-text5">Carbohidratos</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!---Cena-->
-
-                <div class="container6"> <!--Comida Cena-->
-                    <div class="select-btn6">
-                        <span class="btn-text6">Comida Cena</span>
-                        <span class="arrow-dwn6">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items6">
-                        <div class="search6">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <div class="scrollable-content6"> <!-- New wrapper -->
-                            <li class="item6">
-                                <input type="checkbox" id="leche" class="checkbox6">
-                                <label for="leche" class="item-text6">Leche</label>
-                            </li>
-                            <li class="item6">
-                                <input type="checkbox" id="langosta" class="checkbox6">
-                                <label for="langosta" class="item-text6">Langosta</label>
-                            </li>
-                            <li class="item6">
-                                <input type="checkbox" id="frito" class="checkbox6">
-                                <label for="frito" class="item-text6">Pollo Frito</label>
-                            </li>
-                            <li class="item6">
-                                <input type="checkbox" id="pavo" class="checkbox6">
-                                <label for="pavo" class="item-text6">Pavo</label>
-                            </li>
-                            <li class="item6">
-                                <input type="checkbox" id="pera" class="checkbox6">
-                                <label for="pera" class="item-text6">Pera</label>
-                            </li>
-                        </div> <!-- Close the new wrapper -->
-                    </ul>
-                </div> <!--Comida Cena-->
-            </div>
-
-            <div class="contenido-reloj">
-                <div class="clock-container"> 
-                    <h2>Fecha Inicial</h2>
-                    <div class="digital-clock" id="clock">00:00:00</div>
-                    <div class="date-display" id="date-display">Fecha Actual</div>
-                    <div class="date-picker">
-                        <label for="datetime">Cambiar Fecha y Hora</label>
-                        <input type="datetime-local" id="datetime" onchange="updateDisplay()">
-                    </div>
-                    <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                        <ul class="list-items1">
+                            <div class="search1">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content1">
+                                <!-- New wrapper -->
+                                <li class="item1">
+                                    <input type="checkbox" id="pollo"
+                                        class="checkbox1">
+                                    <label for="pollo"
+                                        class="item-text1">Pollo</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="cerdo"
+                                        class="checkbox1">
+                                    <label for="cerdo"
+                                        class="item-text1">Cerdo</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="pescado"
+                                        class="checkbox1">
+                                    <label for="pescado"
+                                        class="item-text1">Pescado</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="pato"
+                                        class="checkbox1">
+                                    <label for="pato"
+                                        class="item-text1">Pato</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="queso"
+                                        class="checkbox1">
+                                    <label for="queso"
+                                        class="item-text1">Queso</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Comida Desayuno-->
                 </div>
-                
-            </div>
 
-            <button class="btn-alimento" type="submit">EDITAR ALIMENTICIO</button>
+                <div class="contenido-principal1">
+                    <div class="container3"> <!---Almuerzo-->
+                        <div class="select-btn3">
+                            <span class="btn-text3">Categoria Almuerzo</span>
+                            <span class="arrow-dwn3">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items3">
+                            <div class="search3">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content3">
+                                <!-- New wrapper -->
+                                <li class="item3">
+                                    <input type="checkbox"
+                                        id="proteina-almuerzo"
+                                        class="checkbox3">
+                                    <label for="proteina-almuerzo"
+                                        class="item-text3">Proteinas</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="fruta-almuerzo"
+                                        class="checkbox3">
+                                    <label for="fruta-almuerzo"
+                                        class="item-text3">Frutas</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox"
+                                        id="verduras-almuerzo"
+                                        class="checkbox3">
+                                    <label for="verduras-almuerzo"
+                                        class="item-text3">Verduras</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="granos-almuerzo"
+                                        class="checkbox3">
+                                    <label for="granos-almuerzo"
+                                        class="item-text3">Granos</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="lacteos-almuezo"
+                                        class="checkbox3">
+                                    <label for="lacteos-almuezo"
+                                        class="item-text3">Productos
+                                        Lacteos</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="harinas-almuerzo"
+                                        class="checkbox3">
+                                    <label for="harinas-almuerzo"
+                                        class="item-text3">Harinas</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox"
+                                        id="saturadas-almuerzo"
+                                        class="checkbox3">
+                                    <label for="saturadas-almuerzo"
+                                        class="item-text3">Grasas
+                                        Saturadas</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox"
+                                        id="carbohidratos-almuerzo"
+                                        class="checkbox3">
+                                    <label for="carbohidratos-almuerzo"
+                                        class="item-text3">Carbohidratos</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Almuerzo-->
 
-        </form>
-    </div>
-    <script src="/Js/Food/datetime-local.js"></script>
-    <script src="/Js/Food/chexbox.js"></script>
-    <script src="/Js/Food/chexbox1.js"></script>
-    <script src="/Js/Food/chexbox3.js"></script>
-    <script src="/Js/Food/chexbox4.js"></script>
-    <script src="/Js/Food/chexbox5.js"></script>
-    <script src="/Js/Food/chexbox6.js"></script>
-</body>
+                    <div class="container4"> <!--Comida Almuerzo-->
+                        <div class="select-btn4">
+                            <span class="btn-text4">Comida Almuerzo</span>
+                            <span class="arrow-dwn4">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items4">
+                            <div class="search4">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content4">
+                                <!-- New wrapper -->
+                                <li class="item4">
+                                    <input type="checkbox" id="atun"
+                                        class="checkbox4">
+                                    <label for="atun"
+                                        class="item-text4">Atun</label>
+                                </li>
+                                <li class="item4">
+                                    <input type="checkbox" id="manzana"
+                                        class="checkbox4">
+                                    <label for="manzana"
+                                        class="item-text4">Manzana</label>
+                                </li>
+                                <li class="item4">
+                                    <input type="checkbox" id="papa"
+                                        class="checkbox4">
+                                    <label for="papa"
+                                        class="item-text4">Papa</label>
+                                </li>
+                                <li class="item4">
+                                    <input type="checkbox" id="cangrejo"
+                                        class="checkbox4">
+                                    <label for="cangrejo"
+                                        class="item-text4">Cangrejo</label>
+                                </li>
+                                <li class="item4">
+                                    <input type="checkbox" id="pechuga"
+                                        class="checkbox4">
+                                    <label for="pechuga"
+                                        class="item-text4">Pechuga</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Comida Almuerzo-->
+                </div>
+
+                <div class="contenido-principal2">
+                    <div class="container5"> <!---Cena-->
+                        <div class="select-btn5">
+                            <span class="btn-text5">Categoria Cena</span>
+                            <span class="arrow-dwn5">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items5">
+                            <div class="search5">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content5">
+                                <!-- New wrapper -->
+                                <li class="item5">
+                                    <input type="checkbox" id="proteina-cena"
+                                        class="checkbox5">
+                                    <label for="proteina-cena"
+                                        class="item-text5">Proteinas</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="fruta-cena"
+                                        class="checkbox5">
+                                    <label for="fruta-cena"
+                                        class="item-text5">Frutas</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="verduras-cena"
+                                        class="checkbox5">
+                                    <label for="verduras-cena"
+                                        class="item-text5">Verduras</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="granos-cena"
+                                        class="checkbox5">
+                                    <label for="granos-cena"
+                                        class="item-text5">Granos</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="lacteos-cena"
+                                        class="checkbox5">
+                                    <label for="lacteos-cena"
+                                        class="item-text5">Productos
+                                        Lacteos</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="harinas-cena"
+                                        class="checkbox5">
+                                    <label for="harinas-cena"
+                                        class="item-text5">Harinas</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox" id="saturadas-cena"
+                                        class="checkbox5">
+                                    <label for="saturadas-cena"
+                                        class="item-text5">Grasas
+                                        Saturadas</label>
+                                </li>
+                                <li class="item5">
+                                    <input type="checkbox"
+                                        id="carbohidratos-cena"
+                                        class="checkbox5">
+                                    <label for="carbohidratos-cena"
+                                        class="item-text5">Carbohidratos</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Cena-->
+
+                    <div class="container6"> <!--Comida Cena-->
+                        <div class="select-btn6">
+                            <span class="btn-text6">Comida Cena</span>
+                            <span class="arrow-dwn6">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items6">
+                            <div class="search6">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content6">
+                                <!-- New wrapper -->
+                                <li class="item6">
+                                    <input type="checkbox" id="leche"
+                                        class="checkbox6">
+                                    <label for="leche"
+                                        class="item-text6">Leche</label>
+                                </li>
+                                <li class="item6">
+                                    <input type="checkbox" id="langosta"
+                                        class="checkbox6">
+                                    <label for="langosta"
+                                        class="item-text6">Langosta</label>
+                                </li>
+                                <li class="item6">
+                                    <input type="checkbox" id="frito"
+                                        class="checkbox6">
+                                    <label for="frito" class="item-text6">Pollo
+                                        Frito</label>
+                                </li>
+                                <li class="item6">
+                                    <input type="checkbox" id="pavo"
+                                        class="checkbox6">
+                                    <label for="pavo"
+                                        class="item-text6">Pavo</label>
+                                </li>
+                                <li class="item6">
+                                    <input type="checkbox" id="pera"
+                                        class="checkbox6">
+                                    <label for="pera"
+                                        class="item-text6">Pera</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Comida Cena-->
+                </div>
+
+                <div class="contenido-reloj">
+                    <div class="clock-container">
+                        <h2>Fecha Inicial</h2>
+                        <div class="digital-clock" id="clock">00:00:00</div>
+                        <div class="date-display" id="date-display">Fecha
+                            Actual</div>
+                        <div class="date-picker">
+                            <label for="datetime">Cambiar Fecha y Hora</label>
+                            <input type="datetime-local" id="datetime"
+                                onchange="updateDisplay()">
+                        </div>
+                        <button onclick="resetToCurrentTime()">Restablecer a la
+                            Hora Actual</button>
+                    </div>
+
+                </div>
+
+                <button class="btn-alimento" type="submit">EDITAR
+                    ALIMENTICIO</button>
+
+            </form>
+        </div>
+        <script src="/Js/Food/datetime-local.js"></script>
+        <script src="/Js/Food/chexbox.js"></script>
+        <script src="/Js/Food/chexbox1.js"></script>
+        <script src="/Js/Food/chexbox3.js"></script>
+        <script src="/Js/Food/chexbox4.js"></script>
+        <script src="/Js/Food/chexbox5.js"></script>
+        <script src="/Js/Food/chexbox6.js"></script>
+    </body>
 
 </html>
