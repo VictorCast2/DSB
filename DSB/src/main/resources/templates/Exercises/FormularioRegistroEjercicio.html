@@ -47,9 +47,8 @@
                         </div>
                         <div class="scrollable-content"> <!-- New wrapper -->
                             <li th:each="ejercicio : ${allTipEjercicios}" class="item">
-                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox"
-                                    onchange="filtrarEjercicios()">
-                                <label th:for="${ejercicio}" th:text="${ejercicio}"></label>
+                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox" onchange="filtrarEjercicios()">
+                                <label th:for="${ejercicio}" th:text="${ejercicio}" class="item-text"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
                     </ul>
@@ -76,7 +75,7 @@
                                             <input type="checkbox" th:id="${nombreEjercicio}"
                                                 th:value="${nombreEjercicio}" class="checkbox1"
                                                 th:data-tipo="${entry.key}"> <!-- Añadir atributo data-tipo -->
-                                            <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}"></label>
+                                            <label th:for="${nombreEjercicio}" th:text="${nombreEjercicio}" class="item-text"></label>
                                         </li>
                                     </ul>
                                 </li>
