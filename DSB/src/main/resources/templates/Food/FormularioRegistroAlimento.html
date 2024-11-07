@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="/Css/FormularioRegistroAlimento.CSS">
-    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="/Css/FormularioRegistroAlimento.CSS">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
 
 <body>
     <nav>
@@ -24,21 +25,17 @@
         </ul>
     </nav>
 
-    <div class="contenido-registroalimento">
-        <h1>Registro Alimenticios</h1>
-        <form action="">
-            <div class="contenido-principal">
+        <div class="contenido-registroalimento">
+            <h1>Registro Alimenticios</h1>
+            <form action>
+                <div class="contenido-principal">
 
-                <div class="container"> <!---Desayuno-->
-                    <div class="select-btn">
-                        <span class="btn-text">Categoria Desayuno</span>
-                        <span class="arrow-dwn">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </div>
-                    <ul class="list-items">
-                        <div class="search">
-                            <input type="text" placeholder="Search">
+                    <div class="container"> <!---Desayuno-->
+                        <div class="select-btn">
+                            <span class="btn-text">Categoria Desayuno</span>
+                            <span class="arrow-dwn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
                         </div>
                         <div class="scrollable-content">
                             <li th:each="Desayuno : ${allCategoriaDesayuno}" class="item">
@@ -342,13 +339,22 @@
     }
 </script>
 
-    <script src="/Js/Food/datetime-local.js"></script>
-    <script src="/Js/Food/chexbox.js"></script>
-    <script src="/Js/Food/chexbox1.js"></script>
-    <script src="/Js/Food/chexbox3.js"></script>
-    <script src="/Js/Food/chexbox4.js"></script>
-    <script src="/Js/Food/chexbox5.js"></script>
-    <script src="/Js/Food/chexbox6.js"></script>
-</body>
+
+                </div>
+
+                <button class="btn-alimento" type="submit">REGISTRO
+                    ALIMENTICIO</button>
+
+            </form>
+        </div>
+
+        <script src="/Js/Food/datetime-local.js"></script>
+        <script src="/Js/Food/chexbox.js"></script>
+        <script src="/Js/Food/chexbox1.js"></script>
+        <script src="/Js/Food/chexbox3.js"></script>
+        <script src="/Js/Food/chexbox4.js"></script>
+        <script src="/Js/Food/chexbox5.js"></script>
+        <script src="/Js/Food/chexbox6.js"></script>
+    </body>
 
 </html>
