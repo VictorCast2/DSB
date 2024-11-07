@@ -158,7 +158,7 @@ public class FoodController {
                 "Pan de Yuca", "Carimañolas", "Churros",
                 "Espaguetis", "Empanadas"));
 
-        comida.put("Cabohidratos", Arrays.asList(
+        comida.put("Carbohidratos", Arrays.asList(
                 "Avena", "Arepas", "Arroz", "Pasta",
                 "Yuca", "Mazamorra", "Arvejas", "Lentejas",
                 "Sopas", "Tostadas de trigo integral",
