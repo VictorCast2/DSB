@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Estilos generales */
-body { 
+body {
     font-family: "Montserrat";
     background-color: #f4f4f9;
     color: #333;
@@ -19,7 +19,7 @@ h1 {
 .container {
     max-width: 1200px;
     margin: 15px auto;
-    padding: 20px 30px 50px 30px ;
+    padding: 20px 30px 50px 30px;
     background-color: #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
@@ -85,7 +85,8 @@ tbody tr:nth-child(odd) {
     }
 
     table thead tr {
-        display: none; /* Oculta el encabezado en pantallas pequeñas */
+        display: none;
+        /* Oculta el encabezado en pantallas pequeñas */
     }
 
     table tr {
