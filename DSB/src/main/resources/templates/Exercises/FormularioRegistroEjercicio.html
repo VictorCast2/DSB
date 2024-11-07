@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="/Css/FormularioRegistroEjercicio.CSS">
     <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-    
+
 </head>
 
 <body>
@@ -47,7 +47,8 @@
                         </div>
                         <div class="scrollable-content"> <!-- New wrapper -->
                             <li th:each="ejercicio : ${allTipEjercicios}" class="item">
-                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox" onchange="filtrarEjercicios()">
+                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox"
+                                    onchange="filtrarEjercicios()">
                                 <label th:for="${ejercicio}" th:text="${ejercicio}"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
@@ -85,9 +86,9 @@
                 </div> <!--Nombre Ejercicio-->
             </div>
 
-            <div class="container2"> <!--Intesidad Ejercicio-->
+            <div class="container2"> <!-- Intensidad Ejercicio -->
                 <div class="select-btn2">
-                    <span class="btn-text2">Intesidad Ejercicio</span>
+                    <span class="btn-text2">Intensidad Ejercicio</span>
                     <span class="arrow-dwn2">
                         <i class="fa-solid fa-chevron-down"></i>
                     </span>
@@ -97,45 +98,15 @@
                         <input type="text" placeholder="Search">
                     </div>
                     <div class="scrollable-content2"> <!-- New wrapper -->
-                        <li class="item2">
-                            <input type="checkbox" id="baja" class="checkbox2">
-                            <label for="baja" class="item-text2">Baja</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="baja-media" class="checkbox2">
-                            <label for="baja-media" class="item-text2">Baja Media</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="baja-alta" class="checkbox2">
-                            <label for="baja-alta" class="item-text2">Baja Alta</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="media" class="checkbox2">
-                            <label for="media" class="item-text2">Media</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="media-media" class="checkbox2">
-                            <label for="media-media" class="item-text2">Media Media</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="media-alta" class="checkbox2">
-                            <label for="media-alta" class="item-text2">Media Alta</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="alta" class="checkbox2">
-                            <label for="alta" class="item-text2">Alta</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="alta-media" class="checkbox2">
-                            <label for="alta-media" class="item-text2">Alta Media</label>
-                        </li>
-                        <li class="item2">
-                            <input type="checkbox" id="alta-alta" class="checkbox2">
-                            <label for="alta-alta" class="item-text2">Alta Alta</label>
-                        </li>
+                        <ul>
+                            <li th:each="intensidad : ${allIntecidadEjercicios}" class="item2">
+                                <input type="checkbox" th:id="${intensidad}" class="checkbox2" th:value="${intensidad}">
+                                <label th:for="${intensidad}" th:text="${intensidad}"></label>
+                            </li>
+                        </ul>
                     </div> <!-- Close the new wrapper -->
                 </ul>
-            </div> <!--Intesidad Ejercicio-->
+            </div> <!-- Intensidad Ejercicio -->
 
             <!--Datetime-local-->
             <div class="contenido-reloj">
@@ -169,17 +140,17 @@
             // Obtener todos los checkboxes de Tipo Ejercicio
             const tiposEjercicio = document.querySelectorAll('.checkbox');
             const ejercicios = document.querySelectorAll('.checkbox1');
-    
+
             // Crear un conjunto para almacenar los tipos seleccionados
             const tiposSeleccionados = new Set();
-    
+
             // Llenar el conjunto con los tipos seleccionados
             tiposEjercicio.forEach(tipo => {
                 if (tipo.checked) {
                     tiposSeleccionados.add(tipo.value);
                 }
             });
-    
+
             // Mostrar u ocultar los ejercicios según el tipo seleccionado
             ejercicios.forEach(ejercicio => {
                 const tipoEjercicio = ejercicio.getAttribute('data-tipo');
@@ -191,7 +162,7 @@
             });
         }
     </script>
-    
+
     <script src="/Js/Exercises/datetime-local.js"></script>
     <script src="/Js/Exercises/chexbox.js"></script>
     <script src="/Js/Exercises/chexbox1.js"></script>
