@@ -9,7 +9,8 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 @Table(name = "Users")
 public class UserModel {
@@ -33,7 +34,7 @@ public class UserModel {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate DateBirthday;
-    
+
     @Transient
     private boolean termsAccepted;
 }
