@@ -3,6 +3,8 @@ package com.DevSalud.DSB.Controller;
 import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 @RequestMapping(path = "/Api/Users/Food")
@@ -246,6 +248,13 @@ public class FoodController {
     @GetMapping("/RegistroAlimento")
     public String formularioRegistroAlimento() {
         return "/Food/FormularioRegistroAlimento";
+    }
+
+    @PostMapping("/RegistroAlimento")
+    public String registroAlimentos() {
+        
+        return "/Food/FormularioRegistroAlimento";
+
     }
 
     @GetMapping("/Home")
