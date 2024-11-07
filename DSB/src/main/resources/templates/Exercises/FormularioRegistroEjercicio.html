@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="/Css/FormularioRegistroEjercicio.CSS">
     <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-    <script src="/Js/Exercises/filtrarEjercicios.js"></script>
+    
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="scrollable-content"> <!-- New wrapper -->
                             <li th:each="ejercicio : ${allTipEjercicios}" class="item">
-                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox">
+                                <input type="checkbox" th:id="${ejercicio}" th:value="${ejercicio}" class="checkbox" onchange="filtrarEjercicios()">
                                 <label th:for="${ejercicio}" th:text="${ejercicio}"></label>
                             </li>
                         </div> <!-- Close the new wrapper -->
@@ -163,7 +163,33 @@
             <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
         </form>
     </div>
+    <script>
+        function filtrarEjercicios() {
+            // Obtener todos los checkboxes de Tipo Ejercicio
+            const tiposEjercicio = document.querySelectorAll('.checkbox');
+            const ejercicios = document.querySelectorAll('.checkbox1');
     
+            // Crear un conjunto para almacenar los tipos seleccionados
+            const tiposSeleccionados = new Set();
+    
+            // Llenar el conjunto con los tipos seleccionados
+            tiposEjercicio.forEach(tipo => {
+                if (tipo.checked) {
+                    tiposSeleccionados.add(tipo.value);
+                }
+            });
+    
+            // Mostrar u ocultar los ejercicios según el tipo seleccionado
+            ejercicios.forEach(ejercicio => {
+                const tipoEjercicio = ejercicio.getAttribute('data-tipo');
+                if (tiposSeleccionados.size === 0 || tiposSeleccionados.has(tipoEjercicio)) {
+                    ejercicio.parentElement.style.display = 'block'; // Mostrar
+                } else {
+                    ejercicio.parentElement.style.display = 'none'; // Ocultar
+                }
+            });
+        }
+    </script>
     <script src="/Js/Exercises/datetime-local.js"></script>
     <script src="/Js/Exercises/chexbox.js"></script>
     <script src="/Js/Exercises/chexbox1.js"></script>
