@@ -254,7 +254,7 @@ public class FoodController {
         }
 
         @PostMapping("/RegistroAlimento")
-        public String registroAlimentos(){
+        public String registroAlimentos(){              
                 return "redirect:/Api/Users/Exercises/Home";
         }
 
