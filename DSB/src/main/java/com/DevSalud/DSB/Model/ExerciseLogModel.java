@@ -1,6 +1,8 @@
 package com.DevSalud.DSB.Model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,9 +22,9 @@ public class ExerciseLogModel {
     public String ExerciseName;
     public String ExerciseType;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDate StrartDate;
+    private LocalDateTime StrartDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDate FinalDate;
+    private LocalDateTime FinalDate;
     public String ExerciseIntensity;
 
     @ManyToOne

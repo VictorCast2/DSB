@@ -1349,6 +1349,8 @@ public class ExercisesController {
                 // Se guarda el ejercicio asociado al usuario
                 exerciseLogService.saveExerciseLog(exerciseLog);
                 model.addAttribute("message", "Registro exitoso");
+                System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
+                System.out.println("Fecha final: " + exerciseLog.getFinalDate());
                 return "redirect:/Api/Users/Exercises/Home";
         }
 
