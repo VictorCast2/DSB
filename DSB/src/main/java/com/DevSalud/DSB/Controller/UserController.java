@@ -10,12 +10,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
-
+import lombok.Data;
 import java.time.LocalDate;
 
+@Data
 @Controller
 @RequestMapping(path = "/Api/Users")
 public class UserController {
+
+    // Variable Global de guardado del Usuario Id
+    public Long UsuarioId;
 
     @Autowired
     private UserServices userService;
@@ -156,6 +160,7 @@ public class UserController {
             Model model) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
+            UsuarioId = user.getId();  // Almacena el ID del usuario cuando inicie sesión
             return "redirect:/DSBConection"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");

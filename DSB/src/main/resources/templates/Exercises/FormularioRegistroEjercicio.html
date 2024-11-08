@@ -35,9 +35,9 @@
 
         <div class="contenido-registroejercicio">
             <h1>Registro Ejercicio</h1>
-            <form action>
+            <form th:action="@{/Api/Users/Exercises/Registrar}"
+      th:object="${exerciseLog}" method="post">
                 <div class="contenido-principal">
-
                     <div class="container"> <!---Tipo Ejercicio-->
                         <div class="select-btn">
                             <span class="btn-text">Tipo Ejercicio</span>
@@ -141,9 +141,9 @@
                         <div class="date-picker">
                             <label for="datetime">Cambiar Fecha y Hora</label>
                             <input type="datetime-local" id="datetime"
-                                onchange="updateDisplay()">
+                                th:field="*{StrartDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()">Restablecer a la
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
                     <div class="clock-container1">
@@ -154,13 +154,14 @@
                         <div class="date-picker1">
                             <label for="datetime1">Cambiar Fecha y Hora</label>
                             <input type="datetime-local" id="datetime1"
-                                onchange="updateDisplay()">
+                                th:field="*{FinalDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()">Restablecer a la
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
                 </div>
-                <button class="btn-ejercicio">REGISTRO EJERCICIO</button>
+                <button class="btn-ejercicio" type="submit" value="Registrar">REGISTRO
+                    EJERCICIO</button>
             </form>
         </div>
 
@@ -193,6 +194,7 @@
     </script>
 
         <script src="/Js/Exercises/datetime-local.js"></script>
+        <script src="/Js/Exercises/filtrarEjercicios"></script>
         <script src="/Js/Exercises/chexbox.js"></script>
         <script src="/Js/Exercises/chexbox1.js"></script>
         <script src="/Js/Exercises/chexbox2.js"></script>
