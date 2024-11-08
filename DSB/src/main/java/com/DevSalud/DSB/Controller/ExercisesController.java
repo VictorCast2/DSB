@@ -1332,7 +1332,7 @@ public class ExercisesController {
                 return "/Exercises/FormularioRegistroEjercicio";
         }
 
-        @PostMapping("/Registrar")
+        @PostMapping("/RegistroEjercicio")
         public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
                         Model model,
                         HttpSession session) {
