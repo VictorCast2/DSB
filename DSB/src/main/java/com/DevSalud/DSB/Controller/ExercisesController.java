@@ -1,12 +1,21 @@
 package com.DevSalud.DSB.Controller;
 
 import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import com.DevSalud.DSB.Model.ExerciseLogModel;
+import com.DevSalud.DSB.Service.ExerciseLogServices;
 
 @Controller
 @RequestMapping(path = "/Api/Users/Exercises")
 public class ExercisesController {
+
+        @Autowired
+        private ExerciseLogServices exerciseLogService;
 
         @ModelAttribute("allTipEjercicios")
         public List<String> tiposDeEjercicios() {
@@ -1311,8 +1320,21 @@ public class ExercisesController {
         }
 
         @GetMapping("/RegistroEjercicio")
-        public String formularioRegistroEjercicio() {
+        public String formularioRegistroEjercicio(Model model) {
+                model.addAttribute("exerciseLog", new ExerciseLogModel());
                 return "/Exercises/FormularioRegistroEjercicio";
+        }
+
+        @PostMapping("/Registrar")
+        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
+                        BindingResult result, Model model) {
+                if (result.hasErrors()) {
+                        return "Exercises/FormularioRegistroEjercicio";
+                }
+                // Aqui falta el usuario id de la forenkey que se obtuvo en usuario: controller como pasmao ese usuario...
+                exerciseLogService.saveExerciseLog(exerciseLog);
+                model.addAttribute("message", "Registro exitoso");
+                return "/Api/Users/Exercises/Home";
         }
 
         @GetMapping("/Home")
