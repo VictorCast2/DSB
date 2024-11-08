@@ -1,6 +1,8 @@
 package com.DevSalud.DSB.Model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.*;
 import lombok.*;

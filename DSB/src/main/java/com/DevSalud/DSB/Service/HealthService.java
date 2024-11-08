@@ -28,7 +28,6 @@ public class HealthService {
      * @param Weight El peso.
      * @param Height La altura.
      * @return El IMC calculado.
-     * 
      */
     public Double calculateIMC(Double Weight, Double Height) {
         if (Weight == null || Height == null || Height == 0) {

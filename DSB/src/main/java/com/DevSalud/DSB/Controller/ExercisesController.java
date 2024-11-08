@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.DevSalud.DSB.Model.*;
-import com.DevSalud.DSB.Service.*;
+import com.DevSalud.DSB.Model.ExerciseLogModel;
+import com.DevSalud.DSB.Model.UserModel;
+import com.DevSalud.DSB.Service.ExerciseLogServices;
+import com.DevSalud.DSB.Service.UserServices;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -16,6 +19,8 @@ public class ExercisesController {
 
         @Autowired
         private UserServices userService;
+
+        @Autowired
         private ExerciseLogServices exerciseLogService;
 
         @ModelAttribute("allTipEjercicios")
