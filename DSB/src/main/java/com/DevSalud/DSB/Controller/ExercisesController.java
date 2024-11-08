@@ -1,7 +1,6 @@
 package com.DevSalud.DSB.Controller;
 
 import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -1322,31 +1321,27 @@ public class ExercisesController {
 
         @GetMapping("/RegistroEjercicio")
         public String formularioRegistroEjercicio(Model model) {
-                ExerciseLogModel exerciseLog = new ExerciseLogModel(); // assuming this is the type of object
-                model.addAttribute("exerciseLog", exerciseLog);
-                return "/Exercises/FormularioRegistroEjercicio";
+            ExerciseLogModel exerciseLog = new ExerciseLogModel();
+            model.addAttribute("exerciseLog", exerciseLog);
+            return "/Exercises/FormularioRegistroEjercicio";
         }
-
+    
         @PostMapping("/RegistroEjercicio")
-        public String registerExercise(@RequestBody ExerciseLogModel exerciseLog,
-                        Model model,
-                        HttpSession session) {
-                Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
-                System.out.println("Id:" + userId);
-                if (userId != null) {
-                        UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID
-                        exerciseLog.setUser(user); // Asociamos el usuario al ejercicio
-                        model.addAttribute("exerciseLog", exerciseLog);
-                } else {
-                        model.addAttribute("error", "Usuario no encontrado.");
-                        return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
-                }
-                // Se guarda el ejercicio asociado al usuario
-                exerciseLogService.saveExerciseLog(exerciseLog);
-                model.addAttribute("message", "Registro exitoso");
-                System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
-                System.out.println("Fecha final: " + exerciseLog.getFinalDate());
-                return "redirect:/Api/Users/Exercises/Home";
+        public String registerExercise(@ModelAttribute ExerciseLogModel exerciseLog,
+                                       Model model,
+                                       HttpSession session) {
+            Long userId = (Long) session.getAttribute("UsuarioId");
+            if (userId != null) {
+                UserModel user = userService.getUserById(userId);
+                exerciseLog.setUser(user);
+                model.addAttribute("exerciseLog", exerciseLog);
+            } else {
+                model.addAttribute("error", "Usuario no encontrado.");
+                return "redirect:/Api/Users/Login";
+            }
+            exerciseLogService.saveExerciseLog(exerciseLog);
+            model.addAttribute("message", "Registro exitoso");
+            return "redirect:/Api/Users/Exercises/Home";
         }
 
         @GetMapping("/Home")
