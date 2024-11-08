@@ -1,10 +1,15 @@
 package com.DevSalud.DSB.Service;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.DevSalud.DSB.Exception.*;
+
+import com.DevSalud.DSB.Exception.GeneralServiceException;
+import com.DevSalud.DSB.Exception.NoDataFoundException;
+import com.DevSalud.DSB.Exception.ValidateServiceException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.UserRepository;
 
@@ -54,8 +59,8 @@ public class UserServices {
      * @param id El ID del usuario.
      * @return El usuario encontrado.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws NoDataFoundException     si no se encuentra un usuario con el ID
-     *                                  proporcionado.
+     * @throws NoDataFoundException si no se encuentra un usuario con el ID
+     * proporcionado.
      */
     public UserModel getUserById(Long id) {
         if (id == null) {
@@ -70,7 +75,8 @@ public class UserServices {
      *
      * @param id El ID del usuario.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws GeneralServiceException  si ocurre un error al eliminar el usuario.
+     * @throws GeneralServiceException si ocurre un error al eliminar el
+     * usuario.
      */
     public void deleteUserById(Long id) {
         if (id == null) {
@@ -86,11 +92,11 @@ public class UserServices {
     /**
      * Restablece la contraseña de un usuario por su ID.
      *
-     * @param id          El ID del usuario.
+     * @param id El ID del usuario.
      * @param newPassword La nueva contraseña.
      * @throws ValidateServiceException si el ID del usuario es nulo.
-     * @throws GeneralServiceException  si ocurre un error al restablecer la
-     *                                  contraseña.
+     * @throws GeneralServiceException si ocurre un error al restablecer la
+     * contraseña.
      */
     public void resetPassword(Long id, String newPassword) {
         if (id == null) {
@@ -127,47 +133,6 @@ public class UserServices {
         }
         LocalDate Today = LocalDate.now();
         return Period.between(DateBirthday, Today).getYears();
-    }
-
-    /**
-     * Calcula el IMC.
-     *
-     * @param Weight El peso.
-     * @param Height La altura.
-     * @return El IMC calculado.
-     */
-    public Double calculateIMC(Double Weight, Double Height) {
-        if (Weight == null || Height == null || Height == 0) {
-            throw new IllegalArgumentException("Peso y altura no pueden ser nulos o cero");
-        }
-        return Weight / (Math.pow(Height, 2));
-    }
-
-    /**
-     * Clasifica el IMC según las categorías estándar.
-     *
-     * @param imc El IMC.
-     * @return La clasificación de salud.
-     */
-    public String classifyIMC(Double IMC) {
-        if (IMC == null) {
-            throw new IllegalArgumentException("El IMC no puede ser nulo");
-        }
-        if (IMC < 18.5) {
-            return "Bajo Peso";
-        } else if (IMC <= 24.9) {
-            return "Peso Normal";
-        } else if (IMC <= 29.9) {
-            return "Sobrepeso";
-        } else if (IMC <= 34.9) {
-            return "Obesidad Tipo 1";
-        } else if (IMC <= 39.9) {
-            return "Obesidad Tipo 2";
-        } else if (IMC <= 49.9) {
-            return "Obesidad Tipo 3";
-        } else {
-            return "Obesidad Tipo 4";
-        }
     }
 
 }
