@@ -5,14 +5,18 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.ExerciseLogModel;
+import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.ExerciseLogServices;
+import com.DevSalud.DSB.Service.UserServices;
 
 @Controller
 @RequestMapping(path = "/Api/Users/Exercises")
 public class ExercisesController {
+
+        @Autowired
+        private UserServices userService;
 
         @Autowired
         private ExerciseLogServices exerciseLogService;
@@ -1321,20 +1325,29 @@ public class ExercisesController {
 
         @GetMapping("/RegistroEjercicio")
         public String formularioRegistroEjercicio(Model model) {
-                model.addAttribute("exerciseLog", new ExerciseLogModel());
+                ExerciseLogModel exerciseLog = new ExerciseLogModel(); // assuming this is the type of object
+                model.addAttribute("exerciseLog", exerciseLog);
                 return "/Exercises/FormularioRegistroEjercicio";
         }
 
         @PostMapping("/Registrar")
-        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
-                        BindingResult result, Model model) {
-                if (result.hasErrors()) {
-                        return "Exercises/FormularioRegistroEjercicio";
+        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model) {
+                UserController userController = new UserController();
+                // Usamos el ID del usuario almacenado en el UserController
+                Long userId = userController.UsuarioId;
+                System.out.println("Id:" + userId);
+                if (userId != null) {
+                        UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID
+                        exerciseLog.setUser(user); // Asociamos el usuario al ejercicio
+                        model.addAttribute("exerciseLog", exerciseLog);
+                } else {
+                        model.addAttribute("error", "Usuario no encontrado.");
+                        return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
                 }
-                // Aqui falta el usuario id de la forenkey que se obtuvo en usuario: controller como pasmao ese usuario...
+                // Se guarda el ejercicio asociado al usuario
                 exerciseLogService.saveExerciseLog(exerciseLog);
                 model.addAttribute("message", "Registro exitoso");
-                return "/Api/Users/Exercises/Home";
+                return "redirect:/Api/Users/Exercises/Home";
         }
 
         @GetMapping("/Home")
