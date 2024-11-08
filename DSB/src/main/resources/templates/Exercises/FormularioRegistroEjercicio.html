@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro Ejercicio</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="/Css/FormularioRegistroEjercicio.CSS">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+
+    </head>
+
+    <body>
+        <nav>
+            <!-- Checkbox for toggling menu -->
+            <input type="checkbox" id="check">
+            <!-- Menu icon -->
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <!-- Site logo -->
+            <label class="logo">REGISTRO EJERCICIOS</label>
+            <!-- Navigation links -->
+            <ul>
+                <li><a class="active"
+                        href="/Api/Users/Exercises/Home">HOME</a></li>
+                <li><a href="/Api/Users/Exercises/RegistroEjercicio">REGISTRO
+                        EJERCICIO</a></li>
+                <li><a href="#">LISTA EJERCICIO</a></li>
+            </ul>
+        </nav>
+
+        <div class="contenido-registroejercicio">
+            <h1>Registro Ejercicio</h1>
+            <form th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
+              th:object="${exerciseLog}" method="post">
+                <div class="contenido-principal">
+                    <div class="container"> <!---Tipo Ejercicio-->
+                        <div class="select-btn">
+                            <span class="btn-text">Tipo Ejercicio</span>
+                            <span class="arrow-dwn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items">
+                            <div class="search">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content">
+                                <!-- New wrapper -->
+                                <li th:each="ejercicio : ${allTipEjercicios}"
+                                    class="item">
+                                    <input type="checkbox" th:id="${ejercicio}"
+                                        th:value="${ejercicio}" class="checkbox"
+                                        onchange="filtrarEjercicios()" th:field="*{ExerciseType}">
+                                    <label th:for="${ejercicio}"
+                                        th:text="${ejercicio}"
+                                        class="item-text"></label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Tipo Ejercicio-->
+
+                    <div class="container1"> <!--Nombre Ejercicio-->
+                        <div class="select-btn1">
+                            <span class="btn-text1">Nombre Ejercicio</span>
+                            <span class="arrow-dwn1">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items1">
+                            <div class="search1">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content1">
+                                <!-- New wrapper -->
+                                <ul>
+                                    <!-- Dentro de Nombre Ejercicio -->
+                                    <li th:each="entry : ${allNameEjercicios}"
+                                        class="item">
+                                        <strong th:text="${entry.key}"></strong>
+                                        <ul>
+                                            <li
+                                                th:each="nombreEjercicio : ${entry.value}">
+                                                <input type="checkbox"
+                                                    th:id="${nombreEjercicio}"
+                                                    th:value="${nombreEjercicio}"
+                                                    class="checkbox1"
+                                                    th:data-tipo="${entry.key}" th:field="*{ExerciseName}">
+                                                <!-- Añadir atributo data-tipo -->
+                                                <label
+                                                    th:for="${nombreEjercicio}"
+                                                    th:text="${nombreEjercicio}"
+                                                    class="item-text"></label>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Nombre Ejercicio-->
+                </div>
+
+                <div class="container2"> <!-- Intensidad Ejercicio -->
+                    <div class="select-btn2">
+                        <span class="btn-text2">Intensidad Ejercicio</span>
+                        <span class="arrow-dwn2">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <ul class="list-items2">
+                        <div class="search2">
+                            <input type="text" placeholder="Search">
+                        </div>
+                        <div class="scrollable-content2"> <!-- New wrapper -->
+                            <ul>
+                                <li
+                                    th:each="intensidad : ${allIntecidadEjercicios}"
+                                    class="item2">
+                                    <input type="checkbox" th:id="${intensidad}"
+                                        class="checkbox2"
+                                        th:value="${intensidad}" th:field="*{ExerciseIntensity}">
+                                    <label th:for="${intensidad}"
+                                        th:text="${intensidad}"></label>
+                                </li>
+                            </ul>
+                        </div> <!-- Close the new wrapper -->
+                    </ul>
+                </div> <!-- Intensidad Ejercicio -->
+
+                <!--Datetime-local-->
+                <div class="contenido-reloj">
+                    <div class="clock-container">
+                        <h2>Fecha Inicial</h2>
+                        <div class="digital-clock" id="clock">00:00:00</div>
+                        <div class="date-display" id="date-display">Fecha
+                            Actual</div>
+                        <div class="date-picker">
+                            <label for="datetime">Cambiar Fecha y Hora</label>
+                            <input type="datetime-local" id="datetime"
+                                th:field="*{StrartDate}">
+                        </div>
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
+                            Hora Actual</button>
+                    </div>
+                    <div class="clock-container1">
+                        <h2>Fecha Final</h2>
+                        <div class="digital-clock1" id="clock1">00:00:00</div>
+                        <div class="date-display1" id="date-display1">Fecha
+                            Actual</div>
+                        <div class="date-picker1">
+                            <label for="datetime1">Cambiar Fecha y Hora</label>
+                            <input type="datetime-local" id="datetime1"
+                                th:field="*{FinalDate}">
+                        </div>
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
+                            Hora Actual</button>
+                    </div>
+                </div>
+                <button class="btn-ejercicio" type="submit" value="Registrar">REGISTRO
+                    EJERCICIO</button>
+            </form>
+        </div>
+
+        <script>
+        function filtrarEjercicios() {
+            // Obtener todos los checkboxes de Tipo Ejercicio
+            const tiposEjercicio = document.querySelectorAll('.checkbox');
+            const ejercicios = document.querySelectorAll('.checkbox1');
+
+            // Crear un conjunto para almacenar los tipos seleccionados
+            const tiposSeleccionados = new Set();
+
+            // Llenar el conjunto con los tipos seleccionados
+            tiposEjercicio.forEach(tipo => {
+                if (tipo.checked) {
+                    tiposSeleccionados.add(tipo.value);
+                }
+            });
+
+            // Mostrar u ocultar los ejercicios según el tipo seleccionado
+            ejercicios.forEach(ejercicio => {
+                const tipoEjercicio = ejercicio.getAttribute('data-tipo');
+                if (tiposSeleccionados.size === 0 || tiposSeleccionados.has(tipoEjercicio)) {
+                    ejercicio.parentElement.style.display = 'block'; // Mostrar
+                } else {
+                    ejercicio.parentElement.style.display = 'none'; // Ocultar
+                }
+            });
+        }
+    </script>
+
+        <script src="/Js/Exercises/datetime-local.js"></script>
+        <script src="/Js/Exercises/filtrarEjercicios"></script>
+        <script src="/Js/Exercises/chexbox.js"></script>
+        <script src="/Js/Exercises/chexbox1.js"></script>
+        <script src="/Js/Exercises/chexbox2.js"></script>
+    </body>
+
+</html>
