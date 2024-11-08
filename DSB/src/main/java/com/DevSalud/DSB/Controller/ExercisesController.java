@@ -1328,7 +1328,7 @@ public class ExercisesController {
         }
 
         @PostMapping("/RegistroEjercicio")
-        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
+        public String registerExercise(@RequestBody ExerciseLogModel exerciseLog,
                         Model model,
                         HttpSession session) {
                 Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión

@@ -29,7 +29,7 @@
 
         <div class="contenido-registroalimento">
             <h1>Registro Alimenticios</h1>
-            <form th:action="@{/Api/Users/Food/RegistroAlimento}" method="post">
+            <form th:action="@{/Api/Users/Food/RegistroAlimento}" th:object="${exerciseLog}" method="post">
                 <div class="contenido-principal">
 
                     <div class="container"> <!---Desayuno-->

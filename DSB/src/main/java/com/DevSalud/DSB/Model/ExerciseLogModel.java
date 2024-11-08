@@ -16,7 +16,6 @@ public class ExerciseLogModel {
     public Long Id;
 
     @Basic
-    @NonNull
     public String ExerciseName;
     public String ExerciseType;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")

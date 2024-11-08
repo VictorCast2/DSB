@@ -35,8 +35,8 @@
 
         <div class="contenido-registroejercicio">
             <h1>Registro Ejercicio</h1>
-            <form th:action="@{/Api/Users/Exercises/Registrar}"
-              th:object="${exerciseLog}" method="post">
+            <form th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
+                th:object="${exerciseLog}" method="post">
                 <div class="contenido-principal">
                     <div class="container"> <!---Tipo Ejercicio-->
                         <div class="select-btn">
@@ -55,7 +55,8 @@
                                     class="item">
                                     <input type="checkbox" th:id="${ejercicio}"
                                         th:value="${ejercicio}" class="checkbox"
-                                        onchange="filtrarEjercicios()" th:field="*{ExerciseType}">
+                                        onchange="filtrarEjercicios()"
+                                        th:field="*{ExerciseType}">
                                     <label th:for="${ejercicio}"
                                         th:text="${ejercicio}"
                                         class="item-text"></label>
@@ -89,7 +90,8 @@
                                                     th:id="${nombreEjercicio}"
                                                     th:value="${nombreEjercicio}"
                                                     class="checkbox1"
-                                                    th:data-tipo="${entry.key}" th:field="*{ExerciseName}">
+                                                    th:data-tipo="${entry.key}"
+                                                    th:field="*{ExerciseName}">
                                                 <!-- Añadir atributo data-tipo -->
                                                 <label
                                                     th:for="${nombreEjercicio}"
@@ -122,7 +124,7 @@
                                     class="item2">
                                     <input type="checkbox" th:id="${intensidad}"
                                         class="checkbox2"
-                                        th:value="${intensidad}" th:field="*{ExerciseIntensity}">
+                                        th:value="${intensidad}">
                                     <label th:for="${intensidad}"
                                         th:text="${intensidad}"></label>
                                 </li>
@@ -143,7 +145,8 @@
                             <input type="datetime-local" id="datetime"
                                 th:field="*{StrartDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
+                        <button onclick="resetToCurrentTime()"
+                            type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
                     <div class="clock-container1">
@@ -156,42 +159,43 @@
                             <input type="datetime-local" id="datetime1"
                                 th:field="*{FinalDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
+                        <button onclick="resetToCurrentTime()"
+                            type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
                 </div>
-                <button class="btn-ejercicio" type="submit" value="Registrar">REGISTRO
+                <button class="btn-ejercicio" type="submit">REGISTRO
                     EJERCICIO</button>
             </form>
         </div>
 
         <script>
-        function filtrarEjercicios() {
-            // Obtener todos los checkboxes de Tipo Ejercicio
-            const tiposEjercicio = document.querySelectorAll('.checkbox');
-            const ejercicios = document.querySelectorAll('.checkbox1');
-
-            // Crear un conjunto para almacenar los tipos seleccionados
-            const tiposSeleccionados = new Set();
-
-            // Llenar el conjunto con los tipos seleccionados
-            tiposEjercicio.forEach(tipo => {
-                if (tipo.checked) {
-                    tiposSeleccionados.add(tipo.value);
-                }
-            });
-
-            // Mostrar u ocultar los ejercicios según el tipo seleccionado
-            ejercicios.forEach(ejercicio => {
-                const tipoEjercicio = ejercicio.getAttribute('data-tipo');
-                if (tiposSeleccionados.size === 0 || tiposSeleccionados.has(tipoEjercicio)) {
-                    ejercicio.parentElement.style.display = 'block'; // Mostrar
-                } else {
-                    ejercicio.parentElement.style.display = 'none'; // Ocultar
-                }
-            });
-        }
-    </script>
+            function filtrarEjercicios() {
+                // Obtener todos los checkboxes de Tipo Ejercicio
+                const tiposEjercicio = document.querySelectorAll('.checkbox');
+                const ejercicios = document.querySelectorAll('.checkbox1');
+    
+                // Crear un conjunto para almacenar los tipos seleccionados
+                const tiposSeleccionados = new Set();
+    
+                // Llenar el conjunto con los tipos seleccionados
+                tiposEjercicio.forEach(tipo => {
+                    if (tipo.checked) {
+                        tiposSeleccionados.add(tipo.value);
+                    }
+                });
+    
+                // Mostrar u ocultar los ejercicios según el tipo seleccionado
+                ejercicios.forEach(ejercicio => {
+                    const tipoEjercicio = ejercicio.getAttribute('data-tipo');
+                    if (tiposSeleccionados.size === 0 || tiposSeleccionados.has(tipoEjercicio)) {
+                        ejercicio.parentElement.style.display = 'block'; // Mostrar
+                    } else {
+                        ejercicio.parentElement.style.display = 'none'; // Ocultar
+                    }
+                });
+            }
+        </script>
 
         <script src="/Js/Exercises/datetime-local.js"></script>
         <script src="/Js/Exercises/filtrarEjercicios"></script>
