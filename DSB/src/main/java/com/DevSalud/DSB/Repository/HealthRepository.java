@@ -7,5 +7,4 @@ import com.DevSalud.DSB.Model.UserModel;
 
 @Repository
 public interface HealthRepository extends JpaRepository<UserModel, Long> {
-
 }

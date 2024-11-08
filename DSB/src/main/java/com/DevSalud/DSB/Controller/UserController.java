@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
+import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import java.time.LocalDate;
 
@@ -43,8 +44,11 @@ public class UserController {
      * 
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
-            BindingResult result, Model model) {
+    public String registerUser(@ModelAttribute("Users") UserModel Users,
+            RedirectAttributes redirect,
+            BindingResult result,
+            Model model,
+            HttpSession session) {
         if (result.hasErrors()) {
             return "/Api/Users/Registro";
         }
@@ -63,7 +67,8 @@ public class UserController {
 
         userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/DSBSinConection";
+
+        return "redirect:/DSBConection"; // Redirecciona a la página principal
     }
 
     /**
@@ -156,11 +161,12 @@ public class UserController {
      * @return
      */
     @PostMapping("/Login")
-    public String login(@RequestParam("UserOrEmail") String UserOrEmail, @RequestParam("Password") String Password,
-            Model model) {
+    public String login(@RequestParam("UserOrEmail") String UserOrEmail,
+            @RequestParam("Password") String Password,
+            Model model, HttpSession session) {
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
         if (user != null && user.getPassword().equals(Password)) {
-            UsuarioId = user.getId();  // Almacena el ID del usuario cuando inicie sesión
+            session.setAttribute("UsuarioId", user.getId()); // Almacena el ID del usuario en la sesión
             return "redirect:/DSBConection"; // Redirecciona a la página principal
         } else {
             model.addAttribute("error", "Credenciales incorrectas");
