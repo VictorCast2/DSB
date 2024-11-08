@@ -55,7 +55,7 @@
                                     class="item">
                                     <input type="checkbox" th:id="${ejercicio}"
                                         th:value="${ejercicio}" class="checkbox"
-                                        onchange="filtrarEjercicios()">
+                                        onchange="filtrarEjercicios()" th:field="*{ExerciseType}">
                                     <label th:for="${ejercicio}"
                                         th:text="${ejercicio}"
                                         class="item-text"></label>
@@ -89,7 +89,7 @@
                                                     th:id="${nombreEjercicio}"
                                                     th:value="${nombreEjercicio}"
                                                     class="checkbox1"
-                                                    th:data-tipo="${entry.key}">
+                                                    th:data-tipo="${entry.key}" th:field="*{ExerciseName}">
                                                 <!-- Añadir atributo data-tipo -->
                                                 <label
                                                     th:for="${nombreEjercicio}"
@@ -122,7 +122,7 @@
                                     class="item2">
                                     <input type="checkbox" th:id="${intensidad}"
                                         class="checkbox2"
-                                        th:value="${intensidad}">
+                                        th:value="${intensidad}" th:field="*{ExerciseIntensity}">
                                     <label th:for="${intensidad}"
                                         th:text="${intensidad}"></label>
                                 </li>

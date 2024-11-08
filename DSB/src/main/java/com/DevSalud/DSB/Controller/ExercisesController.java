@@ -11,6 +11,8 @@ import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.ExerciseLogServices;
 import com.DevSalud.DSB.Service.UserServices;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping(path = "/Api/Users/Exercises")
 public class ExercisesController {
@@ -1330,11 +1332,11 @@ public class ExercisesController {
                 return "/Exercises/FormularioRegistroEjercicio";
         }
 
-        @PostMapping("/Registrar")
-        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model) {
-                UserController userController = new UserController();
-                // Usamos el ID del usuario almacenado en el UserController
-                Long userId = userController.UsuarioId;
+        @PostMapping("/RegistroEjercicio")
+        public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
+                        Model model,
+                        HttpSession session) {
+                Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
                 System.out.println("Id:" + userId);
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID
@@ -1347,6 +1349,8 @@ public class ExercisesController {
                 // Se guarda el ejercicio asociado al usuario
                 exerciseLogService.saveExerciseLog(exerciseLog);
                 model.addAttribute("message", "Registro exitoso");
+                System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
+                System.out.println("Fecha final: " + exerciseLog.getFinalDate());
                 return "redirect:/Api/Users/Exercises/Home";
         }
 
