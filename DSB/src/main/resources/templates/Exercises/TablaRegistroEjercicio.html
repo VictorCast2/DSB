@@ -52,8 +52,8 @@
                         <td data-title="Tipo Ejercicio" th:text="${exerciseLog.exerciseType}">Aerobico/Pecho/Pierna</td>
                         <td data-title="Nombre Ejercicio" th:text="${exerciseLog.exerciseName}">Trotar/Flexiones/Sentadilla</td>
                         <td data-title="Intensidad Ejercicio" th:text="${exerciseLog.exerciseIntensity}">Alta/Media/Baja</td>
-                        <td data-title="Fecha Hora Inicial" th:text="${#dates.format(exerciseLog.strartDate, 'dd/MM/yy hh:mm a')}">5/11/24 8:20 p.m</td>
-                        <td data-title="Fecha Hora Final" th:text="${#dates.format(exerciseLog.finalDate, 'dd/MM/yy hh:mm a')}">5/11/24 10:20 p.m</td>
+                        <td data-title="Fecha Hora Inicial" th:text="${#dates.format(exerciseLog.strartDate, 'dd/MM/yy hh:mm a')}"></td>
+                        <td data-title="Fecha Hora Final" th:text="${#dates.format(exerciseLog.finalDate, 'dd/MM/yy hh:mm a')}"></td>
                         <td data-title="Acción">
                             <a th:href="@{/Api/Users/Health/EditarEjercicio(id=${exerciseLog.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a th:href="@{/Api/Users/Health/EliminarEjercicio(id=${exerciseLog.id})}"><i class="fa-solid fa-trash"></i></a>

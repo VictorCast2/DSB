@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.*;
 import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
+import lombok.Data;
 
+@Data
 @Controller
 @RequestMapping(path = "/Api/Users/Exercises")
 public class ExercisesController {
@@ -1323,31 +1325,44 @@ public class ExercisesController {
 
     @GetMapping("/RegistroEjercicio")
     public String formularioRegistroEjercicio(Model model) {
-        ExerciseLogModel exerciseLog = new ExerciseLogModel(); // assuming this is the type of object
+        ExerciseLogModel exerciseLog = new ExerciseLogModel();
         model.addAttribute("exerciseLog", exerciseLog);
         return "/Exercises/FormularioRegistroEjercicio";
     }
 
     @PostMapping("/RegistroEjercicio")
     public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
-            Model model,
-            HttpSession session) {
+            Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
-        System.out.println("Id:" + userId);
         if (userId != null) {
             UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID
             exerciseLog.setUser(user); // Asociamos el usuario al ejercicio
-            model.addAttribute("exerciseLog", exerciseLog);
+            exerciseLogService.saveExerciseLog(exerciseLog); // Se guarda el ejercicio asociado al usuario
+            model.addAttribute("message", "Registro exitoso");
+            System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
+            System.out.println("Fecha final: " + exerciseLog.getFinalDate());
+            return "redirect:/Api/Users/Exercises/TablaEjercicio";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
         }
-        // Se guarda el ejercicio asociado al usuario
-        exerciseLogService.saveExerciseLog(exerciseLog);
-        model.addAttribute("message", "Registro exitoso");
-        System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
-        System.out.println("Fecha final: " + exerciseLog.getFinalDate());
-        return "redirect:/Api/Users/Exercises/Home";
+    }
+
+    @GetMapping("/TablaEjercicio")
+    public String TablaRegistroEjercicio(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("UsuarioId");
+        if (userId != null) {
+            Optional<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
+            if (exerciseLogs != null && !exerciseLogs.isEmpty()) {
+                model.addAttribute("exerciseLogs", exerciseLogs);
+            } else {
+                model.addAttribute("error", "No se encontraron registros de ejercicio para el usuario.");
+            }
+        } else {
+            model.addAttribute("error", "Usuario no encontrado.");
+            return "redirect:/Api/Users/Login";
+        }
+        return "Exercises/TablaRegistroEjercicio";
     }
 
     @GetMapping("/Home")
@@ -1383,23 +1398,6 @@ public class ExercisesController {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";
         }
-    }
-
-    @GetMapping("/TablaEjercicio")
-    public String TablaRegistroEjercicio(Model model, HttpSession session) {
-        Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId != null) {
-            Optional<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
-            if (exerciseLogs != null && !exerciseLogs.isEmpty()) {
-                model.addAttribute("exerciseLogs", exerciseLogs);
-            } else {
-                model.addAttribute("error", "No se encontraron registros de ejercicio para el usuario.");
-            }
-        } else {
-            model.addAttribute("error", "Usuario no encontrado.");
-            return "redirect:/Api/Users/Login";
-        }
-        return "Exercises/TablaRegistroEjercicio";
     }
 
 }
