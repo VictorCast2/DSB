@@ -1,5 +1,7 @@
 package com.DevSalud.DSB.Model;
 
+import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,8 +17,8 @@ public class AlimentLogModel {
 
     @Basic
     @NonNull
-    private String CategoryFood;
-    private String Food;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime StrartDate;
 
     @ManyToOne
     @JoinColumn(name = "MenuOfTheDayModel", referencedColumnName = "Id")

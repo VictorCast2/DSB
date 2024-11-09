@@ -1324,15 +1324,13 @@ public class ExercisesController {
     }
 
     @GetMapping("/RegistroEjercicio")
-    public String formularioRegistroEjercicio(Model model) {
-        ExerciseLogModel exerciseLog = new ExerciseLogModel();
-        model.addAttribute("exerciseLog", exerciseLog);
-        return "/Exercises/FormularioRegistroEjercicio";
+    public String showExerciseForm(Model model) {
+        model.addAttribute("exerciseLog", new ExerciseLogModel());
+        return "Exercises/RegistroEjercicio";
     }
 
     @PostMapping("/RegistroEjercicio")
-    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
-            Model model, HttpSession session) {
+    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
         if (userId != null) {
             UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID
@@ -1352,7 +1350,7 @@ public class ExercisesController {
     public String TablaRegistroEjercicio(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
-            Optional<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
+            List<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
             if (exerciseLogs != null && !exerciseLogs.isEmpty()) {
                 model.addAttribute("exerciseLogs", exerciseLogs);
             } else {
@@ -1372,7 +1370,7 @@ public class ExercisesController {
 
     @GetMapping("/EditarEjercicio")
     public String formularioEditarEjercicio(@RequestParam("id") Long id, Model model) {
-        Optional<ExerciseLogModel> exerciseLog = exerciseLogService.getExerciseLogsByUserId(id);
+        List<ExerciseLogModel> exerciseLog = exerciseLogService.getExerciseLogsByUserId(id);
         if (exerciseLog.isPresent()) {
             model.addAttribute("exerciseLog", exerciseLog.get());
         } else {
