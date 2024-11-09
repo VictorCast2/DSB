@@ -63,9 +63,9 @@ public class UserController {
         Integer calculatedAge = userService.calculateAge(DateOfBirth);
         Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
         System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-        if (calculatedAge == null || calculatedAge < 0) {
+        if (calculatedAge == null || calculatedAge <= 16) {
             model.addAttribute("Error", "La fecha de nacimiento no es válida.");
-            return "/Users/Registro";
+            return "/Api/Users/Registro";
         }
         Users.setAge(calculatedAge); // Calcula y asigna la edad
         Users.setBodyMass(masaCorporal);
