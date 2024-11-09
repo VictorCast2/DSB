@@ -28,13 +28,15 @@
                         href="/Api/Users/Exercises/Home">HOME</a></li>
                 <li><a href="/Api/Users/Exercises/RegistroEjercicio">REGISTRO
                         EJERCICIO</a></li>
-                <li><a href="#">LISTA EJERCICIO</a></li>
+                <li><a href="/Api/Users/Exercises/TablaEjercicio">LISTA
+                        EJERCICIO</a></li>
             </ul>
         </nav>
 
         <div class="contenido-registroejercicio">
             <h1>Editar Ejercicio</h1>
-            <form action>
+            <form action="/Api/Users/Health/EditarEjercicio" method="post"
+                th:object="${exerciseLog}">
                 <div class="contenido-principal">
 
                     <div class="container"> <!--- Tipo Ejercicio -->
@@ -54,7 +56,8 @@
                                     <li th:each="tipo : ${allTiposEjercicio}"
                                         class="item">
                                         <input type="checkbox" th:id="${tipo}"
-                                            class="checkbox" th:value="${tipo}">
+                                            class="checkbox" th:value="${tipo}"
+                                            th:field="*{exerciseType}">
                                         <label th:for="${tipo}"
                                             class="item-text"
                                             th:text="${tipo}"></label>
@@ -84,7 +87,8 @@
                                         <input type="checkbox"
                                             th:id="${ejercicio.replace(' ', '-').toLowerCase()}"
                                             class="checkbox1"
-                                            th:value="${ejercicio}">
+                                            th:value="${ejercicio}"
+                                            th:field="*{exerciseName}">
                                         <label
                                             th:for="${ejercicio.replace(' ', '-').toLowerCase()}"
                                             class="item-text1"
@@ -110,11 +114,12 @@
                         <div class="scrollable-content2"> <!-- New wrapper -->
                             <ul>
                                 <li
-                                    th:each="intensidad : ${allIntecidadEjercicios}"
+                                    th:each="intensidad : ${allIntensidadEjercicio}"
                                     class="item2">
                                     <input type="checkbox" th:id="${intensidad}"
                                         class="checkbox2"
-                                        th:value="${intensidad}">
+                                        th:value="${intensidad}"
+                                        th:field="*{exerciseIntensity}">
                                     <label th:for="${intensidad}"
                                         th:text="${intensidad}"></label>
                                 </li>
@@ -132,7 +137,8 @@
                             Actual</div>
                         <div class="date-picker">
                             <label for="datetime">Cambiar Fecha y Hora</label>
-                            <input type="datetime-local" id="datetime"
+                            <input type="datetime-local"
+                                th:field="*{strartDate}" id="datetime"
                                 onchange="updateDisplay()">
                         </div>
                         <button onclick="resetToCurrentTime()">Restablecer a la
@@ -146,8 +152,8 @@
                             Actual</div>
                         <div class="date-picker1">
                             <label for="datetime1">Cambiar Fecha y Hora</label>
-                            <input type="datetime-local" id="datetime1"
-                                onchange="updateDisplay()">
+                            <input type="datetime-local" th:field="*{finalDate}"
+                                id="datetime1" onchange="updateDisplay()">
                         </div>
                         <button onclick="resetToCurrentTime()">Restablecer a la
                             Hora Actual</button>

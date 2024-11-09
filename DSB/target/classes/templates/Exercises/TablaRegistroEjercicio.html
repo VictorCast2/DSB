@@ -28,11 +28,9 @@
             <label class="logo">REGISTRO EJERCICIOS</label>
             <!-- Navigation links -->
             <ul>
-                <li><a class="active"
-                        href="/Api/Users/Exercises/Home">HOME</a></li>
-                <li><a href="/Api/Users/Exercises/RegistroEjercicio">REGISTRO
-                        EJERCICIO</a></li>
-                <li><a href="#">LISTA EJERCICIO</a></li>
+                <li><a class="active" href="/Api/Users/Exercises/Home">HOME</a></li>
+                <li><a href="/Api/Users/Exercises/RegistroEjercicio">REGISTRO EJERCICIO</a></li>
+                <li><a href="/Api/Users/Exercises/TablaEjercicio">LISTA EJERCICIO</a></li>
             </ul>
         </nav>
 
@@ -50,41 +48,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td
-                            data-title="Tipo Ejercicio">Aerobico/Pecho/Pierna</td>
-                        <td
-                            data-title="Nombre Ejercicio">Trotar/Flexiones/Sentadilla</td>
-                        <td
-                            data-title="Intesidad Ejercicio">Alta/Media/Baja</td>
-                        <td data-title="Fecha Hora Inicial">5/11/24 8:20
-                            p.m</td>
-                        <td data-title="Fecha Hora Final">5/11/24 10:20 p.m</td>
-                        <td data-title="Action">
-                            <a href><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
-                            <a href><i class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-title="Tipo Ejercicio">Homro/Biceps/Pierna</td>
-                        <td
-                            data-title="Nombre Ejercicio">Elevaciones/Curl/Sentadilla</td>
-                        <td
-                            data-title="Intesidad Ejercicio">Alta/Media/Baja</td>
-                        <td data-title="Fecha Hora Inicial">5/11/24 7:00
-                            p.m</td>
-                        <td data-title="Fecha Hora Final">5/11/24 9:30 p.m</td>
-                        <td data-title="Action">
-                            <a href><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
-                            <a href><i class="fa-solid fa-trash"></i></a>
+                    <tr th:each="exerciseLog : ${exerciseLogs}">
+                        <td data-title="Tipo Ejercicio" th:text="${exerciseLog.exerciseType}">Aerobico/Pecho/Pierna</td>
+                        <td data-title="Nombre Ejercicio" th:text="${exerciseLog.exerciseName}">Trotar/Flexiones/Sentadilla</td>
+                        <td data-title="Intensidad Ejercicio" th:text="${exerciseLog.exerciseIntensity}">Alta/Media/Baja</td>
+                        <td data-title="Fecha Hora Inicial" th:text="${#dates.format(exerciseLog.strartDate, 'dd/MM/yy hh:mm a')}"></td>
+                        <td data-title="Fecha Hora Final" th:text="${#dates.format(exerciseLog.finalDate, 'dd/MM/yy hh:mm a')}"></td>
+                        <td data-title="Acción">
+                            <a th:href="@{/Api/Users/Health/EditarEjercicio(id=${exerciseLog.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a th:href="@{/Api/Users/Health/EliminarEjercicio(id=${exerciseLog.id})}"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
     </body>
 
 </html>
