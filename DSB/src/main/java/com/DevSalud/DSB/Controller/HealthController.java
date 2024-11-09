@@ -39,7 +39,6 @@ public class HealthController {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
         }
-        
         return "/Health_Status/EstadoSalud"; // Devolvemos la vista con los datos
     }
 

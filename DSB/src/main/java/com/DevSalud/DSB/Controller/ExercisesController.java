@@ -1,6 +1,5 @@
 package com.DevSalud.DSB.Controller;
 
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -1370,8 +1369,8 @@ public class ExercisesController {
 
     @PostMapping("/EditarEjercicio")
     public String editarEjercicio(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
-                                  Model model,
-                                  HttpSession session) {
+            Model model,
+            HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             UserModel user = userService.getUserById(userId);
@@ -1390,13 +1389,17 @@ public class ExercisesController {
     public String TablaRegistroEjercicio(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
-            Optional<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogById(userId);
-            model.addAttribute("exerciseLogs", exerciseLogs);
+            Optional<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
+            if (exerciseLogs != null && !exerciseLogs.isEmpty()) {
+                model.addAttribute("exerciseLogs", exerciseLogs);
+            } else {
+                model.addAttribute("error", "No se encontraron registros de ejercicio para el usuario.");
+            }
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";
         }
-        return "/Exercises/TablaRegistroEjercicio";
+        return "Exercises/TablaRegistroEjercicio";
     }
 
 }

@@ -1,5 +1,6 @@
 package com.DevSalud.DSB.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class ExerciseLogServices {
         exerciseLogRepository.save(exerciseLog);
     }
 
-    public Optional<ExerciseLogModel> getExerciseLogById(Long id) {
-        return exerciseLogRepository.findById(id);
+    public Optional<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
+        return exerciseLogRepository.findById(userId);
     }
 
     public ExerciseLogModel updateExerciseLog(Long id, ExerciseLogModel updatedExerciseLog) {
