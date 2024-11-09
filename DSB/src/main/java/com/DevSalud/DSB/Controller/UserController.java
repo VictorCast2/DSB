@@ -19,9 +19,6 @@ import java.time.LocalDate;
 @RequestMapping(path = "/Api/Users")
 public class UserController {
 
-    // Variable Global de guardado del Usuario Id
-    public Long UsuarioId;
-
     @Autowired
     private UserServices userService;
 
@@ -179,33 +176,13 @@ public class UserController {
     }
 
     /**
-     * Muestra la lista de usuarios.
-     * 
-     * @param modelo El modelo para la vista.
-     * @return La vista de lista de usuarios.
-     */
-    @GetMapping("/Lista")
-    public String ListaUsuarios(Model modelo) {
-        try {
-            modelo.addAttribute("Usuarios", userService.getAllUsers());
-        } catch (NoDataFoundException e) {
-            modelo.addAttribute("Error", e.getMessage());
-        }
-        return "/Users/Lista";
-    }
-
-    /**
      * Muestra la página de edición de un usuario.
-     * 
-     * @param id     El ID del usuario.
      * @param modelo El modelo para la vista.
      * @return La vista de edición de usuario.
      */
-    @GetMapping("/Editar/{id}")
-    public String EditarUsuario(@PathVariable Long id, Model modelo) {
+    @GetMapping("/Editar")
+    public String EditarUsuario(Model modelo) {
         try {
-            UserModel usuario = userService.getUserById(id);
-            modelo.addAttribute("Usuario", usuario);
             return "/Users/Editar";
         } catch (NoDataFoundException e) {
             return "redirect:/Api/Users/Lista";
