@@ -10,7 +10,6 @@ import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
-
 @Data
 @Controller
 @RequestMapping("/Api/Users/Health/")
@@ -23,12 +22,6 @@ public class HealthController {
     private final HealthService healthService;
 
     @GetMapping(" ")
-    public String estadoSalud(Model model) {
-        model.addAttribute("usuario", new UserModel());
-        return "/Health_Status/EstadoSalud";
-    }
-
-    @PostMapping(" ")
     public String estadoSalud(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
         System.out.println("Id:" + userId);
