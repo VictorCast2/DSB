@@ -20,20 +20,13 @@
                     <thead>
                         <tr>
                             <th>Nombre Completo</th>
-                            <th>Teléfono</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-title="Nombre Completo">Juan Pérez</td>
-                            <td data-title="Teléfono">234 567 890</td>
-                            <td data-title="Email">juan.perez@example.com</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Nombre Completo">Juan Pérez</td>
-                            <td data-title="Teléfono">234 567 890</td>
-                            <td data-title="Email">juan.perez@example.com</td>
+                            <td data-title="Nombre Completo" th:text="${usuario.Name}"></td>
+                            <td data-title="Email" th:text="${usuario.emailAddress}"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,22 +49,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-title="Sexo">Masculino</td>
-                            <td data-title="Peso">75</td>
-                            <td data-title="Edad">30</td>
-                            <td data-title="Fecha de Nacimiento">15/05/1993</td>
-                            <td data-title="Altura">1.75</td>
-                            <td data-title="Clasificación IMC">Normal</td>
-                            <td data-title="Cálculo IMC">24.5</td>
-                        </tr>
-                        <tr>
-                            <td data-title="Sexo">Masculino</td>
-                            <td data-title="Peso">75</td>
-                            <td data-title="Edad">30</td>
-                            <td data-title="Fecha de Nacimiento">15/05/1993</td>
-                            <td data-title="Altura">1.75</td>
-                            <td data-title="Clasificación IMC">Normal</td>
-                            <td data-title="Cálculo IMC">24.5</td>
+                            <td data-title="Sexo" th:text="${usuario.Sex}"></td>
+                            <td data-title="Peso" th:text="${usuario.Weight}"></td>
+                            <td data-title="Edad" th:text="${usuario.Age}"></td>
+                            <td data-title="Fecha de Nacimiento" th:text="${#dates.format(usuario.DateBirthday, 'dd/MM/yyyy')}"></td>
+                            <td data-title="Altura" th:text="${usuario.Height}"></td>
+                            <td data-title="Clasificación IMC" th:text="${usuario.HealthClassification}"></td>
+                            <td data-title="Cálculo IMC" th:text="${usuario.BodyMass}"></td>
                         </tr>
                     </tbody>
                 </table>

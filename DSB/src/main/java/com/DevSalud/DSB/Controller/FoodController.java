@@ -268,7 +268,6 @@ public class FoodController {
             @RequestParam List<String> food) {
         // Aquí puedes crear un nuevo AlimentLogModel y asignar los valores recibidos
         AlimentLogModel alimentLog = new AlimentLogModel();
-
         // Asignar los valores a alimentLog
         // Por ejemplo, si solo deseas guardar la primera categoría y alimento seleccionados
         if (!categoryFood.isEmpty()) {
@@ -277,9 +276,7 @@ public class FoodController {
         if (!food.isEmpty()) {
             alimentLog.setFood(food.get(0)); // Asigna el primer alimento
         }
-
         alimentLogServices.saveAlimentLog(alimentLog);
-
         // Redirigir a la URL especificada
         return new ModelAndView("redirect:/Api/Users/Food/Home");
     }

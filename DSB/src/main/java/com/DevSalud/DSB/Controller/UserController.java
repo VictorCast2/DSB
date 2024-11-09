@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
-import com.DevSalud.DSB.Service.HealthService;
-import com.DevSalud.DSB.Service.UserServices;
+import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import java.time.LocalDate;
@@ -25,6 +24,8 @@ public class UserController {
 
     @Autowired
     private UserServices userService;
+
+    @Autowired
     private HealthService healthService; 
 
     /**
