@@ -3,7 +3,7 @@ package com.DevSalud.DSB.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.*;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -63,9 +63,9 @@ public class UserController {
         Integer calculatedAge = userService.calculateAge(DateOfBirth);
         Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
         System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-        if (calculatedAge == null || calculatedAge < 0) {
+        if (calculatedAge == null || calculatedAge <= 16) {
             model.addAttribute("Error", "La fecha de nacimiento no es válida.");
-            return "/Users/Registro";
+            return "/Api/Users/Registro";
         }
         Users.setAge(calculatedAge); // Calcula y asigna la edad
         Users.setBodyMass(masaCorporal);
