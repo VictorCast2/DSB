@@ -15,8 +15,11 @@ public class MenuOfTheDayModel {
 
     @Basic
     @NonNull
+    private String CategoryFoodBreakFast;
     private String BreakFast;
+    private String CategoryFoodLunch;
     private String Lunch;
+    private String CategoryFoodDinner;
     private String Dinner;
 
     @ManyToOne

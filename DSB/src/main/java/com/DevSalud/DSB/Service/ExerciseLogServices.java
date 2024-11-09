@@ -1,6 +1,7 @@
 package com.DevSalud.DSB.Service;
 
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,8 @@ public class ExerciseLogServices {
         exerciseLogRepository.save(exerciseLog);
     }
 
-    public Optional<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
-        return exerciseLogRepository.findById(userId);
+    public List<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
+        return exerciseLogRepository.findByUserId(userId);
     }
 
     public ExerciseLogModel updateExerciseLog(Long id, ExerciseLogModel updatedExerciseLog) {
@@ -35,5 +36,4 @@ public class ExerciseLogServices {
             return null;
         }
     }
-
 }
