@@ -25,13 +25,11 @@ public class HealthController {
     public String estadoSalud(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
         System.out.println("Id:" + userId);
-        
         if (userId != null) {
             UserModel usuario = userService.getUserById(userId); // Obtenemos el usuario con el ID
             // Formateamos la fecha de nacimiento del usuario
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String formattedDate = usuario.getDateBirthday().format(formatter);
-            
             // Pasamos el usuario y la fecha formateada a la vista
             model.addAttribute("usuario", usuario);
             model.addAttribute("formattedDate", formattedDate);
@@ -39,7 +37,6 @@ public class HealthController {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
         }
-        
         return "/Health_Status/EstadoSalud"; // Devolvemos la vista con los datos
     }
 
