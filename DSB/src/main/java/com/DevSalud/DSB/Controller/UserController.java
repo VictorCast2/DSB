@@ -25,6 +25,8 @@ public class UserController {
 
     @Autowired
     private UserServices userService;
+
+    @Autowired
     private HealthService healthService; 
 
     /**

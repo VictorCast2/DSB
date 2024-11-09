@@ -11,7 +11,7 @@ import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.HealthService;
 
 @Controller
-@RequestMapping("/api/users")
+@RequestMapping("/Api/Users/Health/")
 public class HealthController {
 
     @Autowired
