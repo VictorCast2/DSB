@@ -1,7 +1,6 @@
 package com.DevSalud.DSB.Controller;
 
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,11 +41,6 @@ public class HealthController {
         }
         
         return "/Health_Status/EstadoSalud"; // Devolvemos la vista con los datos
-    }
-
-    @GetMapping("/healthUsers")
-    public List<UserModel> getAllUsers() {
-        return healthService.getAllUsers();
     }
 
 }
