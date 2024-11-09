@@ -1,10 +1,9 @@
 package com.DevSalud.DSB.Service;
 
 import java.util.List;
-
+import java.lang.Math;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.HealthRepository;
 
@@ -33,7 +32,7 @@ public class HealthService {
         if (Weight == null || Height == null || Height == 0) {
             throw new IllegalArgumentException("Peso y altura no pueden ser nulos o cero");
         }
-        return Weight / (Math.pow(Height, 2));
+        return (Weight / (Math.pow(Height, 2)));
     }
 
     /**
