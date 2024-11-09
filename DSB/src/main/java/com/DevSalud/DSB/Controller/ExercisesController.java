@@ -1357,7 +1357,7 @@ public class ExercisesController {
 
     @GetMapping("/EditarEjercicio")
     public String formularioEditarEjercicio(@RequestParam("id") Long id, Model model) {
-        Optional<ExerciseLogModel> exerciseLog = exerciseLogService.getExerciseLogById(id);
+        Optional<ExerciseLogModel> exerciseLog = exerciseLogService.getExerciseLogsByUserId(id);
         if (exerciseLog.isPresent()) {
             model.addAttribute("exerciseLog", exerciseLog.get());
         } else {
