@@ -19,23 +19,18 @@ import java.time.LocalDate;
 @RequestMapping(path = "/Api/Users")
 public class UserController {
 
-    // Variable Global de guardado del Usuario Id
-    public Long UsuarioId;
-
     @Autowired
     private UserServices userService;
 
     @Autowired
-    private HealthService healthService; 
+    private HealthService healthService;
 
     /**
      * Muestra la página de registro.
-     * 
-     * @return La vista de registro.
      */
     @GetMapping("/Registro")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("Users", new UserModel());
+        model.addAttribute("Users", new UserModel()); 
         return "/Users/Registro";
     }
 
@@ -114,8 +109,8 @@ public class UserController {
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
+            }
         }
-    }
 
     /**
      * Muestra la página de eliminación de usuario.
@@ -142,9 +137,9 @@ public class UserController {
             return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
-            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error 
+            } 
         }
-    }
 
     /**
      * 

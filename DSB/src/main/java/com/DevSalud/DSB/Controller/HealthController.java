@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Controller
-@RequestMapping("/Api/Users/Health/")
+@RequestMapping("/Api/Users/Health")
 public class HealthController {
 
     @Autowired
