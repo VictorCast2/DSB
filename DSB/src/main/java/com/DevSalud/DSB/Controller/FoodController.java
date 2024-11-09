@@ -4,7 +4,6 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import com.DevSalud.DSB.Model.*;
 import com.DevSalud.DSB.Service.*;
 import ch.qos.logback.core.model.Model;
@@ -267,7 +266,6 @@ public class FoodController {
                 System.out.println("Id:" + userId);
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID // Asociamos el usuario al ejercicio
-                        model.addAttribute("");
                 } else {
                         model.addText("Usuario no encontrado.");
                         return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
