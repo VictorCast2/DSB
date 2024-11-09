@@ -3,7 +3,7 @@ package com.DevSalud.DSB.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.*;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -23,16 +23,14 @@ public class UserController {
     private UserServices userService;
 
     @Autowired
-    private HealthService healthService; 
+    private HealthService healthService;
 
     /**
      * Muestra la página de registro.
-     * 
-     * @return La vista de registro.
      */
     @GetMapping("/Registro")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("Users", new UserModel());
+        model.addAttribute("Users", new UserModel()); 
         return "/Users/Registro";
     }
 
@@ -60,9 +58,9 @@ public class UserController {
         Integer calculatedAge = userService.calculateAge(DateOfBirth);
         Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
         System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-        if (calculatedAge == null || calculatedAge < 0) {
+        if (calculatedAge == null || calculatedAge <= 16) {
             model.addAttribute("Error", "La fecha de nacimiento no es válida.");
-            return "/Users/Registro";
+            return "/Api/Users/Registro";
         }
         Users.setAge(calculatedAge); // Calcula y asigna la edad
         Users.setBodyMass(masaCorporal);
@@ -111,8 +109,8 @@ public class UserController {
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
+            }
         }
-    }
 
     /**
      * Muestra la página de eliminación de usuario.
@@ -139,9 +137,9 @@ public class UserController {
             return "redirect:/DSBSinConection";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
-            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error 
+            } 
         }
-    }
 
     /**
      * 
@@ -176,13 +174,33 @@ public class UserController {
     }
 
     /**
+     * Muestra la lista de usuarios.
+     * 
+     * @param modelo El modelo para la vista.
+     * @return La vista de lista de usuarios.
+     */
+    @GetMapping("/Lista")
+    public String ListaUsuarios(Model modelo) {
+        try {
+            modelo.addAttribute("Usuarios", userService.getAllUsers());
+        } catch (NoDataFoundException e) {
+            modelo.addAttribute("Error", e.getMessage());
+        }
+        return "/Users/Lista";
+    }
+
+    /**
      * Muestra la página de edición de un usuario.
+     * 
+     * @param id     El ID del usuario.
      * @param modelo El modelo para la vista.
      * @return La vista de edición de usuario.
      */
-    @GetMapping("/Editar")
-    public String EditarUsuario(Model modelo) {
+    @GetMapping("/Editar/{id}")
+    public String EditarUsuario(@PathVariable Long id, Model modelo) {
         try {
+            UserModel usuario = userService.getUserById(id);
+            modelo.addAttribute("Usuario", usuario);
             return "/Users/Editar";
         } catch (NoDataFoundException e) {
             return "redirect:/Api/Users/Lista";
