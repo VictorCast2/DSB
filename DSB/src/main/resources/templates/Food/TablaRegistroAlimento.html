@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tabla de Registro Alimenticio</title>
+        <link rel="stylesheet" href="/Css/TablaRegistroAlimento.CSS">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <nav>
+            <!-- Checkbox for toggling menu -->
+            <input type="checkbox" id="check">
+            <!-- Menu icon -->
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <!-- Site logo -->
+            <label class="logo">REGISTRO ALIMENTICIO</label>
+            <!-- Navigation links -->
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="#">REGISTRO ALIMENTICIO</a></li>
+                <li><a href="#">LISTA ALIMENTICIO</a></li>
+            </ul>
+        </nav>
+
+        <!--- Tabla LISTA ALMENTICIO -->
+        <div class="contenido-tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria Alimentos</th>
+                        <th>Tipo Comida</th>
+                        <th>Fecha Hora Inicial</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-title="Categoria Alimentos">Proteina</td>
+                        <td data-title="Tipo Comida">Pollo</td>
+                        <td data-title="Fecha Hora Inicial">5/11/24 8:20
+                            p.m</td>
+                        <td data-title="Action">
+                            <a href><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a href><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-title="Categoria Alimentos">Grasas</td>
+                        <td data-title="Tipo Comida">Hamburguesa</td>
+                        <td data-title="Fecha Hora Inicial">5/11/24 8:20
+                            p.m</td>
+                        <td data-title="Action">
+                            <a href><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a href><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
