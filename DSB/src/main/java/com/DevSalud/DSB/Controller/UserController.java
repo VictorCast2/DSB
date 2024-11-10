@@ -30,7 +30,7 @@ public class UserController {
      */
     @GetMapping("/Registro")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("Users", new UserModel()); 
+        model.addAttribute("Users", new UserModel());
         return "/Users/Registro";
     }
 
@@ -45,29 +45,34 @@ public class UserController {
     public String registerUser(@ModelAttribute("Users") UserModel Users,
             RedirectAttributes redirect,
             BindingResult result,
-            Model model,
-            HttpSession session) {
-        if (result.hasErrors()) {
-            return "/Api/Users/Registro";
+            Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("UsuarioId");
+        if (userId == null) {
+            if (result.hasErrors()) {
+                return "/Api/Users/Registro";
+            }
+            if (!Users.isTermsAccepted()) {
+                model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
+                return "/Api/Users/Registro";
+            }
+            LocalDate DateOfBirth = Users.getDateBirthday();
+            Integer calculatedAge = userService.calculateAge(DateOfBirth);
+            Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
+            System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
+            if (calculatedAge == null || calculatedAge <= 16) {
+                model.addAttribute("Error", "La fecha de nacimiento no es válida.");
+                return "/Api/Users/Registro";
+            }
+            Users.setAge(calculatedAge); // Calcula y asigna la edad
+            Users.setBodyMass(masaCorporal);
+            Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
+            userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
+            redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
+            session.setAttribute("UsuarioId", null);
+            return "redirect:/"; // Redirecciona a la página principal
+        } else {
+            return "redirect:/DSBConection";
         }
-        if (!Users.isTermsAccepted()) {
-            model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
-            return "/Api/Users/Registro";
-        }
-        LocalDate DateOfBirth = Users.getDateBirthday();
-        Integer calculatedAge = userService.calculateAge(DateOfBirth);
-        Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
-        System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-        if (calculatedAge == null || calculatedAge <= 16) {
-            model.addAttribute("Error", "La fecha de nacimiento no es válida.");
-            return "/Api/Users/Registro";
-        }
-        Users.setAge(calculatedAge); // Calcula y asigna la edad
-        Users.setBodyMass(masaCorporal);
-        Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
-        userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
-        redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/"; // Redirecciona a la página principal
     }
 
     /**
@@ -94,7 +99,7 @@ public class UserController {
     @PostMapping("/OlvidoContrasenna")
     public String manejarOlvidoContrasenna(@RequestParam("username") String username,
             @RequestParam("newPassword") String newPassword, @RequestParam("confirmPassword") String confirmPassword,
-            Model model) {
+            Model model, HttpSession session) {
         // Verificar que el nuevo password y confirmación coinciden
         if (!newPassword.equals(confirmPassword)) {
             model.addAttribute("error", "Las contraseñas no coinciden.");
@@ -105,12 +110,13 @@ public class UserController {
         if (user != null) {
             userService.resetPassword(user.getId(), newPassword); // Cambiar la contraseña
             model.addAttribute("message", "Contraseña cambiada con éxito.");
-            return "redirect:/DSBSinConection";
+            session.setAttribute("UsuarioId", null);
+            return "redirect:/";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
-            }
         }
+    }
 
     /**
      * Muestra la página de eliminación de usuario.
@@ -126,7 +132,7 @@ public class UserController {
     @PostMapping("/EliminarUsuario")
     public String manejarEliminarUsuario(@RequestParam("username") String username,
             @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword,
-            Model model) {
+            Model model, HttpSession session) {
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Las contraseñas no coinciden.");
             return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
@@ -134,12 +140,13 @@ public class UserController {
         UserModel user = userService.findByUserOrEmail(username);
         if (user != null && user.getPassword().equals(password)) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
-            return "redirect:/DSBSinConection";
+            session.setAttribute("UsuarioId", null);
+            return "redirect:/";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
-            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error 
-            } 
+            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
         }
+    }
 
     /**
      * 

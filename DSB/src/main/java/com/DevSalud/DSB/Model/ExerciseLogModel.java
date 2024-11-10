@@ -1,21 +1,9 @@
 package com.DevSalud.DSB.Model;
 
 import java.time.LocalDateTime;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
-import jakarta.persistence.Basic;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -45,7 +33,4 @@ public class ExerciseLogModel {
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel user; // Cambiado a minúscula
 
-    public Long getUserId() {
-        return user != null ? user.getId() : null; // Asegúrate de que UserModel tenga un método getId()
-    }
 }
