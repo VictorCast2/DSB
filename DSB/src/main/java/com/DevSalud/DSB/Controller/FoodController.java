@@ -21,237 +21,131 @@ public class FoodController {
         @Autowired
         private AlimentLogServices alimentLogService;
 
-        @ModelAttribute("allCategoriaDesayuno")
-        public List<String> categoriaDelDesayuno() {
-                return Arrays.asList(
-                                "Proteinas", "Frutas", "Verduras", "Granos",
-                                "Productos Lacteos", "Azucares", "Grasas Saturadas",
-                                "Harinas", "Carbohidratos");
+        @ModelAttribute("allCategoriaFood")
+        public List<String> categoriaComida() {
+                return getCategorias();
         }
 
-        @ModelAttribute("allCategoriaAlmuerzo")
-        public List<String> categoriaDelAlmuerzo() {
-                return Arrays.asList(
-                                "Proteinas", "Verduras", "Granos", "Productos Lacteos",
-                                "Azucares", "Grasas Saturadas", "Harinas", "Carbohidratos");
-        }
-
-        @ModelAttribute("allCategoriaCena")
-        public List<String> categoriaDeLaCena() {
-                return Arrays.asList(
-                                "Proteinas", "Frutas", "Verduras", "Granos",
-                                "Productos Lacteos", "Azucares", "Grasas Saturadas",
-                                "Harinas", "Carbohidratos");
+        @ModelAttribute("allNameComida")
+        public List<String> nombresComidas() {
+                return getNombresComidas();
         }
 
         @ModelAttribute("allNameComidaDesayuno")
         public Map<String, List<String>> nombreDeLasComida() {
-                Map<String, List<String>> comida = new HashMap<>();
+                return getComidasPorCategoria();
+        }
 
-                comida.put("Proteinas", Arrays.asList(
-                                "Pollo", "Carnes Rojas", "Huevo",
-                                "Camarones", "Albondigas", "Pechuga",
-                                "Chicharron", "Empanadas", "Tacos", "Carne",
-                                "Pescado", "Queso", "Cerdo", "Pechuga", "Salchicha",
-                                "Jamon", "Mortadela", "Panceta", "Chorizo", "Butifarra",
-                                "Yogur", "Leche", "Barras de merienda", "Avena"));
+        @ModelAttribute("allNameComidaAlmuerzo")
+        public Map<String, List<String>> nombreDeLasComidaAlmuerzo() {
+                return getComidasPorCategoria();
+        }
 
-                comida.put("Frutas", Arrays.asList(
-                                "Piña", "Arándanos", "Uvas",
-                                "Manzanas", "Peras", "Mango",
-                                "Fresas", "Sandía", "Naranjas",
-                                "Plátanos", "Kiwi", "Melocotones", "Guayaba"));
+        @ModelAttribute("allNameComidaCena")
+        public Map<String, List<String>> nombreDeLasComidaCena() {
+                return getComidasPorCategoria();
+        }
 
-                comida.put("Verduras", Arrays.asList(
-                                "Cebolla", "Tomate", "Pimentón",
-                                "Espinaca", "Cilantro", "Ajo",
-                                "Berenjena", "Zanahorias", "Lechuga",
-                                "Repollo", "Maíz", "Ñame",
-                                "Papa", "Yuca", "Patata", "Plátano Verde", "Plátano Amarillo"));
+        private List<String> getCategorias() {
+                return Arrays.asList(
+                                "Proteinas", "Frutas", "Verduras", "Granos",
+                                "Productos Lacteos", "Azucares", "Grasas Saturadas",
+                                "Harinas", "Carbohidratos");
+        }
 
-                comida.put("Lacteos", Arrays.asList(
+        private List<String> getNombresComidas() {
+                return Arrays.asList(
+                                "Pollo", "Carnes Rojas", "Huevo", "Camarones",
+                                "Albondigas", "Pechuga", "Chicharron", "Empanadas",
+                                "Tacos", "Carne", "Pescado", "Queso", "Cerdo",
+                                "Salchicha", "Jamon", "Mortadela", "Panceta",
+                                "Chorizo", "Butifarra", "Yogur", "Leche",
+                                "Barras de merienda", "Avena", "Piña", "Arándanos",
+                                "Uvas", "Manzanas", "Peras", "Mango", "Fresas",
+                                "Sandía", "Naranjas", "Plátanos", "Kiwi",
+                                "Melocotones", "Guayaba", "Cebolla", "Tomate",
+                                "Pimentón", "Espinaca", "Cilantro", "Ajo",
+                                "Berenjena", "Zanahorias", "Lechuga", "Repollo",
+                                "Maíz", "Ñame", "Papa", "Yuca", "Patata",
+                                "Plátano Verde", "Plátano Amarillo", "Leche Condensada",
+                                "Leche Entera", "Leche Descremada", "Leche Deslactosada",
+                                "Queso Con Sal", "Queso Sin Sal", "Mantequilla Con Sal",
+                                "Mantequilla Sin Sal", "Yogur Natural", "Suero",
+                                "Crema De Leche", "Jugo De Milo", "Jugo De Chocolisto",
+                                "Panela", "Barras de merienda", "Jugo De Naranja Con Azucar",
+                                "Jugo De Piña Con Azucar", "Jugo De Mango Con Azucar",
+                                "Jugo De Guanábana Con Azucar", "Jugo De Mora Con Azucar",
+                                "Jugo De Maracuyá Con Azucar", "Jugo De Lulo Con Azucar",
+                                "Jugo De Tomate De Árbol Con Azúcar", "Jugos Mixtos",
+                                "Chocolate Caliente", "Pan Dulce", "Bollos Dulces",
+                                "Yogur Con Azucar", "Café Con Azucar", "Té Con Azucar",
+                                "Arepas Fritas", "Empanadas Fritas", "Churros", "Chicharrón",
+                                "Patacón", "Huevo Frito", "Chorizo Frito", "Buñuelos",
+                                "Carimañolas", "Bollos Fritos", "Morcilla Frita", "Papas Fritas",
+                                "Queso Frito", "Tajaditas", "Salchichón Frito", "Arroz", "Arepas",
+                                "Buñuelos", "Pan De Queso", "Torta De Maíz", "Torta De Choclo",
+                                "Pandebono De Queso", "Pan De Sal", "Pan Integral", "Pan De Leche",
+                                "Pan Blanco", "Empanadas", "Papa", "Tostadas", "Pancakes", "Waffles",
+                                "Avena", "Arroz", "Pasta", "Yuca", "Mazamorra", "Arvejas", "Lentejas",
+                                "Tostadas de trigo integral", "Yogur con avena y frutos secos",
+                                "Leche con avena", "Smoothie de frutas y avena", "Cereal integral con leche o frutas");
+        }
+
+        private Map<String, List<String>> getComidasPorCategoria() {
+                Map<String, List<String>> comidas = new HashMap<>();
+                comidas.put("Proteinas", Arrays.asList(
+                                "Pollo", "Carnes Rojas", "Huevo", "Camarones",
+                                "Albondigas", "Pechuga", "Chicharron", "Empanadas",
+                                "Tacos", "Carne", "Pescado", "Queso", "Cerdo",
+                                "Salchicha", "Jamon", "Mortadela", "Panceta",
+                                "Chorizo", "Butifarra", "Yogur", "Leche",
+                                "Barras de merienda", "Avena"));
+                comidas.put("Frutas", Arrays.asList(
+                                "Piña", "Arándanos", "Uvas", "Manzanas",
+                                "Peras", "Mango", "Fresas", "Sandía",
+                                "Naranjas", "Plátanos", "Kiwi", "Melocotones", "Guayaba"));
+                comidas.put("Verduras", Arrays.asList(
+                                "Cebolla", "Tomate", "Pimentón", "Espinaca",
+                                "Cilantro", "Ajo", "Berenjena", "Zanahorias",
+                                "Lechuga", "Repollo", "Maíz", "Ñame", "Papa",
+                                "Yuca", "Patata", "Plátano Verde", "Plátano Amarillo"));
+                comidas.put("Productos Lacteos", Arrays.asList(
                                 "Leche Condensada", "Leche Entera", "Leche Descremada",
                                 "Leche Deslactosada", "Queso Con Sal", "Queso Sin Sal",
                                 "Mantequilla Con Sal", "Mantequilla Sin Sal",
-                                "Yogur Natural", "Suero", "Crema De Leche", "Jugo De Milo", "Jugo De Chocolisto"));
-
-                comida.put("Azucares", Arrays.asList(
+                                "Yogur Natural", "Suero", "Crema De Leche", "Jugo De Milo",
+                                "Jugo De Chocolisto"));
+                comidas.put("Azucares", Arrays.asList(
                                 "Panela", "Barras de merienda", "Jugo De Milo",
-                                "Jugo De Chocolisto", "Chicha de arroz",
-                                "Jugo De Naranja Con Azucar", "Jugo De Piña Con Azucar",
-                                "Jugo De Mango Con Azucar", "Jugo De Guanábana Con Azucar",
-                                "Jugo De Mora Con Azucar", "Jugo De Maracuyá Con Azucar",
-                                "Jugo De Lulo Con Azucar", "Jugo De Tomate De Árbol Con Azúcar",
-                                "Jugos Mixtos (combinaciones de frutas)", "Chocolate Caliente", "Pan Dulce",
-                                "Bollos Dulces",
+                                "Jugo De Chocolisto", "Jugo De Naranja Con Azucar",
+                                "Jugo De Piña Con Azucar", "Jugo De Mango Con Azucar",
+                                "Jugo De Guanábana Con Azucar", "Jugo De Mora Con Azucar",
+                                "Jugo De Maracuyá Con Azucar", "Jugo De Lulo Con Azucar",
+                                "Jugo De Tomate De Árbol Con Azúcar", "Jugos Mixtos",
+                                "Chocolate Caliente", "Pan Dulce", "Bollos Dulces",
                                 "Yogur Con Azucar", "Café Con Azucar", "Té Con Azucar"));
-
-                comida.put("Grasas Saturadas", Arrays.asList(
+                comidas.put("Grasas Saturadas", Arrays.asList(
                                 "Arepas Fritas", "Empanadas Fritas", "Churros",
                                 "Chicharrón", "Patacón", "Huevo Frito",
                                 "Chorizo Frito", "Buñuelos", "Carimañolas",
                                 "Bollos Fritos", "Morcilla Frita", "Papas Fritas",
                                 "Queso Frito", "Tajaditas", "Salchichón Frito"));
-
-                comida.put("Harinas", Arrays.asList(
+                comidas.put("Harinas", Arrays.asList(
                                 "Arroz", "Arepas", "Buñuelos", "Pan De Queso",
                                 "Torta De Maíz", "Torta De Choclo", "Pandebono De Queso",
                                 "Pan De Sal", "Pan Integral", "Pan De Leche",
-                                "Pan Blanco", "Empanadas", "Papa",
-                                "Tostadas", "Pancakes", "Waffles"));
-
-                comida.put("Granos", Arrays.asList(
-                                "Avena", "Arepas", "Arroz", "Pasta",
-                                "Yuca", "Mazamorra", "Arvejas", "Lentejas",
+                                "Pan Blanco", "Empanadas", "Papa", "Tostadas",
+                                "Pancakes", "Waffles"));
+                comidas.put("Granos", Arrays.asList(
+                                "Avena", "Arroz", "Pasta", "Yuca",
+                                "Mazamorra", "Arvejas", "Lentejas",
                                 "Tostadas de trigo integral", "Yogur con avena y frutos secos",
-                                "Leche con avena", "Smoothie de frutas y avena",
-                                "Cereal integral con leche o frutas"));
-                return comida;
-        }
-
-        @ModelAttribute("allNameComidaAlmuerzo")
-        public Map<String, List<String>> nombreDeLasComidaAlmuerzo() {
-                Map<String, List<String>> comida = new HashMap<>();
-
-                comida.put("Proteinas", Arrays.asList(
-                                "Pollo", "Carnes Rojas", "Huevo", "Camarones",
-                                "Albondigas", "Pechuga", "Chicharron", "Empanadas",
-                                "Tacos", "Carnes", "Pescado", "Queso",
-                                "Cerdo", "Salchicha", "Jamon", "Mortadela",
-                                "Panceta", "Chorizo", "Butifarra", "Yogur",
-                                "Leche", "Barras de Merienda", "Pato",
-                                "Pavo", "Conejo", "Pulpo", "Cangrejo",
-                                "Calamar", "Codillo"));
-
-                comida.put("Verduras", Arrays.asList(
-                                "Cebolla", "Tomate", "Pepino", "Remolacha",
-                                "Cebollin", "Berenjena", "Pimenton", "Espinaca",
-                                "Cilantro", "Ajo", "Zanahorias", "Lechuga",
-                                "Repollo", "Maiz", "Ñame", "Papa",
-                                "Yuca", "Patata", "Plátano Verde", "Plátano Amarillo"));
-
-                comida.put("Granos", Arrays.asList(
-                                "Lenteja", "Frijoles", "Garbanzo", "Alvejas",
-                                "Guisante", "Arroz"));
-
-                comida.put("Lacteos", Arrays.asList(
-                                "Leche Entera", "Leche Descremada", "Leche Deslactosada",
-                                "Queso Con Sal", "Queso Sin Sal", "Jugo De Milo", "Suero"));
-
-                comida.put("Azucares", Arrays.asList(
-                                "Panela", "Barras de merienda", "Jugo De Milo",
-                                "Jugo De Chocolisto", "Chicha de arroz",
-                                "Jugo De Naranja Con Azúcar", "Jugo De Piña Con Azúcar",
-                                "Jugo De Mango Con Azúcar", "Jugo De Guanábana Con Azúcar",
-                                "Jugo De Mora Con Azúcar", "Jugo De Maracuyá Con Azúcar",
-                                "Jugo De Lulo Con Azúcar", "Jugo De Tomate De Árbol Con Azúcar",
-                                "Jugos Mixtos (combinaciones de frutas)", "Chocolate Caliente", "Pan Dulce",
-                                "Bollos Dulces",
-                                "Yogur Con Azúcar", "Café Con Azúcar", "Helado",
-                                "Postre 3 leches", "Dulces o candies", "Té Con Azúcar"));
-
-                comida.put("Grasas Saturadas", Arrays.asList(
-                                "Arepas Fritas", "Empanadas Fritas", "Churros",
-                                "Chicharrón", "Tajaditas", "Patacón",
-                                "Pollo Frito", "Pescado Frito", "Pechuga Frita",
-                                "Carne Frita", "Cerdo Frito", "Pavo Frito",
-                                "Pato Frito", "Pulpo Frito", "Conejo Frito",
-                                "Huevo Frito", "Chorizo Frito", "Buñuelos",
-                                "Carimañolas", "Bollos Fritos", "Morcilla Frita",
-                                "Papas Fritas", "Queso Frito", "Salchichón Frito",
-                                "Comida Rápida"));
-
-                comida.put("Harinas", Arrays.asList(
-                                "Arepas", "Arroz", "Buñuelos", "Pan De Queso",
-                                "Pan De Sal", "Pan Integral", "Pan De Leche",
-                                "Pan Blanco", "Lasaña", "Pandebono",
-                                "Pan de Yuca", "Carimañolas", "Churros",
-                                "Espaguetis", "Empanadas"));
-
-                comida.put("Carbohidratos", Arrays.asList(
-                                "Avena", "Arepas", "Arroz", "Pasta",
-                                "Yuca", "Mazamorra", "Arvejas", "Lentejas",
-                                "Sopas", "Tostadas de trigo integral",
-                                "Yogur con avena y frutos secos", "Leche con avena",
-                                "Smoothie de frutas y avena", "Cereal integral con leche o frutas"));
-
-                return comida;
-        }
-
-        @ModelAttribute("allNameComidaCena")
-        public Map<String, List<String>> nombreDeLasComidaCena() {
-                Map<String, List<String>> comida = new HashMap<>();
-
-                comida.put("Proteinas", Arrays.asList(
-                                "Pollo", "Carnes Rojas", "Huevo", "Camarones",
-                                "Albóndigas", "Pechuga", "Chicharrón", "Empanadas",
-                                "Tacos", "Carnes", "Pescado", "Queso",
-                                "Cerdo", "Salchicha", "Jamon", "Mortadela",
-                                "Panceta", "Chorizo", "Butifarra", "Yogur",
-                                "Leche", "Barras de Merienda", "Pato",
-                                "Pavo", "Conejo", "Pulpo", "Cangrejo",
-                                "Calamar", "Codillo"));
-
-                comida.put("Verduras", Arrays.asList(
-                                "Cebolla", "Tomate", "Pepino", "Remolacha",
-                                "Cebollín", "Berenjena", "Pimentón", "Espinaca",
-                                "Cilantro", "Ajo", "Zanahorias", "Lechuga",
-                                "Repollo", "Maíz", "Ñame", "Papa",
-                                "Yuca", "Patata", "Plátano Verde", "Plátano Amarillo"));
-
-                comida.put("Granos", Arrays.asList(
-                                "Lenteja", "Frijoles", "Garbanzo", "Alverjas",
-                                "Guisante", "Arroz"));
-
-                comida.put("Lacteos", Arrays.asList(
-                                "Leche Entera", "Leche Descremada", "Leche Deslactosada",
-                                "Queso Con Sal", "Queso Sin Sal", "Jugo De Milo", "Suero"));
-
-                comida.put("Azucares", Arrays.asList(
-                                "Panela", "Barras de merienda", "Jugo De Milo",
-                                "Jugo De Chocolisto", "Chicha de arroz",
-                                "Jugo De Naranja Con Azúcar", "Jugo De Piña Con Azúcar",
-                                "Jugo De Mango Con Azúcar", "Jugo De Guanábana Con Azúcar",
-                                "Jugo De Mora Con Azúcar", "Jugo De Maracuyá Con Azúcar",
-                                "Jugo De Lulo Con Azúcar", "Jugo De Tomate De Árbol Con Azúcar",
-                                "Jugos Mixtos (combinaciones de frutas) Con Azúcar",
-                                "Chocolate Caliente", "Pan Dulce", "Bollos Dulces",
-                                "Yogur Con Azúcar", "Café Con Azúcar", "Helado",
-                                "Postre 3 leches", "Dulces o candies", "Té Con Azúcar"));
-
-                comida.put("Grasas Saturadas", Arrays.asList(
-                                "Arepas Fritas", "Empanadas Fritas", "Churros",
-                                "Chicharrón", "Tajaditas", "Patacón",
-                                "Pollo Frito", "Pescado Frito", "Pechuga Frita",
-                                "Carne Frita", "Cerdo Frito", "Pavo Frito",
-                                "Pato Frito", "Pulpo Frito", "Conejo Frito",
-                                "Huevo Frito", "Chorizo Frito", "Buñuelos",
-                                "Carimañolas", "Bollos Fritos", "Morcilla Frita",
-                                "Papas Fritas", "Queso Frito", "Salchichón Frito",
-                                "Comida Rápida"));
-
-                comida.put("Harinas", Arrays.asList(
-                                "Arepas", "Arroz", "Buñuelos", "Pan De Queso",
-                                "Pan De Sal", "Pan Integral", "Pan De Leche",
-                                "Pan Blanco", "Lasaña", "Pandebono",
-                                "Pan de Yuca", "Carimañolas", "Churros",
-                                "Espaguetis", "Empanadas"));
-
-                comida.put("Frutas", Arrays.asList(
-                                "Piña", "Arándanos", "Uvas", "Manzanas",
-                                "Peras", "Mango", "Fresas", "Sandía",
-                                "Naranjas", "Plátanos", "Kiwi",
-                                "Melocotones", "Guayaba"));
-
-                comida.put("Carbohidratos", Arrays.asList(
-                                "Avena", "Arepas", "Arroz", "Pasta",
-                                "Yuca", "Mazamorra", "Arvejas", "Lentejas",
-                                "Sopas", "Tostadas de trigo integral",
-                                "Yogur con avena y frutos secos", "Leche con avena",
-                                "Smoothie de frutas y avena",
-                                "Cereal integral con leche o frutas"));
-
-                return comida;
+                                "Leche con avena", "Smoothie de frutas y avena", "Cereal integral con leche o frutas"));
+                comidas.put("Carbohidratos", Arrays.asList(
+                                "Arroz", "Pasta", "Pan", "Harinas",
+                                "Tubérculos", "Maíz", "Galletas",
+                                "Cereal", "Avena", "Frutas secas"));
+                return comidas;
         }
 
         @GetMapping("/RegistroAlimento")
@@ -266,12 +160,14 @@ public class FoodController {
                 Long userId = (Long) session.getAttribute("UsuarioId");
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId);
-                        System.out.println(user);
-                        return "";
-                } else {
-                        model.addAttribute("error", "Usuario no encontrado.");
-                        return "redirect:/Api/Users/Login";
+                        if (user != null) {
+                                alimentLog.setUser(user);
+                                alimentLogService.saveAlimentLog(alimentLog);
+                                return "redirect:/Api/Users/Food/Home";
+                        }
                 }
+                model.addAttribute("error", "Usuario no encontrado.");
+                return "redirect:/Api/Users/Login";
         }
 
         @GetMapping("/Home")
