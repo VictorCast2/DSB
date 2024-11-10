@@ -19,10 +19,7 @@ public class FoodController {
         private UserServices userService;
 
         @Autowired
-        private AlimentLogServices alimentLogServices;
-
-        @Autowired
-        private MenuOfTheDayService menuOfTheDayService;
+        private AlimentLogServices alimentLogService;
 
         @ModelAttribute("allCategoriaDesayuno")
         public List<String> categoriaDelDesayuno() {
@@ -109,7 +106,6 @@ public class FoodController {
                                 "Tostadas de trigo integral", "Yogur con avena y frutos secos",
                                 "Leche con avena", "Smoothie de frutas y avena",
                                 "Cereal integral con leche o frutas"));
-
                 return comida;
         }
 
@@ -270,23 +266,8 @@ public class FoodController {
                 Long userId = (Long) session.getAttribute("UsuarioId");
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId);
-                        MenuOfTheDayModel menuDelDia = new MenuOfTheDayModel();
-                        menuDelDia.setUser(user);
-                        menuDelDia = menuOfTheDayService.saveMenuOfTheDay(menuDelDia);
-                        if (menuDelDia != null) {
-                                alimentLog.setUser(user);
-                                alimentLog.setMenuOfTheDayModel(menuDelDia);
-                                AlimentLogModel savedAlimentLog = alimentLogServices.saveAlimentLog(alimentLog);
-                                if (savedAlimentLog != null) {
-                                        return "redirect:/Api/Users/Food/Home";
-                                } else {
-                                        model.addAttribute("error", "Error al guardar el registro de alimento.");
-                                        return "redirect:/Api/Users/Food/Error";
-                                }
-                        } else {
-                                model.addAttribute("error", "El menú del día no está disponible.");
-                                return "redirect:/Api/Users/Food/Error"; 
-                        }
+                        System.out.println(user);
+                        return "";
                 } else {
                         model.addAttribute("error", "Usuario no encontrado.");
                         return "redirect:/Api/Users/Login";
