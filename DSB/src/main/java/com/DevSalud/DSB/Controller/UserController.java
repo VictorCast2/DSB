@@ -67,7 +67,7 @@ public class UserController {
         Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
         userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
         redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
-        return "redirect:/DSBConection"; // Redirecciona a la página principal
+        return "redirect:/"; // Redirecciona a la página principal
     }
 
     /**

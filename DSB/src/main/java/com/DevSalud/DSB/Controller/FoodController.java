@@ -265,7 +265,8 @@ public class FoodController {
                 Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión
                 System.out.println("Id:" + userId);
                 if (userId != null) {
-                        UserModel user = userService.getUserById(userId); // Obtenemos el usuario con el ID // Asociamos el usuario al ejercicio
+                        UserModel user = userService.getUserById(userId);
+                        System.out.println(user); // Obtenemos el usuario con el ID // Asociamos el usuario al ejercicio
                 } else {
                         model.addText("Usuario no encontrado.");
                         return "redirect:/Api/Users/Login"; // Redirige a la página de login si no hay usuario
