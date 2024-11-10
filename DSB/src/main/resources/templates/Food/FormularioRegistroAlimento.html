@@ -21,13 +21,13 @@
             <ul>
                 <li><a class="active" href="/Api/Users/Food/Home">HOME</a></li>
                 <li><a href="/Api/Users/Food/RegistroAlimento">REGISTRO ALIMENTICIO</a></li>
-                <li><a href="#">LISTA ALIMENTICIO</a></li>
+                <li><a href="/Api/Users/Food/TablaAlimento">LISTA ALIMENTICIO</a></li>
             </ul>
             
         </nav>
         <div class="contenido-registroalimento">
             <h1>Registro Alimenticios</h1>
-            <form action="">
+            <form th:action="@{/Api/Users/Food/RegistroAlimento}" th:object="${alimentLog}" method="post">
                 <div class="contenido-principal">
     
                     <div class="container"> <!---Comida-->
@@ -42,17 +42,9 @@
                                 <input type="text" placeholder="Search">
                             </div>
                             <div class="scrollable-content"> <!-- New wrapper -->
-                                <li class="item">
-                                    <input type="checkbox" id="proteina-desayuno" class="checkbox">
-                                    <label for="proteina-desayuno" class="item-text">Desayuno</label>
-                                </li>
-                                <li class="item">
-                                    <input type="checkbox" id="fruta-desayuno" class="checkbox">
-                                    <label for="fruta-desayuno" class="item-text">Almuerzo</label>
-                                </li>
-                                <li class="item">
-                                    <input type="checkbox" id="verduras-desayuno" class="checkbox">
-                                    <label for="verduras-desayuno" class="item-text">Cena</label>
+                                <li th:each="comida, iterStat : ${allCategoriaFood}" class="item">
+                                    <input type="checkbox" th:id="'comida-' + ${iterStat.index}" th:name="'comida_' + ${iterStat.index}" th:value="${comida}" class="checkbox">
+                                    <label th:for="'comida-' + ${iterStat.index}" class="item-text" th:text="${comida}">Comida</label>
                                 </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
@@ -70,37 +62,9 @@
                                 <input type="text" placeholder="Search">
                             </div>
                             <div class="scrollable-content1"> <!-- New wrapper -->
-                                <li class="item1">
-                                    <input type="checkbox" id="proteina-categoria" class="checkbox1">
-                                    <label for="proteina-categoria" class="item-text1">Proteinas</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="fruta-categoria" class="checkbox1">
-                                    <label for="fruta-categoria" class="item-text1">Frutas</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="verduras-categoria" class="checkbox1">
-                                    <label for="verduras-categoria" class="item-text1">Verduras</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="granos-categoria" class="checkbox1">
-                                    <label for="granos-categoria" class="item-text1">Granos</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="lacteos-categoria" class="checkbox1">
-                                    <label for="lacteos-categoria" class="item-text1">Productos Lacteos</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="harinas-almuerzo" class="checkbox1">
-                                    <label for="harinas-almuerzo" class="item-text1">Harinas</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="saturadas-categoria" class="checkbox1">
-                                    <label for="saturadas-categoria" class="item-text1">Grasas Saturadas</label>
-                                </li>
-                                <li class="item1">
-                                    <input type="checkbox" id="carbohidratos-categoria" class="checkbox1">
-                                    <label for="carbohidratos-categoria" class="item-text1">Carbohidratos</label>
+                                <li th:each="categoria, iterStat : ${allCategoriaAliments}" class="item1">
+                                    <input type="checkbox" th:id="'categoria-' + ${iterStat.index}" th:name="'categoria_' + ${iterStat.index}" th:value="${categoria}" class="checkbox1">
+                                    <label th:for="'categoria-' + ${iterStat.index}" class="item-text1" th:text="${categoria}">Categoría</label>
                                 </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
@@ -120,25 +84,9 @@
                                 <input type="text" placeholder="Search">
                             </div>
                             <div class="scrollable-content3"> <!-- New wrapper -->
-                                <li class="item3">
-                                    <input type="checkbox" id="atun" class="checkbox3">
-                                    <label for="atun" class="item-text3">Atun</label>
-                                </li>
-                                <li class="item3">
-                                    <input type="checkbox" id="manzana" class="checkbox3">
-                                    <label for="manzana" class="item-text3">Manzana</label>
-                                </li>
-                                <li class="item3">
-                                    <input type="checkbox" id="papa" class="checkbox3">
-                                    <label for="papa" class="item-text3">Papa</label>
-                                </li>
-                                <li class="item3">
-                                    <input type="checkbox" id="cangrejo" class="checkbox3">
-                                    <label for="cangrejo" class="item-text3">Cangrejo</label>
-                                </li>
-                                <li class="item3">
-                                    <input type="checkbox" id="pechuga" class="checkbox3">
-                                    <label for="pechuga" class="item-text3">Pechuga</label>
+                                <li th:each="aliment, iterStat : ${allNameAliments}" class="item3">
+                                    <input type="checkbox" th:id="'aliment-' + ${iterStat.index}" th:name="'aliment_' + ${iterStat.index}" th:value="${aliment}" class="checkbox3">
+                                    <label th:for="'aliment-' + ${iterStat.index}" class="item-text3" th:text="${aliment}">Alimento</label>
                                 </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
@@ -153,7 +101,7 @@
                         <div class="date-display" id="date-display">Fecha Actual</div>
                         <div class="date-picker">
                             <label for="datetime">Cambiar Fecha y Hora</label>
-                            <input type="datetime-local" id="datetime" onchange="updateDisplay()">
+                            <input type="datetime-local" id="datetime" onchange="updateDisplay()" th:field="*{StrartDate}">
                         </div>
                         <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
                     </div>

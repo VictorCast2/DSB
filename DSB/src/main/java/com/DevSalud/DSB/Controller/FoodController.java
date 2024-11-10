@@ -22,28 +22,23 @@ public class FoodController {
         private AlimentLogServices alimentLogService;
 
         @ModelAttribute("allCategoriaFood")
+        public List<String> comidas() {
+                return getComidas();
+        }
+
+        @ModelAttribute("allCategoriaAliments")
         public List<String> categoriaComida() {
                 return getCategorias();
         }
 
-        @ModelAttribute("allNameComida")
-        public List<String> nombresComidas() {
-                return getNombresComidas();
-        }
-
-        @ModelAttribute("allNameComidaDesayuno")
-        public Map<String, List<String>> nombreDeLasComida() {
+        @ModelAttribute("allNameAliments")
+        public Map<String, List<String>> nombresComidas() {
                 return getComidasPorCategoria();
         }
 
-        @ModelAttribute("allNameComidaAlmuerzo")
-        public Map<String, List<String>> nombreDeLasComidaAlmuerzo() {
-                return getComidasPorCategoria();
-        }
-
-        @ModelAttribute("allNameComidaCena")
-        public Map<String, List<String>> nombreDeLasComidaCena() {
-                return getComidasPorCategoria();
+        private List<String> getComidas() {
+                return Arrays.asList(
+                                "Desayuno", "Almuerzo", "Cena");
         }
 
         private List<String> getCategorias() {
@@ -51,44 +46,6 @@ public class FoodController {
                                 "Proteinas", "Frutas", "Verduras", "Granos",
                                 "Productos Lacteos", "Azucares", "Grasas Saturadas",
                                 "Harinas", "Carbohidratos");
-        }
-
-        private List<String> getNombresComidas() {
-                return Arrays.asList(
-                                "Pollo", "Carnes Rojas", "Huevo", "Camarones",
-                                "Albondigas", "Pechuga", "Chicharron", "Empanadas",
-                                "Tacos", "Carne", "Pescado", "Queso", "Cerdo",
-                                "Salchicha", "Jamon", "Mortadela", "Panceta",
-                                "Chorizo", "Butifarra", "Yogur", "Leche",
-                                "Barras de merienda", "Avena", "Piña", "Arándanos",
-                                "Uvas", "Manzanas", "Peras", "Mango", "Fresas",
-                                "Sandía", "Naranjas", "Plátanos", "Kiwi",
-                                "Melocotones", "Guayaba", "Cebolla", "Tomate",
-                                "Pimentón", "Espinaca", "Cilantro", "Ajo",
-                                "Berenjena", "Zanahorias", "Lechuga", "Repollo",
-                                "Maíz", "Ñame", "Papa", "Yuca", "Patata",
-                                "Plátano Verde", "Plátano Amarillo", "Leche Condensada",
-                                "Leche Entera", "Leche Descremada", "Leche Deslactosada",
-                                "Queso Con Sal", "Queso Sin Sal", "Mantequilla Con Sal",
-                                "Mantequilla Sin Sal", "Yogur Natural", "Suero",
-                                "Crema De Leche", "Jugo De Milo", "Jugo De Chocolisto",
-                                "Panela", "Barras de merienda", "Jugo De Naranja Con Azucar",
-                                "Jugo De Piña Con Azucar", "Jugo De Mango Con Azucar",
-                                "Jugo De Guanábana Con Azucar", "Jugo De Mora Con Azucar",
-                                "Jugo De Maracuyá Con Azucar", "Jugo De Lulo Con Azucar",
-                                "Jugo De Tomate De Árbol Con Azúcar", "Jugos Mixtos",
-                                "Chocolate Caliente", "Pan Dulce", "Bollos Dulces",
-                                "Yogur Con Azucar", "Café Con Azucar", "Té Con Azucar",
-                                "Arepas Fritas", "Empanadas Fritas", "Churros", "Chicharrón",
-                                "Patacón", "Huevo Frito", "Chorizo Frito", "Buñuelos",
-                                "Carimañolas", "Bollos Fritos", "Morcilla Frita", "Papas Fritas",
-                                "Queso Frito", "Tajaditas", "Salchichón Frito", "Arroz", "Arepas",
-                                "Buñuelos", "Pan De Queso", "Torta De Maíz", "Torta De Choclo",
-                                "Pandebono De Queso", "Pan De Sal", "Pan Integral", "Pan De Leche",
-                                "Pan Blanco", "Empanadas", "Papa", "Tostadas", "Pancakes", "Waffles",
-                                "Avena", "Arroz", "Pasta", "Yuca", "Mazamorra", "Arvejas", "Lentejas",
-                                "Tostadas de trigo integral", "Yogur con avena y frutos secos",
-                                "Leche con avena", "Smoothie de frutas y avena", "Cereal integral con leche o frutas");
         }
 
         private Map<String, List<String>> getComidasPorCategoria() {

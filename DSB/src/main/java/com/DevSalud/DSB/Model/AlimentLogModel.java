@@ -18,7 +18,7 @@ public class AlimentLogModel {
     @Basic
     @NonNull
     private String Foods;
-    private String FoodCategories;
+    private String AlimentsCategories;
     private String Aliments;
     
     @Basic
