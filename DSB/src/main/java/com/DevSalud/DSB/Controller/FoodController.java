@@ -267,32 +267,29 @@ public class FoodController {
         @PostMapping("/RegistroAlimento")
         public String createAlimentLog(HttpSession session, Model model,
                         @ModelAttribute AlimentLogModel alimentLog) {
-
                 Long userId = (Long) session.getAttribute("UsuarioId");
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId);
-
-
                         MenuOfTheDayModel menuDelDia = new MenuOfTheDayModel();
-      
-                        menuDelDia.setUser(user); 
-
+                        menuDelDia.setUser(user);
                         menuDelDia = menuOfTheDayService.saveMenuOfTheDay(menuDelDia);
-
                         if (menuDelDia != null) {
                                 alimentLog.setUser(user);
                                 alimentLog.setMenuOfTheDayModel(menuDelDia);
-                                alimentLogServices.saveAlimentLog(alimentLog);
-                                return "redirect:/Api/Users/Food/RegistroAlimentoSuccess"; // Redirect to success page
+                                AlimentLogModel savedAlimentLog = alimentLogServices.saveAlimentLog(alimentLog);
+                                if (savedAlimentLog != null) {
+                                        return "redirect:/Api/Users/Food/Home";
+                                } else {
+                                        model.addAttribute("error", "Error al guardar el registro de alimento.");
+                                        return "redirect:/Api/Users/Food/Error";
+                                }
                         } else {
-                                // If menuDelDia is null, show an error
-                                model.addAttribute("error", "El menú del día no está disponible");
-                                return "redirect:/Api/Users/Food/Error"; // Redirect to error page
+                                model.addAttribute("error", "El menú del día no está disponible.");
+                                return "redirect:/Api/Users/Food/Error"; 
                         }
                 } else {
-                        // If userId is not found in session, redirect to login
                         model.addAttribute("error", "Usuario no encontrado.");
-                        return "redirect:/Api/Users/Login"; // Redirect to login page
+                        return "redirect:/Api/Users/Login";
                 }
         }
 

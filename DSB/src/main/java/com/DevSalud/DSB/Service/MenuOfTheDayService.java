@@ -11,8 +11,18 @@ public class MenuOfTheDayService {
     @Autowired
     private MenuOfTheDayRepository menuOfTheDayRepository;
 
-    public void saveMenuOfTheDay(MenuOfTheDayModel menuOfTheDay) {
-        menuOfTheDayRepository.save(menuOfTheDay);
+    /**
+     * Guarda un nuevo menú del día.
+     * @param menuOfTheDay El menú a guardar.
+     * @return El menú guardado con su ID generado.
+     */
+    public MenuOfTheDayModel saveMenuOfTheDay(MenuOfTheDayModel menuOfTheDay) {
+        try {
+            return menuOfTheDayRepository.save(menuOfTheDay);
+        } catch (Exception e) {
+            // Manejo de errores, puedes personalizar el manejo
+            throw new RuntimeException("Error al guardar el menú del día: " + e.getMessage());
+        }
     }
 
     public MenuOfTheDayModel getMenuDelDiaById(Long id) {
