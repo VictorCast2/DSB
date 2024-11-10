@@ -1,7 +1,10 @@
 package com.DevSalud.DSB.Controller;
 
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -1353,7 +1357,7 @@ public class ExercisesController {
             return "redirect:/Api/Users/Exercises/TablaEjercicio";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
-            return "redirect:/Api/Users/Login";
+            return "redirect:/DSBConection";
         }
     }
 
@@ -1375,7 +1379,7 @@ public class ExercisesController {
             return "Exercises/TablaRegistroEjercicio";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
-            return "redirect:/Api/Users/Login";
+            return "redirect:/DSBConection";
         }
     }
 

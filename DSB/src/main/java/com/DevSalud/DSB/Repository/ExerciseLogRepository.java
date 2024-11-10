@@ -14,5 +14,3 @@ public interface ExerciseLogRepository extends JpaRepository<ExerciseLogModel, L
     @Query("SELECT e FROM ExerciseLogModel e WHERE e.user.id = :userId")
     List<ExerciseLogModel> findByUserId(Long userId);
 }
-
-}
