@@ -23,8 +23,8 @@ public class ExerciseLogServices {
         return exerciseLogRepository.findAll();
     }
 
-    public ExerciseLogModel UpdateExerciseLog(Long id, ExerciseLogModel updatedExerciseLog) {
-        Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(id);
+    public ExerciseLogModel UpdateExerciseLog(ExerciseLogModel updatedExerciseLog) {
+        Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(updatedExerciseLog.getId());
         if (existingExerciseLog.isPresent()) {
             ExerciseLogModel exerciseLog = existingExerciseLog.get();
             exerciseLog.setExerciseName(updatedExerciseLog.getExerciseName());

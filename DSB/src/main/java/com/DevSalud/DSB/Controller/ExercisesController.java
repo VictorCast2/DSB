@@ -1372,15 +1372,25 @@ public class ExercisesController {
                 }
         }
 
-        @GetMapping("/Editar")
-        public String hosmeRegistroEjercicio() {
-                return "";
+        @GetMapping("/EditarEjercicio/{id}")
+        public String showEditEjercicio(@PathVariable Long id, Model model) {
+                // Obtener el ejercicio específico a editar
+                ExerciseLogModel exerciseLog = exerciseLogService.getExerciseLogById(id);
+                // Agregar atributos al modelo
+                model.addAttribute("exerciseLog", exerciseLog);
+                return "Exercises/FormularioEditarEjercicio";
         }
 
-        @GetMapping("/Eliminar/{id}")
+        @PostMapping("/EditarEjercicio")
+        public String editarEjercicio(@ModelAttribute ExerciseLogModel exerciseLog) {
+                exerciseLogService.UpdateExerciseLog(exerciseLog);
+                return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirige después de la edición
+        }
+
+        @GetMapping("/EliminarEjercicio/{id}")
         public String deleteExercise(@PathVariable Long id) {
                 exerciseLogService.DeleteExerciseLog(id);
-                return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirigir a la lista de ejercicios después de eliminar
+                return "redirect:/Api/Users/Exercises/TablaEjercicio";
         }
 
         @GetMapping("/Home")
