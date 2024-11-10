@@ -16,64 +16,21 @@
             <thead>
                 <tr>
                     <th>Día</th>
-                    <th>Tipo Ejercicio</th>
-                    <th>Nombre Ejercicio</th>
-                    <th>Intensidad Ejercicio</th>
-                    <th>Fecha Hora Inicial</th>
-                    <th>Fecha Hora Final</th>
+                    <th>Tipo de Ejercicio</th>
+                    <th>Nombre del Ejercicio</th>
+                    <th>Intensidad</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td data-title="Día">Lunes</td>
-                    <td data-title="Tipo Ejercicio">Cardio</td>
-                    <td data-title="Nombre Ejercicio">Flexiones Declinadas</td>
-                    <td data-title="Intensidad Ejercicio">Moderada</td>
-                    <td data-title="Fecha Hora Inicial">2024/11/09 07:00</td>
-                    <td data-title="Fecha Hora Final">2024/11/09 08:00</td>
-                </tr>
-                <tr>
-                    <td data-title="Día">Martes</td>
-                    <td data-title="Tipo Ejercicio">Resistencia</td>
-                    <td data-title="Nombre Ejercicio">Sentadillas</td>
-                    <td data-title="Intensidad Ejercicio">Alta</td>
-                    <td data-title="Fecha Hora Inicial">2024/11/09 07:00</td>
-                    <td data-title="Fecha Hora Final">2024/11/09 08:00</td>
-                </tr>
-                <tr>
-                    <td data-title="Día">Miércoles</td>
-                    <td data-title="Tipo Ejercicio">Cardio</td>
-                    <td data-title="Nombre Ejercicio">Saltar la cuerda</td>
-                    <td data-title="Intensidad Ejercicio">Moderada</td>
-
-                </tr>
-                <tr>
-                    <td data-title="Día">Jueves</td>
-                    <td data-title="Tipo Ejercicio">Pecho</td>
-                    <td data-title="Nombre Ejercicio">Flexiones Inclinadas</td>
-                    <td data-title="Intensidad Ejercicio">Alta</td>
-
-                </tr>
-                <tr>
-                    <td data-title="Día">Viernes</td>
-                    <td data-title="Tipo Ejercicio">Fuerza</td>
-                    <td data-title="Nombre Ejercicio">Press de banca</td>
-                    <td data-title="Intensidad Ejercicio">Baja</td>
-
-                </tr>
-                <tr>
-                    <td data-title="Día">Sábado</td>
-                    <td data-title="Tipo Ejercicio">Cardio</td>
-                    <td data-title="Nombre Ejercicio">Ciclismo</td>
-                    <td data-title="Intensidad Ejercicio">Moderada</td>
-
-                </tr>
-                <tr>
-                    <td data-title="Día">Domingo</td>
-                    <td data-title="Tipo Ejercicio">Fuerza</td>
-                    <td data-title="Nombre Ejercicio">Burpees</td>
-                    <td data-title="Intensidad Ejercicio">Baja</td>
-
+                <tr th:each="log : ${exerciseLogs}">
+                    <td th:text="${log.StrartDate}"></td>
+                    <td th:text="${log.ExerciseType}"></td>
+                    <td th:text="${log.ExerciseName}"></td>
+                    <td th:text="${log.ExerciseIntensity}"></td>
+                    <td th:text="${log.formattedStartDate}"></td>
+                    <td th:text="${log.formattedFinalDate}"></td>
                 </tr>
             </tbody>
         </table>
