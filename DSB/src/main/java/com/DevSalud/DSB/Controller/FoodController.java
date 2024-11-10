@@ -19,7 +19,7 @@ public class FoodController {
         private UserServices userService;
 
         @Autowired
-        private AlimentLogServices alimentLogServices;
+        private AlimentLogServices alimentLogService;
 
         @ModelAttribute("allCategoriaDesayuno")
         public List<String> categoriaDelDesayuno() {
@@ -106,7 +106,6 @@ public class FoodController {
                                 "Tostadas de trigo integral", "Yogur con avena y frutos secos",
                                 "Leche con avena", "Smoothie de frutas y avena",
                                 "Cereal integral con leche o frutas"));
-
                 return comida;
         }
 

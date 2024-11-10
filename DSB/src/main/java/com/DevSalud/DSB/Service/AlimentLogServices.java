@@ -20,7 +20,6 @@ public class AlimentLogServices {
         try {
             return alimentLogRepository.save(alimentLog);
         } catch (Exception e) {
-            // Manejo de errores, puedes personalizar el manejo
             throw new RuntimeException("Error al guardar el registro de alimento: " + e.getMessage());
         }
     }
