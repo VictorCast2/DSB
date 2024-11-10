@@ -1,12 +1,23 @@
 package com.DevSalud.DSB.Controller;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import com.DevSalud.DSB.Model.*;
-import com.DevSalud.DSB.Service.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.DevSalud.DSB.Model.ExerciseLogModel;
+import com.DevSalud.DSB.Model.UserModel;
+import com.DevSalud.DSB.Service.ExerciseLogServices;
+import com.DevSalud.DSB.Service.UserServices;
+
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
@@ -1366,36 +1377,6 @@ public class ExercisesController {
     @GetMapping("/Home")
     public String homeRegistroEjercicio() {
         return "/Exercises/HomeRegistroEjercicio";
-    }
-
-    @GetMapping("/EditarEjercicio")
-    public String formularioEditarEjercicio(@RequestParam("id") Long id, Model model) {
-        List<ExerciseLogModel> exerciseLog = exerciseLogService.getExerciseLogsByUserId(id);
-        if (exerciseLog.isPresent()) {
-            model.addAttribute("exerciseLog", exerciseLog.get());
-        } else {
-            model.addAttribute("error", "Ejercicio no encontrado.");
-            return "redirect:/Api/Users/Exercises/Home";
-        }
-        return "/Exercises/FormularioEditarEjercicio";
-    }
-
-    @PostMapping("/EditarEjercicio")
-    public String editarEjercicio(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog,
-            Model model,
-            HttpSession session) {
-        Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId != null) {
-            UserModel user = userService.getUserById(userId);
-            exerciseLog.setUser(user);
-            exerciseLogService.updateExerciseLog(exerciseLog.getId(), exerciseLog);
-            model.addAttribute("exerciseLog", exerciseLog);
-            model.addAttribute("message", "Edición exitosa");
-            return "redirect:/Api/Users/Exercises/Home";
-        } else {
-            model.addAttribute("error", "Usuario no encontrado.");
-            return "redirect:/Api/Users/Login";
-        }
     }
 
 }
