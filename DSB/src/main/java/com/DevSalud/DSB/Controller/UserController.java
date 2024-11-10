@@ -47,7 +47,7 @@ public class UserController {
             BindingResult result,
             Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId.equals(null)) {
+        if (userId == null) {
             if (result.hasErrors()) {
                 return "/Api/Users/Registro";
             }
