@@ -26,6 +26,9 @@ public class ExerciseLogModel {
     private LocalDateTime FinalDate;
     public String ExerciseIntensity;
 
+    private String formattedStartDate;
+    private String formattedFinalDate;
+
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel User;

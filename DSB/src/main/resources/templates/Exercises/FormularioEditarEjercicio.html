@@ -35,11 +35,9 @@
 
         <div class="contenido-registroejercicio">
             <h1>Editar Ejercicio</h1>
-            <form action="/Api/Users/Health/EditarEjercicio" method="post"
-                th:object="${exerciseLog}">
+            <form action="/Api/Users/Exercises/EditarEjercicio" method="post" th:object="${exerciseLog}">
                 <div class="contenido-principal">
-
-                    <div class="container"> <!--- Tipo Ejercicio -->
+                    <div class="container"> <!---Tipo Ejercicio-->
                         <div class="select-btn">
                             <span class="btn-text">Tipo Ejercicio</span>
                             <span class="arrow-dwn">
@@ -52,22 +50,20 @@
                             </div>
                             <div class="scrollable-content">
                                 <!-- New wrapper -->
-                                <ul>
-                                    <li th:each="tipo : ${allTiposEjercicio}"
-                                        class="item">
-                                        <input type="checkbox" th:id="${tipo}"
-                                            class="checkbox" th:value="${tipo}"
-                                            th:field="*{exerciseType}">
-                                        <label th:for="${tipo}"
-                                            class="item-text"
-                                            th:text="${tipo}"></label>
-                                    </li>
-                                </ul>
+                                <li th:each="ejercicio : ${allTipEjercicios}"
+                                    class="item">
+                                    <input type="checkbox" th:id="${ejercicio}"
+                                        th:value="${ejercicio}" class="checkbox"
+                                        onchange="filtrarEjercicios()" th:field="*{ExerciseType}">
+                                    <label th:for="${ejercicio}"
+                                        th:text="${ejercicio}"
+                                        class="item-text"></label>
+                                </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
-                    </div> <!--- Tipo Ejercicio -->
+                    </div> <!---Tipo Ejercicio-->
 
-                    <div class="container1"> <!-- Nombre Ejercicio -->
+                    <div class="container1"> <!--Nombre Ejercicio-->
                         <div class="select-btn1">
                             <span class="btn-text1">Nombre Ejercicio</span>
                             <span class="arrow-dwn1">
@@ -81,23 +77,30 @@
                             <div class="scrollable-content1">
                                 <!-- New wrapper -->
                                 <ul>
-                                    <li
-                                        th:each="ejercicio : ${allNombresEjercicio}"
-                                        class="item1">
-                                        <input type="checkbox"
-                                            th:id="${ejercicio.replace(' ', '-').toLowerCase()}"
-                                            class="checkbox1"
-                                            th:value="${ejercicio}"
-                                            th:field="*{exerciseName}">
-                                        <label
-                                            th:for="${ejercicio.replace(' ', '-').toLowerCase()}"
-                                            class="item-text1"
-                                            th:text="${ejercicio}"></label>
+                                    <!-- Dentro de Nombre Ejercicio -->
+                                    <li th:each="entry : ${allNameEjercicios}"
+                                        class="item">
+                                        <strong th:text="${entry.key}"></strong>
+                                        <ul>
+                                            <li
+                                                th:each="nombreEjercicio : ${entry.value}">
+                                                <input type="checkbox"
+                                                    th:id="${nombreEjercicio}"
+                                                    th:value="${nombreEjercicio}"
+                                                    class="checkbox1"
+                                                    th:data-tipo="${entry.key}" onchange="filtrarEjercicios()" th:field="*{ExerciseName}">
+                                                <!-- Añadir atributo data-tipo -->
+                                                <label
+                                                    th:for="${nombreEjercicio}"
+                                                    th:text="${nombreEjercicio}"
+                                                    class="item-text"></label>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div> <!-- Close the new wrapper -->
                         </ul>
-                    </div> <!-- Nombre Ejercicio -->
+                    </div> <!--Nombre Ejercicio-->
                 </div>
 
                 <div class="container2"> <!-- Intensidad Ejercicio -->
@@ -114,12 +117,11 @@
                         <div class="scrollable-content2"> <!-- New wrapper -->
                             <ul>
                                 <li
-                                    th:each="intensidad : ${allIntensidadEjercicio}"
+                                    th:each="intensidad : ${allIntecidadEjercicios}"
                                     class="item2">
                                     <input type="checkbox" th:id="${intensidad}"
                                         class="checkbox2"
-                                        th:value="${intensidad}"
-                                        th:field="*{exerciseIntensity}">
+                                        th:value="${intensidad}" onchange="filtrarEjercicios()" th:field="*{ExerciseIntensity}">
                                     <label th:for="${intensidad}"
                                         th:text="${intensidad}"></label>
                                 </li>
@@ -137,14 +139,12 @@
                             Actual</div>
                         <div class="date-picker">
                             <label for="datetime">Cambiar Fecha y Hora</label>
-                            <input type="datetime-local"
-                                th:field="*{strartDate}" id="datetime"
-                                onchange="updateDisplay()">
+                            <input type="datetime-local" id="datetime"
+                                th:field="*{StrartDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()">Restablecer a la
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
-
                     <div class="clock-container1">
                         <h2>Fecha Final</h2>
                         <div class="digital-clock1" id="clock1">00:00:00</div>
@@ -152,17 +152,14 @@
                             Actual</div>
                         <div class="date-picker1">
                             <label for="datetime1">Cambiar Fecha y Hora</label>
-                            <input type="datetime-local" th:field="*{finalDate}"
-                                id="datetime1" onchange="updateDisplay()">
+                            <input type="datetime-local" id="datetime1"
+                                th:field="*{FinalDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()">Restablecer a la
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la
                             Hora Actual</button>
                     </div>
                 </div>
-
-                <button class="btn-ejercicio" type="submit">EDITAR
-                    EJERCICIO</button>
-
+                <button class="btn-ejercicio" type="submit" value="Editar">EDITAR EJERCICIO</button>
             </form>
         </div>
         <script src="/Js/Exercises/datetime-local.js"></script>
