@@ -20,10 +20,7 @@ public class AlimentLogModel {
     private String CategoryFoodBreakFast;
     private String BreakFast;
     private String CategoryFoodLunch;
-    private String Lunch;
-    private String CategoryFoodDinner;
-    private String Dinner;
-
+    
     @Basic
     @NonNull
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
