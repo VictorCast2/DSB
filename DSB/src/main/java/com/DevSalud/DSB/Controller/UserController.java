@@ -13,6 +13,7 @@ import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 import java.time.LocalDate;
+import java.util.*;
 
 @Data
 @Controller
@@ -24,6 +25,11 @@ public class UserController {
 
     @Autowired
     private HealthService healthService;
+
+    @ModelAttribute("allDiseases")
+    public List<String> enfermedad() {
+        return Arrays.asList("Diabetes Tipo 2", "Diabetes Tipo 1", "Hipertensos");
+    }
 
     /**
      * Muestra la página de registro.
@@ -66,6 +72,7 @@ public class UserController {
             Users.setAge(calculatedAge); // Calcula y asigna la edad
             Users.setBodyMass(masaCorporal);
             Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
+
             userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
             redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
             session.setAttribute("UsuarioId", null);

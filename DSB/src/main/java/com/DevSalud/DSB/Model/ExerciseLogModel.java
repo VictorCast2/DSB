@@ -20,11 +20,12 @@ public class ExerciseLogModel {
     @NonNull
     public String ExerciseName;
     public String ExerciseType;
+    public String ExerciseIntensity;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime StrartDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime FinalDate;
-    public String ExerciseIntensity;
 
     private String formattedStartDate;
     private String formattedFinalDate;
