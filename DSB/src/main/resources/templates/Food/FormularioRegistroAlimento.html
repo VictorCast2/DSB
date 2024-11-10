@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registro Alimenticio</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-        <link rel="stylesheet" href="/Css/FormularioRegistroAlimento.CSS">
-        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Alimenticio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/Css/FormularioRegistroAlimento.CSS">
+    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+</head>
 
-    <body>
-        <nav>
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <label class="logo">Registro Alimenticio</label>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Registro Alimenticio</label>
 
-            <ul>
-                <li><a class="active" href="/Api/Users/Food/Home">HOME</a></li>
-                <li><a href="/Api/Users/Food/RegistroAlimento">REGISTRO ALIMENTICIO</a></li>
-                <li><a href="#">LISTA ALIMENTICIO</a></li>
-            </ul>
-            
-        </nav>
+        <ul>
+            <li><a class="active" href="/Api/Users/Food/Home">HOME</a></li>
+            <li><a href="#">REGISTRO
+                    ALIMENTICIO</a></li>
+            <li><a href="/Api/Users/Food/TablaAlimento">LISTA ALIMENTICIO</a></li>
+        </ul>
 
-        <div class="contenido-registroalimento">
-            <h1>Registro Alimenticios</h1>
-            <form th:action="@{/Api/Users/Food/RegistroAlimento}" method="post">
-                <div class="contenido-principal">
+    </nav>
 
-                    <div class="container"> <!---Desayuno-->
-                        <div class="select-btn">
-                            <span class="btn-text">Categoria Desayuno</span>
-                            <span class="arrow-dwn">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+    <div class="contenido-registroalimento">
+        <h1>Registro Alimenticios</h1>
+        <form th:action="@{/Api/Users/Food/RegistroAlimento}" method="post">
+            <div class="contenido-principal">
+
+                <div class="container"> <!---Desayuno-->
+                    <div class="select-btn">
+                        <span class="btn-text">Categoria Desayuno</span>
+                        <span class="arrow-dwn">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <ul class="list-items">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
                         </div>
-                        <ul class="list-items">
-                            <div class="search">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <div class="scrollable-content">
-                                <li th:each="Desayuno : ${allCategoriaDesayuno}" class="item">
-                                    <input type="checkbox" th:id="${Desayuno}" th:value="${Desayuno}"
-                                        th:data-tipo="${Desayuno}" th:data-relacionado="true"  name="categoryFood" class="checkbox"  onchange="filterComida(this)">
-                                    <label th:for="${Desayuno}" th:text="${Desayuno}"></label>
-                                </li>
-                            </div>
-                        </ul>
-                    </div> <!---Desayuno-->
+                        <div class="scrollable-content">
+                            <li th:each="Desayuno : ${allCategoriaDesayuno}" class="item">
+                                <input type="checkbox" th:id="${Desayuno}" th:value="${Desayuno}"
+                                    th:data-tipo="${Desayuno}" th:data-relacionado="true" name="categoryFood"
+                                    class="checkbox" onchange="filterComida(this)">
+                                <label th:for="${Desayuno}" th:text="${Desayuno}"></label>
+                            </li>
+                        </div>
+                    </ul>
+                </div> <!---Desayuno-->
 
                 <div class="container1"> <!-- Comida Desayuno -->
                     <div class="select-btn1">
@@ -67,50 +68,50 @@
                         <div class="scrollable-content1">
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Proteinas']}"
                                 data-relacionado="Proteinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Frutas']}"
                                 data-relacionado="Frutas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Verduras']}"
-                            data-relacionado="Verduras">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Verduras">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Lacteos']}"
-                            data-relacionado="Lacteos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Lacteos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Azucares']}"
-                            data-relacionado="Azucares">
-                                <input type=" checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Azucares">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Grasas Saturadas']}"
-                            data-relacionado="Grasas Saturadas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Grasas Saturadas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Harinas']}"
-                            data-relacionado="Harinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Harinas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Granos']}"
-                            data-relacionado="Granos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox1">
+                                data-relacionado="Granos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
                         </div>
@@ -133,7 +134,8 @@
                         <div class="scrollable-content">
                             <li th:each="Almuerzo : ${allCategoriaAlmuerzo}" class="item3">
                                 <input type="checkbox" th:id="${Almuerzo}" th:value="${Almuerzo}"
-                                    th:data-tipo="${Almuerzo}" th:data-relacionado="true" name="categoryFood" class="checkbox3"  onchange="filterComidaAlmuerzo(this)">
+                                    th:data-tipo="${Almuerzo}" th:data-relacionado="true" name="categoryFood"
+                                    class="checkbox3" onchange="filterComidaAlmuerzo(this)">
                                 <label th:for="${Almuerzo}" th:text="${Almuerzo}"></label>
                             </li>
                         </div>
@@ -149,55 +151,55 @@
                     </div>
                     <ul class="list-items4">
                         <div class="search4">
-                            <input type="text" placeholder="Search" >
+                            <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content4">
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Proteinas']}"
-                            data-relacionado="Proteinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Proteinas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Verduras']}"
-                            data-relacionado="Verduras">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
-                                <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}" ></label>
+                                data-relacionado="Verduras">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
+                                <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Granos']}"
-                            data-relacionado="Granos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Granos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Lacteos']}"
-                            data-relacionado="Lacteos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Lacteos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Azucares']}"
-                            data-relacionado="Azucares">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Azucares">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Grasas Saturadas']}"
-                            data-relacionado="Grasas Saturadas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Grasas Saturadas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Harinas']}"
-                            data-relacionado="Harinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Harinas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                             <li class="item4" th:each="item : ${allNameComidaAlmuerzo['Cabohidratos']}"
-                            data-relacionado="Cabohidratos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox4">
+                                data-relacionado="Cabohidratos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox4">
                                 <label th:for="${item.toLowerCase()}" class="item-text4" th:text="${item}"></label>
                             </li>
                         </div>
@@ -215,12 +217,13 @@
                     </div>
                     <ul class="list-items5">
                         <div class="search5">
-                            <input type="text" placeholder="Search" >
+                            <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content">
                             <li th:each="Cena : ${allCategoriaCena}" class="item5">
                                 <input type="checkbox" th:id="${Cena}" th:value="${Cena}" th:data-tipo="${Cena}"
-                                th:data-relacionado="true" name="categoryFood" class="checkbox5" onchange="filterComidaCena(this)">
+                                    th:data-relacionado="true" name="categoryFood" class="checkbox5"
+                                    onchange="filterComidaCena(this)">
                                 <label th:for="${Cena}" th:text="${Cena}"></label>
                             </li>
                         </div>
@@ -239,49 +242,56 @@
                             <input type="text" placeholder="Search">
                         </div>
                         <div class="scrollable-content6">
-                            <li class="item6" th:each="item : ${allNameComidaCena['Proteinas']}" data-relacionado="Proteinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Proteinas']}"
+                                data-relacionado="Proteinas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Verduras']}" data-relacionado="Verduras">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Verduras']}"
+                                data-relacionado="Verduras">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
                             <li class="item6" th:each="item : ${allNameComidaCena['Granos']}" data-relacionado="Granos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Lacteos']}" data-relacionado="Lacteos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item }"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Lacteos']}"
+                                data-relacionado="Lacteos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item }" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Azucares']}" data-relacionado="Azucares">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Azucares']}"
+                                data-relacionado="Azucares">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Grasas Saturadas']}" data-relacionado="Grasas Saturadas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Grasas Saturadas']}"
+                                data-relacionado="Grasas Saturadas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Harinas']} " data-relacionado="Harinas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Harinas']} "
+                                data-relacionado="Harinas">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
                             <li class="item6" th:each="item : ${allNameComidaCena['Frutas']}" data-relacionado="Frutas">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
-                            <li class="item6" th:each="item : ${allNameComidaCena['Carbohidratos']}" data-relacionado="Carbohidratos">
-                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}"
-                                name="food" class="checkbox6">
+                            <li class="item6" th:each="item : ${allNameComidaCena['Carbohidratos']}"
+                                data-relacionado="Carbohidratos">
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                    class="checkbox6">
                                 <label th:for="${item.toLowerCase()}" class="item-text6" th:text="${item}"></label>
                             </li>
                         </div>
@@ -293,7 +303,8 @@
                 <div class="clock-container">
                     <h2>Fecha Inicial</h2>
                     <div class="digital-clock" id="clock">00:00:00</div>
-                    <div class="date-display" id="date-display">Fecha Actual</div>
+                    <div class="date-display" id="date-display">Fecha
+                        Actual</div>
                     <div class="date-picker">
                         <label for="datetime">Cambiar Fecha y Hora</label>
                         <input type="datetime-local" id="datetime" onchange="updateDisplay()">
@@ -302,7 +313,7 @@
                 </div>
             </div>
 
-            <button class="btn-alimento" type="submit">REGISTRO ALIMENTICIO</button>
+            <button class="btn-alimento" type="submit" value="Registrar">REGISTRO ALIMENTICIO</button>
         </form>
     </div>
 
@@ -323,53 +334,48 @@
                 }
             });
         }
+
+        function filterComidaAlmuerzo(checkbox) {
+            const isChecked = checkbox.checked;
+            const relatedCategory = checkbox.value; // Obtener el valor de la categoría seleccionada
+            const comidaItems = document.querySelectorAll('.scrollable-content4 .item4');
+
+            comidaItems.forEach(item => {
+                const relatedItem = item.getAttribute('data-relacionado'); // Obtener el valor relacionado del item de comida
+                if (isChecked && relatedItem !== relatedCategory) {
+                    // Si el checkbox está marcado y el item no está relacionado, ocultar
+                    item.style.display = 'none';
+                } else {
+                    // Si el checkbox no está marcado o el item está relacionado, mostrar
+                    item.style.display = '';
+                }
+            });
+        }
+        function filterComidaCena(checkbox) {
+            const isChecked = checkbox.checked;
+            const relatedCategory = checkbox.value; // Obtener el valor de la categoría seleccionada
+            const comidaItems = document.querySelectorAll('.scrollable-content6 .item6');
+
+            comidaItems.forEach(item => {
+                const relatedItem = item.getAttribute('data-relacionado'); // Obtener el valor relacionado del item de comida
+                if (isChecked && relatedItem !== relatedCategory) {
+                    // Si el checkbox está marcado y el item no está relacionado, ocultar
+                    item.style.display = 'none';
+                } else {
+                    // Si el checkbox no está marcado o el item está relacionado, mostrar
+                    item.style.display = '';
+                }
+            });
+        }
     </script>
 
-<script>
-    function filterComidaAlmuerzo(checkbox) {
-        const isChecked = checkbox.checked;
-        const relatedCategory = checkbox.value; // Obtener el valor de la categoría seleccionada
-        const comidaItems = document.querySelectorAll('.scrollable-content4 .item4');
-
-        comidaItems.forEach(item => {
-            const relatedItem = item.getAttribute('data-relacionado'); // Obtener el valor relacionado del item de comida
-            if (isChecked && relatedItem !== relatedCategory) {
-                // Si el checkbox está marcado y el item no está relacionado, ocultar
-                item.style.display = 'none';
-            } else {
-                // Si el checkbox no está marcado o el item está relacionado, mostrar
-                item.style.display = '';
-            }
-        });
-    }
-</script>
-
-<script>
-    function filterComidaCena(checkbox) {
-        const isChecked = checkbox.checked;
-        const relatedCategory = checkbox.value; // Obtener el valor de la categoría seleccionada
-        const comidaItems = document.querySelectorAll('.scrollable-content6 .item6');
-
-        comidaItems.forEach(item => {
-            const relatedItem = item.getAttribute('data-relacionado'); // Obtener el valor relacionado del item de comida
-            if (isChecked && relatedItem !== relatedCategory) {
-                // Si el checkbox está marcado y el item no está relacionado, ocultar
-                item.style.display = 'none';
-            } else {
-                // Si el checkbox no está marcado o el item está relacionado, mostrar
-                item.style.display = '';
-            }
-        });
-    }
-</script>
-
-        <script src="/Js/Food/datetime-local.js"></script>
-        <script src="/Js/Food/chexbox.js"></script>
-        <script src="/Js/Food/chexbox1.js"></script>
-        <script src="/Js/Food/chexbox3.js"></script>
-        <script src="/Js/Food/chexbox4.js"></script>
-        <script src="/Js/Food/chexbox5.js"></script>
-        <script src="/Js/Food/chexbox6.js"></script>
-    </body>
+    <script src="/Js/Food/datetime-local.js"></script>
+    <script src="/Js/Food/chexbox.js"></script>
+    <script src="/Js/Food/chexbox1.js"></script>
+    <script src="/Js/Food/chexbox3.js"></script>
+    <script src="/Js/Food/chexbox4.js"></script>
+    <script src="/Js/Food/chexbox5.js"></script>
+    <script src="/Js/Food/chexbox6.js"></script>
+</body>
 
 </html>
