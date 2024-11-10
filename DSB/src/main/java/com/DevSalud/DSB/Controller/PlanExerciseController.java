@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.DevSalud.DSB.Model.ExerciseLogModel;
@@ -37,7 +36,47 @@ public class PlanExerciseController {
                 "Lunes - Pierna - Elevaciones De Talones Con Elevación De Cadera - Moderada",
                 "Lunes - Hombro - Elevaciones Laterales Con Bandas Elásticas - Moderada",
                 "Lunes - Hombro - Elevaciones Frontales Con Bandas Elásticas Y Giro - Alta",
-                "Lunes - Hombro - Elevaciones Frontales Con Bandas Elásticas Con Giro De Pie - Baja"
+                "Lunes - Hombro - Elevaciones Frontales Con Bandas Elásticas Con Giro De Pie - Baja",
+                //
+                "Martes - Espalda - Flexiones Inclinadas - Baja",
+                "Martes - Espalda - Escaladores De Montaña - Moderada",
+                "Martes - Espalda - Remo Con Bandas Elásticas - Alta",
+                "Martes - Triceps - Fondos En Silla - Moderada",
+                "Martes - Triceps - Fondos En El Suelo - Baja",
+                "Martes - Triceps - Fondos De Tríceps Con Elevación De Pierna- Moderada",
+                "Martes - Equilibrio - Levantamiento de una pierna - Alta",
+                "Martes - Equilibrio - Equilibrio En T - Alta",
+                "Martes - Equilibrio - Equilibrio En Talones - Alta",
+                //
+                "Miercoles - Pecho - Flexiones De Brazo - Baja",
+                "Miercoles - Pecho - Flexiones Con Brazos Abiertos - Baja",
+                "Miercoles - Pecho - Flexiones Inclinadas - Alta",
+                "Miercoles - Biceps - Curl De Bíceps Con Bandas Elásticas - Moderada",
+                "Miercoles - Biceps - Curl De Bíceps Con Bandas Elásticas Alternado - Moderada",
+                "Miercoles - Biceps - Curl De Bíceps Con Bandas Elásticas Cruzadas - Moderada",
+                "Miercoles - Antebrazo - Curl De Muñeca Con Bandas Elásticas - Moderada",
+                "Miercoles - Antebrazo - Extensión De Muñeca Con Bandas Elásticas - Moderada",
+                "Miercoles - Antebrazo - Extensión De Muñeca Con Bandas Elásticas Y Giro De Torso - Moderada",
+                //
+                "Jueves - Abdominales - Abdominales Tradicionales - Moderada",
+                "Jueves - Abdominales - Abdominales Tipo Bicicleta - Moderada",
+                "Jueves - Abdominales - Abdominales Con Piernas Elevadas - Moderada",
+                "Jueves - Pantorrilla - Elevaciones De Talón - Moderada",
+                "Jueves - Pantorrilla - Elevaciones De Talón Con Una Pierna - Baja",
+                "Jueves - Pantorrilla - Elevaciones De Talón En Escalón - Moderada",
+                "Jueves - Flexibilidad - Estiramiento De Cuádriceps - Alta",
+                "Jueves - Flexibilidad - Estiramiento De Pantorrillas - Alta",
+                "Jueves - Flexibilidad - Estiramiento De Cadera - Alta",
+                //
+                "Viernes - Fuerza - Flexiones De Brazo (Push-Ups) - Baja",
+                "Viernes - Fuerza - Flexiones Inclinadas - Baja",
+                "Viernes - Fuerza - Fondos De Tríceps En Silla - Baja",
+                "Viernes - Resistencia - Saltos De Tijera - Moderada",
+                "Viernes - Resistencia - Sentadillas Con Salto - Baja",
+                "Viernes - Resistencia - Flexiones Declinadas - Baja",
+                "Viernes - Aerobico - Rodillas Al Pecho - Alta",
+                "Viernes - Aerobico - Skipping - Alta",
+                "Viernes - Aerobico - Salto De Estrella - Alta"
         ));
         return planMap;
     }
@@ -53,16 +92,4 @@ public class PlanExerciseController {
         return "listaEjercicio"; // Devuelve la vista de lista de ejercicios
     }
 
-    @GetMapping("/EditarPlanEjercicio/{id}")
-    public String editExercise(@PathVariable Long id, Model model) {
-        ExerciseLogModel exerciseLog = exerciseLogServices.getExerciseLogById(id);
-        model.addAttribute("exerciseLog", exerciseLog);
-        return "editarEjercicio"; // Devuelve la vista de edición de ejercicio
-    }
-
-    @GetMapping("/EliminarPlanEjercicio/{id}")
-    public String deleteExercise(@PathVariable Long id) {
-        exerciseLogServices.DeleteExerciseLog(id);
-        return "redirect:/Api/Users/Exercises/ListaEjercicio"; // Redirige a la lista de ejercicios después de eliminar
-    }
 }
