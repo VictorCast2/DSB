@@ -92,7 +92,7 @@
                             </li>
                             <li class="item1" th:each="item : ${allNameComidaDesayuno['Azucares']}"
                                 data-relacionado="Azucares">
-                                <input type=" checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
+                                <input type="checkbox" th:id="${item.toLowerCase()}" th:data-tipo="${item}" name="food"
                                     class="checkbox1">
                                 <label th:for="${item.toLowerCase()}" class="item-text1" th:text="${item}"></label>
                             </li>
