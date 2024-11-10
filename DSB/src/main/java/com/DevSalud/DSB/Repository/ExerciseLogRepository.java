@@ -15,4 +15,4 @@ public interface ExerciseLogRepository extends JpaRepository<ExerciseLogModel, L
     List<ExerciseLogModel> findByUserId(Long userId);
 }
 
-}
+
