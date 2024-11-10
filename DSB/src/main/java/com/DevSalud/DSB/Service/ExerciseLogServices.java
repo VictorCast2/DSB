@@ -1,13 +1,14 @@
 package com.DevSalud.DSB.Service;
 
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Model.ExerciseLogModel;
 import com.DevSalud.DSB.Repository.ExerciseLogRepository;
+import lombok.Data;
 
+@Data
 @Service
 public class ExerciseLogServices {
 
@@ -18,12 +19,12 @@ public class ExerciseLogServices {
         exerciseLogRepository.save(exerciseLog);
     }
 
-    public List<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
-        return exerciseLogRepository.findByUserId(userId);
+    public List<ExerciseLogModel> getAllExerciseLogs() {
+        return exerciseLogRepository.findAll();
     }
 
-    public ExerciseLogModel updateExerciseLog(Long id, ExerciseLogModel updatedExerciseLog) {
-        Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(id);
+    public ExerciseLogModel UpdateExerciseLog(ExerciseLogModel updatedExerciseLog) {
+        Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(updatedExerciseLog.getId());
         if (existingExerciseLog.isPresent()) {
             ExerciseLogModel exerciseLog = existingExerciseLog.get();
             exerciseLog.setExerciseName(updatedExerciseLog.getExerciseName());
@@ -36,4 +37,13 @@ public class ExerciseLogServices {
             return null;
         }
     }
+
+    public ExerciseLogModel getExerciseLogById(Long id) {
+        return exerciseLogRepository.findById(id).orElse(null);
+    }
+
+    public void DeleteExerciseLog(Long id) {
+        exerciseLogRepository.deleteById(id);
+    }
+
 }

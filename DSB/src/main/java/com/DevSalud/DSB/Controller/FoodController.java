@@ -295,6 +295,7 @@ public class FoodController {
             MenuOfTheDayModel menuOfTheDay = menuOfTheDayService.getMenuOfTheDayById(1L);
             if (menuOfTheDay != null) {
                 alimentLog.setMenuOfTheDayModel(menuOfTheDay);
+
                 alimentLogServices.saveAlimentLog(alimentLog);
                 return "redirect:/Api/Users/Food/Home";
             } else {
