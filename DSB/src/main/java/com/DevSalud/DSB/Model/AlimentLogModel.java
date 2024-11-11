@@ -17,12 +17,17 @@ public class AlimentLogModel {
 
     @Basic
     @NonNull
+    private String CategoryFoodBreakFast;
+    private String BreakFast;
+    private String CategoryFoodLunch;
+    private String Lunch;
+    private String CategoryFoodDinner;
+    private String Dinner;
+
+    @Basic
+    @NonNull
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime StrartDate;
-
-    @ManyToOne
-    @JoinColumn(name = "MenuOfTheDayModel", referencedColumnName = "Id")
-    private MenuOfTheDayModel menuOfTheDayModel;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")

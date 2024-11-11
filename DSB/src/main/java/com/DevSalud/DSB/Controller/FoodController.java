@@ -1,27 +1,12 @@
 package com.DevSalud.DSB.Controller;
 
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.DevSalud.DSB.Model.AlimentLogModel;
-import com.DevSalud.DSB.Model.MenuOfTheDayModel;
-import com.DevSalud.DSB.Model.UserModel;
-import com.DevSalud.DSB.Service.AlimentLogServices;
-import com.DevSalud.DSB.Service.MenuOfTheDayService;
-import com.DevSalud.DSB.Service.UserServices;
-
+import org.springframework.web.bind.annotation.*;
+import com.DevSalud.DSB.Model.*;
+import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
@@ -35,9 +20,6 @@ public class FoodController {
 
         @Autowired
         private AlimentLogServices alimentLogServices;
-
-        @Autowired
-        private MenuOfTheDayService menuOfTheDayService;
 
         @ModelAttribute("allCategoriaDesayuno")
         public List<String> categoriaDelDesayuno() {
@@ -274,59 +256,23 @@ public class FoodController {
         }
 
         @GetMapping("/RegistroAlimento")
-        public String formularioRegistroAlimento() {
+        public String formularioRegistroAlimento(Model model) {
+                model.addAttribute("alimentLog", new AlimentLogModel());
                 return "/Food/FormularioRegistroAlimento";
         }
 
         @PostMapping("/RegistroAlimento")
-        public String createAlimentLog(HttpSession session, Model model) {
+        public String createAlimentLog(HttpSession session, Model model,
+                        @ModelAttribute AlimentLogModel alimentLog) {
                 Long userId = (Long) session.getAttribute("UsuarioId");
                 if (userId != null) {
                         UserModel user = userService.getUserById(userId);
-                        if (user == null) {
-                                return "redirect:/DSBConection"; // Redirige si el usuario no es válido
-                        }
-
-                        AlimentLogModel alimentLog = new AlimentLogModel();
-                        alimentLog.setUser(user);
-                        alimentLog.setStrartDate(LocalDateTime.now());
-
-                        // Obtener el MenuOfTheDayModel dinámicamente o de otra manera
-                        MenuOfTheDayModel menuOfTheDay = menuOfTheDayService.getMenuOfTheDayById(1L);
-                        if (menuOfTheDay != null) {
-                                alimentLog.setMenuOfTheDayModel(menuOfTheDay);
-
-                                alimentLogServices.saveAlimentLog(alimentLog);
-                                return "redirect:/Api/Users/Food/Home";
-                        } else {
-                                model.addAttribute("error", "El menú del día no está disponible");
-                                return "/Food/Error";
-                        }
+                        System.out.println(user);
+                        return "";
                 } else {
-                        return "redirect:/DSBConection";
+                        model.addAttribute("error", "Usuario no encontrado.");
+                        return "redirect:/Api/Users/Login";
                 }
-        }
-
-        @PostMapping("/createMenu")
-        public String createMenu(@ModelAttribute MenuOfTheDayModel menuOfTheDay) {
-                menuOfTheDayService.saveMenuOfTheDay(menuOfTheDay);
-                return "redirect:/Api/Users/Food/listMenus";
-        }
-
-        @GetMapping("/listMenus")
-        public String listMenus(Model model) {
-                List<MenuOfTheDayModel> menus = menuOfTheDayService.getAllMenus();
-                model.addAttribute("menus", menus);
-                return "/MenuOfTheDay/List";
-        }
-
-        @PostMapping("/deleteMenu/{id}")
-        public String deleteMenuOfTheDay(@PathVariable Long id) {
-                MenuOfTheDayModel menu = menuOfTheDayService.getMenuOfTheDayById(id);
-                if (menu != null) {
-                        menuOfTheDayService.deleteMenuOfTheDay(id);
-                }
-                return "redirect:/Api/Users/Food/listMenus";
         }
 
         @GetMapping("/Home")
