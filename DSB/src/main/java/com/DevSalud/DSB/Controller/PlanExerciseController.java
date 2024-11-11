@@ -1,26 +1,15 @@
 package com.DevSalud.DSB.Controller;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.ExerciseLogModel;
-import com.DevSalud.DSB.Service.PlanExerciseService;
 
 @Controller
 @RequestMapping("/Api/Users/Exercises")
 public class PlanExerciseController {
-
-    @Autowired
-    private PlanExerciseService planExerciseService;
 
     @ModelAttribute("allNamePlanes")
     public Map<String, List<String>> PlanesMap() {
