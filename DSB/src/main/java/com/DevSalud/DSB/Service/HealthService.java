@@ -50,7 +50,7 @@ public class HealthService {
         } else if (IMC <= 24.9) {
             return "Peso Normal";
         } else if (IMC <= 29.9) {
-            return "Sobrepeso";
+            return "Sobre Peso";
         } else if (IMC <= 34.9) {
             return "Obesidad Tipo I";
         } else if (IMC <= 39.9) {

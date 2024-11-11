@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import com.DevSalud.DSB.Model.PlanExercisesModel;
 
 @Repository
-public interface HealthPlansExerciseRepository extends JpaRepository<PlanExercisesModel, Long> {
+public interface PlanExerciseRepository extends JpaRepository<PlanExercisesModel, Long> {
 }
