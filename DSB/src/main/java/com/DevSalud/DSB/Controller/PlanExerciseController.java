@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.*;
 import com.DevSalud.DSB.Service.UserServices;
 import jakarta.servlet.http.HttpSession;
+import lombok.Data;
 
+@Data
 @Controller
 @RequestMapping("/Api/Users/Exercises")
 public class PlanExerciseController{
