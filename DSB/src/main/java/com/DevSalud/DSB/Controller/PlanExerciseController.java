@@ -1224,9 +1224,9 @@ public class PlanExerciseController{
                 }
                 // Filtrar planes para diabetes tipo II
                 if ("Diabetico Tipo II".equals(disease)||"Diabético Tipo II".equals(disease)) {
-                        if ("BajoDePeso".equals(healthClassification)) {
+                        if ("Bajo Peso".equals(healthClassification)) {
                                 filteredPlans.put("diabetesTipo2BajoPeso", PlanesMap().get("diabetesTipo2BajoPeso"));
-                        } else if ("SobrePeso".equals(healthClassification)) {
+                        } else if ("Sobre Peso".equals(healthClassification)) {
                                 filteredPlans.put("diabetesTipo2SobrePeso", PlanesMap().get("diabetesTipo2SobrePeso"));
                         } else if ("Obesidad Tipo I".equals(healthClassification) || "Obesidad Tipo II".equals(healthClassification)) {
                                 filteredPlans.put("diabetesTipo2ObesidadTipoIYII", PlanesMap().get("diabetesTipo2ObesidadTipoIYII"));
