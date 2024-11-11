@@ -1,5 +1,5 @@
 -- Planes de Ejercicio --
-CREATE TABLE IF NOT EXISTS PlansExercises (
+CREATE TABLE IF NOT EXISTS plans_exercises (
     Id BIGINT AUTO_INCREMENT PRIMARY KEY,
     Day VARCHAR(255) NOT NULL,
     ExerciseName VARCHAR(255),
@@ -10,70 +10,70 @@ CREATE TABLE IF NOT EXISTS PlansExercises (
 );
 
 -- Insertar plan de ejercicios para hipertensos con IMC bajo de peso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
-('Lunes', 'Saltos De Cuerda', 'Aerobicos', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Saltos De Tijera', 'Aerobicos', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Caminata Rápida', 'Aeróbicos', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'bicicleta Estática', 'Aeróbicos', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Sentadillas Sin Peso O Con Una Silla', 'Pierna', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Sentadillas Con Salto', 'Pierna', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Elevaciones De Talones Con Elevación De Cadera', 'Pierna', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Elevaciones Laterales Con Bandas Elásticas', 'Hombro', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Elevaciones Frontales Con Bandas Elásticas Y Giro', 'Hombro', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Lunes', 'Elevaciones Frontales Con Bandas Elásticas Con Giro De Pie', 'Hombro', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Flexiones Inclinadas', 'Espalda', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Escaladores De Montaña', 'Espalda', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Remo Con Bandas Elásticas', 'Espalda', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Fondos En Silla', 'Triceps', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Fondos En El Suelo', 'Triceps', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Fondos De Tríceps Con Elevación De Pierna', 'Triceps', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Levantamiento de una pierna', 'Equilibrio', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Equilibrio En T', 'Equilibrio', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Martes', 'Equilibrio En Talones', 'Equilibrio', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Flexiones De Brazo', 'Pecho', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Flexiones Con Brazos Abiertos', 'Pecho', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Flexiones Inclinadas', 'Pecho', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Curl De Bíceps Con Bandas Elásticas', 'Biceps', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Curl De Bíceps Con Bandas Elásticas Alternado', 'Biceps', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Curl De Bíceps Con Bandas Elásticas Cruzadas', 'Biceps', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Curl De Muñeca Con Bandas Elásticas', 'Antebrazo', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Extensión De Muñeca Con Bandas Elásticas', 'Antebrazo', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Miercoles', 'Extensión De Muñeca Con Bandas Elásticas Y Giro De Torso', 'Antebrazo', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Abdominales Tradicionales', 'Abdominales', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Abdominales Tipo Bicicleta', 'Abdominales', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Abdominales Con Piernas Elevadas', 'Abdominales', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Elevaciones De Talón', 'Pantorrilla', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Elevaciones De Talón Con Una Pierna', 'Pantorrilla', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Elevaciones De Talón En Escalón', 'Pantorrilla', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Estiramiento De Cuádriceps', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Estiramiento De Pantorrillas', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Jueves', 'Estiramiento De Cadera', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Flexiones De Brazo (Push-Ups)', 'Fuerza', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Flexiones Inclinadas', 'Fuerza', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Fondos De Tríceps En Silla', 'Fuerza', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Saltos De Tijera', 'Resistencia', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Sentadillas Con Salto', 'Resistencia', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Flexiones Declinadas', 'Resistencia', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Rodillas Al Pecho', 'Aerobico', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Skipping', 'Aerobico', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Viernes', 'Salto De Estrella', 'Aerobico', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Estocadas Con Salto', 'Fortalecimiento', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Desplantes Laterales', 'Fortalecimiento', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Abdominales Laterales', 'Fortalecimiento', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Elevaciones De Cadera', 'Anaerobicos', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Abdominales En V', 'Anaerobicos', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Escaladores Cruzados', 'Anaerobicos', 'Baja', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Correr Con Elevación De Rodillas', 'Aerobico', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Saltos En Zig-Zag', 'Aerobico', 'Moderada', 'hipertensos', 'BajoDePeso'),
-('Sabado', 'Saltos De Rana', 'Aerobico', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Domingo', 'Estiramiento De Flexores De Cadera', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDe Peso'),
-('Domingo', 'Estiramiento De Antebrazos', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Domingo', 'Estiramiento De Abductores', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Domingo', 'Estiramiento De Hombros', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso'),
-('Domingo', 'Estiramiento De Isquiotibiales', 'Flexibilidad', 'Alta', 'hipertensos', 'BajoDePeso');
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+('Lunes', 'Saltos De Cuerda', 'Aerobicos', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Saltos De Tijera', 'Aerobicos', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Caminata Rápida', 'Aeróbicos', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'bicicleta Estática', 'Aeróbicos', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Sentadillas Sin Peso O Con Una Silla', 'Pierna', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Sentadillas Con Salto', 'Pierna', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Elevaciones De Talones Con Elevación De Cadera', 'Pierna', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Elevaciones Laterales Con Bandas Elásticas', 'Hombro', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Elevaciones Frontales Con Bandas Elásticas Y Giro', 'Hombro', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Lunes', 'Elevaciones Frontales Con Bandas Elásticas Con Giro De Pie', 'Hombro', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Flexiones Inclinadas', 'Espalda', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Escaladores De Montaña', 'Espalda', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Remo Con Bandas Elásticas', 'Espalda', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Fondos En Silla', 'Triceps', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Fondos En El Suelo', 'Triceps', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Fondos De Tríceps Con Elevación De Pierna', 'Triceps', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Levantamiento de una pierna', 'Equilibrio', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Equilibrio En T', 'Equilibrio', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Martes', 'Equilibrio En Talones', 'Equilibrio', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Flexiones De Brazo', 'Pecho', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Flexiones Con Brazos Abiertos', 'Pecho', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Flexiones Inclinadas', 'Pecho', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Curl De Bíceps Con Bandas Elásticas', 'Biceps', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Curl De Bíceps Con Bandas Elásticas Alternado', 'Biceps', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Curl De Bíceps Con Bandas Elásticas Cruzadas', 'Biceps', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Curl De Muñeca Con Bandas Elásticas', 'Antebrazo', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Extensión De Muñeca Con Bandas Elásticas', 'Antebrazo', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Miercoles', 'Extensión De Muñeca Con Bandas Elásticas Y Giro De Torso', 'Antebrazo', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Abdominales Tradicionales', 'Abdominales', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Abdominales Tipo Bicicleta', 'Abdominales', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Abdominales Con Piernas Elevadas', 'Abdominales', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Elevaciones De Talón', 'Pantorrilla', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Elevaciones De Talón Con Una Pierna', 'Pantorrilla', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Elevaciones De Talón En Escalón', 'Pantorrilla', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Estiramiento De Cuádriceps', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Estiramiento De Pantorrillas', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Jueves', 'Estiramiento De Cadera', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Flexiones De Brazo (Push-Ups)', 'Fuerza', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Flexiones Inclinadas', 'Fuerza', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Fondos De Tríceps En Silla', 'Fuerza', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Saltos De Tijera', 'Resistencia', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Sentadillas Con Salto', 'Resistencia', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Flexiones Declinadas', 'Resistencia', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Rodillas Al Pecho', 'Aerobico', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Skipping', 'Aerobico', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Viernes', 'Salto De Estrella', 'Aerobico', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Estocadas Con Salto', 'Fortalecimiento', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Desplantes Laterales', 'Fortalecimiento', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Abdominales Laterales', 'Fortalecimiento', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Elevaciones De Cadera', 'Anaerobicos', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Abdominales En V', 'Anaerobicos', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Escaladores Cruzados', 'Anaerobicos', 'Baja', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Correr Con Elevación De Rodillas', 'Aerobico', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Saltos En Zig-Zag', 'Aerobico', 'Moderada', 'hipertensos', 'Bajo Peso'),
+('Sabado', 'Saltos De Rana', 'Aerobico', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Domingo', 'Estiramiento De Flexores De Cadera', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Domingo', 'Estiramiento De Antebrazos', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Domingo', 'Estiramiento De Abductores', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Domingo', 'Estiramiento De Hombros', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso'),
+('Domingo', 'Estiramiento De Isquiotibiales', 'Flexibilidad', 'Alta', 'hipertensos', 'Bajo Peso');
 
 -- Insertar plan de ejercicios para hipertensos con IMC sobrepeso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Trote Moderado', 'Aerobicos', 'Moderada', 'hipertensos', 'SobrePeso'),
 ('Lunes', 'Saltos Laterales', 'Aerobicos', 'Alta', 'hipertensos', 'SobrePeso'),
 ('Lunes', 'Abdominales Tipo Bicicleta', 'Aerobicos', 'Moderada', 'hipertensos', 'SobrePeso'),
@@ -117,7 +117,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Con Movimiento De Brazos', 'Equilibrio', 'Alta', 'hipertensos', 'SobrePeso');
 
 -- Insertar plan de ejercicios para hipertensos con IMC Obesidad Tipo I y II
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Caja', 'Aeróbico', 'Moderada', 'hipertensos', 'Obesidad Tipo I y II'),
 ('Lunes', 'Abdominales Tipo Bicicleta', 'Aerobico', 'Moderada', 'hipertensos', 'Obesidad Tipo I y II'),
 ('Lunes', 'Sentadillas', 'Pierna', 'Baja', 'hipertensos', 'Obesidad Tipo I y II'),
@@ -148,7 +148,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Sobre Una Superficie Inestable', 'Equilibrio', 'Alta', 'hipertensos', 'Obesidad Tipo I y II');
 
 -- Insertar plan de ejercicios para hipertensos con IMC Obesidad Tipo III y IV
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Caja', 'Aeróbico', 'Moderada', 'hipertensos', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Abdominales Tipo Bicicleta', 'Aerobico', 'Moderada', 'hipertensos', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Sentadillas', 'Pierna', 'Baja', 'hipertensos', 'Obesidad Tipo III y IV'),
@@ -182,7 +182,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Sobre Una Superficie Inestable', 'Alta', 'hipertensos', 'Obesidad Tipo III y IV');
 
 -- Insertar plan de ejercicios para hipertensos con IMC Obesidad Tipo I y II
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Caja', 'Aeróbico', 'Moderada', 'hipertensos', 'Obesidad Tipo I y II'),
 ('Lunes', 'Abdominales Tipo Bicicleta', 'Aerobico', 'Moderada', 'hipertensos', 'Obesidad Tipo I y II'),
 ('Lunes', 'Sentadillas', 'Pierna', 'Baja', 'hipertensos', 'Obesidad Tipo I y II'),
@@ -213,7 +213,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Sobre Una Superficie Inestable', 'Equilibrio', 'Alta', 'hipertensos', 'Obesidad Tipo I y II');
 
 -- Insertar plan de ejercicios para hipertensos con IMC Obesidad Tipo III y IV
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Caja', 'Aeróbico', 'Moderada', 'hipertensos', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Abdominales Tipo Bicicleta', 'Aerobico', 'Moderada', 'hipertensos', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Sentadillas', 'Pierna', 'Baja', 'hipertensos', 'Obesidad Tipo III y IV'),
@@ -247,7 +247,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Sobre Una Superficie Inestable', 'Alta', 'hipertensos', 'Obesidad Tipo III y IV');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC bajo de peso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Cuclillas', 'Aerobicos', 'Alta', 'diabetico tipo 1', 'BajoDePeso'),
 ('Lunes', 'Saltos Con Patada Trasera', 'Aerobicos', 'Alta', 'diabetico tipo 1', 'BajoDePeso'),
 ('Lunes', 'Sentadilla Con Salto Y Elevacion', 'Aerobicos', 'Moderada', 'diabetico tipo 1', 'BajoDePeso'),
@@ -304,7 +304,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Con Banda Elástica', 'Equilibrio', 'Alta', 'diabetico tipo 1', 'BajoDePeso');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC sobrepeso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas Con Peso Corporal', 'Pierna', 'Moderada', 'diabetico tipo 1', 'SobrePeso'),
 ('Lunes', 'Estocadas', 'Pierna', 'Alta', 'diabetico tipo 1', 'SobrePeso'),
 ('Lunes', 'Peso Muerto Con Piernas Rectas', 'Pierna', 'Baja', 'diabetico tipo 1', 'SobrePeso'),
@@ -355,7 +355,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Sesión de yoga suave', 'Flexibilidad', 'Alta', 'diabetico tipo 1', 'SobrePeso');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC Obesidad Tipo I y II
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
 ('Lunes', 'Puente De Glúteos', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
 ('Lunes', 'Zancadas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
@@ -400,7 +400,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Estiramiento De Los Músculos Laterales Del Tronco', 'Flexibilidad', 'Alta', 'diabetico tipo 1', 'Obesidad Tipo I y II');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC Obesidad Tipo III y IV
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Puente De Glúteos', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Zancadas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
@@ -445,7 +445,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Estiramiento De Los Músculos Laterales Del Tronco', 'Flexibilidad', 'Alta', 'diabetico tipo 1', 'Obesidad Tipo III y IV');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC Obesidad Tipo I y II
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
 ('Lunes', 'Puente De Glúteos', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
 ('Lunes', 'Zancadas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo I y II'),
@@ -490,7 +490,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Estiramiento De Los Músculos Laterales Del Tronco', 'Flexibilidad', 'Alta', 'diabetico tipo 1', 'Obesidad Tipo I y II');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 1 con IMC Obesidad Tipo III y IV
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Puente De Glúteos', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Zancadas', 'Pierna', 'Moderada', 'diabetico tipo 1', 'Obesidad Tipo III y IV'),
@@ -535,7 +535,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Estiramiento De Los Músculos Laterales Del Tronco', 'Flexibilidad', 'Alta', 'diabetico tipo 1', 'Obesidad Tipo III y IV');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 2 con IMC bajo de peso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Piernas', 'Moderada', 'diabetico tipo 2', 'BajoDePeso'),
 ('Lunes', 'Puente De Glúteos', 'Pierna', 'Moderada', 'diabetico tipo 2', 'BajoDePeso'),
 ('Lunes', 'Zancadas', 'Pierna', 'Moderada', 'diabetico tipo 2', 'BajoDePeso'),
@@ -585,7 +585,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Postura Del Triángulo', 'Flexibilidad', 'Moderada', 'diabetico tipo 2', 'BajoDePeso');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 2 con IMC sobrepeso
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Sentadillas', 'Piernas', 'Moderada', 'diabetico tipo 2', 'Sobrepeso'),
 ('Lunes', 'Puente De Glúteos', 'Piernas', 'Moderada', 'diabetico tipo 2', 'Sobrepeso'),
 ('Lunes', 'Estiramiento De Cuádriceps', 'Flexibilidad', 'Moderada', 'diabetico tipo 2', 'Sobrepeso'),
@@ -624,7 +624,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Equilibrio Con Banda Elástica', 'Equilibrio', 'Alta', 'diabetico tipo 2', 'Sobrepeso');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 2 con IMC Obesidad Tipo I y II
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Tijeras', 'Aeróbico', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo I y II'),
 ('Lunes', 'Caminar a paso ligero', 'Aeróbico', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo I y II'),
 ('Lunes', 'Sentadilla', 'Piernas', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo I y II'),
@@ -656,7 +656,7 @@ INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, 
 ('Domingo', 'Estiramiento del pecho', 'Flexibilidad', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo I y II');
 
 -- Insertar plan de ejercicios para un Diabético Tipo 2 con IMC Obesidad Tipo III y IV
-INSERT INTO PlansExercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
+INSERT INTO plans_exercises (Day, ExerciseName, ExerciseType, ExerciseIntensity, Disease, HealthClassification) VALUES
 ('Lunes', 'Saltos En Tijeras', 'Aeróbico', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Caminar a paso ligero', 'Aeróbico', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo III y IV'),
 ('Lunes', 'Sentadilla', 'Piernas', 'Moderada', 'diabetico tipo 2', 'Obesidad Tipo III y IV'),

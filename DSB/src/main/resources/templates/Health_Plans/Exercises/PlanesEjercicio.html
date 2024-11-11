@@ -19,23 +19,19 @@
                     <th>Tipo de Ejercicio</th>
                     <th>Nombre del Ejercicio</th>
                     <th>Intensidad</th>
-                    <th>Fecha de Inicio</th>
-                    <th>Fecha de Fin</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="log : ${exerciseLogs}">
-                    <td th:text="${log.StrartDate}"></td>
-                    <td th:text="${log.ExerciseType}"></td>
-                    <td th:text="${log.ExerciseName}"></td>
-                    <td th:text="${log.ExerciseIntensity}"></td>
-                    <td th:text="${log.formattedStartDate}"></td>
-                    <td th:text="${log.formattedFinalDate}"></td>
+                <!-- Corregir el 'th:each' para usar 'exercisePlans' -->
+                <tr th:each="plan : ${exercisePlans}">
+                    <td th:text="${plan.day}"></td> <!-- Corregido: Usar el campo 'day' -->
+                    <td th:text="${plan.exerciseType}"></td> <!-- Corregido: Usar el campo 'exerciseType' -->
+                    <td th:text="${plan.exerciseName}"></td> <!-- Corregido: Usar el campo 'exerciseName' -->
+                    <td th:text="${plan.exerciseIntensity}"></td> <!-- Corregido: Usar el campo 'exerciseIntensity' -->
                 </tr>
             </tbody>
         </table>
     </div>
 
 </body>
-
 </html>
