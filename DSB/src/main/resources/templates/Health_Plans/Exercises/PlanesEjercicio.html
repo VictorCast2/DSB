@@ -22,32 +22,30 @@
                         <th>Intensidad</th>
                     </tr>
                 </thead>
-                <tbody>
                     <!-- Corregir el 'th:each' para usar 'exercisePlans' -->
                     <!-- Iterar sobre los planes de ejercicio filtrados -->
                     <tr th:each="entry : ${exercisePlans}">
-                        <td th:text="${entry.key}"></td>
-                        <!-- Mostrar la clave del plan (ej. hipertensosBajoDePeso) -->
-                        <td>
+                        <td th:colspan="4">
                             <table>
-                                <tr th:each="plan : ${entry.value}">
-                                    <td th:text="${plan[0]}"></td> <!-- Día -->
-                                    <td th:text="${plan[1]}"></td>
-                                    <!-- Tipo de ejercicio -->
-                                    <td th:text="${plan[2]}"></td>
-                                    <!-- Nombre del ejercicio -->
-                                    <td th:text="${plan[3]}"></td>
-                                    <!-- Intensidad -->
-                                </tr>
+                                <tbody>
+                                    <tr th:each="plan : ${entry.value}">
+                                        <th th:text="${plan[0]}"></th>
+                                        <!-- Día -->
+                                        <th th:text="${plan[1]}"></th>
+                                        <!-- Tipo de ejercicio -->
+                                        <th th:text="${plan[2]}"></th>
+                                        <!-- Nombre del ejercicio -->
+                                        <th th:text="${plan[3]}"></th>
+                                        <!-- Intensidad -->
+                                    </tr>
+                                </tbody>
                             </table>
                         </td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
-        <div th:if="${#maps.isEmpty(exercisePlans)}">
-            <p> No se encontraron planes de ejercicio para la clasificación de
-                salud y enfermedad seleccionadas. </p>
-        </div>
-    </body>
-</html>
+                </table>
+            </div>
+            <div th:if="${#maps.isEmpty(exercisePlans)}">
+                <p>Tienes peso normal, no puedo hacerte un plan alimenticio ... </p>
+            </div>
+        </body>
+    </html>

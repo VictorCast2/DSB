@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/Api/Users/Exercises")
-public class PlanExerciseController {
+public class PlanExerciseController{
 
         @Autowired
         private UserServices userService;
@@ -1209,7 +1209,7 @@ public class PlanExerciseController {
                         }
                 }
                 // Filtrar planes para diabetes tipo I
-                if ("diabetico tipo 1".equals(disease)) {
+                if ("Diabetico Tipo I".equals(disease)||"Diabético Tipo I".equals(disease)) {
                         if ("Bajo Peso".equals(healthClassification)) {
                                 filteredPlans.put("diabetesTipo1BajoPeso", PlanesMap().get("diabetesTipo1BajoPeso"));
                         } else if ("Sobre Peso".equals(healthClassification)) {
@@ -1221,7 +1221,7 @@ public class PlanExerciseController {
                         }
                 }
                 // Filtrar planes para diabetes tipo II
-                if ("diabetico tipo 2".equals(disease)) {
+                if ("Diabetico Tipo II".equals(disease)||"Diabético Tipo II".equals(disease)) {
                         if ("BajoDePeso".equals(healthClassification)) {
                                 filteredPlans.put("diabetesTipo2BajoPeso", PlanesMap().get("diabetesTipo2BajoPeso"));
                         } else if ("SobrePeso".equals(healthClassification)) {
