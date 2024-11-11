@@ -32,11 +32,11 @@ caption {
 }
 
 thead tr {
-    background-color: #0092ad;
+    background-color: #b8b8b8;
 }
 
 thead th {
-    color: #ffffff;
+    color: #0092ad;
     font-size: 1.1em;
     padding: 10px;
     border: 1px solid #b8b8b8;
@@ -60,7 +60,7 @@ tbody tr:nth-child(odd) {
 
 tbody td:first-child {
     background-color: #0092ad; /* Fondo azul */
-    color: #ffffff; /* Texto blanco para contraste */
+    color: #0092ad; /* Texto blanco para contraste */
     font-weight: bold;
     text-align: center;
 }

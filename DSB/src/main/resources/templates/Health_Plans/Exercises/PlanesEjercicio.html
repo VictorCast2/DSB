@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Planes Ejercicios</title>
+        <link rel="stylesheet" href="/Css/PlanesEjercicio.css">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <div class="table-container">
+            <table>
+                <caption>PLANES EJERCICIOS</caption>
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Tipo de Ejercicio</th>
+                        <th>Nombre del Ejercicio</th>
+                        <th>Intensidad</th>
+                    </tr>
+                </thead>
+                    <!-- Corregir el 'th:each' para usar 'exercisePlans' -->
+                    <!-- Iterar sobre los planes de ejercicio filtrados -->
+                    <tr th:each="entry : ${exercisePlans}">
+                        <td th:colspan="4">
+                            <table>
+                                <tbody>
+                                    <tr th:each="plan : ${entry.value}">
+                                        <th th:text="${plan[0]}"></th>
+                                        <!-- Día -->
+                                        <th th:text="${plan[1]}"></th>
+                                        <!-- Tipo de ejercicio -->
+                                        <th th:text="${plan[2]}"></th>
+                                        <!-- Nombre del ejercicio -->
+                                        <th th:text="${plan[3]}"></th>
+                                        <!-- Intensidad -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div th:if="${#maps.isEmpty(exercisePlans)}">
+                <p>Tienes peso normal, no puedo hacerte un plan alimenticio ... </p>
+            </div>
+        </body>
+    </html>

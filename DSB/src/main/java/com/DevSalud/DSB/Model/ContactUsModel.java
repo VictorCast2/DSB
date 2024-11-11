@@ -23,6 +23,6 @@ public class ContactUsModel {
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
-    private UserModel user; // Cambiado a minúscula
+    private UserModel user;
 
 }
