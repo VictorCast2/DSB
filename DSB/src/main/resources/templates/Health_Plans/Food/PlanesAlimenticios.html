@@ -32,10 +32,10 @@
                         <td colspan="4" th:text="${entry.key}"></td>
                     </tr>
                     <tr th:each="plan : ${entry.value}">
-                        <td th:text="${plan[0]}"></td>
-                        <td th:text="${plan[1]}"></td>
-                        <td th:text="${plan[2]}"></td>
-                        <td th:text="${plan[3]}"></td>
+                        <td data-title="Día" th:text="${plan[0]}"></td>
+                        <td data-title="Desayuno" th:text="${plan[1]}"></td>
+                        <td data-title="Almuerzo" th:text="${plan[2]}"></td>
+                        <td data-title="Cena" th:text="${plan[3]}"></td>
                     </tr>
                 </tbody>
             </table>
