@@ -37,8 +37,8 @@
                 <thead>
                     <tr>
                         <th>Día</th>
-                        <th>Tipo de Ejercicio</th>
-                        <th>Nombre del Ejercicio</th>
+                        <th>Tipo Ejercicio</th>
+                        <th>Nombre Ejercicio</th>
                         <th>Intensidad</th>
                     </tr>
                 </thead>
@@ -49,13 +49,13 @@
                             <table>
                                 <tbody>
                                     <tr th:each="plan : ${entry.value}">
-                                        <th th:text="${plan[0]}"></th>
+                                        <th data-title="Día" th:text="${plan[0]}"></th>
                                         <!-- Día -->
-                                        <th th:text="${plan[1]}"></th>
+                                        <th  data-title="Tipo Ejercicio" th:text="${plan[1]}"></th>
                                         <!-- Tipo de ejercicio -->
-                                        <th th:text="${plan[2]}"></th>
+                                        <th data-title="Nombre Ejercicio" th:text="${plan[2]}"></th>
                                         <!-- Nombre del ejercicio -->
-                                        <th th:text="${plan[3]}"></th>
+                                        <th data-title="Intensidad Ejercicio" th:text="${plan[3]}"></th>
                                         <!-- Intensidad -->
                                     </tr>
                                 </tbody>
