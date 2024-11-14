@@ -1,5 +1,6 @@
 package com.DevSalud.DSB.Controller;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
@@ -42,39 +43,39 @@ public class UserController {
      * Muestra la página de registro.
      */
     @GetMapping("/Registro")
-public String showRegistrationForm(Model model) {
-    try {
-        // Cargar el archivo JSON desde la carpeta resources
-        Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");
-        String content = new String(Files.readAllBytes(resource.getFile().toPath()));
-        // Parsear el JSON usando Gson
-        Gson gson = new Gson();
-        JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
-        // Extraer los valores de los arrays "Sexo" y "Enfermedad"
-        JsonArray sexoArray = jsonObject.getAsJsonArray("Sexo");
-        JsonArray enfermedadArray = jsonObject.getAsJsonArray("Enfermedad");
-        // Convertir las opciones a listas simples de cadenas sin comillas
-        List<String> sexoOptions = new ArrayList<>();
-        List<String> enfermedadOptions = new ArrayList<>();
-        // Llenar las listas con los valores del JSON
-        for (JsonElement sexo : sexoArray) {
-            sexoOptions.add(sexo.getAsString()); // Obtener el valor como cadena
+    public String showRegistrationForm(Model model) {
+        try {
+            // Cargar el archivo JSON desde la carpeta resources
+            Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");
+            String content = new String(Files.readAllBytes(resource.getFile().toPath()));
+            // Parsear el JSON usando Gson
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+            // Extraer los valores de los arrays "Sexo" y "Enfermedad"
+            JsonArray sexoArray = jsonObject.getAsJsonArray("Sexo");
+            JsonArray enfermedadArray = jsonObject.getAsJsonArray("Enfermedad");
+            // Convertir las opciones a listas simples de cadenas sin comillas
+            List<String> sexoOptions = new ArrayList<>();
+            List<String> enfermedadOptions = new ArrayList<>();
+            // Llenar las listas con los valores del JSON
+            for (JsonElement sexo : sexoArray) {
+                sexoOptions.add(sexo.getAsString()); // Obtener el valor como cadena
+            }
+            for (JsonElement enfermedad : enfermedadArray) {
+                enfermedadOptions.add(enfermedad.getAsString()); // Obtener el valor como cadena
+            }
+            // Pasar las opciones al modelo
+            model.addAttribute("sexoOptions", sexoOptions);
+            model.addAttribute("enfermedadOptions", enfermedadOptions);
+        } catch (IOException e) {
+            e.printStackTrace();
+            model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
         }
-        for (JsonElement enfermedad : enfermedadArray) {
-            enfermedadOptions.add(enfermedad.getAsString()); // Obtener el valor como cadena
-        }
-        // Pasar las opciones al modelo
-        model.addAttribute("sexoOptions", sexoOptions);
-        model.addAttribute("enfermedadOptions", enfermedadOptions);
-    } catch (IOException e) {
-        e.printStackTrace();
-        model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
-    }
-    // Agregar el modelo para el registro de usuario
-    model.addAttribute("Users", new UserModel());
+        // Agregar el modelo para el registro de usuario
+        model.addAttribute("Users", new UserModel());
 
-    return "/Users/Registro";
-}
+        return "/Users/Registro";
+    }
 
     /**
      * Procesa el registro de un usuario.
@@ -93,10 +94,12 @@ public String showRegistrationForm(Model model) {
             if (result.hasErrors()) {
                 return "/Api/Users/Registro";
             }
+            // Verificar si el usuario ha aceptado los términos y condiciones
             if (!Users.isTermsAccepted()) {
                 model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
                 return "/Api/Users/Registro";
             }
+            // Verificar la edad del usuario
             LocalDate DateOfBirth = Users.getDateBirthday();
             Integer calculatedAge = userService.calculateAge(DateOfBirth);
             Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
@@ -105,16 +108,21 @@ public String showRegistrationForm(Model model) {
                 model.addAttribute("Error", "La fecha de nacimiento no es válida.");
                 return "/Api/Users/Registro";
             }
-            Users.setAge(calculatedAge); // Calcula y asigna la edad
+            // Asignar los valores calculados a las propiedades del usuario
+            Users.setAge(calculatedAge);
             Users.setBodyMass(masaCorporal);
             Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
-
-            userService.saveOrUpdateUser(Users); // Guarda el usuario con la edad calculada
+            // Encriptar la contraseña antes de guardar
+            String hashedPassword = BCrypt.hashpw(Users.getPassword(), BCrypt.gensalt()); // Encriptar la contraseña
+            Users.setPassword(hashedPassword); // Guardar la contraseña encriptada
+            // Guardar el usuario con la contraseña encriptada
+            userService.saveOrUpdateUser(Users);
+            // Agregar un mensaje de éxito y redirigir al usuario
             redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
             session.setAttribute("UsuarioId", null);
-            return "redirect:/"; // Redirecciona a la página principal
+            return "redirect:/"; // Redirige a la página principal
         } else {
-            return "redirect:/DSBConection";
+            return "redirect:/DSBConection"; // Si el usuario ya está logueado, redirigir a otra página
         }
     }
 
@@ -203,24 +211,35 @@ public String showRegistrationForm(Model model) {
     }
 
     /**
+     * Método para manejar el login con bcrypt.
      * 
-     * @param UserOrEmail
-     * @param Password
-     * @param model
-     * @return
+     * @param UserOrEmail Correo electrónico o nombre de usuario.
+     * @param Password    Contraseña ingresada.
+     * @param model       Modelo para pasar datos a la vista.
+     * @param session     Sesión del usuario.
+     * @return Redirección a la página principal si las credenciales son correctas,
+     *         o el formulario de login si no lo son.
      */
     @PostMapping("/Login")
     public String login(@RequestParam("UserOrEmail") String UserOrEmail,
             @RequestParam("Password") String Password,
             Model model, HttpSession session) {
+
+        // Encuentra el usuario por correo electrónico o nombre de usuario
         UserModel user = userService.findByUserOrEmail(UserOrEmail);
-        if (user != null && user.getPassword().equals(Password)) {
-            session.setAttribute("UsuarioId", user.getId()); // Almacena el ID del usuario en la sesión
-            return "redirect:/DSBConection"; // Redirecciona a la página principal
-        } else {
-            model.addAttribute("error", "Credenciales incorrectas");
-            return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
+
+        // Si el usuario existe, comparamos las contraseñas usando bcrypt
+        if (user != null) {
+            // Compara la contraseña ingresada con la contraseña encriptada almacenada
+            if (BCrypt.checkpw(Password, user.getPassword())) {
+                session.setAttribute("UsuarioId", user.getId()); // Almacena el ID del usuario en la sesión
+                return "redirect:/DSBConection"; // Redirige a la página principal
+            }
         }
+
+        // Si las credenciales son incorrectas, muestra un mensaje de error
+        model.addAttribute("error", "Credenciales incorrectas");
+        return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
     }
 
     /**
