@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Data
 @Controller
@@ -33,11 +36,6 @@ public class UserController {
 
     @Autowired
     private ResourceLoader resourceLoader;
-
-    @ModelAttribute("allDiseases")
-    public List<String> enfermedad() {
-        return Arrays.asList("Diabetes Tipo 2", "Diabetes Tipo 1", "Hipertensos");
-    }
 
     /**
      * Muestra la página de registro.
@@ -236,12 +234,11 @@ public class UserController {
                 return "redirect:/DSBConection"; // Redirige a la página principal
             }
         }
-
         // Si las credenciales son incorrectas, muestra un mensaje de error
         model.addAttribute("error", "Credenciales incorrectas");
         return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
     }
-
+    
     /**
      * Muestra la lista de usuarios.
      * 
