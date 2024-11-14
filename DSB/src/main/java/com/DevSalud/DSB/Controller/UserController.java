@@ -1,6 +1,7 @@
 package com.DevSalud.DSB.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.*;
@@ -10,8 +11,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.*;
+import com.google.gson.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -26,6 +30,9 @@ public class UserController {
     @Autowired
     private HealthService healthService;
 
+    @Autowired
+    private ResourceLoader resourceLoader;
+
     @ModelAttribute("allDiseases")
     public List<String> enfermedad() {
         return Arrays.asList("Diabetes Tipo 2", "Diabetes Tipo 1", "Hipertensos");
@@ -35,10 +42,39 @@ public class UserController {
      * Muestra la página de registro.
      */
     @GetMapping("/Registro")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("Users", new UserModel());
-        return "/Users/Registro";
+public String showRegistrationForm(Model model) {
+    try {
+        // Cargar el archivo JSON desde la carpeta resources
+        Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");
+        String content = new String(Files.readAllBytes(resource.getFile().toPath()));
+        // Parsear el JSON usando Gson
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+        // Extraer los valores de los arrays "Sexo" y "Enfermedad"
+        JsonArray sexoArray = jsonObject.getAsJsonArray("Sexo");
+        JsonArray enfermedadArray = jsonObject.getAsJsonArray("Enfermedad");
+        // Convertir las opciones a listas simples de cadenas sin comillas
+        List<String> sexoOptions = new ArrayList<>();
+        List<String> enfermedadOptions = new ArrayList<>();
+        // Llenar las listas con los valores del JSON
+        for (JsonElement sexo : sexoArray) {
+            sexoOptions.add(sexo.getAsString()); // Obtener el valor como cadena
+        }
+        for (JsonElement enfermedad : enfermedadArray) {
+            enfermedadOptions.add(enfermedad.getAsString()); // Obtener el valor como cadena
+        }
+        // Pasar las opciones al modelo
+        model.addAttribute("sexoOptions", sexoOptions);
+        model.addAttribute("enfermedadOptions", enfermedadOptions);
+    } catch (IOException e) {
+        e.printStackTrace();
+        model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
     }
+    // Agregar el modelo para el registro de usuario
+    model.addAttribute("Users", new UserModel());
+
+    return "/Users/Registro";
+}
 
     /**
      * Procesa el registro de un usuario.
