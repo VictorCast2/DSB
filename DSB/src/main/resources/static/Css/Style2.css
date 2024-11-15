@@ -23,7 +23,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 1000px;
+    width: 500px;
     max-width: 100%;
     min-height: 550px;
 }
@@ -48,7 +48,7 @@ body {
 
 
 .contenido button {
-    margin: 50px;
+    margin: 20px;
     background-color: #fff;
     width: 400px;
     height: 50px;
@@ -143,11 +143,12 @@ body {
     top: 0;
     height: 100%;
     min-height: 100vh;
+    margin: auto;
 }
 
 .sign-in {
     left: 0;
-    width: 50%;
+    width: 100%;
     z-index: 2;
 }
 
@@ -236,9 +237,9 @@ ul {
     background-color: #0274b3;
 }
 
-.example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"]~.tooltip {
-    background-color: #24262a;
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"]~.tooltip {
+    background-color: #0034de;
 }
 
 .example-2 .icon-content a[data-social="instagram"] .filled,
@@ -252,7 +253,11 @@ ul {
             #fd1f1f);
 }
 
-.example-2 .icon-content a[data-social="youtube"] .filled,
-.example-2 .icon-content a[data-social="youtube"]~.tooltip {
-    background-color: #ff0000;
+.example-2 .icon-content a[data-social="google"]:hover .filled,
+.example-2 .icon-content a[data-social="google"]:hover~.tooltip {
+    background: linear-gradient(45deg,
+         #4285F4,  /* Azul */
+         #EA4335,  /* Rojo */
+         #FBBC05,  /* Amarillo */
+         #34A853); /* Verde */
 }

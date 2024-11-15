@@ -296,9 +296,9 @@ ul {
     background-color: #0274b3;
 }
 
-.example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"]~.tooltip {
-    background-color: #24262a;
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"]~.tooltip {
+    background-color: #0034de;
 }
 
 .example-2 .icon-content a[data-social="instagram"] .filled,
@@ -312,9 +312,13 @@ ul {
             #fd1f1f);
 }
 
-.example-2 .icon-content a[data-social="youtube"] .filled,
-.example-2 .icon-content a[data-social="youtube"]~.tooltip {
-    background-color: #ff0000;
+.example-2 .icon-content a[data-social="google"] .filled,
+.example-2 .icon-content a[data-social="google"]~.tooltip {
+    background: linear-gradient(45deg,
+    #4285F4,  /* Azul */
+    #EA4335,  /* Rojo */
+    #FBBC05,  /* Amarillo */
+    #34A853); /* Verde */
 }
 
 .contenido .remember-forgot {

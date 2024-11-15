@@ -18,7 +18,7 @@
             <div class="form-contenido sign-in">
                 <form th:action="@{/Api/Users/Registro}" th:object="${Users}"
                     method="post">
-                    <h1>Registrar</h1>
+                    <h1>Editar</h1>
                     <div class="icono">
                         <ul class="example-2">
                             <li class="icon-content">
@@ -79,7 +79,7 @@
                             </li>
                         </ul>
                     </div>
-                    <span>Registrese para que se puede logear</span>
+                    <span>Edite su cuenta para que este actualizada</span>
                     <div class="flex">
                         <div class="input-box">
                             <input  class="input-registro" type="text" required autocomplete="off"
@@ -197,11 +197,7 @@
                         <span th:if="${#fields.hasErrors('termsAccepted')}"
                             th:errors="*{termsAccepted}"></span>
                     </div>
-                    <button type="submit"  class="btn" href="/">Sig Up</button>
-                    <div class="registre-link">
-                        <p>Ya tienes una cuenta?<a href="/Api/Users/Login">Sign
-                                Up</a></p>
-                    </div>
+                    <button type="submit"  class="btn" href="/">Editar</button>
                 </form>
             </div>
         </div>
