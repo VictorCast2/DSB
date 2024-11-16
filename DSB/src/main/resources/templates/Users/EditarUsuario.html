@@ -16,7 +16,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form th:action="@{/Api/Users/Registro}" th:object="${Users}"
+                <form th:action="@{/Api/Users/Editar}" th:object="${Users}"
                     method="post">
                     <h1>Editar</h1>
                     <div class="icono">
@@ -39,10 +39,17 @@
                                 <div class="tooltip">LinkedIn</div>
                             </li>
                             <li class="icon-content">
-                                <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/">
+                                <a data-social="facebook" aria-label="Facebook"
+                                    href="https://www.facebook.com/">
                                     <div class="filled"></div>
-                                    <svg xml:space="preserve" viewBox="0 0 24 24" class="bi bi-facebook" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="currentColor" d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>
+                                    <svg xml:space="preserve"
+                                        viewBox="0 0 24 24"
+                                        class="bi bi-facebook"
+                                        fill="currentColor" height="16"
+                                        width="16"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="currentColor"
+                                            d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>
                                     </svg>
                                 </a>
                                 <div class="tooltip">Facebook</div>
@@ -66,10 +73,14 @@
                                 <div class="tooltip">Instagram</div>
                             </li>
                             <li class="icon-content">
-                                <a data-social="google" aria-label="Google" href="https://google.com/">
+                                <a data-social="google" aria-label="Google"
+                                    href="https://google.com/">
                                     <div class="filled"></div>
-                                    <svg xml:space="preserve" viewBox="0 0 24 24" class="bi bi-google" fill="currentColor"
-                                        height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <svg xml:space="preserve"
+                                        viewBox="0 0 24 24" class="bi bi-google"
+                                        fill="currentColor"
+                                        height="16" width="16"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path fill="currentColor"
                                             d="M3.06364 7.50914C4.70909 4.24092 8.09084 2 12 2C14.6954 2 16.959 2.99095 18.6909 4.60455L15.8227 7.47274C14.7864 6.48185 13.4681 5.97727 12 5.97727C9.39542 5.97727 7.19084 7.73637 6.40455 10.1C6.2045 10.7 6.09086 11.3409 6.09086 12C6.09086 12.6591 6.2045 13.3 6.40455 13.9C7.19084 16.2636 9.39542 18.0227 12 18.0227C13.3454 18.0227 14.4909 17.6682 15.3864 17.0682C16.4454 16.3591 17.15 15.3 17.3818 14.05H12V10.1818H21.4181C21.5364 10.8363 21.6 11.5182 21.6 12.2273C21.6 15.2727 20.5091 17.8363 18.6181 19.5773C16.9636 21.1046 14.7 22 12 22C8.09084 22 4.70909 19.7591 3.06364 16.4909C2.38638 15.1409 2 13.6136 2 12C2 10.3864 2.38638 8.85911 3.06364 7.50914Z">
                                         </path>
@@ -82,28 +93,35 @@
                     <span>Edite su cuenta para que este actualizada</span>
                     <div class="flex">
                         <div class="input-box">
-                            <input  class="input-registro" type="text" required autocomplete="off"
+                            <input class="input-registro" type="text" required
+                                autocomplete="off"
                                 name="Name" id="name" th:field="*{Name}">
-                            <label class="laber-registro" for="Name">Name</label>
+                            <label class="laber-registro"
+                                for="Name">Nombre</label>
                         </div>
                         <div class="input-box">
-                            <input  class="input-registro" type="email" required autocomplete="off"
+                            <input class="input-registro" type="email" required
+                                autocomplete="off"
                                 name="emailAddress" id="email"
                                 th:field="*{emailAddress}">
-                            <label class="laber-registro" for="emailAddress">Email</label>
+                            <label class="laber-registro"
+                                for="emailAddress">Email</label>
                         </div>
                     </div>
                     <div class="flex">
                         <div class="input-box">
-                            <input class="input-registro" type="date" required autocomplete="off"
+                            <input class="input-registro" type="date" required
+                                autocomplete="off"
                                 name="DateBirthday" id="number"
                                 th:field="*{DateBirthday}">
-                            <label for="DateBirthday"></label>
+                            <label for="DateBirthday">Fecha de
+                                Nacimiento</label>
                         </div>
                         <div class="input-box">
                             <div class="container6"> <!---Enfermedades-->
                                 <div class="select-btn6">
-                                    <span class="btn-text6">Enfermedades Cronicas</span>
+                                    <span class="btn-text6">Enfermedades
+                                        Cronicas</span>
                                     <span class="arrow-dwn6">
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </span>
@@ -112,18 +130,19 @@
                                     <div class="search6">
                                         <input type="text" placeholder="Search">
                                     </div>
-                                    <div class="scrollable-content6"> <!-- New wrapper -->
-                                        <li class="item6">
-                                            <input type="checkbox" id="diabetes1" class="checkbox6">
-                                            <label for="diabetes1" class="item-text6">Diabetes Tipo 1</label>
-                                        </li>
-                                        <li class="item6">
-                                            <input type="checkbox" id="diabetes2" class="checkbox6">
-                                            <label for="diabetes2" class="item-text6">Diabetes Tipo 2</label>
-                                        </li>
-                                        <li class="item6">
-                                            <input type="checkbox" id="hipertension" class="checkbox6">
-                                            <label for="hipertension" class="item-text6">Hipertension</label>
+                                    <div class="scrollable-content6">
+                                        <!-- New wrapper -->
+                                        <li
+                                            th:each="enfermedad : ${enfermedadOptions}"
+                                            class="item6">
+                                            <input type="checkbox"
+                                                id="diabetes1" class="checkbox6"
+                                                th:value="${enfermedad}"
+                                                th:field="*{Disease}">
+                                            <label
+                                                th:for="'enfermedad_' + ${enfermedad}"
+                                                class="item-text6"
+                                                th:text="${enfermedad}"></label>
                                         </li>
                                     </div> <!-- Close the new wrapper -->
                                 </ul>
@@ -143,52 +162,61 @@
                                     <div class="search7">
                                         <input type="text" placeholder="Search">
                                     </div>
-                                    <div class="scrollable-content7"> <!-- New wrapper -->
-                                        <li class="item7">
-                                            <input type="checkbox" id="masculi" class="checkbox7">
-                                            <label for="masculi" class="item-text7">Masculino</label>
-                                        </li>
-                                        <li class="item7">
-                                            <input type="checkbox" id="femenino" class="checkbox7">
-                                            <label for="femenino" class="item-text7">Femenino</label>
-                                        </li>
-                                        <li class="item7">
-                                            <input type="checkbox" id="otros" class="checkbox7">
-                                            <label for="otros" class="item-text7">32 Tipos De Gays</label>
+                                    <div class="scrollable-content7">
+                                        <!-- New wrapper -->
+                                        <li th:each="sexo : ${sexoOptions}"
+                                            class="item7">
+                                            <input type="checkbox" id="masculi"
+                                                class="checkbox7"
+                                                th:value="${sexo}"
+                                                th:field="*{Sex}">
+                                            <label th:for="'sexo_' + ${sexo}"
+                                                class="item-text7"
+                                                th:text="${sexo}">Masculino</label>
                                         </li>
                                     </div> <!-- Close the new wrapper -->
                                 </ul>
-                            </div> <!---Enfermedades-->
+                            </div>
                         </div>
                         <div class="input-box">
-                            <input class="input-registro"  type="Height" required autocomplete="off"
+                            <input class="input-registro" type="Height" required
+                                autocomplete="off"
                                 name="Height" id="altura" th:field="*{Height}">
-                            <label class="laber-registro" for="Height">Altura</label>
+                            <label class="laber-registro"
+                                for="Height">Altura</label>
                         </div>
                     </div>
                     <div class="flex">
                         <div class="input-box">
-                            <input class="input-registro" type="Weight" required autocomplete="off"
+                            <input class="input-registro" type="Weight" required
+                                autocomplete="off"
                                 name="Weight" id="peso" th:field="*{Weight}">
-                            <label class="laber-registro" for="Weight">Peso</label>
+                            <label class="laber-registro"
+                                for="Weight">Peso</label>
                         </div>
                         <div class="input-box">
-                            <input class="input-registro" type="user" required autocomplete="off"
+                            <input class="input-registro" type="user" required
+                                autocomplete="off"
                                 name="user" id="username"
                                 th:field="*{user}">
-                            <label class="laber-registro" for="user">Username</label>
+                            <label class="laber-registro"
+                                for="user">Username</label>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="input-contraseña" type="password" required autocomplete="off"
+                        <input class="input-contraseña" type="password" required
+                            autocomplete="off"
                             name="password" id="password"
                             th:field="*{Password}">
-                        <label class="laber-contraseña" for="Password">Contraseña</label>
+                        <label class="laber-contraseña"
+                            for="Password">Contraseña</label>
                     </div>
                     <div class="input">
-                        <input class="input-contraseña" type="password" required autocomplete="off"
+                        <input class="input-contraseña" type="password" required
+                            autocomplete="off"
                             name="NewPassword" id="password">
-                        <label  class="laber-contraseña"  for="NewPassword">Repetir contraseña</label>
+                        <label class="laber-contraseña"
+                            for="NewPassword">Repetir contraseña</label>
                     </div>
                     <div class="remember-forgot">
                         <label><input class="input-chexbox" type="checkbox"
@@ -197,7 +225,7 @@
                         <span th:if="${#fields.hasErrors('termsAccepted')}"
                             th:errors="*{termsAccepted}"></span>
                     </div>
-                    <button type="submit"  class="btn" href="/">Editar</button>
+                    <button type="submit" class="btn">Editar</button>
                 </form>
             </div>
         </div>
