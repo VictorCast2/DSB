@@ -14,13 +14,13 @@ public class ExerciseLogModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long Id;
+    private Long Id;
 
     @Basic
     @NonNull
-    public String ExerciseName;
-    public String ExerciseType;
-    public String ExerciseIntensity;
+    private String ExerciseName;
+    private String ExerciseType;
+    private String ExerciseIntensity;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime StrartDate;
