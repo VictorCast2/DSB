@@ -1,8 +1,9 @@
 package com.DevSalud.DSB.Controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import com.DevSalud.DSB.Model.ContactUsModel;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -26,7 +27,8 @@ public class MainController {
      * @return La vista "IndexPaginaPrincipal".
      */
     @GetMapping("/DSBConection")
-    public String IndexPaginaPrincipal() {
+    public String IndexPaginaPrincipal(Model model) {
+        model.addAttribute("contact", new ContactUsModel());
         return "IndexPaginaPrincipal";
     }
 

@@ -20,7 +20,6 @@ public class PlanAlimentModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Basic
     @NonNull
     private String Day;
     private String Breakfast;

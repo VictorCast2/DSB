@@ -14,7 +14,6 @@ public class AdministratorModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Basic
     @NonNull
     private String Name;
     private String UserName;

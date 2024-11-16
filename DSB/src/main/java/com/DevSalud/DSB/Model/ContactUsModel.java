@@ -7,14 +7,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ContactUsModel")
+@Table(name = "ContactUs")
 public class ContactUsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Basic
     @NonNull
     private String NameContactUs;
     private String EmailContactUs;

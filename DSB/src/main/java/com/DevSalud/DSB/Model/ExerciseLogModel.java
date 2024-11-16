@@ -16,7 +16,6 @@ public class ExerciseLogModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Basic
     @NonNull
     private String ExerciseName;
     private String ExerciseType;

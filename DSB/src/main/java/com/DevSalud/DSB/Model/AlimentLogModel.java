@@ -15,13 +15,11 @@ public class AlimentLogModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Basic
     @NonNull
     private String Foods;
     private String AlimentsCategories;
     private String Aliments;
     
-    @Basic
     @NonNull
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime StrartDate;

@@ -68,6 +68,7 @@ public class UserController {
         }
         // Agregar el modelo para el registro de usuario
         model.addAttribute("Users", new UserModel());
+
         return "/Users/Registro";
     }
 
@@ -96,14 +97,14 @@ public class UserController {
             // Verificar la edad del usuario
             LocalDate DateOfBirth = Users.getDateBirthday();
             Integer calculatedAge = userService.calculateAge(DateOfBirth);
-            Double masaCorporal = healthService.calculateIMC(Users.getWeightUsers(), Users.getHeightUsers());
+            Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
             System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
             if (calculatedAge == null || calculatedAge <= 16) {
                 model.addAttribute("Error", "La fecha de nacimiento no es válida.");
                 return "/Api/Users/Registro";
             }
             // Asignar los valores calculados a las propiedades del usuario
-            Users.setAgeUsers(calculatedAge);
+            Users.setAge(calculatedAge);
             Users.setBodyMass(masaCorporal);
             Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
             // Encriptar la contraseña antes de guardar
