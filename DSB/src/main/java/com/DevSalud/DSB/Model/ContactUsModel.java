@@ -16,10 +16,10 @@ public class ContactUsModel {
 
     @Basic
     @NonNull
-    private String Name;
-    private String Email;
-    private String Subject;
-    private String Message;
+    private String NameContactUs;
+    private String EmailContactUs;
+    private String SubjectContactUs;
+    private String MessageContactUs;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
