@@ -8,12 +8,12 @@ import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.HealthRepository;
 
 @Service
-public class HealthService {
+public class HealthServices {
 
     @Autowired
     private final HealthRepository healthRepository;
 
-    public HealthService(HealthRepository healthRepository) {
+    public HealthServices(HealthRepository healthRepository) {
         this.healthRepository = healthRepository;
     }
 

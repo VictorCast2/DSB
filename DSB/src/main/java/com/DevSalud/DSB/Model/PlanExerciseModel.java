@@ -22,6 +22,7 @@ public class PlanExerciseModel {
 
     @Basic
     @NonNull
+    private String Day;
     private String ExerciseName;
     private String ExerciseType;
     private String ExerciseIntensity;
