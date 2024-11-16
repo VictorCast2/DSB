@@ -12,6 +12,6 @@ public class ContactUsServices {
     @Autowired
     private ContactUsRepository contactUsRepository;
 
-
+    
 
 }
