@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Alimenticio</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="/Css/FormularioEditarAlimento.CSS">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <nav>
+            <!-- Checkbox for toggling menu -->
+            <input type="checkbox" id="check">
+            <!-- Menu icon -->
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <!-- Site logo -->
+            <label class="logo">Editar Alimenticio</label>
+            <!-- Navigation links -->
+            <ul>
+                <li><a class="active" href="#">HOME</a></li>
+                <li><a href="#">EDITAR ALIMENTICIO</a></li>
+                <li><a href="#">LISTA ALIMENTICIO</a></li>
+            </ul>
+        </nav>
+
+        <div class="contenido-registroalimento">
+            <h1>EDIT Alimenticios</h1>
+            <form action="">
+                <div class="contenido-principal">
+    
+                    <div class="container"> <!---Comida-->
+                        <div class="select-btn">
+                            <span class="btn-text">Comida</span>
+                            <span class="arrow-dwn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items">
+                            <div class="search">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content"> <!-- New wrapper -->
+                                <li class="item">
+                                    <input type="checkbox" id="proteina-desayuno" class="checkbox">
+                                    <label for="proteina-desayuno" class="item-text">Desayuno</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="fruta-desayuno" class="checkbox">
+                                    <label for="fruta-desayuno" class="item-text">Almuerzo</label>
+                                </li>
+                                <li class="item">
+                                    <input type="checkbox" id="verduras-desayuno" class="checkbox">
+                                    <label for="verduras-desayuno" class="item-text">Cena</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Comida-->
+    
+                    <div class="container1"> <!--Categorias Alimenticias-->
+                        <div class="select-btn1">
+                            <span class="btn-text1">Categorias Alimenticias</span>
+                            <span class="arrow-dwn1">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items1">
+                            <div class="search1">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content1"> <!-- New wrapper -->
+                                <li class="item1">
+                                    <input type="checkbox" id="proteina-categoria" class="checkbox1">
+                                    <label for="proteina-categoria" class="item-text1">Proteinas</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="fruta-categoria" class="checkbox1">
+                                    <label for="fruta-categoria" class="item-text1">Frutas</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="verduras-categoria" class="checkbox1">
+                                    <label for="verduras-categoria" class="item-text1">Verduras</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="granos-categoria" class="checkbox1">
+                                    <label for="granos-categoria" class="item-text1">Granos</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="lacteos-categoria" class="checkbox1">
+                                    <label for="lacteos-categoria" class="item-text1">Productos Lacteos</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="harinas-almuerzo" class="checkbox1">
+                                    <label for="harinas-almuerzo" class="item-text1">Harinas</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="saturadas-categoria" class="checkbox1">
+                                    <label for="saturadas-categoria" class="item-text1">Grasas Saturadas</label>
+                                </li>
+                                <li class="item1">
+                                    <input type="checkbox" id="carbohidratos-categoria" class="checkbox1">
+                                    <label for="carbohidratos-categoria" class="item-text1">Carbohidratos</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Categorias Alimenticias-->
+                </div>
+    
+                <div class="contenido-principal1">
+                    <div class="container3"> <!--Alimento-->
+                        <div class="select-btn3">
+                            <span class="btn-text3">Alimentos</span>
+                            <span class="arrow-dwn3">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items3">
+                            <div class="search3">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content3"> <!-- New wrapper -->
+                                <li class="item3">
+                                    <input type="checkbox" id="atun" class="checkbox3">
+                                    <label for="atun" class="item-text3">Atun</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="manzana" class="checkbox3">
+                                    <label for="manzana" class="item-text3">Manzana</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="papa" class="checkbox3">
+                                    <label for="papa" class="item-text3">Papa</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="cangrejo" class="checkbox3">
+                                    <label for="cangrejo" class="item-text3">Cangrejo</label>
+                                </li>
+                                <li class="item3">
+                                    <input type="checkbox" id="pechuga" class="checkbox3">
+                                    <label for="pechuga" class="item-text3">Pechuga</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Alimento-->
+                </div>
+    
+            
+                <div class="contenido-reloj">
+                    <div class="clock-container"> 
+                        <h2>Fecha Inicial</h2>
+                        <div class="digital-clock" id="clock">00:00:00</div>
+                        <div class="date-display" id="date-display">Fecha Actual</div>
+                        <div class="date-picker">
+                            <label for="datetime">Cambiar Fecha y Hora</label>
+                            <input type="datetime-local" id="datetime" onchange="updateDisplay()">
+                        </div>
+                        <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                    </div>
+                    
+                </div>
+    
+                <button class="btn-alimento" type="submit">EDITAR ALIMENTICIO</button>
+    
+            </form>
+        </div>
+    
+        <script src="/Js/Food/datetime-local.js"></script>
+        <script src="/Js/Food/chexbox.js"></script>
+        <script src="/Js/Food/chexbox1.js"></script>
+        <script src="/Js/Food/chexbox3.js"></script>
+    </body>
+
+</html>

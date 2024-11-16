@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table de Registro Ejercicio</title>
+        <link rel="stylesheet" href="/CSS/TablaRegistroEjercicio.CSS">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <nav>
+            <!-- Checkbox for toggling menu -->
+            <input type="checkbox" id="check">
+            <!-- Menu icon -->
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <!-- Site logo -->
+            <label class="logo">REGISTRO EJERCICIOS</label>
+            <!-- Navigation links -->
+            <ul>
+                <li><a class="active"
+                        href="/Api/Users/Exercises/Home">HOME</a></li>
+                <li><a href="/Api/Users/Exercises/RegistroEjercicio">REGISTRO
+                        EJERCICIO</a></li>
+                <li><a href="#tabla">LISTA EJERCICIO</a></li>
+            </ul>
+        </nav>
+
+        <!--- Tabla LISTA EJERCICIO -->
+        <div class="contenido-tabla" id="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo Ejercicio</th>
+                        <th>Nombre Ejercicio</th>
+                        <th>Intesidad Ejercicio</th>
+                        <th>Fecha Hora Inicial</th>
+                        <th>Fecha Hora Final</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="exerciseLog : ${exerciseLogs}">
+                        <td data-title="Tipo Ejercicio"
+                            th:text="${exerciseLog.exerciseType}">Aerobico/Pecho/Pierna</td>
+                        <td data-title="Nombre Ejercicio"
+                            th:text="${exerciseLog.exerciseName}">Trotar/Flexiones/Sentadilla
+                        </td>
+                        <td data-title="Intensidad Ejercicio"
+                            th:text="${exerciseLog.exerciseIntensity}">Alta/Media/Baja
+                        </td>
+                        <td data-title="Fecha Hora Inicial"
+                            th:text="${exerciseLog.formattedStartDate}"></td>
+                        <td data-title="Fecha Hora Final"
+                            th:text="${exerciseLog.formattedFinalDate}"></td>
+                        <td data-title="Acción">
+                            <!-- Enlace para editar ejercicio -->
+                            <a th:href="@{/Api/Users/Exercises/EditarEjercicio/{id}(id=${exerciseLog.id} != null ? ${exerciseLog.id} : '')}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+
+                            <!-- Enlace para eliminar ejercicio -->
+                            <a
+                                th:href="@{/Api/Users/Exercises/EliminarEjercicio/{id}(id=${exerciseLog.id})}"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar este ejercicio?');">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+</html>
