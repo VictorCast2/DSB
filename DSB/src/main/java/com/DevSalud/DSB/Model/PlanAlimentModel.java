@@ -1,16 +1,20 @@
 package com.DevSalud.DSB.Model;
 
 import java.time.LocalDateTime;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name = "ExerciseLog")
-public class ExerciseLogModel {
+@Table(name = "PlanAliment")
+public class PlanAlimentModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,16 +26,10 @@ public class ExerciseLogModel {
     public String ExerciseType;
     public String ExerciseIntensity;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDateTime StrartDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private LocalDateTime FinalDate;
-
-    private String formattedStartDate;
-    private String formattedFinalDate;
-
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel user;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime CurrentDate;
 }
