@@ -1,0 +1,13 @@
+{
+    "Sexo" : [
+        "Masculino",
+        "Femenino",
+        "Otros"
+    ],
+
+    "Enfermedad":[
+        "Hipertension",
+        "Diabetes Tipo 2",
+        "Diabetes Tipo 1"
+    ]
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Alimenticio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/Css/FormularioRegistroAlimento.CSS">
+    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Registro Alimenticio</label>
+
+            <ul>
+                <li><a class="active" href="/Api/Users/Food/Home">HOME</a></li>
+                <li><a href="/Api/Users/Food/RegistroAlimento">REGISTRO ALIMENTICIO</a></li>
+                <li><a href="/Api/Users/Food/TablaAlimento">LISTA ALIMENTICIO</a></li>
+            </ul>
+            
+        </nav>
+        <div class="contenido-registroalimento">
+            <h1>Registro Alimenticios</h1>
+            <form th:action="@{/Api/Users/Food/RegistroAlimento}" th:object="${alimentLog}" method="post">
+                <div class="contenido-principal">
+    
+                    <div class="container"> <!---Comida-->
+                        <div class="select-btn">
+                            <span class="btn-text">Comida</span>
+                            <span class="arrow-dwn">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items">
+                            <div class="search">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content"> <!-- New wrapper -->
+                                <li th:each="comida, iterStat : ${allCategoriaFood}" class="item">
+                                    <input type="checkbox" th:id="'comida-' + ${iterStat.index}" th:name="'comida_' + ${iterStat.index}" th:value="${comida}" class="checkbox">
+                                    <label th:for="'comida-' + ${iterStat.index}" class="item-text" th:text="${comida}">Comida</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!---Comida-->
+    
+                    <div class="container1"> <!--Categorias Alimenticias-->
+                        <div class="select-btn1">
+                            <span class="btn-text1">Categorias Alimenticias</span>
+                            <span class="arrow-dwn1">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items1">
+                            <div class="search1">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content1"> <!-- New wrapper -->
+                                <li th:each="categoria, iterStat : ${allCategoriaAliments}" class="item1">
+                                    <input type="checkbox" th:id="'categoria-' + ${iterStat.index}" th:name="'categoria_' + ${iterStat.index}" th:value="${categoria}" class="checkbox1">
+                                    <label th:for="'categoria-' + ${iterStat.index}" class="item-text1" th:text="${categoria}">Categoría</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Categorias Alimenticias-->
+                </div>
+    
+                <div class="contenido-principal1">
+                    <div class="container3"> <!--Alimento-->
+                        <div class="select-btn3">
+                            <span class="btn-text3">Alimentos</span>
+                            <span class="arrow-dwn3">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <ul class="list-items3">
+                            <div class="search3">
+                                <input type="text" placeholder="Search">
+                            </div>
+                            <div class="scrollable-content3"> <!-- New wrapper -->
+                                <li th:each="aliment, iterStat : ${allNameAliments}" class="item3">
+                                    <input type="checkbox" th:id="'aliment-' + ${iterStat.index}" th:name="'aliment_' + ${iterStat.index}" th:value="${aliment}" class="checkbox3">
+                                    <label th:for="'aliment-' + ${iterStat.index}" class="item-text3" th:text="${aliment}">Alimento</label>
+                                </li>
+                            </div> <!-- Close the new wrapper -->
+                        </ul>
+                    </div> <!--Alimento-->
+                </div>
+    
+            
+                <div class="contenido-reloj">
+                    <div class="clock-container"> 
+                        <h2>Fecha Inicial</h2>
+                        <div class="digital-clock" id="clock">00:00:00</div>
+                        <div class="date-display" id="date-display">Fecha Actual</div>
+                        <div class="date-picker">
+                            <label for="datetime">Cambiar Fecha y Hora</label>
+                            <input type="datetime-local" id="datetime" onchange="updateDisplay()" th:field="*{StrartDate}">
+                        </div>
+                        <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                    </div>
+                    
+                </div>
+    
+                <button class="btn-alimento" type="submit">REGISTRO ALIMENTICIO</button>
+    
+            </form>
+        </div>
+
+        <script src="/Js/Food/datetime-local.js"></script>
+        <script src="/Js/Food/chexbox.js"></script>
+        <script src="/Js/Food/chexbox1.js"></script>
+        <script src="/Js/Food/chexbox3.js"></script>
+    </body>
+
+</html>

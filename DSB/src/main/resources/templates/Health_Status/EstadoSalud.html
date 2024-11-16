@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estado de Salud</title>
+        <link rel="stylesheet" href="/Css/EstadoSalud.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Historial Clínico</h1>
+
+            <!-- Tabla de Datos del Paciente -->
+            <div class="table-container">
+                <table>
+                    <caption>Datos del Paciente</caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre Completo</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Nombre Completo" th:text="${usuario.Name}"></td>
+                            <td data-title="Email" th:text="${usuario.emailAddress}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabla de Estado de Salud -->
+            <div class="table-container">
+                <table>
+                    <caption>Estado de Salud</caption>
+                    <thead>
+                        <tr>
+                            <th>Sexo</th>
+                            <th>Peso (kg)</th>
+                            <th>Edad</th>
+                            <th>Enfermedad</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Altura (m)</th>
+                            <th>Clasificación IMC</th>
+                            <th>Cálculo IMC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-title="Sexo" th:text="${usuario.Sex}"></td>
+                            <td data-title="Peso" th:text="${usuario.Weight}"></td>
+                            <td data-title="Edad" th:text="${usuario.Age}"></td>
+                            <td data-title="Enfermedad" th:text="${usuario.Disease}"></td>
+                            <td data-title="Fecha de Nacimiento" th:text="${formattedDate}"></td>
+                            <td data-title="Altura" th:text="${usuario.Height}"></td>
+                            <td data-title="Clasificación IMC" th:text="${usuario.HealthClassification}"></td>
+                            <td data-title="Cálculo IMC" th:text="${usuario.BodyMass}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
