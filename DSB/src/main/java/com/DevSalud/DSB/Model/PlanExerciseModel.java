@@ -1,9 +1,7 @@
 package com.DevSalud.DSB.Model;
 
 import java.time.LocalDateTime;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "PlanAliment")
+@Table(name = "PlanExercise")
 public class PlanExerciseModel {
 
     @Id

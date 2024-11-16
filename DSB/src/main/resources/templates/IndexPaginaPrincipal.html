@@ -2488,24 +2488,24 @@
                                     class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <form>
+                    <form th:action="@{/DSBConection}" th:object="${contact}" method="post">
                         <div class="input-box">
                             <input type="text" placeholder="Nombre y apellido"
-                                required>
+                            th:field="*{NameContactUs}" required>
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="input-box">
                             <input type="email" required
-                                placeholder="Correo electrónico">
+                                placeholder="Correo electrónico" th:field="*{EmailContactUs}">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Asunto">
+                            <input type="text" placeholder="Asunto" th:field="*{SubjectContactUs}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </div>
                         <div class="input-box">
                             <textarea
-                                placeholder="Escribe tu mensaje..."></textarea>
+                                placeholder="Escribe tu mensaje..." th:field="*{MessageContactUs}"></textarea>
                         </div>
                         <button type="submit">Enviar mensaje</button>
                     </form>
