@@ -18,13 +18,13 @@ public class PlanAlimentModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long Id;
+    private Long Id;
 
     @Basic
     @NonNull
-    public String ExerciseName;
-    public String ExerciseType;
-    public String ExerciseIntensity;
+    private String ExerciseName;
+    private String ExerciseType;
+    private String ExerciseIntensity;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")

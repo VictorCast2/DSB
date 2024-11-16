@@ -12,7 +12,7 @@ public class ContactUsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long Id;
+    private Long Id;
 
     @Basic
     @NonNull
