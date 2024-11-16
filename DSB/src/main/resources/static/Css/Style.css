@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contenido {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    max-width: 100%;
+    min-height: 550px;
+}
+
+.contenido p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+
+.contenido span {
+    font-size: 14px;
+}
+
+.contenido a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+
+.contenido button {
+    background-color: #fff;
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px #ffffff;
+    cursor: pointer;
+}
+
+.contenido button::before {
+    content: '';
+    width: 0;
+    height: 50px;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #4D8FD8, #512da8 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.contenido button:hover::before{
+    width: 400px;
+}
+
+.contenido form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box label {
+    position: absolute;
+    color: #8d8d8d;
+    pointer-events: none;
+    background-color: transparent;
+    left: 30px;
+    top: 15px;
+    transform: translateY(0.6rem);
+    transition: all 0.3s ease;
+}
+
+.input-box input {
+    margin: 10px;
+    background-color: #eee;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    width: 400px;
+    height: 50px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+    outline: none;
+    border: solid 1px #0034de;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    background-color: #fff;
+    transform: translateY(-80%) translateX(-10px) scale(0.8);
+    padding: 0 5px;
+    color: #0034de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 100px;
+}
+
+.form-contenido {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    min-height: 100vh;
+    margin: auto;
+}
+
+.sign-in {
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+/* * Estilo para el login los iconos*/
+ul {
+    list-style: none;
+}
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+    color: white;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"]~.tooltip {
+    background-color: #0034de;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"]~.tooltip {
+    background: linear-gradient(45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f);
+}
+
+.example-2 .icon-content a[data-social="google"] .filled,
+.example-2 .icon-content a[data-social="google"]~.tooltip {
+    background: linear-gradient(45deg,
+    #4285F4,  /* Azul */
+    #EA4335,  /* Rojo */
+    #FBBC05,  /* Amarillo */
+    #34A853); /* Verde */
+}
+
+
+.contenido .remember-forgot {
+    justify-content: space-between;
+    font-size: 13.5px;
+    margin: 10px;
+}
+
+.remember-forgot label {
+    accent-color: #fff;
+    margin-right: 90px;
+}
+
+.remember-forgot input {
+    margin-right: 20px;
+}
+
+.remember-forgot a {
+    color: gray;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+
+}
+
+.contenido .registre-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 8px 0 8px;
+}
+
+.registre-link a {
+    margin: 20px;
+}
+
+.registre-link p a {
+    color: gray;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registre-link p a:hover {
+    text-decoration: underline;
+}
+
+
