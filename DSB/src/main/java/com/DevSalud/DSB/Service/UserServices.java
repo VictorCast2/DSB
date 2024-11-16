@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Exception.*;
-import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.UserRepository;
 
 @Service
