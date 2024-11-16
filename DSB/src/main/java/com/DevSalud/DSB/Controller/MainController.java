@@ -41,7 +41,7 @@ public class MainController {
     }
 
     @PostMapping("/DSBConection")
-    public String IndexPost(@ModelAttribute("contact") ContactUsModel contactUsModel, Model model,
+    public String IndexPaginaPrincipal(@ModelAttribute("contact") ContactUsModel contactUsModel, Model model,
             HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {

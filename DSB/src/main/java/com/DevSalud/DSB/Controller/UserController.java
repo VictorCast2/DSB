@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.*;
 import com.google.gson.*;
@@ -129,9 +128,7 @@ public class UserController {
      */
     @GetMapping("/OlvidoContrasenna")
     public String OlvidoContrasenna(Model model) {
-        model.addAttribute("error", null);
-        model.addAttribute("message", null);
-        return "Users/OlvidoContraseña"; // Asegúrate que la ruta es correcta
+        return "Users/OlvidoContraseña";
     }
 
     /**
@@ -140,6 +137,7 @@ public class UserController {
      * @param newPassword
      * @param confirmPassword
      * @param model
+     * @param session
      * @return
      */
     @PostMapping("/OlvidoContrasenna")
@@ -151,16 +149,19 @@ public class UserController {
             model.addAttribute("error", "Las contraseñas no coinciden.");
             return "Users/OlvidoContraseña"; // Volver al formulario
         }
+
         // Obtener el usuario por nombre de usuario
         UserModel user = userService.findByUserOrEmail(username);
         if (user != null) {
-            userService.resetPassword(user.getId(), newPassword); // Cambiar la contraseña
+            // Encriptar la nueva contraseña antes de guardarla
+            String EncryptPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+            userService.resetPassword(user.getId(), EncryptPassword);
             model.addAttribute("message", "Contraseña cambiada con éxito.");
             session.setAttribute("UsuarioId", null);
             return "redirect:/";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
-            return "/Api/Users/OlvidoContrasenna"; // Volver al formulario
+            return "Users/OlvidoContraseña"; // Volver al formulario
         }
     }
 
@@ -181,16 +182,17 @@ public class UserController {
             Model model, HttpSession session) {
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Las contraseñas no coinciden.");
-            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+            return "Users/EliminarUsuario"; // Regresa a la vista si hay error
         }
+
         UserModel user = userService.findByUserOrEmail(username);
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && BCrypt.checkpw(password, user.getPassword())) {
             userService.deleteUserById(user.getId()); // Elimina el usuario
             session.setAttribute("UsuarioId", null);
             return "redirect:/";
         } else {
             model.addAttribute("error", "Usuario no encontrado o contraseña incorrecta.");
-            return "/Api/Users/EliminarUsuario"; // Regresa a la vista si hay error
+            return "Users/EliminarUsuario"; // Regresa a la vista si hay error
         }
     }
 
@@ -235,60 +237,45 @@ public class UserController {
         model.addAttribute("error", "Credenciales incorrectas");
         return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
     }
-    
-    /**
-     * Muestra la lista de usuarios.
-     * 
-     * @param modelo El modelo para la vista.
-     * @return La vista de lista de usuarios.
-     */
-    @GetMapping("/Lista")
-    public String ListaUsuarios(Model modelo) {
-        try {
-            modelo.addAttribute("Usuarios", userService.getAllUsers());
-        } catch (NoDataFoundException e) {
-            modelo.addAttribute("Error", e.getMessage());
-        }
-        return "/Users/Lista";
-    }
 
     /**
      * Muestra la página de edición de un usuario.
-     * 
-     * @param id     El ID del usuario.
+     *
      * @param modelo El modelo para la vista.
+     * @param session La sesión HTTP.
      * @return La vista de edición de usuario.
      */
-    @GetMapping("/Editar/{id}")
-    public String EditarUsuario(@PathVariable Long id, Model modelo) {
-        try {
-            UserModel usuario = userService.getUserById(id);
+    @GetMapping("/Editar")
+    public String editarUsuario(Model modelo, HttpSession session) {
+        Long userId = (Long) session.getAttribute("UsuarioId");
+        if (userId != null) {
+            UserModel usuario = userService.getUserById(userId);
             modelo.addAttribute("Usuario", usuario);
             return "/Users/Editar";
-        } catch (NoDataFoundException e) {
-            return "redirect:/Api/Users/Lista";
+        } else {
+            return "Users/Login"; 
         }
     }
 
     /**
      * Actualiza un usuario.
-     * 
-     * @param Users         El modelo de usuario.
+     *
+     * @param usuario        El modelo de usuario.
      * @param bindingResult Resultado de la validación.
      * @param redirect      Atributos de redirección.
      * @param modelo        El modelo para la vista.
      * @return La vista de redirección.
      */
-    @PostMapping("/Actualizar")
-    public String ActualizarUsuario(@Validated @ModelAttribute("Usuario") UserModel Users, BindingResult bindingResult,
-            RedirectAttributes redirect, Model modelo) {
+    @PostMapping("/Editar")
+    public String actualizarUsuario(@Validated @ModelAttribute("Users") UserModel Users, BindingResult bindingResult,
+                                    RedirectAttributes redirect, Model modelo) {
         if (bindingResult.hasErrors()) {
-            modelo.addAttribute("Usuario", Users);
-            return "Editar";
+            modelo.addAttribute("Users", Users);
+            return "redirect:/Api/Users/Editar";
         }
         userService.saveOrUpdateUser(Users);
-        redirect.addFlashAttribute("msgExito", "El Usuario ha sido actualizado con éxito");
-        return "redirect:/Api/Users/Lista";
+        redirect.addFlashAttribute("msgExito", "El usuario ha sido actualizado con éxito");
+        return "redirect:/DSBConection";
     }
 
 }
