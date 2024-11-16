@@ -18,7 +18,7 @@
             <div class="form-contenido sign-in">
                 <form th:action="@{/Api/Users/Registro}" th:object="${Users}"
                     method="post">
-                    <h1>Registrar</h1>
+                    <h1>Editar</h1>
                     <div class="icono">
                         <ul class="example-2">
                             <li class="icon-content">
@@ -79,7 +79,7 @@
                             </li>
                         </ul>
                     </div>
-                    <span>Registrese para que se puede logear</span>
+                    <span>Edite su cuenta para que este actualizada</span>
                     <div class="flex">
                         <div class="input-box">
                             <input  class="input-registro" type="text" required autocomplete="off"
@@ -113,9 +113,17 @@
                                         <input type="text" placeholder="Search">
                                     </div>
                                     <div class="scrollable-content6"> <!-- New wrapper -->
-                                        <li th:each="enfermedad : ${enfermedadOptions}" class="item6">
-                                            <input type="checkbox" id="diabetes1" class="checkbox6" th:value="${enfermedad}" th:field="*{Disease}">
-                                            <label th:for="'enfermedad_' + ${enfermedad}" class="item-text6" th:text="${enfermedad}"></label>
+                                        <li class="item6">
+                                            <input type="checkbox" id="diabetes1" class="checkbox6">
+                                            <label for="diabetes1" class="item-text6">Diabetes Tipo 1</label>
+                                        </li>
+                                        <li class="item6">
+                                            <input type="checkbox" id="diabetes2" class="checkbox6">
+                                            <label for="diabetes2" class="item-text6">Diabetes Tipo 2</label>
+                                        </li>
+                                        <li class="item6">
+                                            <input type="checkbox" id="hipertension" class="checkbox6">
+                                            <label for="hipertension" class="item-text6">Hipertension</label>
                                         </li>
                                     </div> <!-- Close the new wrapper -->
                                 </ul>
@@ -136,9 +144,17 @@
                                         <input type="text" placeholder="Search">
                                     </div>
                                     <div class="scrollable-content7"> <!-- New wrapper -->
-                                        <li th:each="sexo : ${sexoOptions}" class="item7">
-                                            <input type="checkbox" id="masculi" class="checkbox7" th:value="${sexo}" th:field="*{Sex}">
-                                            <label th:for="'sexo_' + ${sexo}" class="item-text7" th:text="${sexo}">Masculino</label>
+                                        <li class="item7">
+                                            <input type="checkbox" id="masculi" class="checkbox7">
+                                            <label for="masculi" class="item-text7">Masculino</label>
+                                        </li>
+                                        <li class="item7">
+                                            <input type="checkbox" id="femenino" class="checkbox7">
+                                            <label for="femenino" class="item-text7">Femenino</label>
+                                        </li>
+                                        <li class="item7">
+                                            <input type="checkbox" id="otros" class="checkbox7">
+                                            <label for="otros" class="item-text7">32 Tipos De Gays</label>
                                         </li>
                                     </div> <!-- Close the new wrapper -->
                                 </ul>
@@ -181,11 +197,7 @@
                         <span th:if="${#fields.hasErrors('termsAccepted')}"
                             th:errors="*{termsAccepted}"></span>
                     </div>
-                    <button type="submit"  class="btn" href="/">Sig Up</button>
-                    <div class="registre-link">
-                        <p>Ya tienes una cuenta?<a href="/Api/Users/Login">Sign
-                                Up</a></p>
-                    </div>
+                    <button type="submit"  class="btn" href="/">Editar</button>
                 </form>
             </div>
         </div>

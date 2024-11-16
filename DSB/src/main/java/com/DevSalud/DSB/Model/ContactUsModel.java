@@ -12,17 +12,17 @@ public class ContactUsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long Id;
+    private Long Id;
 
     @Basic
     @NonNull
-    private String Name;
-    private String Email;
-    private String Subject;
-    private String Message;
+    private String NameContactUs;
+    private String EmailContactUs;
+    private String SubjectContactUs;
+    private String MessageContactUs;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
-    private UserModel user; // Cambiado a minúscula
+    private UserModel user;
 
 }

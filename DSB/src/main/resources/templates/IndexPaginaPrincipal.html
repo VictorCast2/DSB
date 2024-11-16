@@ -142,30 +142,45 @@
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="#" class="dropdown__link">
-                                        <i class="ri-lock-line"></i> Cuenta
-                                    </a>
+                                <li class="dropdown__subitem">
+                                    <div class="dropdown__link">
+                                        <i class="ri-user-settings-line"></i> Cuenta
+                                        <i class="ri-add-line dropdown__add"></i>
+                                    </div>
+                                    
+                                    <ul class="dropdown__submenu">
+                                        <li>
+                                            <a href="/Api/Users/OlvidoContrasenna"
+                                                class="dropdown__sublink">
+                                                <i class="ri-user-add-line"></i>
+                                                Editar Usuario
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Api/Users/OlvidoContrasenna"
+                                                class="dropdown__sublink">
+                                                <i class="ri-admin-line"></i>
+                                                Olvidaste Contraseña
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/Api/Users/EliminarUsuario"
+                                                class="dropdown__sublink">
+                                                <i class="ri-user-unfollow-line"></i>
+                                                Eliminar Cuenta
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/DSBSinConection"
+                                                class="dropdown__sublink">
+                                                <i class="ri-user-shared-line"></i>
+                                                Cerrar Seccion
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
 
-                                <li>
-                                    <a href="/Api/Users/EliminarUsuario" class="dropdown__link">
-                                        <i class="ri-close-line"></i> Eliminar Cuenta
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/Api/Users/OlvidoContrasenna" class="dropdown__link">
-                                        <i class="ri-edit-box-fill"></i> Olvidar Contraseña
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="dropdown__link">
-                                        <i class="ri-message-3-line"></i>
-                                        Mensajes
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
@@ -2137,8 +2152,9 @@
                             alimentación más saludable y descubre cómo pequeños
                             cambios pueden hacer una gran diferencia!
                         </p>
-                        <button class="btn-planesalimenticios"><a href="/Api/Users/Health_Plans/PlanAlimenticio"></a>Plan
-                            Alimenticio</button>
+                        <button class="btn-planesalimenticios">
+                            <a href="/Api/Users/Food/PlanAlimentos">Plan Alimenticio</a>
+                        </button>
                     </div>
                 </div>
 
@@ -2307,7 +2323,7 @@
                             cómo el movimiento puede transformar tu
                             bienestar físico y mental!"
                         </p>
-                        <button class="btn-planesejercicio"><a href="/Api/Users/Health_Plans/PlanEjercicio">Plan
+                        <button class="btn-planesejercicio"><a href="/Api/Users/Exercises/PlanEjercicio">Plan
                             Ejercicio</a></button>
                     </div>
                 </div>

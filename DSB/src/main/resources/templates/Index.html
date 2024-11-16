@@ -117,17 +117,31 @@ xmlns:th="http://www.thymeleaf.org">
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="/Api/Users/Registro" class="dropdown__link">
-                                    <i class="ri-lock-line"></i> Cuentas
-                                </a>
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-user-settings-line"></i> Cuenta
+                                    <i class="ri-add-line dropdown__add"></i>
+                                </div>
+
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="#"
+                                            class="dropdown__sublink">
+                                            <i class="ri-user-add-line"></i>
+                                            Iniciar
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="dropdown__sublink">
+                                            <i class="ri-user-follow-line"></i>
+                                            Registro
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
 
-                            <li>
-                                <a href="/Api/Users/Registro" class="dropdown__link">
-                                    <i class="ri-message-3-line"></i> Mensajes
-                                </a>
-                            </li>
                         </ul>
                     </li>
 

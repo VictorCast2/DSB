@@ -21,12 +21,12 @@ public class UserModel {
     @NonNull
     private String Name;
     private String Sex;
-    private Integer Age;
+    private Integer AgeUsers;
     private String user;
     private String emailAddress;
     private String Password;
-    private Double Weight;
-    private Double Height;
+    private Double WeightUsers;
+    private Double HeightUsers;
     private String Disease;
     private Double BodyMass;
     private String HealthClassification;

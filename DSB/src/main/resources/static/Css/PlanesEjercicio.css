@@ -1,19 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-body {
-    font-family:"Montserrat";
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-/* Responsive Table Styles */
 .table-container {
     width: 100%;
     max-width: 1200px;
     overflow-x: auto;
-    margin: 20px 0;
+    margin: 50px 0 0 50px;
+    display: flex;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
@@ -59,13 +52,13 @@ tbody tr:nth-child(odd) {
 }
 
 tbody td:first-child {
-    background-color: #0092ad; /* Fondo azul */
-    color: #ffffff; /* Texto blanco para contraste */
+    background-color: #0092ad;
+    color: #0092ad;
     font-weight: bold;
     text-align: center;
 }
 
-/* Responsive adjustments */
+/* Ajustes Responsivos */
 @media (max-width: 768px) {
     table {
         font-size: 0.9em;
@@ -98,5 +91,4 @@ tbody td:first-child {
         font-weight: bold;
         color: #0092ad;
     }
-
 }

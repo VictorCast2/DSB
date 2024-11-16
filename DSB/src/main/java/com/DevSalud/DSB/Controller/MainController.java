@@ -3,6 +3,8 @@ package com.DevSalud.DSB.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 
@@ -13,7 +15,8 @@ public class MainController {
      * @return La vista "Index".
      */
     @GetMapping({ " ", "/", "/DSBSinConection" })
-    public String Index() {
+    public String Index(HttpSession session) {
+        session.setAttribute("UsuarioId", null);
         return "Index";
     }
 
