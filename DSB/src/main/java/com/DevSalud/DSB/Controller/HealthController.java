@@ -18,9 +18,6 @@ public class HealthController {
     @Autowired
     private UserServices userService;
 
-    @Autowired
-    private final HealthService healthService;
-
     @GetMapping(" ")
     public String estadoSalud(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión

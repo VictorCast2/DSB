@@ -29,7 +29,7 @@ public class UserController {
     private UserServices userService;
 
     @Autowired
-    private HealthService healthService;
+    private HealthServices healthService;
 
     @Autowired
     private ResourceLoader resourceLoader;

@@ -22,9 +22,10 @@ public class PlanAlimentModel {
 
     @Basic
     @NonNull
-    private String ExerciseName;
-    private String ExerciseType;
-    private String ExerciseIntensity;
+    private String Day;
+    private String Breakfast;
+    private String Lunch;
+    private String Dinner;
 
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
@@ -32,4 +33,5 @@ public class PlanAlimentModel {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime CurrentDate;
+    
 }
