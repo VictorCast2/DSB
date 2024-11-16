@@ -17,8 +17,8 @@ public class AdministratorModel {
     @Basic
     @NonNull
     private String Name;
-    private String userName;
+    private String UserName;
     private String emailAddress;
-    private String Password;
+    private String Passwords;
 
 }

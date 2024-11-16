@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.*;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,9 +19,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Data
 @Controller
@@ -71,7 +68,6 @@ public class UserController {
         }
         // Agregar el modelo para el registro de usuario
         model.addAttribute("Users", new UserModel());
-
         return "/Users/Registro";
     }
 
@@ -100,14 +96,14 @@ public class UserController {
             // Verificar la edad del usuario
             LocalDate DateOfBirth = Users.getDateBirthday();
             Integer calculatedAge = userService.calculateAge(DateOfBirth);
-            Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
+            Double masaCorporal = healthService.calculateIMC(Users.getWeightUsers(), Users.getHeightUsers());
             System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
             if (calculatedAge == null || calculatedAge <= 16) {
                 model.addAttribute("Error", "La fecha de nacimiento no es válida.");
                 return "/Api/Users/Registro";
             }
             // Asignar los valores calculados a las propiedades del usuario
-            Users.setAge(calculatedAge);
+            Users.setAgeUsers(calculatedAge);
             Users.setBodyMass(masaCorporal);
             Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
             // Encriptar la contraseña antes de guardar
