@@ -27,8 +27,7 @@ public class PlanesFoodController {
                 String disease = user.getDisease();
                 String healthClassification = user.getHealthClassification();
 
-                // Filtra los planes alimenticios según la enfermedad y la clasificación de
-                // salud
+                // Filtra los planes alimenticios según la enfermedad y la clasificación de salud
                 Map<String, List<List<String>>> foodPlans = filterPlansByDiseaseAndHealthClassification(disease,
                         healthClassification);
                 model.addAttribute("FoodPlans", foodPlans); // Pasa los planes filtrados a la vista
