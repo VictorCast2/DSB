@@ -1308,16 +1308,6 @@ public class ExercisesController {
         return ejercicios;
     }
 
-    @ModelAttribute("allTiposEjercicio")
-    public List<String> tiposDeEjercicio() {
-        return Arrays.asList(
-                "Aerobico", "Anaerobicos", "Fuerza", "Resistencia",
-                "Pierna", "Hombro", "Espalda", "Biceps",
-                "Triceps", "Abdominales", "Antebrazo",
-                "Pantorrilla", "Equilibrio", "Fortalecimiento",
-                "Flexibilidad");
-    }
-
     @ModelAttribute("allNombresEjercicio")
     public List<String> nombresDeEjercicio() {
         return Arrays.asList(
