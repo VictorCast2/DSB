@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.DevSalud.DSB.Exception.NoDataFoundException;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.*;
 import com.google.gson.*;

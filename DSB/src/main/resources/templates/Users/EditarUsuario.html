@@ -94,137 +94,111 @@
                     <div class="flex">
                         <div class="input-box">
                             <input class="input-registro" type="text" required
-                                autocomplete="off"
-                                name="Name" id="name" th:field="*{Name}">
+                                autocomplete="off" th:field="*{Name}" id="name">
                             <label class="laber-registro"
                                 for="Name">Nombre</label>
                         </div>
                         <div class="input-box">
                             <input class="input-registro" type="email" required
-                                autocomplete="off"
-                                name="emailAddress" id="email"
-                                th:field="*{emailAddress}">
+                                autocomplete="off" th:field="*{emailAddress}"
+                                id="email">
                             <label class="laber-registro"
                                 for="emailAddress">Email</label>
                         </div>
                     </div>
+
                     <div class="flex">
                         <div class="input-box">
                             <input class="input-registro" type="date" required
-                                autocomplete="off"
-                                name="DateBirthday" id="number"
-                                th:field="*{DateBirthday}">
+                                autocomplete="off" th:field="*{DateBirthday}"
+                                id="date">
                             <label for="DateBirthday">Fecha de
                                 Nacimiento</label>
                         </div>
                         <div class="input-box">
-                            <div class="container6"> <!---Enfermedades-->
+                            <div class="container6">
                                 <div class="select-btn6">
                                     <span class="btn-text6">Enfermedades
-                                        Cronicas</span>
+                                        Crónicas</span>
                                     <span class="arrow-dwn6">
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </span>
                                 </div>
                                 <ul class="list-items6">
                                     <div class="search6">
-                                        <input type="text" placeholder="Search">
+                                        <input type="text" placeholder="Buscar">
                                     </div>
                                     <div class="scrollable-content6">
-                                        <!-- New wrapper -->
                                         <li
                                             th:each="enfermedad : ${enfermedadOptions}"
                                             class="item6">
                                             <input type="checkbox"
-                                                id="diabetes1" class="checkbox6"
                                                 th:value="${enfermedad}"
-                                                th:field="*{Disease}">
+                                                th:field="*{diseases}"
+                                                id="disease"
+                                                class="checkbox6">
                                             <label
                                                 th:for="'enfermedad_' + ${enfermedad}"
                                                 class="item-text6"
                                                 th:text="${enfermedad}"></label>
                                         </li>
-                                    </div> <!-- Close the new wrapper -->
-                                </ul>
-                            </div> <!---Enfermedades-->
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class="input-box">
-                            <div class="container7"> <!---Sexo-->
-                                <div class="select-btn7">
-                                    <span class="btn-text7">Sexo</span>
-                                    <span class="arrow-dwn7">
-                                        <i class="fa-solid fa-chevron-down"></i>
-                                    </span>
-                                </div>
-                                <ul class="list-items7">
-                                    <div class="search7">
-                                        <input type="text" placeholder="Search">
                                     </div>
-                                    <div class="scrollable-content7">
-                                        <!-- New wrapper -->
-                                        <li th:each="sexo : ${sexoOptions}"
-                                            class="item7">
-                                            <input type="checkbox" id="masculi"
-                                                class="checkbox7"
-                                                th:value="${sexo}"
-                                                th:field="*{Sex}">
-                                            <label th:for="'sexo_' + ${sexo}"
-                                                class="item-text7"
-                                                th:text="${sexo}">Masculino</label>
-                                        </li>
-                                    </div> <!-- Close the new wrapper -->
                                 </ul>
                             </div>
                         </div>
-                        <div class="input-box">
-                            <input class="input-registro" type="Height" required
-                                autocomplete="off"
-                                name="Height" id="altura" th:field="*{Height}">
-                            <label class="laber-registro"
-                                for="Height">Altura</label>
-                        </div>
                     </div>
+
                     <div class="flex">
                         <div class="input-box">
-                            <input class="input-registro" type="Weight" required
-                                autocomplete="off"
-                                name="Weight" id="peso" th:field="*{Weight}">
-                            <label class="laber-registro"
-                                for="Weight">Peso</label>
+                            <input class="input-registro" type="number" required
+                                autocomplete="off" th:field="*{Height}"
+                                id="altura">
+                            <label class="laber-registro" for="Height">Altura
+                                (cm)</label>
                         </div>
                         <div class="input-box">
-                            <input class="input-registro" type="user" required
-                                autocomplete="off"
-                                name="user" id="username"
-                                th:field="*{user}">
+                            <input class="input-registro" type="number" required
+                                autocomplete="off" th:field="*{Weight}"
+                                id="peso">
+                            <label class="laber-registro" for="Weight">Peso
+                                (kg)</label>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="input-box">
+                            <input class="input-registro" type="text" required
+                                autocomplete="off" th:field="*{user}"
+                                id="username">
                             <label class="laber-registro"
                                 for="user">Username</label>
                         </div>
+                        <div class="input">
+                            <input class="input-contraseña" type="password"
+                                required
+                                autocomplete="off" th:field="*{Password}"
+                                id="password">
+                            <label class="laber-contraseña"
+                                for="Password">Contraseña</label>
+                        </div>
+                        <div class="input">
+                            <input class="input-contraseña" type="password"
+                                required
+                                autocomplete="off" th:field="*{NewPassword}"
+                                id="newPassword">
+                            <label class="laber-contraseña"
+                                for="NewPassword">Repetir contraseña</label>
+                        </div>
                     </div>
-                    <div class="input">
-                        <input class="input-contraseña" type="password" required
-                            autocomplete="off"
-                            name="password" id="password"
-                            th:field="*{Password}">
-                        <label class="laber-contraseña"
-                            for="Password">Contraseña</label>
-                    </div>
-                    <div class="input">
-                        <input class="input-contraseña" type="password" required
-                            autocomplete="off"
-                            name="NewPassword" id="password">
-                        <label class="laber-contraseña"
-                            for="NewPassword">Repetir contraseña</label>
-                    </div>
+
                     <div class="remember-forgot">
                         <label><input class="input-chexbox" type="checkbox"
-                                th:field="*{termsAccepted}">Acepto todos los
-                            terminos</label>
+                                th:field="*{termsAccepted}"> Acepto todos los
+                            términos</label>
                         <span th:if="${#fields.hasErrors('termsAccepted')}"
                             th:errors="*{termsAccepted}"></span>
                     </div>
+
                     <button type="submit" class="btn">Editar</button>
                 </form>
             </div>
