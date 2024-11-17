@@ -53,7 +53,7 @@
                                 <!-- New wrapper -->
                                 <li
                                     th:each="ejercicio : ${tiposEjerciciosOptions}"
-                                    class="item">
+                                    class="item" >
                                     <input type="checkbox" th:id="${ejercicio}"
                                         th:value="${ejercicio}" class="checkbox"
                                         th:field="*{ExerciseType}">
@@ -82,7 +82,7 @@
                                         <ul>
                                             <li
                                                 th:each="ejercicio : ${entry.value}"
-                                                class="item">
+                                                class="item" th:attr="data-tipo=${entry.key}">
                                                 <input type="checkbox"
                                                     th:id="${ejercicio}"
                                                     th:value="${ejercicio}"
@@ -162,33 +162,39 @@
                     EJERCICIO</button>
             </form>
         </div>
-        <script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tipoCheckboxes = document.querySelectorAll('.contenido-principal .checkbox');
+        const ejerciciosItems = document.querySelectorAll('.contenido-principal .scrollable-content1 .item');
+
+        // Actualiza la visibilidad de los ejercicios según los tipos seleccionados
         function filtrarEjercicios() {
-            // Obtener todos los checkboxes de Tipo Ejercicio
-            const tiposEjercicio = document.querySelectorAll('.checkbox');
-            const ejercicios = document.querySelectorAll('.checkbox1');
+            const tiposSeleccionados = Array.from(tipoCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value); // Obtén los valores de los checkboxes seleccionados
 
-            // Crear un conjunto para almacenar los tipos seleccionados
-            const tiposSeleccionados = new Set();
-
-            // Llenar el conjunto con los tipos seleccionados
-            tiposEjercicio.forEach(tipo => {
-                if (tipo.checked) {
-                    tiposSeleccionados.add(tipo.value);
-                }
-            });
-
-            // Mostrar u ocultar los ejercicios según el tipo seleccionado
-            ejercicios.forEach(ejercicio => {
-                const tipoEjercicio = ejercicio.getAttribute('data-tipo');
-                if (tiposSeleccionados.size === 0 || tiposSeleccionados.has(tipoEjercicio)) {
-                    ejercicio.parentElement.style.display = 'block'; // Mostrar
+            // Filtrar los ejercicios
+            ejerciciosItems.forEach(item => {
+                const tipo = item.getAttribute('data-tipo'); // Obtén el tipo asociado al ejercicio
+                if (tiposSeleccionados.includes(tipo)) {
+                    item.style.display = ''; // Mostrar
                 } else {
-                    ejercicio.parentElement.style.display = 'none'; // Ocultar
+                    item.style.display = 'none'; // Ocultar
                 }
             });
         }
-    </script>
+
+        // Escucha cambios en los checkboxes de "Tipo Ejercicio"
+        tipoCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filtrarEjercicios);
+        });
+
+        // Llamada inicial para ocultar ejercicios al cargar la página
+        filtrarEjercicios();
+    });
+</script>
+
         <script src="/Js/Exercises/datetime-local.js"></script>
         <script src="/Js/Exercises/filtrarEjercicios"></script>
         <script src="/Js/Exercises/chexbox.js"></script>
