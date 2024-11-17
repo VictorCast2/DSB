@@ -38,15 +38,17 @@ public class ExercisesController {
             Gson gson = new Gson();
             JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
 
-            // Extraer los valores de los arrays "IntensidadEjercicio", "TiposEjercicios" y "NombreEjercicio"
+            // Extraer los valores de los arrays "IntensidadEjercicio" y "TiposEjercicios"
             List<String> intensidadOptions = extractJsonArray(jsonObject, "IntensidadEjercicio");
             List<String> tiposEjerciciosOptions = extractJsonArray(jsonObject, "TiposEjercicios");
-            List<String> nombreEjerciciosOptions = extractJsonArray(jsonObject, "Ejercicios");
+
+            // Extraer los ejercicios agrupados por tipo
+            Map<String, List<String>> ejerciciosMap = extractEjerciciosMap(jsonObject.getAsJsonObject("Ejercicios"));
 
             // Pasar las opciones al modelo
             model.addAttribute("intensidadOptions", intensidadOptions);
             model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
-            model.addAttribute("nombreEjerciciosOptions", nombreEjerciciosOptions);
+            model.addAttribute("ejerciciosMap", ejerciciosMap);
         } catch (IOException e) {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
@@ -68,9 +70,21 @@ public class ExercisesController {
         return list;
     }
 
+    private Map<String, List<String>> extractEjerciciosMap(JsonObject ejerciciosJson) {
+        Map<String, List<String>> ejerciciosMap = new HashMap<>();
+        for (Map.Entry<String, JsonElement> entry : ejerciciosJson.entrySet()) {
+            List<String> ejerciciosList = new ArrayList<>();
+            JsonArray jsonArray = entry.getValue().getAsJsonArray();
+            for (JsonElement element : jsonArray) {
+                ejerciciosList.add(element.getAsString());
+            }
+            ejerciciosMap.put(entry.getKey(), ejerciciosList);
+        }
+        return ejerciciosMap;
+    }
+
     @PostMapping("/RegistroEjercicio")
-    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model,
-            HttpSession session) {
+    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             UserModel user = userService.getUserById(userId);
