@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
 
@@ -10,7 +11,6 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link rel="stylesheet" href="/Css/FormularioRegistroEjercicio.CSS">
         <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
-
     </head>
 
     <body>
@@ -32,10 +32,10 @@
                         EJERCICIO</a></li>
             </ul>
         </nav>
-
         <div class="contenido-registroejercicio">
             <h1>Registro Ejercicio</h1>
-            <form action="/Api/Users/Exercises/RegistroEjercicio" th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
+            <form action="/Api/Users/Exercises/RegistroEjercicio"
+                th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
                 th:object="${exerciseLog}" method="post">
                 <div class="contenido-principal">
                     <div class="container"> <!---Tipo Ejercicio-->
@@ -56,7 +56,6 @@
                                     class="item">
                                     <input type="checkbox" th:id="${ejercicio}"
                                         th:value="${ejercicio}" class="checkbox"
-                                        onchange="filtrarEjercicios()"
                                         th:field="*{ExerciseType}">
                                     <label th:for="${ejercicio}"
                                         th:text="${ejercicio}"
@@ -65,7 +64,6 @@
                             </div> <!-- Close the new wrapper -->
                         </ul>
                     </div> <!---Tipo Ejercicio-->
-
                     <div class="container1"> <!--Nombre Ejercicio-->
                         <div class="select-btn1">
                             <span class="btn-text1">Nombre Ejercicio</span>
@@ -80,26 +78,27 @@
                             <div class="scrollable-content1">
                                 <!-- New wrapper -->
                                 <ul>
-                                    <!-- Dentro de Nombre Ejercicio -->
-                                    <li
-                                        th:each="ejercicio : ${nombreEjerciciosOptions}"
-                                        class="item">
-                                        <input type="checkbox"
-                                            th:id="${ejercicio}"
-                                            th:value="${ejercicio}"
-                                            class="checkbox1"
-                                            onchange="filtrarEjercicios()"
-                                            th:field="*{ExerciseName}">
-                                        <label th:for="${ejercicio}"
-                                            th:text="${ejercicio}"
-                                            class="item-text"></label>
+                                    <li th:each="entry : ${ejerciciosMap}">
+                                        <ul>
+                                            <li
+                                                th:each="ejercicio : ${entry.value}"
+                                                class="item">
+                                                <input type="checkbox"
+                                                    th:id="${ejercicio}"
+                                                    th:value="${ejercicio}"
+                                                    class="checkbox1"
+                                                    th:field="*{ExerciseName}">
+                                                <label th:for="${ejercicio}"
+                                                    th:text="${ejercicio}"
+                                                    class="item-text"></label>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div> <!-- Close the new wrapper -->
                         </ul>
                     </div> <!--Nombre Ejercicio-->
                 </div>
-
                 <div class="container2"> <!-- Intensidad Ejercicio -->
                     <div class="select-btn2">
                         <span class="btn-text2">Intensidad Ejercicio</span>
@@ -113,9 +112,14 @@
                         </div>
                         <div class="scrollable-content2"> <!-- New wrapper -->
                             <ul>
-                                <li th:each="intensidad : ${intensidadOptions}" class="item2">
-                                    <input type="checkbox" th:id="${intensidad}" class="checkbox2" th:value="${intensidad}" onchange="filtrarEjercicios()" th:field="*{ExerciseIntensity}">
-                                    <label th:for="${intensidad}" th:text="${intensidad}"></label>
+                                <li th:each="intensidad : ${intensidadOptions}"
+                                    class="item2">
+                                    <input type="checkbox" th:id="${intensidad}"
+                                        class="checkbox2"
+                                        th:value="${intensidad}"
+                                        th:field="*{ExerciseIntensity}">
+                                    <label th:for="${intensidad}"
+                                        th:text="${intensidad}"></label>
                                 </li>
                             </ul>
                         </div> <!-- Close the new wrapper -->
@@ -158,7 +162,6 @@
                     EJERCICIO</button>
             </form>
         </div>
-
         <script>
         function filtrarEjercicios() {
             // Obtener todos los checkboxes de Tipo Ejercicio
@@ -186,12 +189,10 @@
             });
         }
     </script>
-
         <script src="/Js/Exercises/datetime-local.js"></script>
         <script src="/Js/Exercises/filtrarEjercicios"></script>
         <script src="/Js/Exercises/chexbox.js"></script>
         <script src="/Js/Exercises/chexbox1.js"></script>
         <script src="/Js/Exercises/chexbox2.js"></script>
     </body>
-
 </html>
