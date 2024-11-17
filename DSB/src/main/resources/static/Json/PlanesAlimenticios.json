@@ -1,0 +1,90 @@
+{
+    "hipertensosBajoDePeso": [
+        {
+            "dia": "Lunes",
+            "desayuno": "1 Arepa Mediana, 1 Pocillo De Cafe De Leche, 1 Tajada De Queso Bajo En Sal",
+            "almuerzo": "3 Unidades Pequenas De Papa Criolla, 1 Porcion De Pechuga Asada, 1 Porcion De Ensalada",
+            "cena": "1 Porcion De Tortilla De Habichuela, 1 Porcion De Bollo Limpio"
+        },
+        {
+            "dia": "Martes",
+            "desayuno": "1 Unidad Mediana De Papa Cocida (Dividida En 4 Sin Cascara), 1 Huevo Cocido",
+            "almuerzo": "1 Pocillo De Arrroz De Cerdo Bistec (Tomate y Cebolla), 1 Porcion De Ensalada",
+            "cena": "1 Porcion De Huevo Con Espinaca, 1 Arepa Asada"
+        },
+        {
+            "dia": "Miércoles",
+            "desayuno": "1 Porcion De Tortilla, 1 Unidad De Papa Mediana, Cebolla Blanca y 1 Huevo Batido",
+            "almuerzo": "1 Pedazo De Ahuyama, 1 Porcion De Pollo Asado, 1 Porcion De Vegetales",
+            "cena": "1 Porcion De Pollo Hilachado, 2 Torrejas De Pan Integral"
+        },
+        {
+            "dia": "Jueves",
+            "desayuno": "1 Platano Amarillo, 2 Claras De Huevos Con Tomate y Cebolla, 1 Pocillo De Cafe Con Leche",
+            "almuerzo": "1 Porcion De Filete De Pescado, 1 Porcion De Ensalada y Un Pocillo De Arroz",
+            "cena": "1 Arepa Mediana Rellena De Pollo Hilachado Con Vegetales"
+        },
+        {
+            "dia": "Viernes",
+            "desayuno": "1 Trozo Mediano De Yuca, 1 Torreja De Queso",
+            "almuerzo": "1 Plato Mediano De Sopas De Cohete Con Verduras y Papas y Ñame",
+            "cena": "1 Porcion De Boronia (1/2 De Platano Amarillo), (1/2 Berenjenas), (1/2 Tomate), (1/2 Cebolla)"
+        },
+        {
+            "dia": "Sábado",
+            "desayuno": "1 Arepa Mediana, 1 Pocillo De Cafe De Leche, 1 Tajada De Queso Bajo En Sal",
+            "almuerzo": "3 Unidades Pequenas De Papa Criolla, 1 Porcion De Pechuga Asada, 1 Porcion De Ensalada",
+            "cena": "1 Porcion De Tortilla De Habichuela, 1 Porcion De Bollo Limpio"
+        },
+        {
+            "dia": "Domingo",
+            "desayuno": "1 Unidad Mediana De Papa Cocida (Dividida En 4 Sin Cascara), 1 Huevo Cocido",
+            "almuerzo": "1 Pocillo De Arrroz De Cerdo Bistec (Tomate y Cebolla), 1 Porcion De Ensalada",
+            "cena": "1 Porcion De Huevo Con Espinaca, 1 Arepa Asada"
+        }
+    ],
+    "hipertensosSobrePeso": [
+        {
+            "dia": "Lunes",
+            "desayuno": "1 Banano, Arepa De Maíz, Huevo Revuelto, Avena",
+            "almuerzo": "Ensalada De Tomate, Lechuga Y Arvejas, Filete De Pescado, Aceite De Oliva",
+            "cena": "Uvas Con Pan Integral Con Ajo Y Aceite De Oliva, Agua De Avena"
+        },
+        {
+            "dia": "Martes",
+            "desayuno": "1 Mango, Papa Criolla, Queso Bajo En Sal Y Leche De Almendras",
+            "almuerzo": "Ensalada De Tomate, Papas Cocidas, Pechugas En Cuadros, Aceite De Oliva",
+            "cena": "Sándwich De Pollo, Fruta, Té De Menta"
+        },
+        {
+            "dia": "Miércoles",
+            "desayuno": "Papaya Con Banano, Pan Integral, Guiso Con Pollo Y Avena",
+            "almuerzo": "Ensalada De Lechuga Crespa, Arroz De Ají, Pescado Al Vapor, Aceite De Oliva",
+            "cena": "Tostadas Integrales, Zumo De Uvas"
+        },
+        {
+            "dia": "Jueves",
+            "desayuno": "Avena Cocida Con Frutas Frescas (Plátano, Papaya, Arándanos) Y Un Puñado De Nueces",
+            "almuerzo": "Ensalada De Zanahorias Con Puré De Papa, Crema De Lentejas, Aceite De Oliva",
+            "cena": "Sándwich De Atún, Agua De Avena"
+        },
+        {
+            "dia": "Viernes",
+            "desayuno": "1 Mango, Bollo De Maíz, Huevo Revuelto, Leche De Almendras",
+            "almuerzo": "Ensalada De Atún, Vegetales Y Garbanzos, Aceite De Oliva",
+            "cena": "Manzana Y Pan Integral Con Tahini"
+        },
+        {
+            "dia": "Sábado",
+            "desayuno": "Arándanos, Arepa De Maíz Con Queso Bajo En Sal, Avena",
+            "almuerzo": "Ensalada De Brócoli Y Pastas Con Verduras, Pavo Horneado, Aceite De Oliva",
+            "cena": "1/2 Taza De Arroz Con Pollo, 1 Rebanada De Pan Tostado Con Ajo"
+        },
+        {
+            "dia": "Domingo",
+            "desayuno": "Avena Cocida Con Frutas Frescas (Plátano, Mango, Arándanos) Y Un Puñado De Nueces",
+            "almuerzo": "Ensalada De Espinacas Con Tomate, Pepino Y Aguacate Con Salmón Al Horno, Aceite De Oliva",
+            "cena": "Té De Menta, 2 Rebanadas De Pan Integral Tostado, Ajo Y Aceite De Oliva"
+        }
+    ]
+}
