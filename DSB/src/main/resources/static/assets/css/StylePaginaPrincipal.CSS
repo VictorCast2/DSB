@@ -4591,46 +4591,61 @@ a {
 
 .texto-planessalud h3 {
     font-family: "Montserrat";
-    font-size: 35px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    color: #007bff;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .texto-planessalud h2 {
     font-family: "Montserrat";
-    font-size: 45px;
+    font-size: 70px;
     font-weight: 900;
-    margin-bottom: 30px;
-    color: #00ddeb;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .texto-planessalud p {
     width: 60%;
     text-align: justify;
     font-family: "Montserrat";
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 27px;
+    font-weight: 900;
     margin-bottom: 20px;
     color: #ffffff;
 }
 
 .btn-planesalimenticios {
-    width: 250px;
-    height: 60px;
-    border: 3px solid #315cfd;
-    border-radius: 45px;
-    transition: all 0.3s;
-    cursor: pointer;
-    background: white;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 20px;
-    font-weight: 550;
+    font-weight: 900;
+    color:white;
+    border: 3px solid #0081aa;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn-planesalimenticios:hover {
-    background: #315cfd;
-    color: white;
-    font-size: 24px;
+.btn-planesalimenticios::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.btn-planesalimenticios:hover::before {
+    transform: translateX(0);
 }
 
 /* Media Query for screens with max-width of 446px */
@@ -4663,27 +4678,66 @@ a {
     }
 
     .btn-planesalimenticios {
-        width: 200px;
-        height: 50px;
-        font-size: 18px;
-        margin-top: 20px; 
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color:white;
+        border: 3px solid #0081aa;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
+    }
+    
+    .btn-planesalimenticios::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+    
+    .btn-planesalimenticios:hover::before {
+        transform: translateX(0);
     }
 }
 
-/**que es un plan */
+/**que es un plan alimenticio*/
 .contenido-queesunplan {
+    width: 100%;
     max-width: 1500px;
     background-color: #0a0f2c;
-    padding: 100px 0 170px 0;
+    padding: 150px 0 200px 0;
 }
 
 .imagen-queesunplan img {
+    position: relative;
+    bottom: 90px;
     float: right;
-    margin-right: 50px;
-    width: 40%;
-    height: 40%;
-    border-radius: 20px;
+    margin-right: 70px;
+    width: 450px;
+    height: 450px;
+    animation: moveUpDown 3s ease-in-out infinite;
 }
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-20px); /* Movimiento hacia arriba */
+    }
+}
+
 
 .texto-queesunplan {
     width: 50%;
@@ -4717,7 +4771,7 @@ a {
 
 @media (max-width: 446px) {
     .contenido-queesunplan {
-        padding: 50px 20px;
+        padding: 90px 20px;
         display: flex;
         flex-direction: column; 
         align-items: center; 
@@ -4725,11 +4779,21 @@ a {
     }
 
     .imagen-queesunplan img {
-        width: 100%; 
-        height: auto; 
-        margin:0 0 20px 20px; 
-        border-radius: 20px; 
-        margin-top: 0; 
+        margin-left: 70px;
+        position: relative;
+        bottom: 30px;
+        width: 300px;
+        height: 300px;
+        animation: moveUpDown 3s ease-in-out infinite;
+    }
+    
+    @keyframes moveUpDown {
+        0%, 100% {
+            transform: translateY(0); /* Posición inicial y final */
+        }
+        50% {
+            transform: translateY(-20px); /* Movimiento hacia arriba */
+        }
     }
 
     .texto-queesunplan {
