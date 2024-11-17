@@ -43,7 +43,7 @@
                             </div>
                             <div class="scrollable-content"> <!-- New wrapper -->
                                 <li th:each="comida, iterStat : ${allCategoriaFood}" class="item">
-                                    <input type="checkbox" th:id="'comida-' + ${iterStat.index}" th:name="'comida_' + ${iterStat.index}" th:value="${comida}" class="checkbox">
+                                    <input type="checkbox" th:id="'comida-' + ${iterStat.index}" th:name="'comida_' + ${iterStat.index}" th:value="${comida}" class="checkbox" th:field="*{Foods}">
                                     <label th:for="'comida-' + ${iterStat.index}" class="item-text" th:text="${comida}">Comida</label>
                                 </li>
                             </div> <!-- Close the new wrapper -->
@@ -63,7 +63,7 @@
                             </div>
                             <div class="scrollable-content1"> <!-- New wrapper -->
                                 <li th:each="categoria, iterStat : ${allCategoriaAliments}" class="item1">
-                                    <input type="checkbox" th:id="'categoria-' + ${iterStat.index}" th:name="'categoria_' + ${iterStat.index}" th:value="${categoria}" class="checkbox1">
+                                    <input type="checkbox" th:id="'categoria-' + ${iterStat.index}" th:name="'categoria_' + ${iterStat.index}" th:value="${categoria}" class="checkbox1" th:field="*{AlimentsCategories}">
                                     <label th:for="'categoria-' + ${iterStat.index}" class="item-text1" th:text="${categoria}">Categoría</label>
                                 </li>
                             </div> <!-- Close the new wrapper -->
@@ -84,9 +84,14 @@
                                 <input type="text" placeholder="Search">
                             </div>
                             <div class="scrollable-content3"> <!-- New wrapper -->
-                                <li th:each="aliment, iterStat : ${allNameAliments}" class="item3">
-                                    <input type="checkbox" th:id="'aliment-' + ${iterStat.index}" th:name="'aliment_' + ${iterStat.index}" th:value="${aliment}" class="checkbox3">
-                                    <label th:for="'aliment-' + ${iterStat.index}" class="item-text3" th:text="${aliment}">Alimento</label>
+                                <li th:each="entry : ${allAlimentos}" class="item2">
+                                    <h3 th:text="${entry.key}">Categoría</h3> <!-- Muestra el nombre de la categoría -->
+                                    <ul>
+                                        <li th:each="aliment : ${entry.value}" class="item3">
+                                            <input type="checkbox" th:id="'aliment-' + ${aliment}" th:name="'aliment_' + ${aliment}" th:value="${aliment}" class="checkbox3" th:field="*{Aliments}">
+                                            <label th:for="'aliment-' + ${aliment}" class="item-text3" th:text="${aliment}">Alimento</label>
+                                        </li>
+                                    </ul>
                                 </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
@@ -102,12 +107,10 @@
                             <label for="datetime">Cambiar Fecha y Hora</label>
                             <input type="datetime-local" id="datetime" onchange="updateDisplay()" th:field="*{StrartDate}">
                         </div>
-                        <button onclick="resetToCurrentTime()">Restablecer a la Hora Actual</button>
+                        <button onclick="resetToCurrentTime()" type="button">Restablecer a la Hora Actual</button>
                     </div>
                 </div>
-    
                 <button class="btn-alimento" type="submit">REGISTRO ALIMENTICIO</button>
-    
             </form>
         </div>
 
@@ -115,6 +118,7 @@
         <script src="/Js/Food/chexbox.js"></script>
         <script src="/Js/Food/chexbox1.js"></script>
         <script src="/Js/Food/chexbox3.js"></script>
+        
     </body>
 
 </html>

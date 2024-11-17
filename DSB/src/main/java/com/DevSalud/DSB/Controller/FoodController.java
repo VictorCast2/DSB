@@ -1,22 +1,16 @@
 package com.DevSalud.DSB.Controller;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
+import java.util.stream.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.*;
 import com.DevSalud.DSB.Service.*;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import com.fasterxml.jackson.databind.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
