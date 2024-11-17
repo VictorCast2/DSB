@@ -4789,10 +4789,10 @@ a {
     
     @keyframes moveUpDown {
         0%, 100% {
-            transform: translateY(0); /* Posición inicial y final */
+            transform: translateY(0); 
         }
         50% {
-            transform: translateY(-20px); /* Movimiento hacia arriba */
+            transform: translateY(-20px); 
         }
     }
 
@@ -5038,7 +5038,7 @@ a {
 /**Plnaes Ejercicios */
 .contenido-planesejercicio {
     padding: 100px 0 250px 0;
-    background-image: url(../img/planes-ejercicio.jpeg);
+    background-image: url(../img/fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -5049,18 +5049,18 @@ a {
 
 .texto-planesejercicio h3 {
     font-family: "Montserrat";
-    font-size: 35px;
-    font-weight: 800;
+    font-size: 40px;
+    font-weight: 900;
     margin-bottom: 30px;
-    color: #007bff;
+    color: #ffffff;
 }
 
 .texto-planesejercicio h2 {
     font-family: "Montserrat";
-    font-size: 45px;
+    font-size: 70px;
     font-weight: 900;
     margin-bottom: 30px;
-    color: #00ddeb;
+    color: #ffffff;
 }
 
 .texto-planesejercicio p {
@@ -5068,27 +5068,42 @@ a {
     text-align: justify;
     font-family: "Montserrat";
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 900;
     margin-bottom: 20px;
-    color: #000;
+    color: #ffffff;
 }
 
 .btn-planesejercicio {
-    width: 250px;
-    height: 60px;
-    border: 3px solid #315cfd;
-    border-radius: 45px;
-    transition: all 0.3s;
-    cursor: pointer;
-    background: white;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 20px;
-    font-weight: 550;
+    font-weight: 900;
+    color:white;
+    border: 3px solid #0081aa;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn-planesejercicio:hover {
-    background: #315cfd;
-    color: white;
-    font-size: 24px;
+.btn-planesejercicio::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.btn-planesejercicio:hover::before {
+    transform: translateX(0);
 }
 
 /* Media Query for screens with max-width of 446px */
@@ -5121,12 +5136,124 @@ a {
     }
 
     .btn-planesejercicio {
-        width: 200px;
-        height: 50px;
-        font-size: 18px;
-        margin-top: 20px; 
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color:white;
+        border: 3px solid #0081aa;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
+    }
+    
+    .btn-planesejercicio::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+    
+    .btn-planesejercicio:hover::before {
+        transform: translateX(0);
     }
 }
+
+
+/** que es un plan ejercicio */
+.contenido-queesunplan1 {
+    width: 100%;
+    max-width: 1900px;
+    background-color: #0a0f2c;
+    padding: 120px 0 150px 0;
+}
+
+.imagen-queesunplan1 img {
+    position: relative;
+    float: right;
+    margin-right: 80px;
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+
+.texto-queesunplan1 {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.texto-queesunplan1 .titulo-queesunplan1 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.texto-queesunplan1 .parrafo3 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+.texto-queesunplan1 .parrafo4 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+@media (max-width: 446px) {
+    .contenido-queesunplan1 {
+        padding: 90px 20px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .imagen-queesunplan1 img {
+        width:100%;
+        height: 300px;
+        margin: 0 0 30px 70px;
+        
+    }
+    
+    
+    .texto-queesunplan1 {
+        width: 100%; 
+        margin-left: 0; 
+    }
+
+    .texto-queesunplan1 .titulo-queesunplan1 {
+        font-size: 30px; 
+        margin-bottom: 15px; 
+    }
+
+    .texto-queesunplan1 .parrafo3,
+    .texto-queesunplan1 .parrafo4 {
+        font-size: 14px; 
+        margin-bottom: 10px; 
+        text-align: justify;
+    }
+}
+
+
 
 /** Carta Ejercicios */
 .wrapper {
