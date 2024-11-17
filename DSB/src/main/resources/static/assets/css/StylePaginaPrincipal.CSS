@@ -2348,6 +2348,17 @@ a {
     color: #ffffff;
 }
 
+.icon-servicio i {
+    font-size:40px ;
+    color: #000033;
+    margin:0 0 25px 150px;
+}
+
+.card:hover .icon-servicio i{
+    transition: all 0.5s ease-out;
+    color: #ffffff;
+}
+
 /** Responsivo para max-width: 446px */
 @media (max-width: 446px) {
     .contenido-titulo-servicios h2 {
@@ -2434,32 +2445,37 @@ a {
 
 
 /**Button Registro Alimenticio*/
-.btn {
-    transition: all 0.3s ease-in-out;
-    font-family: "Dosis", sans-serif;
-}
-
-.btn {
-    width: 190px;
-    height: 50px;
-    border-radius: 50px;
-    background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    box-shadow: -1px 21px 36px -10px rgba(35, 32, 217, 1);
-    outline: none;
+.btn-Alimentos {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+    border: 3px solid #0081aa;
     cursor: pointer;
-    border: none;
-    font-size: 24px;
-    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn:hover {
-    transform: translateY(3px);
-    box-shadow: none;
-
+.btn-Alimentos::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
 }
 
-.btn:active {
-    opacity: 0.5;
+.btn-Alimentos:hover::before {
+    transform: translateX(0);
 }
 
 @media (max-width: 446px) {
@@ -2503,27 +2519,37 @@ a {
 
     }
 
-    .btn {
-        width: 60%;
-        height: 40px;
-        font-size: 1.4em;
-        margin: 10px auto;
-        border-radius: 50px;
-        background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-        box-shadow: -1px 21px 36px -10px rgba(35, 32, 217, 1);
-        outline: none;
+    .btn-Alimentos {
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color:black;
+        border: 3px solid #0081aa;
         cursor: pointer;
-        border: none;
-        color: white;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
     }
-
-    .btn:hover {
-        transform: translateY(3px);
-        box-shadow: none;
+    
+    .btn-Alimentos::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
     }
-
-    .btn:active {
-        opacity: 0.5;
+    
+    .btn-Alimentos:hover::before {
+        transform: translateX(0);
     }
 }
 
@@ -3210,31 +3236,36 @@ a {
 }
 
 .btn-ejercicio {
-    transition: all 0.3s ease-in-out;
-    font-family: "Dosis", sans-serif;
-}
-
-.btn-ejercicio {
-    width: 190px;
-    height: 50px;
-    border-radius: 50px;
-    background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-    box-shadow: -1px 21px 36px -10px rgba(35, 32, 217, 1);
-    outline: none;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+    border: 3px solid #0081aa;
     cursor: pointer;
-    border: none;
-    font-size: 24px;
-    color: white;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn-ejercicio:hover {
-    transform: translateY(3px);
-    box-shadow: none;
-
+.btn-ejercicio::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
 }
 
-.btn-ejercicio:active {
-    opacity: 0.5;
+.btn-ejercicio:hover::before {
+    transform: translateX(0);
 }
 
 @media (max-width: 446px) {  
@@ -3280,10 +3311,37 @@ a {
     }
 
     .btn-ejercicio {
-        width: 100%; /* Ocupa todo el ancho del contenedor */
-        max-width: 200px; /* Limita el ancho máximo del botón */
-        font-size: 20px; /* Ajusta el tamaño del texto del botón */
-        margin: 20px 0; /* Espacio alrededor del botón */
+        margin: 30px 0 50px 0;
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color: black;
+        border: 3px solid #0081aa;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
+    }
+    
+    .btn-ejercicio::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+    
+    .btn-ejercicio:hover::before {
+        transform: translateX(0);
     }
 }
 
@@ -3738,64 +3796,40 @@ a {
     text-align: justify;
 }
 
-.button-salud {
-    font-family: "Montserrat";
-    font-weight: 800;
-    padding: 20px 10px;
-    font-size: 17px;
-    background: transparent;
-    border: none;
-    padding: 1em 1.5em;
-    color: #fff;
-    text-transform: uppercase;
-    position: relative;
-    transition: 0.5s ease;
+.btn-salud {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    border: 3px solid #0081aa;
     cursor: pointer;
-    width: 300px;
-    height: 60px;
-    border-radius: 1px;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+    position: relative;
 }
 
-.button-salud::before {
+.btn-salud::before {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    background-color: #00bbf0;
-    transition: 0.5s ease;
-}
-
-.button-salud:hover {
-    color: #fff;
-    transition-delay: 0.5s;
-}
-
-.button-salud:hover::before {
+    top: 0;
     width: 100%;
-}
-
-.button-salud::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    background-color: #00bbf0;
-    transition: 0.4s ease;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
     z-index: -1;
 }
 
-.button-salud:hover::after {
-    height: 100%;
-    transition-delay: 0.4s;
-    color: aliceblue;
+.btn-salud:hover::before {
+    transform: translateX(0);
 }
 
-
-.contenido-texto-salud .button-salud {
+.contenido-texto-salud .btn-salud {
     margin: 10px 50px;
 }
 
@@ -3989,6 +4023,16 @@ a {
 
 }
 
+
+.icono-enfermedad i{
+    position: relative;
+    bottom: -100px;
+    font-size: 40px;
+    color: #00368b;
+    margin: 0 0 0 100px;
+
+}
+
 .contenido-tipoenfermedades2 {
     width: 30%;
     height: 360px;
@@ -4131,6 +4175,15 @@ a {
         text-align: center;
         margin: 5px 0 10px 0;
     }
+
+    .icono-enfermedad i{
+        position: relative;
+        top: 65px;
+        font-size: 40px;
+        color: #00368b;
+        margin: 0 0 0 180px;
+    
+    }
 }
 
 /**Enfermedades cronicas */
@@ -4162,7 +4215,7 @@ a {
 }
 
 .parrafo-debeshacerdiabetes {
-    background-color: #1f8c62;
+    background-color: #3c8167;
     padding: 40px 40px 40px 40px;
     width: 70%;
 }
@@ -4185,8 +4238,7 @@ a {
 
 .loquedebenhacer1 {
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
+    background-color:#4a8a70;
     padding: 10px 20px;
 
 }
@@ -4195,7 +4247,7 @@ a {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: -20px 0 5px 30px;
     color: #ffffff;
 }
 
@@ -4204,12 +4256,26 @@ a {
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
+    margin: 0 0 0 30px;
+}
+
+.icono-cronico i{
+    position: relative;
+    top: 30px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    background-color: #25503f;
+    color: #ffffff;
 }
 
 .loquedebenhacer2 {
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
+    background-color:#4a8a70;
     padding: 10px 20px;
     margin-left: 10px;
 }
@@ -4218,7 +4284,7 @@ a {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: -20px 0 5px 30px;
     color: #ffffff;
 }
 
@@ -4227,6 +4293,7 @@ a {
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
+    margin: 0 0 0 30px;
 }
 
 .contenido-principal2 {
@@ -4235,8 +4302,7 @@ a {
 
 .loquedebenhacer3 {
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
+    background-color:#4a8a70;
     padding: 10px 20px;
     margin-top: 10px;
 }
@@ -4245,7 +4311,7 @@ a {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: -20px 0 5px 30px;
     color: #ffffff;
 }
 
@@ -4254,12 +4320,12 @@ a {
     font-weight: 500;
     text-align: justify;
     color: #eae8f6;
+    margin: 0 0 0 30px;
 }
 
 .loquedebenhacer4 {
     width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
+    background-color:#4a8a70;
     padding: 10px 20px;
     margin-left: 10px;
     margin-top: 10px;
@@ -4269,7 +4335,7 @@ a {
     font-family: "Montserrat";
     font-weight: 800;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: -20px 0 5px 30px;
     color: #ffffff;
 }
 
@@ -4277,60 +4343,12 @@ a {
     font-family: "Montserrat";
     font-weight: 500;
     color: #eae8f6;
+    margin: 0 0 0 30px;
 }
 
-.contenido-principal3 {
-    display: flex;
-}
-
-.loquedebenhacer5 {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer5 h4 {
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer5 p {
-    font-family: "Montserrat";
-    font-weight: 500;
-    text-align: justify;
-    color: #eae8f6;
-}
-
-.loquedebenhacer6 {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(15px);
-    padding: 10px 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-.loquedebenhacer6 h4 {
-    font-family: "Montserrat";
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.loquedebenhacer6 p {
-    font-family: "Montserrat";
-    font-weight: 500;
-    color: #eae8f6;
-}
 
 .contenido-nodebeshacerdiabetes1 {
-    background-color: #27709c;
+    background-color: #4c71d0;
     padding: 40px 40px 40px 40px;
     max-width: 1200px;
 }
@@ -4351,6 +4369,8 @@ a {
     color: #f2f8f9;
     text-align: justify;
 }
+
+
 
 @media (max-width: 446px) {
     .contenido-principal-diabetes1 {
@@ -4571,46 +4591,61 @@ a {
 
 .texto-planessalud h3 {
     font-family: "Montserrat";
-    font-size: 35px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    color: #007bff;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .texto-planessalud h2 {
     font-family: "Montserrat";
-    font-size: 45px;
+    font-size: 70px;
     font-weight: 900;
-    margin-bottom: 30px;
-    color: #00ddeb;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .texto-planessalud p {
     width: 60%;
     text-align: justify;
     font-family: "Montserrat";
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 27px;
+    font-weight: 900;
     margin-bottom: 20px;
     color: #ffffff;
 }
 
 .btn-planesalimenticios {
-    width: 250px;
-    height: 60px;
-    border: 3px solid #315cfd;
-    border-radius: 45px;
-    transition: all 0.3s;
-    cursor: pointer;
-    background: white;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 20px;
-    font-weight: 550;
+    font-weight: 900;
+    color:white;
+    border: 3px solid #0081aa;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn-planesalimenticios:hover {
-    background: #315cfd;
-    color: white;
-    font-size: 24px;
+.btn-planesalimenticios::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.btn-planesalimenticios:hover::before {
+    transform: translateX(0);
 }
 
 /* Media Query for screens with max-width of 446px */
@@ -4643,27 +4678,66 @@ a {
     }
 
     .btn-planesalimenticios {
-        width: 200px;
-        height: 50px;
-        font-size: 18px;
-        margin-top: 20px; 
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color:white;
+        border: 3px solid #0081aa;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
+    }
+    
+    .btn-planesalimenticios::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+    
+    .btn-planesalimenticios:hover::before {
+        transform: translateX(0);
     }
 }
 
-/**que es un plan */
+/**que es un plan alimenticio*/
 .contenido-queesunplan {
+    width: 100%;
     max-width: 1500px;
     background-color: #0a0f2c;
-    padding: 100px 0 170px 0;
+    padding: 150px 0 200px 0;
 }
 
 .imagen-queesunplan img {
+    position: relative;
+    bottom: 90px;
     float: right;
-    margin-right: 50px;
-    width: 40%;
-    height: 40%;
-    border-radius: 20px;
+    margin-right: 70px;
+    width: 450px;
+    height: 450px;
+    animation: moveUpDown 3s ease-in-out infinite;
 }
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-20px); /* Movimiento hacia arriba */
+    }
+}
+
 
 .texto-queesunplan {
     width: 50%;
@@ -4697,7 +4771,7 @@ a {
 
 @media (max-width: 446px) {
     .contenido-queesunplan {
-        padding: 50px 20px;
+        padding: 90px 20px;
         display: flex;
         flex-direction: column; 
         align-items: center; 
@@ -4705,11 +4779,21 @@ a {
     }
 
     .imagen-queesunplan img {
-        width: 100%; 
-        height: auto; 
-        margin:0 0 20px 20px; 
-        border-radius: 20px; 
-        margin-top: 0; 
+        margin-left: 70px;
+        position: relative;
+        bottom: 30px;
+        width: 300px;
+        height: 300px;
+        animation: moveUpDown 3s ease-in-out infinite;
+    }
+    
+    @keyframes moveUpDown {
+        0%, 100% {
+            transform: translateY(0); 
+        }
+        50% {
+            transform: translateY(-20px); 
+        }
     }
 
     .texto-queesunplan {
@@ -4954,7 +5038,7 @@ a {
 /**Plnaes Ejercicios */
 .contenido-planesejercicio {
     padding: 100px 0 250px 0;
-    background-image: url(../img/planes-ejercicio.jpeg);
+    background-image: url(../img/fondo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -4965,18 +5049,18 @@ a {
 
 .texto-planesejercicio h3 {
     font-family: "Montserrat";
-    font-size: 35px;
-    font-weight: 800;
+    font-size: 40px;
+    font-weight: 900;
     margin-bottom: 30px;
-    color: #007bff;
+    color: #ffffff;
 }
 
 .texto-planesejercicio h2 {
     font-family: "Montserrat";
-    font-size: 45px;
+    font-size: 70px;
     font-weight: 900;
     margin-bottom: 30px;
-    color: #00ddeb;
+    color: #ffffff;
 }
 
 .texto-planesejercicio p {
@@ -4984,27 +5068,42 @@ a {
     text-align: justify;
     font-family: "Montserrat";
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 900;
     margin-bottom: 20px;
-    color: #000;
+    color: #ffffff;
 }
 
 .btn-planesejercicio {
-    width: 250px;
-    height: 60px;
-    border: 3px solid #315cfd;
-    border-radius: 45px;
-    transition: all 0.3s;
-    cursor: pointer;
-    background: white;
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 20px;
-    font-weight: 550;
+    font-weight: 900;
+    color:white;
+    border: 3px solid #0081aa;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Montserrat";
+    position: relative;
 }
 
-.btn-planesejercicio:hover {
-    background: #315cfd;
-    color: white;
-    font-size: 24px;
+.btn-planesejercicio::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0081aa;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.btn-planesejercicio:hover::before {
+    transform: translateX(0);
 }
 
 /* Media Query for screens with max-width of 446px */
@@ -5037,12 +5136,124 @@ a {
     }
 
     .btn-planesejercicio {
-        width: 200px;
-        height: 50px;
-        font-size: 18px;
-        margin-top: 20px; 
+        display: inline-block;
+        padding: 0.9rem 1.8rem;
+        font-size: 20px;
+        font-weight: 900;
+        color:white;
+        border: 3px solid #0081aa;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+        overflow: hidden;
+        z-index: 1;
+        font-family: "Montserrat";
+        position: relative;
+    }
+    
+    .btn-planesejercicio::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0081aa;
+        transform: translateX(-100%);
+        transition: all .3s;
+        z-index: -1;
+    }
+    
+    .btn-planesejercicio:hover::before {
+        transform: translateX(0);
     }
 }
+
+
+/** que es un plan ejercicio */
+.contenido-queesunplan1 {
+    width: 100%;
+    max-width: 1900px;
+    background-color: #0a0f2c;
+    padding: 120px 0 150px 0;
+}
+
+.imagen-queesunplan1 img {
+    position: relative;
+    float: right;
+    margin-right: 80px;
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+
+.texto-queesunplan1 {
+    width: 50%;
+    margin-left: 30px;
+}
+
+.texto-queesunplan1 .titulo-queesunplan1 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.texto-queesunplan1 .parrafo3 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+.texto-queesunplan1 .parrafo4 {
+    font-family: "Montserrat";
+    font-size: 15px;
+    font-weight: 500;
+    color: #c1c1c1;
+    text-align: justify;
+}
+
+@media (max-width: 446px) {
+    .contenido-queesunplan1 {
+        padding: 90px 20px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .imagen-queesunplan1 img {
+        width:100%;
+        height: 300px;
+        margin: 0 0 30px 70px;
+        
+    }
+    
+    
+    .texto-queesunplan1 {
+        width: 100%; 
+        margin-left: 0; 
+    }
+
+    .texto-queesunplan1 .titulo-queesunplan1 {
+        font-size: 30px; 
+        margin-bottom: 15px; 
+    }
+
+    .texto-queesunplan1 .parrafo3,
+    .texto-queesunplan1 .parrafo4 {
+        font-size: 14px; 
+        margin-bottom: 10px; 
+        text-align: justify;
+    }
+}
+
+
 
 /** Carta Ejercicios */
 .wrapper {
