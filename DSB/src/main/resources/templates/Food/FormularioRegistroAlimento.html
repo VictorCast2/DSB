@@ -84,9 +84,14 @@
                                 <input type="text" placeholder="Search">
                             </div>
                             <div class="scrollable-content3"> <!-- New wrapper -->
-                                <li th:each="aliment, iterStat : ${allNameAliments}" class="item3">
-                                    <input type="checkbox" th:id="'aliment-' + ${iterStat.index}" th:name="'aliment_' + ${iterStat.index}" th:value="${aliment}" class="checkbox3" th:field="*{Aliments}">
-                                    <label th:for="'aliment-' + ${iterStat.index}" class="item-text3" th:text="${aliment}">Alimento</label>
+                                <li th:each="entry : ${allAlimentos}" class="item2">
+                                    <h3 th:text="${entry.key}">Categoría</h3> <!-- Muestra el nombre de la categoría -->
+                                    <ul>
+                                        <li th:each="aliment : ${entry.value}" class="item3">
+                                            <input type="checkbox" th:id="'aliment-' + ${aliment}" th:name="'aliment_' + ${aliment}" th:value="${aliment}" class="checkbox3" th:field="*{Aliments}">
+                                            <label th:for="'aliment-' + ${aliment}" class="item-text3" th:text="${aliment}">Alimento</label>
+                                        </li>
+                                    </ul>
                                 </li>
                             </div> <!-- Close the new wrapper -->
                         </ul>
