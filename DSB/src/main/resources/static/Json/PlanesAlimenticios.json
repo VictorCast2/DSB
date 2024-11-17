@@ -86,5 +86,49 @@
             "almuerzo": "Ensalada De Espinacas Con Tomate, Pepino Y Aguacate Con Salmón Al Horno, Aceite De Oliva",
             "cena": "Té De Menta, 2 Rebanadas De Pan Integral Tostado, Ajo Y Aceite De Oliva"
         }
+    ],
+    "hipertensosObesidadTipo1y2": [
+        {
+            "dia": "Lunes",
+            "desayuno": "Mandarina, Bollo De Maíz, Huevo Revuelto, Avena Con Un Puñado De Nueces",
+            "almuerzo": "Ensalada De Lechuga Con Garbanzos Y Un Filete De Pescado, Aceite De Oliva",
+            "cena": "Sandwich Con Guacamole"
+        },
+        {
+            "dia": "Martes",
+            "desayuno": "1 Manzana, Papas Criolla, Queso Bajo En Sal",
+            "almuerzo": "Ensalada De Lechuga Zukini, Arroz Integral, Pescado, Aceite De Oliva",
+            "cena": "1 Arepa De Maíz Con Atún Y Té De Menta"
+        },
+        {
+            "dia": "Miércoles",
+            "desayuno": "1 Mango Con Banano, Pan Integral Y Huevos Revueltos",
+            "almuerzo": "Ensala De Lechuga Zukini Con Arroz Integral Con Pescado, Aceite De Oliva",
+            "cena": "Pollo A La Parrilla Con Vegetales (Zanahorias, Pimientos) Y Quinoa"
+        },
+        {
+            "dia": "Jueves",
+            "desayuno": "1 Mandarina, Colada De Quinua Con Tostadas Integrales Y Queso Crema",
+            "almuerzo": "Ensalada De Aguacate Con Pechuga, Frijoles Rojos, Aceite De Oliva",
+            "cena": "Palitos De Plátano, Queso Bajo En Sal Y Té De Menta"
+        },
+        {
+            "dia": "Viernes",
+            "desayuno": "1 Naranja, Tortilla De Papa Con Claras De Huevo Con Vegetales",
+            "almuerzo": "Ensalada De Pepino, Arroz Integral Con Albondigas, Aceite De Oliva",
+            "cena": "Fruta Con Pan Integral Y Guacamole"
+        },
+        {
+            "dia": "Sábado",
+            "desayuno": "Papaya, Arepa De Maíz Y Guiso De Berenjena",
+            "almuerzo": "Pechuga De Pollo A La Parrilla Con Ensalada De Col Y Zanahorias Ralladas, Aceite De Oliva",
+            "cena": "1 Arepa Rellana Con Pollo Y Té De Menta"
+        },
+        {
+            "dia": "Domingo",
+            "desayuno": "1 Pera, Yuca Cocida, Pollo En Cuadros Y Zumo De Uva",
+            "almuerzo": "Ensalada De Tomate, Arroz De Verduras, Pechuga Asada, Aceite De Oliva",
+            "cena": "1 Arepa Mediana Rellena De Pollo Hilachado Con Vegetales"
+        }
     ]
 }
