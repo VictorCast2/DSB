@@ -31,10 +31,8 @@
             </ul>
         </nav>
         <div class="contenido-registroejercicio">
-            <h1>Registro Ejercicio</h1>
-            <form action="/Api/Users/Exercises/RegistroEjercicio"
-                th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
-                th:object="${exerciseLog}" method="post">
+            <h1 th:text="${exerciseLog.id != null ? 'Editar Ejercicio' : 'Registrar Nuevo Ejercicio'}"></h1>
+            <form action="/Api/Users/Exercises/RegistrarYEditarEjercicio" method="post" th:object="${exerciseLog}">
                 <div class="contenido-principal">
                     <div class="container"> <!---Tipo Ejercicio-->
                         <div class="select-btn">

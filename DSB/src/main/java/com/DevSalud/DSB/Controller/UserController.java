@@ -37,7 +37,7 @@ public class UserController {
      * Muestra la página de registro.
      */
     @GetMapping("/Registro")
-    public String showRegistrationForm(Model model) {
+    public String showRegistration(Model model) {
         try {
             // Cargar el archivo JSON desde la carpeta resources
             Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");

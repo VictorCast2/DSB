@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 @Controller
 @RequestMapping(path = "/Api/Users/Food")
-public class FoodController {
+public class AlimentLogController {
 
         @Autowired
         private UserServices userService;
