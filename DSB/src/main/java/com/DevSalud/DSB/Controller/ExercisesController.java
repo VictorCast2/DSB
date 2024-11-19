@@ -27,7 +27,7 @@ public class ExercisesController {
     private ExerciseLogServices exerciseLogService;
 
     @GetMapping("/RegistrarYEditarEjercicio")
-    public String showExerciseFormWithoutId(Model model) {
+    public String showExercise(Model model) {
         ExerciseLogModel exerciseLog = new ExerciseLogModel(); // Crear un nuevo objeto vacío para el formulario
         try {
             // Cargar el archivo JSON desde la carpeta resources
@@ -59,7 +59,7 @@ public class ExercisesController {
     }
 
     @GetMapping("/RegistrarYEditarEjercicio/{id}")
-    public String EditarEjercicio(@PathVariable Long id, Model model) {
+    public String EditsExercise(@PathVariable Long id, Model model) {
         ExerciseLogModel exerciseLog = new ExerciseLogModel();
         try {
             // Obtener el ejercicio desde el servicio por ID
@@ -102,14 +102,27 @@ public class ExercisesController {
             HttpSession session) {
         try {
             Long userId = (Long) session.getAttribute("UsuarioId");
+
+            // Si el ejercicio tiene un ID, significa que se está actualizando
             if (exerciseLog.getId() != null) {
-                // Actualizar ejercicio existente
-                exerciseLogService.UpdateExerciseLog(exerciseLog);
-                model.addAttribute("success", "Ejercicio actualizado exitosamente.");
+                // Verificar si el ejercicio existe en la base de datos
+                ExerciseLogModel existingExercise = exerciseLogService.getExerciseLogById(exerciseLog.getId());
+                if (existingExercise != null) {
+                    // Si existe, actualizar el ejercicio
+                    exerciseLogService.UpdateExerciseLog(exerciseLog);
+                    model.addAttribute("success", "Ejercicio actualizado exitosamente.");
+                } else {
+                    model.addAttribute("error", "El ejercicio no existe para actualizar.");
+                }
             } else {
-                // Registrar nuevo ejercicio
+                // Si el ejercicio no tiene ID, es un nuevo registro
                 UserModel user = userService.getUserById(userId);
                 exerciseLog.setUser(user);
+                // Eliminar el ejercicio anterior si es necesario antes de registrar el nuevo
+                if (exerciseLog.getId() != null) {
+                    exerciseLogService.DeleteExerciseLog(exerciseLog.getId());
+                }
+                // Registrar un nuevo ejercicio
                 exerciseLogService.saveExerciseLog(exerciseLog);
                 model.addAttribute("success", "Ejercicio registrado exitosamente.");
             }
@@ -128,6 +141,7 @@ public class ExercisesController {
             model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
             model.addAttribute("ejerciciosMap", ejerciciosMap);
             model.addAttribute("exerciseLog", exerciseLog); // Asegurarse de pasar el objeto actualizado al modelo
+
         } catch (IOException | JsonSyntaxException e) {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
@@ -158,7 +172,7 @@ public class ExercisesController {
     }
 
     @GetMapping("/TablaEjercicio")
-    public String TablaRegistroEjercicio(Model model, HttpSession session) {
+    public String tableExercise(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             // Aquí obtenemos los ejercicios del usuario desde el servicio.
