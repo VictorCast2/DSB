@@ -3,6 +3,8 @@ package com.DevSalud.DSB.Controller;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -84,7 +86,8 @@ public class ExercisesController {
     }
 
     @PostMapping("/RegistroEjercicio")
-    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model, HttpSession session) {
+    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model,
+            HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             UserModel user = userService.getUserById(userId);
@@ -104,7 +107,9 @@ public class ExercisesController {
     public String TablaRegistroEjercicio(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
-            model.addAttribute("exerciseLogs", null);
+            // Aquí obtenemos los ejercicios del usuario desde el servicio.
+            List<ExerciseLogModel> exerciseLogs = exerciseLogService.getExerciseLogsByUserId(userId);
+            model.addAttribute("exerciseLogs", exerciseLogs);
             return "Exercises/TablaRegistroEjercicio";
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
@@ -114,23 +119,26 @@ public class ExercisesController {
 
     @GetMapping("/EditarEjercicio/{id}")
     public String showEditEjercicio(@PathVariable Long id, Model model) {
-        // Obtener el ejercicio específico a editar
         ExerciseLogModel exerciseLog = exerciseLogService.getExerciseLogById(id);
-        // Agregar atributos al modelo
-        model.addAttribute("exerciseLog", exerciseLog);
-        return "Exercises/FormularioEditarEjercicio";
+        if (exerciseLog != null) {
+            model.addAttribute("exerciseLog", exerciseLog);
+            return "Exercises/FormularioEditarEjercicio";
+        } else {
+            model.addAttribute("error", "Ejercicio no encontrado.");
+            return "redirect:/Api/Users/Exercises/TablaEjercicio";
+        }
     }
 
-    @PostMapping("/EditarEjercicio")
-    public String editarEjercicio(@ModelAttribute ExerciseLogModel exerciseLog) {
+    @PutMapping("/EditarEjercicio")
+    public String editarEjercicio(@RequestBody ExerciseLogModel exerciseLog) {
         exerciseLogService.UpdateExerciseLog(exerciseLog);
         return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirige después de la edición
     }
 
     @GetMapping("/EliminarEjercicio/{id}")
     public String deleteExercise(@PathVariable Long id) {
-        exerciseLogService.DeleteExerciseLog(id);
-        return "redirect:/Api/Users/Exercises/TablaEjercicio";
+        exerciseLogService.DeleteExerciseLog(id); // Llama al servicio para eliminar el ejercicio por ID
+        return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirige a la lista de ejercicios después de eliminar
     }
 
     @GetMapping("/Home")

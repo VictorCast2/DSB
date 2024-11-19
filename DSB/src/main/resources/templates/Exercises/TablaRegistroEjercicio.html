@@ -51,27 +51,18 @@
                 </thead>
                 <tbody>
                     <tr th:each="exerciseLog : ${exerciseLogs}">
-                        <td data-title="Tipo Ejercicio"
-                            th:text="${exerciseLog.exerciseType}">Aerobico/Pecho/Pierna</td>
-                        <td data-title="Nombre Ejercicio"
-                            th:text="${exerciseLog.exerciseName}">Trotar/Flexiones/Sentadilla
-                        </td>
-                        <td data-title="Intensidad Ejercicio"
-                            th:text="${exerciseLog.exerciseIntensity}">Alta/Media/Baja
-                        </td>
-                        <td data-title="Fecha Hora Inicial"
-                            th:text="${exerciseLog.formattedStartDate}"></td>
-                        <td data-title="Fecha Hora Final"
-                            th:text="${exerciseLog.formattedFinalDate}"></td>
+                        <td data-title="Tipo Ejercicio" th:text="${exerciseLog.exerciseType}">Aerobico/Pecho/Pierna</td>
+                        <td data-title="Nombre Ejercicio" th:text="${exerciseLog.exerciseName}">Trotar/Flexiones/Sentadilla</td>
+                        <td data-title="Intensidad Ejercicio" th:text="${exerciseLog.exerciseIntensity}">Alta/Media/Baja</td>
+                        <td data-title="Fecha Hora Inicial" th:text="${exerciseLog.formattedStartDate}"></td>
+                        <td data-title="Fecha Hora Final" th:text="${exerciseLog.formattedFinalDate}"></td>
                         <td data-title="Acción">
                             <!-- Enlace para editar ejercicio -->
                             <a th:href="@{/Api/Users/Exercises/EditarEjercicio/{id}(id=${exerciseLog.id} != null ? ${exerciseLog.id} : '')}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                             <!-- Enlace para eliminar ejercicio -->
-                            <a
-                                th:href="@{/Api/Users/Exercises/EliminarEjercicio/{id}(id=${exerciseLog.id})}"
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar este ejercicio?');">
+                            <a th:href="@{/Api/Users/Exercises/EliminarEjercicio/{id}(id=${exerciseLog.id})}">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </td>

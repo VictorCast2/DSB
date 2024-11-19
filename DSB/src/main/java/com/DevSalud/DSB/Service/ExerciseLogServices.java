@@ -45,4 +45,8 @@ public class ExerciseLogServices {
         exerciseLogRepository.deleteById(id);
     }
 
+    public List<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
+        return exerciseLogRepository.findByUserId(userId);
+    }
+
 }
