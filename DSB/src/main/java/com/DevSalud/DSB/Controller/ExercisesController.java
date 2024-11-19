@@ -141,7 +141,6 @@ public class ExercisesController {
             model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
             model.addAttribute("ejerciciosMap", ejerciciosMap);
             model.addAttribute("exerciseLog", exerciseLog); // Asegurarse de pasar el objeto actualizado al modelo
-
         } catch (IOException | JsonSyntaxException e) {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
