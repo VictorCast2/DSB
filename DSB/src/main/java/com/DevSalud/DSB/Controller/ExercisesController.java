@@ -3,11 +3,8 @@ package com.DevSalud.DSB.Controller;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +26,9 @@ public class ExercisesController {
     @Autowired
     private ExerciseLogServices exerciseLogService;
 
-    @GetMapping("/RegistroEjercicio")
-    public String showExerciseForm(Model model) {
+    @GetMapping("/RegistrarYEditarEjercicio")
+    public String showExerciseFormWithoutId(Model model) {
+        ExerciseLogModel exerciseLog = new ExerciseLogModel(); // Crear un nuevo objeto vacío para el formulario
         try {
             // Cargar el archivo JSON desde la carpeta resources
             Resource resource = resourceLoader.getResource("classpath:/static/Json/Ejercicio.json");
@@ -51,16 +49,90 @@ public class ExercisesController {
             model.addAttribute("intensidadOptions", intensidadOptions);
             model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
             model.addAttribute("ejerciciosMap", ejerciciosMap);
-        } catch (IOException e) {
+            model.addAttribute("exerciseLog", exerciseLog); // Agregar el nuevo ejercicio al modelo
+
+        } catch (IOException | JsonSyntaxException e) {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
-        } catch (JsonSyntaxException e) {
-            e.printStackTrace();
-            model.addAttribute("jsonData", "Error procesando el JSON: " + e.getMessage());
         }
-        // Agregar el modelo para el registro de ejercicio
-        model.addAttribute("exerciseLog", new ExerciseLogModel());
-        return "Exercises/FormularioRegistroEjercicio";
+        return "Exercises/FormularioRegistroEjercicio"; // Vista para registrar el nuevo ejercicio
+    }
+
+    @GetMapping("/RegistrarYEditarEjercicio/{id}")
+    public String EditarEjercicio(@PathVariable Long id, Model model) {
+        ExerciseLogModel exerciseLog = new ExerciseLogModel();
+        try {
+            // Obtener el ejercicio desde el servicio por ID
+            exerciseLog = exerciseLogService.getExerciseLogById(id);
+            if (exerciseLog == null) {
+                model.addAttribute("error", "Ejercicio no encontrado.");
+                return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirigir si no se encuentra el ejercicio
+            }
+
+            // Cargar el archivo JSON desde la carpeta resources
+            Resource resource = resourceLoader.getResource("classpath:/static/Json/Ejercicio.json");
+            String content = new String(Files.readAllBytes(resource.getFile().toPath()));
+
+            // Parsear el JSON usando Gson
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+
+            // Extraer los valores de los arrays "IntensidadEjercicio" y "TiposEjercicios"
+            List<String> intensidadOptions = extractJsonArray(jsonObject, "IntensidadEjercicio");
+            List<String> tiposEjerciciosOptions = extractJsonArray(jsonObject, "TiposEjercicios");
+
+            // Extraer los ejercicios agrupados por tipo
+            Map<String, List<String>> ejerciciosMap = extractEjerciciosMap(jsonObject.getAsJsonObject("Ejercicios"));
+
+            // Pasar las opciones al modelo
+            model.addAttribute("intensidadOptions", intensidadOptions);
+            model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
+            model.addAttribute("ejerciciosMap", ejerciciosMap);
+            model.addAttribute("exerciseLog", exerciseLog); // Agregar el ejercicio al modelo
+
+        } catch (IOException | JsonSyntaxException e) {
+            e.printStackTrace();
+            model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
+        }
+        return "Exercises/FormularioRegistroEjercicio"; // Vista para editar el ejercicio
+    }
+
+    @PostMapping("/RegistrarYEditarEjercicio")
+    public String saveOrUpdateExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model,
+            HttpSession session) {
+        try {
+            Long userId = (Long) session.getAttribute("UsuarioId");
+            if (exerciseLog.getId() != null) {
+                // Actualizar ejercicio existente
+                exerciseLogService.UpdateExerciseLog(exerciseLog);
+                model.addAttribute("success", "Ejercicio actualizado exitosamente.");
+            } else {
+                // Registrar nuevo ejercicio
+                UserModel user = userService.getUserById(userId);
+                exerciseLog.setUser(user);
+                exerciseLogService.saveExerciseLog(exerciseLog);
+                model.addAttribute("success", "Ejercicio registrado exitosamente.");
+            }
+            // Recargar el archivo JSON desde la carpeta resources
+            Resource resource = resourceLoader.getResource("classpath:/static/Json/Ejercicio.json");
+            String content = new String(Files.readAllBytes(resource.getFile().toPath()));
+            // Parsear el JSON usando Gson
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+            // Extraer las opciones
+            List<String> intensidadOptions = extractJsonArray(jsonObject, "IntensidadEjercicio");
+            List<String> tiposEjerciciosOptions = extractJsonArray(jsonObject, "TiposEjercicios");
+            Map<String, List<String>> ejerciciosMap = extractEjerciciosMap(jsonObject.getAsJsonObject("Ejercicios"));
+            // Pasar las opciones al modelo
+            model.addAttribute("intensidadOptions", intensidadOptions);
+            model.addAttribute("tiposEjerciciosOptions", tiposEjerciciosOptions);
+            model.addAttribute("ejerciciosMap", ejerciciosMap);
+            model.addAttribute("exerciseLog", exerciseLog); // Asegurarse de pasar el objeto actualizado al modelo
+        } catch (IOException | JsonSyntaxException e) {
+            e.printStackTrace();
+            model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
+        }
+        return "Exercises/FormularioRegistroEjercicio"; // Vista de registro/edición
     }
 
     private List<String> extractJsonArray(JsonObject jsonObject, String arrayName) {
@@ -85,24 +157,6 @@ public class ExercisesController {
         return ejerciciosMap;
     }
 
-    @PostMapping("/RegistroEjercicio")
-    public String registerExercise(@ModelAttribute("exerciseLog") ExerciseLogModel exerciseLog, Model model,
-            HttpSession session) {
-        Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId != null) {
-            UserModel user = userService.getUserById(userId);
-            exerciseLog.setUser(user);
-            exerciseLogService.saveExerciseLog(exerciseLog);
-            model.addAttribute("message", "Registro exitoso");
-            System.out.println("Fecha de inicio: " + exerciseLog.getStrartDate());
-            System.out.println("Fecha final: " + exerciseLog.getFinalDate());
-            return "redirect:/Api/Users/Exercises/TablaEjercicio";
-        } else {
-            model.addAttribute("error", "Usuario no encontrado.");
-            return "redirect:/Api/Users/Login";
-        }
-    }
-
     @GetMapping("/TablaEjercicio")
     public String TablaRegistroEjercicio(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
@@ -115,24 +169,6 @@ public class ExercisesController {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";
         }
-    }
-
-    @GetMapping("/EditarEjercicio/{id}")
-    public String showEditEjercicio(@PathVariable Long id, Model model) {
-        ExerciseLogModel exerciseLog = exerciseLogService.getExerciseLogById(id);
-        if (exerciseLog != null) {
-            model.addAttribute("exerciseLog", exerciseLog);
-            return "Exercises/FormularioEditarEjercicio";
-        } else {
-            model.addAttribute("error", "Ejercicio no encontrado.");
-            return "redirect:/Api/Users/Exercises/TablaEjercicio";
-        }
-    }
-
-    @PutMapping("/EditarEjercicio")
-    public String editarEjercicio(@RequestBody ExerciseLogModel exerciseLog) {
-        exerciseLogService.UpdateExerciseLog(exerciseLog);
-        return "redirect:/Api/Users/Exercises/TablaEjercicio"; // Redirige después de la edición
     }
 
     @GetMapping("/EliminarEjercicio/{id}")
