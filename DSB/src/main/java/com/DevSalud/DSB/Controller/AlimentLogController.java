@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.*;
+import com.DevSalud.DSB.Repository.AlimentLogRepository;
 import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
@@ -20,6 +21,9 @@ public class AlimentLogController {
 
     @Autowired
     private AlimentLogServices alimentLogService;
+
+    @Autowired
+    private AlimentLogRepository alimentLogRepository;
 
     @ModelAttribute("allCategoriaFood")
     public List<String> comidas() {
@@ -163,10 +167,10 @@ public class AlimentLogController {
     public String tableFoodLog(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
-            // Aquí obtenemos los registros de alimentos del usuario desde el servicio.
-            List<AlimentLogModel> foodLogs = alimentLogService.getFoodLogsByUserId(userId);
+            List<AlimentLogModel> foodLogs = alimentLogRepository.findAll();
             model.addAttribute("foodLogs", foodLogs);
-            return "Food/TablaRegistroAlimento"; // Asegúrate que esta sea la ruta correcta de tu template HTML
+            return "Food/TablaRegistroAlimento";
+             // Asegúrate que esta sea la ruta correcta de tu template HTML
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";
