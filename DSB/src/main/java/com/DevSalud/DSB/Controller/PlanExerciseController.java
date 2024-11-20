@@ -77,7 +77,6 @@ public class PlanExerciseController {
                 filterDiabetesType2Plans(healthClassification, filteredPlans, allPlans);
                 break;
             default:
-                // Manejar otros casos si es necesario
                 break;
         }
 

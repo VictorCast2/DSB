@@ -27,6 +27,7 @@
 
     </nav>
     <div class="contenido-registroalimento">
+        <h1 th:text="${exerciseLog.id != null ? 'Editar Registro Alimenticios' : 'Registro Alimenticios'}"></h1>
         <h1>Registro Alimenticios</h1>
         <form th:action="@{/Api/Users/Food/RegistroAlimento}" th:object="${alimentLog}" method="post">
             <div class="contenido-principal">
