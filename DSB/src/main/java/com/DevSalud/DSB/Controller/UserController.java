@@ -235,39 +235,52 @@ public class UserController {
         return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
     }
 
-    /**
-     * Muestra la página de edición de un usuario.
-     *
-     * @param modelo El modelo para la vista.
-     * @param session La sesión HTTP.
-     * @return La vista de edición de usuario.
-     */
+
     @GetMapping("/Editar")
-    public String editarUsuario(Model modelo, HttpSession session) {
+    public String editarUsuario(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             UserModel usuario = userService.getUserById(userId);
-            modelo.addAttribute("Usuario", usuario);
+            model.addAttribute("Users", usuario);
+
+            // Agregar las opciones para enfermedades crónicas y sexo desde el JSON
+            try {
+                Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");
+                String content = new String(Files.readAllBytes(resource.getFile().toPath()));
+                Gson gson = new Gson();
+                JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+                JsonArray sexoArray = jsonObject.getAsJsonArray("Sexo");
+                JsonArray enfermedadArray = jsonObject.getAsJsonArray("Enfermedad");
+
+                List<String> sexoOptions = new ArrayList<>();
+                List<String> enfermedadOptions = new ArrayList<>();
+
+                for (JsonElement sexo : sexoArray) {
+                    sexoOptions.add(sexo.getAsString());
+                }
+                for (JsonElement enfermedad : enfermedadArray) {
+                    enfermedadOptions.add(enfermedad.getAsString());
+                }
+
+                model.addAttribute("sexoOptions", sexoOptions);
+                model.addAttribute("enfermedadOptions", enfermedadOptions);
+            } catch (IOException e) {
+                e.printStackTrace();
+                model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
+            }
+
             return "/Users/Editar";
         } else {
-            return "Users/Login"; 
+            return "Users/Login";
         }
     }
 
-    /**
-     * Actualiza un usuario.
-     *
-     * @param bindingResult Resultado de la validación.
-     * @param redirect      Atributos de redirección.
-     * @param modelo        El modelo para la vista.
-     * @return La vista de redirección.
-     */
     @PostMapping("/Editar")
     public String actualizarUsuario(@Validated @ModelAttribute("Users") UserModel Users, BindingResult bindingResult,
-                                    RedirectAttributes redirect, Model modelo) {
+                                    RedirectAttributes redirect, Model model) {
         if (bindingResult.hasErrors()) {
-            modelo.addAttribute("Users", Users);
-            return "redirect:/Api/Users/Editar";
+            model.addAttribute("Users", Users);
+            return "Users/Editar";
         }
         userService.saveOrUpdateUser(Users);
         redirect.addFlashAttribute("msgExito", "El usuario ha sido actualizado con éxito");

@@ -16,8 +16,7 @@
     <body>
         <div class="contenido" id="contenido">
             <div class="form-contenido sign-in">
-                <form th:action="@{/Api/Users/Editar}" th:object="${Users}"
-                    method="post">
+                <form th:action="@{/Api/Users/Editar}" th:object="${Users}" method="post">
                     <h1>Editar</h1>
                     <div class="icono">
                         <ul class="example-2">
@@ -129,18 +128,9 @@
                                         <input type="text" placeholder="Buscar">
                                     </div>
                                     <div class="scrollable-content6">
-                                        <li
-                                            th:each="enfermedad : ${enfermedadOptions}"
-                                            class="item6">
-                                            <input type="checkbox"
-                                                th:value="${enfermedad}"
-                                                th:field="*{diseases}"
-                                                id="disease"
-                                                class="checkbox6">
-                                            <label
-                                                th:for="'enfermedad_' + ${enfermedad}"
-                                                class="item-text6"
-                                                th:text="${enfermedad}"></label>
+                                        <li th:each="enfermedad : ${enfermedadOptions}" class="item6">
+                                            <input type="checkbox" th:value="${enfermedad}" th:field="*{diseases}" id="disease" class="checkbox6">
+                                            <label th:for="'enfermedad_' + ${enfermedad}" class="item-text6" th:text="${enfermedad}"></label>
                                         </li>
                                     </div>
                                 </ul>
