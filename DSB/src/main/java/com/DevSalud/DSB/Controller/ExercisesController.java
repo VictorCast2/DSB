@@ -2,31 +2,15 @@ package com.DevSalud.DSB.Controller;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.DevSalud.DSB.Model.ExerciseLogModel;
-import com.DevSalud.DSB.Model.UserModel;
-import com.DevSalud.DSB.Service.ExerciseLogServices;
-import com.DevSalud.DSB.Service.UserServices;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
-
+import org.springframework.web.bind.annotation.*;
+import com.DevSalud.DSB.Model.*;
+import com.DevSalud.DSB.Service.*;
+import com.google.gson.*;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -161,7 +145,7 @@ public class ExercisesController {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
         }
-        return "Exercises/FormularioRegistroEjercicio"; // Vista de registro/edición
+        return "redirect:/Api/Users/Exercises/TablaEjercicio"; 
     }
 
     private List<String> extractJsonArray(JsonObject jsonObject, String arrayName) {

@@ -25,8 +25,8 @@ public class AlimentLogModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime StrartDate;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "UsersId", referencedColumnName = "Id", nullable = false)
-    private UserModel User;
+    @ManyToOne
+    @JoinColumn(name = "UsersId", referencedColumnName = "Id")
+    private UserModel user;
 
 }

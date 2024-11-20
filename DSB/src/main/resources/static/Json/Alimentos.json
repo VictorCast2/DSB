@@ -22,49 +22,167 @@
 
         "Proteinas": [
             "Pollo",
-            "Carnes Rojas"
+            "Carnes Rojas",
+            "Huevo",
+            "Camarones",
+            "Albondigas",
+            "Pechuga",
+            "Chicharron",
+            "Empanadas",
+            "Tacos",
+            "Carne",
+            "Pescado",
+            "Queso",
+            "Cerdo",
+            "Salchicha",
+            "Jamon",
+            "Mortadela",
+            "Panceta",
+            "Chorizo",
+            "Butifarra",
+            "Yogur",
+            "Leche",
+            "Barras de merienda",
+            "Avena"
         ],
-        
+
         "Frutas": [
             "Piña",
-            "Arándanos"
+            "Arándanos",
+            "Uvas",
+            "Manzanas",
+            "Peras",
+            "Mango",
+            "Fresas",
+            "Sandía",
+            "Naranjas",
+            "Plátanos",
+            "Kiwi",
+            "Melocotones",
+            "Guayaba"
         ],
 
         "Verduras": [
             "Cebolla",
-            "Tomate"
+            "Tomate",
+            "Pimentón",
+            "Espinaca",
+            "Cilantro",
+            "Ajo",
+            "Berenjena",
+            "Zanahorias",
+            "Lechuga",
+            "Repollo",
+            "Maíz",
+            "Ñame",
+            "Papa",
+            "Yuca",
+            "Patata",
+            "Plátano Verde",
+            "Plátano Amarillo"
         ],
 
         "Productos Lacteos": [
             "Leche Condensada",
-            "Leche Entera"
+            "Leche Entera",
+            "Leche Descremada",
+            "Leche Deslactosada",
+            "Queso Con Sal",
+            "Queso Sin Sal",
+            "Mantequilla Con Sal",
+            "Mantequilla Sin Sal",
+            "Yogur Natural",
+            "Suero",
+            "Crema De Leche",
+            "Jugo De Milo",
+            "Jugo De Chocolisto"
         ],
 
         "Azucares": [
             "Panela",
-            "Barras de merienda"
+            "Barras de merienda",
+            "Jugo De Milo",
+            "Jugo De Chocolisto",
+            "Jugo De Naranja Con Azucar",
+            "Jugo De Piña Con Azucar",
+            "Jugo De Mango Con Azucar",
+            "Jugo De Guanábana Con Azucar",
+            "Jugo De Mora Con Azucar",
+            "Jugo De Maracuyá Con Azucar",
+            "Jugo De Lulo Con Azucar",
+            "Jugo De Tomate De Árbol Con Azúcar",
+            "Jugos Mixtos",
+            "Chocolate Caliente",
+            "Pan Dulce",
+            "Bollos Dulces",
+            "Yogur Con Azucar",
+            "Café Con Azucar",
+            "Té Con Azucar"
         ],
 
         "Grasas Saturadas": [
             "Arepas Fritas",
-            "Empanadas Fritas"
+            "Empanadas Fritas",
+            "Churros",
+            "Chicharrón",
+            "Patacón",
+            "Huevo Frito",
+            "Chorizo Frito",
+            "Buñuelos",
+            "Carimañolas",
+            "Bollos Fritos",
+            "Morcilla Frita",
+            "Papas Fritas",
+            "Queso Frito",
+            "Tajaditas",
+            "Salchichón Frito"
         ],
 
         "Harinas": [
             "Arroz",
-            "Arepas"
+            "Arepas",
+            "Buñuelos",
+            "Pan De Queso",
+            "Torta De Maíz",
+            "Torta De Choclo",
+            "Pandebono De Queso",
+            "Pan De Sal",
+            "Pan Integral",
+            "Pan De Leche",
+            "Pan Blanco",
+            "Empanadas",
+            "Papa",
+            "Tostadas",
+            "Pancakes",
+            "Waffles"
         ],
 
         "Granos": [
             "Avena",
-            "Arroz"
+            "Arroz",
+            "Pasta",
+            "Yuca",
+            "Mazamorra",
+            "Arvejas",
+            "Lentejas",
+            "Tostadas de trigo integral",
+            "Yogur con avena y frutos secos",
+            "Leche con avena",
+            "Smoothie de frutas y avena",
+            "Cereal integral con leche o frutas"
         ],
 
         "Carbohidratos": [
             "Arroz",
-            "Pasta"
+            "Pasta",
+            "Pan",
+            "Harinas",
+            "Tubérculos",
+            "Maíz",
+            "Galletas",
+            "Cereal",
+            "Avena",
+            " Frutas secas"
         ]
-
     }
-
 }

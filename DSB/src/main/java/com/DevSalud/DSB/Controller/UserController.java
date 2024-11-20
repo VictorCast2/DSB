@@ -79,10 +79,7 @@ public class UserController {
      * 
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Users") UserModel Users,
-            RedirectAttributes redirect,
-            BindingResult result,
-            Model model, HttpSession session) {
+    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect, BindingResult result, Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId == null) {
             if (result.hasErrors()) {
@@ -260,7 +257,6 @@ public class UserController {
     /**
      * Actualiza un usuario.
      *
-     * @param usuario        El modelo de usuario.
      * @param bindingResult Resultado de la validación.
      * @param redirect      Atributos de redirección.
      * @param modelo        El modelo para la vista.
