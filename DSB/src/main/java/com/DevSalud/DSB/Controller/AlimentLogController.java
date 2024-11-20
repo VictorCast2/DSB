@@ -128,7 +128,7 @@ public class AlimentLogController {
             if (user != null) {
                 alimentLog.setUser(user);
                 alimentLogService.saveAlimentLog(alimentLog);
-                return "redirect:/Api/Users/Food/Home";
+                return "redirect:/Api/Users/Food/TablaAlimento";
             }
         }
         model.addAttribute("error", "Usuario no encontrado.");
