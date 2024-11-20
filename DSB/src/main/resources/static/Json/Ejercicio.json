@@ -26,6 +26,7 @@
     ],
 
     "Ejercicios": {
+
         "Aerobico": [
             "Flexiones De Brazo (Push-ups)",
             "Flexiones De Diamante",
@@ -126,6 +127,7 @@
             "Abdominales Tipo Bicicleta Con Bandas Elásticas",
             "Fondos De Tríceps En Silla Con Bandas Elásticas"
         ],
+
         "Anaerobicos": [
             "Saltos De Tijera",
             "Burpees",
@@ -312,6 +314,7 @@
             "Flexiones De Pecho En Banco Plano Con Bandas Elásticas",
             "Flexiones Con Bandas Elásticas Y Elevación De Pies"
         ],
+
         "Pierna": [
             "Sentadillas",
             "Sentadillas Con Salto",
@@ -414,6 +417,7 @@
             "Puentes De Glúteos Con Bandas Elásticas Y Salto",
             "Elevaciones De Cadera Con Mancuernas Y Salto"
         ],
+
         "Hombro": [
             "Flexiones De Pica",
             "Flexiones Hindúes",
@@ -516,6 +520,7 @@
             "Elevaciones Laterales Con Mancuernas Y Elevación De Pie",
             "Prensa De Hombro Con Mancuernas Y Elevación De Cadera"
         ],
+
         "Triceps": [
             "Fondos En Silla",
             "Fondos Entre Dos Sillas",
@@ -624,6 +629,7 @@
             "Extensión De Tríceps Con Mancuernas Desde Banco Declinado Y Elevación De Cadera",
             "Extensión De Tríceps Con Mancuernas Desde Banco Plano Y Elevación De Cadera"
         ],
+
         "Biceps": [
             "Flexiones Con Agarre Estrecho",
             "Flexiones De Diamante",
@@ -723,6 +729,7 @@
             "Curl De Bíceps Con Mancuernas Con Rotación De Torso",
             "Curl De Bíceps cruzado Con Mancuernas Con Elevación De Cadera"
         ],
+
         "Espalda": [
             "Flexiones Hindúes",
             "Flexiones Con Pica",
@@ -823,6 +830,7 @@
             "Remo Con Mancuernas En Banco Inclinado Con Elevación De Cadera",
             "Remo Con Mancuernas En Banco Plano Con Elevación De Cadera"
         ],
+
         "Abdominales": [
             "Abdominales Tradicionales",
             "Abdominales Tipo Bicicleta",
@@ -923,6 +931,7 @@
             "Plancha Con Mancuernas Desde Banco",
             "Abdominales Con Mancuernas Y Elevación De Pie Desde Banco Inclinado"
         ],
+
         "Pantorrilla": [
             "Elevaciones De Talón",
             "Elevaciones De Talón Con Una Pierna",
@@ -1015,6 +1024,7 @@
             "Elevaciones De Talón Con Mancuernas En Banco Con Flexión De Rodilla",
             "Elevaciones De Talón Con Mancuernas Con Una Pierna En Banco"
         ],
+
         "Antebrazo": [
             "Flexiones Con Manos Invertidas",
             "Flexiones Con Agarre Estrecho",
@@ -1051,6 +1061,7 @@
             "Flexiones Con Cuerpo Recto Y Salto",
             "Flexiones Con Dedos Y Rotación"
         ],
+
         "Flexibilidad": [
             "Estiramiento De Cuádriceps",
             "Estiramiento De Isquiotibiales",
@@ -1103,6 +1114,7 @@
             "Postura Del Puente (Bridge Pose)",
             "Postura De La Rueda (Wheel Pose)"
         ],
+
         "Equilibrio": [
             "Equilibrio A Una Pierna",
             "Equilibrio A Una Pierna Con Ojo Cerrado",
@@ -1125,6 +1137,7 @@
             "Planchas Laterales",
             "Equilibrio En T"
         ],
+
         "Fortalecimiento": [
             "Flexiones De Brazo (Push-Ups)",
             "Flexiones De Diamante",
@@ -1148,6 +1161,7 @@
             "Plancha Con Giro De Torso",
             "Puentes De Glúteos"
         ],
+
         "Fuerza": [
             "Flexiones De Brazo (Push-Ups)",
             "Flexiones De Diamante",
@@ -1175,6 +1189,7 @@
             "Escaladores De Montaña (Mountain Climbers)",
             "Burpees"
         ],
+
         "Resistencia": [
             "Saltos De Tijera (Jumping Jacks)",
             "Burpees",
