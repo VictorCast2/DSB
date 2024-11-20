@@ -1,6 +1,8 @@
 package com.DevSalud.DSB.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Model.AlimentLogModel;
@@ -62,11 +64,13 @@ public class AlimentLogServices {
      * @return Una lista de registros de alimentos.
      */
     public List<AlimentLogModel> getFoodLogsByUserId(Long userId) {
-        try {
-            return alimentLogRepository.findByUserId(userId);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al obtener los registros de alimentos: " + e.getMessage());
-        }
+        return alimentLogRepository.findByUserId(userId);
     }
 
+    // Método para obtener el alimento por su ID
+    public AlimentLogModel getAlimentLogById(Long id) {
+        Optional<AlimentLogModel> alimentLog = alimentLogRepository.findById(id);
+        return alimentLog.orElse(null);  // Si no se encuentra el alimento, retorna null
+    }
+    
 }

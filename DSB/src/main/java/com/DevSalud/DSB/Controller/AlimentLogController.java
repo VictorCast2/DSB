@@ -136,9 +136,27 @@ public class AlimentLogController {
     }
 
     @GetMapping("/EliminarAlimento/{id}")
-    public String deleteAlimentLog(@PathVariable Long id) {
-        alimentLogService.deleteAlimentLog(id);
-        return "redirect:/Api/Users/Food/TablaAlimento";
+    public String eliminarAlimento(@PathVariable Long id, Model model) {
+        AlimentLogModel alimentLog = alimentLogService.getAlimentLogById(id);
+        if (alimentLog != null) {
+            alimentLogService.deleteAlimentLog(id); // Método en el servicio para eliminar
+            return "redirect:/Api/Users/Food/TablaAlimento"; // Redirige a la tabla después de eliminar
+        } else {
+            model.addAttribute("error", "Alimento no encontrado.");
+            return "redirect:/Api/Users/Food/TablaAlimento"; // Redirige si no se encuentra el alimento
+        }
+    }
+
+    @GetMapping("/EditarAlimento/{id}")
+    public String editarAlimento(@PathVariable Long id, Model model) {
+        AlimentLogModel alimentLog = alimentLogService.getAlimentLogById(id);
+        if (alimentLog != null) {
+            model.addAttribute("alimentLog", alimentLog);
+            return "/Food/FormularioRegistroAlimento"; // La vista para editar
+        } else {
+            model.addAttribute("error", "Alimento no encontrado.");
+            return "redirect:/Api/Users/Food/TablaAlimento"; // Redirige si no se encuentra el alimento
+        }
     }
 
     @GetMapping("/TablaAlimento")
@@ -148,7 +166,7 @@ public class AlimentLogController {
             // Aquí obtenemos los registros de alimentos del usuario desde el servicio.
             List<AlimentLogModel> foodLogs = alimentLogService.getFoodLogsByUserId(userId);
             model.addAttribute("foodLogs", foodLogs);
-            return "Food/TablaRegistroAlimento";  // Asegúrate que esta sea la ruta correcta de tu template HTML
+            return "Food/TablaRegistroAlimento"; // Asegúrate que esta sea la ruta correcta de tu template HTML
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";
