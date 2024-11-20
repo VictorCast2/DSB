@@ -25,18 +25,14 @@
             <label class="logo">REGISTRO EJERCICIOS</label>
             <!-- Navigation links -->
             <ul>
-                <li><a class="active"
-                        href="/Api/Users/Exercises/Home">HOME</a></li>
+                <li><a class="active" href="/Api/Users/Exercises/Home">HOME</a></li>
                 <li><a href="#">REGISTRO EJERCICIO</a></li>
-                <li><a href="/Api/Users/Exercises/TablaEjercicio">LISTA
-                        EJERCICIO</a></li>
+                <li><a href="/Api/Users/Exercises/TablaEjercicio">LISTA EJERCICIO</a></li>
             </ul>
         </nav>
         <div class="contenido-registroejercicio">
-            <h1>Registro Ejercicio</h1>
-            <form action="/Api/Users/Exercises/RegistroEjercicio"
-                th:action="@{/Api/Users/Exercises/RegistroEjercicio}"
-                th:object="${exerciseLog}" method="post">
+            <h1 th:text="${exerciseLog.id != null ? 'Editar Ejercicio' : 'Registrar Nuevo Ejercicio'}"></h1>
+            <form action="/Api/Users/Exercises/RegistrarYEditarEjercicio" method="post" th:object="${exerciseLog}">
                 <div class="contenido-principal">
                     <div class="container"> <!---Tipo Ejercicio-->
                         <div class="select-btn">
