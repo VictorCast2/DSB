@@ -64,10 +64,9 @@ public class FoodController {
         comidas.put("Proteinas", Arrays.asList(
                 "Pollo", "Carnes Rojas", "Huevo", "Camarones",
                 "Albondigas", "Pechuga", "Chicharron", "Empanadas",
-                "Tacos", "Carne", "Pescado", "Queso", "Cerdo",
+                "Tacos", "Pescado", "Queso", "Cerdo",
                 "Salchicha", "Jamon", "Mortadela", "Panceta",
-                "Chorizo", "Butifarra", "Yogur", "Leche",
-                "Barras de merienda", "Avena"));
+                "Chorizo", "Butifarra", "Yogur", "Leche"));
         comidas.put("Frutas", Arrays.asList(
                 "Piña", "Arándanos", "Uvas", "Manzanas",
                 "Peras", "Mango", "Fresas", "Sandía",
@@ -81,11 +80,9 @@ public class FoodController {
                 "Leche Condensada", "Leche Entera", "Leche Descremada",
                 "Leche Deslactosada", "Queso Con Sal", "Queso Sin Sal",
                 "Mantequilla Con Sal", "Mantequilla Sin Sal",
-                "Yogur Natural", "Suero", "Crema De Leche", "Jugo De Milo",
-                "Jugo De Chocolisto"));
+                "Yogur Natural", "Suero", "Crema De Leche"));
         comidas.put("Azucares", Arrays.asList(
-                "Panela", "Barras de merienda", "Jugo De Milo",
-                "Jugo De Chocolisto", "Jugo De Naranja Con Azucar",
+                "Panela", "Jugo De Naranja Con Azucar",
                 "Jugo De Piña Con Azucar", "Jugo De Mango Con Azucar",
                 "Jugo De Guanábana Con Azucar", "Jugo De Mora Con Azucar",
                 "Jugo De Maracuyá Con Azucar", "Jugo De Lulo Con Azucar",
@@ -102,17 +99,17 @@ public class FoodController {
                 "Arroz", "Arepas", "Buñuelos", "Pan De Queso",
                 "Torta De Maíz", "Torta De Choclo", "Pandebono De Queso",
                 "Pan De Sal", "Pan Integral", "Pan De Leche",
-                "Pan Blanco", "Empanadas", "Papa", "Tostadas",
+                "Pan Blanco", "Empanadas", "Tostadas",
                 "Pancakes", "Waffles"));
         comidas.put("Granos", Arrays.asList(
-                "Avena", "Arroz", "Pasta", "Yuca",
+                "Avena", "Pasta", "Yuca",
                 "Mazamorra", "Arvejas", "Lentejas",
                 "Tostadas de trigo integral", "Yogur con avena y frutos secos",
                 "Leche con avena", "Smoothie de frutas y avena", "Cereal integral con leche o frutas"));
         comidas.put("Carbohidratos", Arrays.asList(
-                "Arroz", "Pasta", "Pan", "Harinas",
+                "Pasta", "Pan", "Harinas",
                 "Tubérculos", "Maíz", "Galletas",
-                "Cereal", "Avena", "Frutas secas"));
+                "Cereal", "Frutas secas"));
         return comidas;
     }
 

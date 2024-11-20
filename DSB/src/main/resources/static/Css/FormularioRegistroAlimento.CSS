@@ -467,9 +467,9 @@ a:hover {
     /* Coloca el menú debajo del botón */
     left: 0;
     /* Alinea el menú a la izquierda del contenedor */
-    z-index: 1000;
+    z-index: 1050;
     /* Asegúrate de que el menú esté en la parte superior */
-    margin-top: 10px;
+    margin-top: 12px;
     /* Espacio entre el botón y el menú */
     border-radius: 8px;
     padding: 16px;
