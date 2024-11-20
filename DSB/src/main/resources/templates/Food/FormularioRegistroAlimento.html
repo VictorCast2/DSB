@@ -21,14 +21,14 @@
 
         <ul>
             <li><a class="active" href="/Api/Users/Food/Home">HOME</a></li>
-            <li><a href="/Api/Users/Food/RegistroAlimento">REGISTRO ALIMENTICIO</a></li>
+            <li><a href="#">REGISTRO ALIMENTICIO</a></li>
             <li><a href="/Api/Users/Food/TablaAlimento">LISTA ALIMENTICIO</a></li>
         </ul>
 
     </nav>
     <div class="contenido-registroalimento">
         <h1 th:text="${alimentLog.id != null ? 'Editar Registro Alimenticios' : 'Registro Alimenticios'}"></h1>
-        <form th:action="@{/Api/Users/Food/RegistroAlimento}" th:object="${alimentLog}" method="post">
+        <form th:action="@{/Api/Users/Food/RegistroYEditarAlimento}" th:object="${alimentLog}" method="post">
             <div class="contenido-principal">
 
                 <div class="container"> <!---Comida-->

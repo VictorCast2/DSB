@@ -1,23 +1,12 @@
 package com.DevSalud.DSB.Controller;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.DevSalud.DSB.Model.AlimentLogModel;
-import com.DevSalud.DSB.Model.UserModel;
-import com.DevSalud.DSB.Service.AlimentLogServices;
-import com.DevSalud.DSB.Service.UserServices;
-
+import org.springframework.web.bind.annotation.*;
+import com.DevSalud.DSB.Model.*;
+import com.DevSalud.DSB.Service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
@@ -113,21 +102,27 @@ public class AlimentLogController {
         return comidas;
     }
 
-    @GetMapping("/RegistroAlimento")
+    @GetMapping("/RegistroYEditarAlimento")
     public String formularioRegistroAlimento(Model model) {
         model.addAttribute("alimentLog", new AlimentLogModel());
         return "/Food/FormularioRegistroAlimento";
     }
 
-    @PostMapping("/RegistroAlimento")
-    public String createAlimentLog(HttpSession session, Model model,
+    @PostMapping("/RegistroYEditarAlimento")
+    public String createOrUpdateAlimentLog(HttpSession session, Model model,
             @ModelAttribute AlimentLogModel alimentLog) {
         Long userId = (Long) session.getAttribute("UsuarioId");
         if (userId != null) {
             UserModel user = userService.getUserById(userId);
             if (user != null) {
                 alimentLog.setUser(user);
-                alimentLogService.saveAlimentLog(alimentLog);
+                if (alimentLog.getId() != null) {
+                    // Si el ID no es nulo, estamos actualizando
+                    alimentLogService.updateAlimentLog(alimentLog);
+                } else {
+                    // Si el ID es nulo, estamos creando
+                    alimentLogService.saveAlimentLog(alimentLog);
+                }
                 return "redirect:/Api/Users/Food/TablaAlimento";
             }
         }
@@ -140,14 +135,24 @@ public class AlimentLogController {
         return "/Food/HomeRegistroAlimento";
     }
 
-    @GetMapping("/EditarAlimento")
-    public String formularioEditarAlimento() {
-        return "/Food/FormularioEditarAlimento";
+    @GetMapping("/EliminarAlimento/{id}")
+    public String deleteAlimentLog(@PathVariable Long id) {
+        alimentLogService.deleteAlimentLog(id);
+        return "redirect:/Api/Users/Food/TablaAlimento";
     }
 
     @GetMapping("/TablaAlimento")
-    public String TablaRegistroAlimento() {
-        return "/Food/TablaRegistroAlimento";
+    public String tableFoodLog(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("UsuarioId");
+        if (userId != null) {
+            // Aquí obtenemos los registros de alimentos del usuario desde el servicio.
+            List<AlimentLogModel> foodLogs = alimentLogService.getFoodLogsByUserId(userId);
+            model.addAttribute("foodLogs", foodLogs);
+            return "Food/TablaRegistroAlimento";  // Asegúrate que esta sea la ruta correcta de tu template HTML
+        } else {
+            model.addAttribute("error", "Usuario no encontrado.");
+            return "redirect:/Api/Users/Login";
+        }
     }
 
 }
