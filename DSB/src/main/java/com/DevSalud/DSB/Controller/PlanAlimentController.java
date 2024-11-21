@@ -57,7 +57,7 @@ public class PlanAlimentController {
         // Filtra los planes según la enfermedad y la clasificación de salud
         Map<String, List<List<String>>> FoodPlans = filterPlans(disease, healthClassification);
         model.addAttribute("FoodPlans", FoodPlans);
-        return "/Health_Plans/Exercises/PlanesEjercicio"; // Vista donde se mostrarán los ejercicios
+        return "/Health_Plans/Food/PlanesAlimenticios"; // Vista donde se mostrarán los ejercicios
     }
 
     private Map<String, List<List<String>>> filterPlans(String disease, String healthClassification) {

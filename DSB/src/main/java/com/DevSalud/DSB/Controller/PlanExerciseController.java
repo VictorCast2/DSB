@@ -92,11 +92,11 @@ public class PlanExerciseController {
                 break;
             case "Obesidad Tipo I":
             case "Obesidad Tipo II":
-                filteredPlans.put("diabetesTipo1ObesidadTipoIYII", allPlans.get("diabetesTipo1ObesidadTipoIYII"));
+                filteredPlans.put("hipertensosObesidadTipo1y2", allPlans.get("hipertensosObesidadTipo1y2"));
                 break;
             case "Obesidad Tipo III":
             case "Obesidad Tipo IV":
-                filteredPlans.put("diabetesTipo1ObesidadTipoIIIYIV", allPlans.get("diabetesTipo1ObesidadTipoIIIYIV"));
+                filteredPlans.put("hipertensosObesidadTipo3y4", allPlans.get("hipertensosObesidadTipo3y4"));
                 break;
             default:
                 // Manejar otros casos si es necesario
@@ -161,7 +161,6 @@ public class PlanExerciseController {
                 allPlans.putAll(plan);
             }
             return allPlans;
-            // return gson.fromJson(reader, type);
         } catch (Exception e) {
             e.printStackTrace();
             return new HashMap<>(); // Retorna un mapa vacío en caso de error
