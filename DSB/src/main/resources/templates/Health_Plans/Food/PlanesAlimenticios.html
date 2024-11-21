@@ -28,12 +28,9 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                <tr th:each="day, meals : ${FoodPlans}">
-                    <td th:text="${day}"></td>
-                    <td th:text="${meals[0].desayuno}"></td>
-                    <td th:text="${meals[1].almuerzo}"></td>
-                    <td th:text="${meals[2].cena}"></td>
+            <tbody th:each="entry : ${FoodPlans}">
+                <tr th:each="value:${entry.value}">
+                    <td th:each="item:${value}" th:text="${item}"></td>
                 </tr>
             </tbody>
         </table>

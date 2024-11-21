@@ -66,7 +66,7 @@ public class PlanExerciseController {
         }
 
         switch (disease) {
-            case "Hipertensos":
+            case "Hipertension":
                 filterHypertensivePlans(healthClassification, filteredPlans, allPlans);
                 break;
             case "Diabetes Tipo 1":
@@ -89,6 +89,14 @@ public class PlanExerciseController {
                 break;
             case "Sobre Peso":
                 filteredPlans.put("hipertensosSobrePeso", allPlans.get("hipertensosSobrePeso"));
+                break;
+            case "Obesidad Tipo I":
+            case "Obesidad Tipo II":
+                filteredPlans.put("diabetesTipo1ObesidadTipoIYII", allPlans.get("diabetesTipo1ObesidadTipoIYII"));
+                break;
+            case "Obesidad Tipo III":
+            case "Obesidad Tipo IV":
+                filteredPlans.put("diabetesTipo1ObesidadTipoIIIYIV", allPlans.get("diabetesTipo1ObesidadTipoIIIYIV"));
                 break;
             default:
                 // Manejar otros casos si es necesario
