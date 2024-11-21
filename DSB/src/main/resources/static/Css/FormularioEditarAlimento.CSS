@@ -9,6 +9,8 @@
 }
 
 body {
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     font-family: "Montserrat", sans-serif;
 }
 
@@ -120,7 +122,7 @@ a:hover {
 
 
 .contenido-registroalimento{
-    background-color: #331055;
+    background-color: #0056b3;
     width: 70%;
     height: auto;
     padding: 20px 30px;
@@ -132,7 +134,7 @@ a:hover {
 
 .contenido-registroalimento h1 {
     font-size: 45px;
-    color: #0082e6;
+    color: #ffffff;
     text-align: center;
     margin-top: 20px;
 
