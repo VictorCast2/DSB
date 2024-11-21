@@ -38,6 +38,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>Comida</th>
                     <th>Categoria Alimentos</th>
                     <th>Tipo Comida</th>
                     <th>Fecha Hora Inicial</th>
@@ -46,9 +47,10 @@
             </thead>
             <tbody>
                 <tr th:each="log : ${foodLogs}">
-                    <td th:text="${log.categoriaAlimentos}"></td>
-                    <td th:text="${log.tipoComida}"></td>
-                    <td th:text="${log.fechaHoraInicial}"></td>
+                    <td th:text="${log.Foods}"></td>
+                    <td th:text="${log.AlimentsCategories}"></td>
+                    <td th:text="${log.Aliments}"></td>
+                    <td th:text="${log.StrartDate}"></td>
                     <td>
                         <a th:href="@{/Api/Users/Food/EditarAlimento/{id}(id=${log.id})}">
                             <i class="fa-solid fa-pen-to-square"></i>
