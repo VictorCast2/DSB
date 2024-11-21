@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family:"Montserrat";
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Responsive Table Styles */
 .table-container {
     width: 100%;
     max-width: 1200px;
     overflow-x: auto;
-    margin: 50px 0 0 50px;
-    display: flex;
-    background-position: center;
-    justify-content: center;
-    align-items: center;
+    margin: 20px 0;
 }
 
 table {
@@ -52,42 +59,80 @@ tbody tr:nth-child(odd) {
 }
 
 tbody td:first-child {
-    background-color: #0092ad;
-    color: #0092ad;
+    background-color: #0092ad; /* Fondo azul */
+    color: #ffffff; /* Texto blanco para contraste */
     font-weight: bold;
     text-align: center;
 }
 
-/* Ajustes Responsivos */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     table {
         font-size: 0.9em;
     }
 }
 
+/* Responsive Styles */
 @media (max-width: 440px) {
-    table {
-        border: 2px solid #0092ad;
-    }
-
-    table thead tr {
-        display: none;
+    table thead {
+        display: none; /* Ocultar encabezados */
     }
 
     table tr {
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr; /* Cada fila es un bloque */
+        border: 2px solid #0092ad;
+        margin-bottom: 10px;
+        background-color: #ffffff;
     }
 
     table td {
-        display: block;
-        text-align: left;
-        padding: 0.6em;
-        font-size: 1em;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: none;
+        font-size: 0.9em;
     }
 
-    table td::before {
-        content: attr(data-title) ": ";
-        float: left;
+    /* Ajuste para los días */
+    table tbody td:first-child {
+        grid-column: 1 / -1; /* El día ocupa toda la fila */
+        background-color: #0092ad;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    table td:nth-child(2)::before {
+        content: "Tipo Ejercicio:";
+        font-weight: bold;
+        color: #0092ad;
+    }
+
+    table td:nth-child(3)::before {
+        content: "Nombre Ejercicio:";
+        font-weight: bold;
+        color: #0092ad;
+    }
+
+    table td:nth-child(4)::before {
+        content: "Intensidad:";
+        font-weight: bold;
+        color: #0092ad;
+    }
+
+    table td:nth-child(5)::before {
+        content: "Enfermedad:";
+        font-weight: bold;
+        color: #0092ad;
+    }
+
+    table td:nth-child(6)::before {
+        content: "Clasificacion IMC:";
         font-weight: bold;
         color: #0092ad;
     }
