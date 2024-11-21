@@ -38,7 +38,6 @@ public class PlanAlimentController {
                     // Parsear el JSON usando Gson
                     Gson gson = new Gson();
                     JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
-
                     Map<String, List<Map<String, String>>> Retorno = new HashMap<>();
                     switch (user.getDisease()) {
                         case "Hipertension" -> {
@@ -161,7 +160,7 @@ public class PlanAlimentController {
         return "/Health_Plans/Food/PlanesAlimenticios";
     }
 
-    private Map<String, List<Map<String, String>>> extractAlimentsMap(JsonArray alimentosJson) {
+    public Map<String, List<Map<String, String>>> extractAlimentsMap(JsonArray alimentosJson) {
         Map<String, List<Map<String, String>>> alimentsMap = new HashMap<>();
         for (JsonElement element : alimentosJson) {
             JsonObject dayObject = element.getAsJsonObject();
