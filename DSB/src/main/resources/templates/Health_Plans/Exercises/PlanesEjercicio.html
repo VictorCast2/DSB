@@ -21,17 +21,10 @@
                     <th>Intensidad</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Iteramos sobre cada entrada en 'exercisePlans' -->
-                <tr th:each="entry : ${exercisePlans}">
-                    <td th:if="${entry.value.size() > 0}" th:text="${entry.key}" colspan="4"></td>
-                    <!-- Muestra el día solo en la primera fila -->
+            <tbody th:each="entry : ${exercisePlans}">
+                <tr th:each="value:${entry.value}">
+                    <td th:each="item:${value}" th:text="${item}"></td>
                 </tr>
-                <tr th:each="log : ${entry}">
-                    <td th:text="${log.Day}"></td>
-                    <td th:text="${log.ExerciseName}"></td>
-                    <td th:text="${log.ExerciseType}"></td>
-                    <td th:text="${log.ExerciseIntensity}"></td>
             </tbody>
         </table>
     </div>

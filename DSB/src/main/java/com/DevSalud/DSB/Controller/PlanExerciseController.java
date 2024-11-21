@@ -3,9 +3,11 @@ package com.DevSalud.DSB.Controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -51,7 +53,6 @@ public class PlanExerciseController {
         // Filtra los planes según la enfermedad y la clasificación de salud
         Map<String, List<List<String>>> exercisePlans = filterPlans(disease, healthClassification);
         model.addAttribute("exercisePlans", exercisePlans);
-
         return "/Health_Plans/Exercises/PlanesEjercicio"; // Vista donde se mostrarán los ejercicios
     }
 
@@ -68,11 +69,10 @@ public class PlanExerciseController {
             case "Hipertensos":
                 filterHypertensivePlans(healthClassification, filteredPlans, allPlans);
                 break;
-            case "Diabetico Tipo I":
+            case "Diabetes Tipo 1":
                 filterDiabetesType1Plans(healthClassification, filteredPlans, allPlans);
                 break;
-            case "Diabetico Tipo II":
-            case "Diabético Tipo II":
+            case "Diabetes Tipo 2":
                 filterDiabetesType2Plans(healthClassification, filteredPlans, allPlans);
                 break;
             default:
@@ -143,11 +143,17 @@ public class PlanExerciseController {
     private Map<String, List<List<String>>> loadPlansFromJson() {
         Gson gson = new Gson();
         try {
-            Resource resource = new ClassPathResource("static/Json/PlanExercice.json");
+            Resource resource = new ClassPathResource("static/Json/PlanExercise.json");
             BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
-            Type type = new TypeToken<Map<String, List<List<String>>>>() {
+            Type type = new TypeToken<Collection<Map<String, List<List<String>>>>>() {
             }.getType();
-            return gson.fromJson(reader, type);
+            Collection<Map<String, List<List<String>>>> plans = gson.fromJson(reader, type);
+            Map<String, List<List<String>>> allPlans = new HashMap<>();
+            for (Map<String, List<List<String>>> plan : plans) {
+                allPlans.putAll(plan);
+            }
+            return allPlans;
+            // return gson.fromJson(reader, type);
         } catch (Exception e) {
             e.printStackTrace();
             return new HashMap<>(); // Retorna un mapa vacío en caso de error
