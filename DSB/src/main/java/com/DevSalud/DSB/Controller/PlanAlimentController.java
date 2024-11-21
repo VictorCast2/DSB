@@ -40,6 +40,85 @@ public class PlanAlimentController {
                     // Parsear el JSON usando Gson
                     Gson gson = new Gson();
                     JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
+
+                    switch (user.getDisease()){
+                        case "Hipertension" ->{
+                            switch (user.getHealthClassification()) {
+                                case "Bajo Peso" ->{
+                                    break;
+                                }
+                                case "Peso Normal" ->{
+                                    break;
+                                }
+                                case "Sobre Peso" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo I" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo II" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo III" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo IV" ->{
+                                    break;
+                                }
+                            }
+                        }
+                        case "Diabetes Tipo 1" ->{
+                            switch (user.getHealthClassification()) {
+                                case "Bajo Peso" ->{
+                                    break;
+                                }
+                                case "Peso Normal" ->{
+                                    break;
+                                }
+                                case "Sobre Peso" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo I" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo II" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo III" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo IV" ->{
+                                    break;
+                                }
+                            }
+                        }
+                        case "Diabetes Tipo 2" ->{
+                            switch (user.getHealthClassification()) {
+                                case "Bajo Peso" ->{
+                                    break;
+                                }
+                                case "Peso Normal" ->{
+                                    break;
+                                }
+                                case "Sobre Peso" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo I" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo II" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo III" ->{
+                                    break;
+                                }
+                                case "Obesidad Tipo IV" ->{
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
                     // Extraer las opciones
                     Map<String, List<String>> hipertensosBajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosBajoDePeso"));
                     Map<String, List<String>> hipertensosSobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosSobrePeso"));
