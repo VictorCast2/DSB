@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Planes Alimenticios</title>
-        <link rel="stylesheet" href="/Css/PlanesAlimenticios.css">
-        <link rel="shortcut icon" href="/Img/B.S.D 1.png"
-            type="image/x-icon">
-    </head>
-    <body>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-        <div class="notifications-container"
-            th:if="${#maps.isEmpty(FoodPlans)}">
-            <div class="success">
-                <div class="flex">
-                    <div class="flex-shrink-0">
-                        <svg class="succes-svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20" fill="currentColor"
-                            aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <div class="success-prompt-wrap">
-                        <p class="success-prompt-heading">Tienes Un Peso Normal
-                            Verdad?</p>
-                        <div class="success-prompt-prompt">
-                            <p>No Te Puedo Recomendar Planes Alimenticios Tiene
-                                Una Salud Estable</p>
-                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes Alimenticios</title>
+    <link rel="stylesheet" href="/Css/PlanesAlimenticios.css">
+    <link rel="shortcut icon" href="/Img/B.S.D 1.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="notifications-container" th:if="${#maps.isEmpty(FoodPlans)}">
+        <div class="success">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                    <p class="success-prompt-heading">Tienes Un Peso Normal
+                        Verdad?</p>
+                    <div class="success-prompt-prompt">
+                        <p>No Te Puedo Recomendar Planes Alimenticios Tiene
+                            Una Salud Estable</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="table-container">
-            <table>
-                <caption>PLANES ALIMENTICIOS</caption>
-                <thead>
-                    <tr>
-                        <th>Día</th>
-                        <th>Desayuno
-                            (7:00 am - 8:00 am)
-                        </th>
-                        <th>Almuerzo
-                            (12:00 pm - 1:00 pm)
-                        </th>
-                        <th>Cena
-                            (5:00 pm - 6:00 pm)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="entry : ${FoodPlans}">
-                        <td colspan="4" th:text="${entry.key}"></td>
-                    </tr>
-                    <tr th:each="plan : ${entry.value}">
-                        <td th:text="${plan != null ? plan[0] : 'No disponible'}"></td>
-                        <td th:text="${plan != null ? plan[1] : 'No disponible'}"></td>
-                        <td th:text="${plan != null ? plan[2] : 'No disponible'}"></td>
-                        <td th:text="${plan != null ? plan[3] : 'No disponible'}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </body>
+    <div class="table-container">
+        <table>
+            <caption>PLANES ALIMENTICIOS</caption>
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Desayuno
+                        (7:00 am - 8:00 am)
+                    </th>
+                    <th>Almuerzo
+                        (12:00 pm - 1:00 pm)
+                    </th>
+                    <th>Cena
+                        (5:00 pm - 6:00 pm)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entry : ${FoodPlans}">
+                    <td colspan="4"></td>
+                </tr>
+                <!-- Iteramos sobre la lista de alimento dentro de cada entrada -->
+                <tr th:each="aliments : ${entry.value}">
+                    <!-- Muestra el tipo de alimento solo en la primera fila -->
+                    <td th:text="${aliments[0]}"></td> <!-- Dia -->
+                    <td th:text="${aliments[1]}"></td> <!-- Desayuno -->
+                    <td th:text="${aliments[2]}"></td> <!-- Almuerzo -->
+                    <td th:text="${aliments[3]}"></td> <!-- Cena -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
 </html>

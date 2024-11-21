@@ -41,19 +41,20 @@ public class PlanAlimentController {
                     Gson gson = new Gson();
                     JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
                     // Extraer las opciones
-                    List<String> hipertensosBajoDePeso = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> hipertensosSobrePeso = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> hipertensosObesidadTipo1y2 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> hipertensosObesidadTipo3y4 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo1BajoDePeso = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo1SobrePeso = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo1ObesidadTipo1y2 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo1ObesidadTipo3y4 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo2BajoDePeso = extractJsonArray(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo2SobrePeso = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo2ObesidadTipo1y2 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    List<String> diabetesTipo2ObesiadaTipo3y4 = extractAlimentsMap(jsonObject, "IntensidadEjercicio");
-                    model.addAttribute("FoodPlans", user);
+                    Map<String, List<String>> hipertensosBajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosBajoDePeso"));
+                    Map<String, List<String>> hipertensosSobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosSobrePeso"));
+                    Map<String, List<String>> hipertensosObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo1y2"));
+                    Map<String, List<String>> hipertensosObesidadTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo3y4"));
+                    Map<String, List<String>> diabetesTipo1BajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1BajoDePeso"));
+                    Map<String, List<String>> diabetesTipo1SobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1SobrePeso"));
+                    Map<String, List<String>> diabetesTipo1ObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo1y2"));
+                    Map<String, List<String>> diabetesTipo1ObesidadTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo3y4"));
+                    Map<String, List<String>> diabetesTipo2BajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2BajoDePeso"));
+                    Map<String, List<String>> diabetesTipo2SobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2SobrePeso"));
+                    Map<String, List<String>> diabetesTipo2ObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesidadTipo1y2"));
+                    Map<String, List<String>> diabetesTipo2ObesiadaTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesiadaTipo3y4"));
+
+                    model.addAttribute("FoodPlans", hipertensosBajoDePeso);
                 } else {
                     model.addAttribute("error", "Usuario no encontrado.");
                     return "redirect:/Api/Users/Login";
@@ -77,11 +78,6 @@ public class PlanAlimentController {
             AlimentsMap.put(entry.getKey(), alimentosList);
         }
         return AlimentsMap;
-    }
-
-    @GetMapping("/TablaPlanesAlimenticios")
-    public String recomendarPlanesAlimenticios() {
-        return "PlanesAlimenticios";
     }
 
 }
