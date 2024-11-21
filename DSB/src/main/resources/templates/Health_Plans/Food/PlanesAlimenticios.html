@@ -22,14 +22,6 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <div class="success-prompt-wrap">
-                    <p class="success-prompt-heading">Tienes Un Peso Normal
-                        Verdad?</p>
-                    <div class="success-prompt-prompt">
-                        <p>No Te Puedo Recomendar Planes Alimenticios Tiene
-                            Una Salud Estable</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -52,16 +44,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="entry : ${FoodPlans}">
-                    <td colspan="4"></td>
-                </tr>
-                <!-- Iteramos sobre la lista de alimento dentro de cada entrada -->
-                <tr th:each="aliments : ${entry.value}">
-                    <!-- Muestra el tipo de alimento solo en la primera fila -->
-                    <td th:text="${aliments.Day}"></td> <!-- Dia -->
-                    <td th:text="${aliments.Breakfast}"></td> <!-- Desayuno -->
-                    <td th:text="${aliments.Lunch}"></td> <!-- Almuerzo -->
-                    <td th:text="${aliments.Dinner}"></td> <!-- Cena -->
+                <tr th:each="day, meals : ${FoodPlans}">
+                    <td th:text="${day}"></td>
+                    <td th:text="${meals[0].desayuno}"></td>
+                    <td th:text="${meals[0].almuerzo}"></td>
+                    <td th:text="${meals[0].cena}"></td>
                 </tr>
             </tbody>
         </table>
