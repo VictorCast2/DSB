@@ -41,28 +41,37 @@ public class PlanAlimentController {
                     Gson gson = new Gson();
                     JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
 
+                    Map<String, List<String>> Retorno = new HashMap<>();
+
                     switch (user.getDisease()){
                         case "Hipertension" ->{
                             switch (user.getHealthClassification()) {
                                 case "Bajo Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosBajoDePeso"));
                                     break;
                                 }
-                                case "Peso Normal" ->{
+                                case "Peso Normal" ->{   
+                                    Retorno = null;                             
                                     break;
                                 }
                                 case "Sobre Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosSobrePeso"));
                                     break;
                                 }
                                 case "Obesidad Tipo I" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo II" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo III" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo3y4"));
                                     break;
                                 }
                                 case "Obesidad Tipo IV" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo3y4"));
                                     break;
                                 }
                             }
@@ -70,24 +79,31 @@ public class PlanAlimentController {
                         case "Diabetes Tipo 1" ->{
                             switch (user.getHealthClassification()) {
                                 case "Bajo Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1BajoDePeso"));
                                     break;
                                 }
-                                case "Peso Normal" ->{
+                                case "Peso Normal" ->{   
+                                    Retorno = null;                             
                                     break;
                                 }
                                 case "Sobre Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1SobrePeso"));
                                     break;
                                 }
                                 case "Obesidad Tipo I" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo II" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo III" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo3y4"));
                                     break;
                                 }
                                 case "Obesidad Tipo IV" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo3y4"));
                                     break;
                                 }
                             }
@@ -95,45 +111,37 @@ public class PlanAlimentController {
                         case "Diabetes Tipo 2" ->{
                             switch (user.getHealthClassification()) {
                                 case "Bajo Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2BajoDePeso"));
                                     break;
                                 }
-                                case "Peso Normal" ->{
+                                case "Peso Normal" ->{   
+                                    Retorno = null;                             
                                     break;
                                 }
                                 case "Sobre Peso" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2SobrePeso"));
                                     break;
                                 }
                                 case "Obesidad Tipo I" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo II" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesidadTipo1y2"));
                                     break;
                                 }
                                 case "Obesidad Tipo III" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesiadaTipo3y4"));
                                     break;
                                 }
                                 case "Obesidad Tipo IV" ->{
+                                    Retorno = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesiadaTipo3y4"));
                                     break;
                                 }
                             }
                         }
                     }
-
-                    // Extraer las opciones
-                    Map<String, List<String>> hipertensosBajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosBajoDePeso"));
-                    Map<String, List<String>> hipertensosSobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosSobrePeso"));
-                    Map<String, List<String>> hipertensosObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo1y2"));
-                    Map<String, List<String>> hipertensosObesidadTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("hipertensosObesidadTipo3y4"));
-                    Map<String, List<String>> diabetesTipo1BajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1BajoDePeso"));
-                    Map<String, List<String>> diabetesTipo1SobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1SobrePeso"));
-                    Map<String, List<String>> diabetesTipo1ObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo1y2"));
-                    Map<String, List<String>> diabetesTipo1ObesidadTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo1ObesidadTipo3y4"));
-                    Map<String, List<String>> diabetesTipo2BajoDePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2BajoDePeso"));
-                    Map<String, List<String>> diabetesTipo2SobrePeso = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2SobrePeso"));
-                    Map<String, List<String>> diabetesTipo2ObesidadTipo1y2 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesidadTipo1y2"));
-                    Map<String, List<String>> diabetesTipo2ObesiadaTipo3y4 = extractAlimentsMap(jsonObject.getAsJsonObject("diabetesTipo2ObesiadaTipo3y4"));
-
-                    model.addAttribute("FoodPlans", hipertensosBajoDePeso);
+                    model.addAttribute("FoodPlans", Retorno);
                 } else {
                     model.addAttribute("error", "Usuario no encontrado.");
                     return "redirect:/Api/Users/Login";

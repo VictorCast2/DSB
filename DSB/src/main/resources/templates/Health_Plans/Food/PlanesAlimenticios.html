@@ -58,10 +58,10 @@
                 <!-- Iteramos sobre la lista de alimento dentro de cada entrada -->
                 <tr th:each="aliments : ${entry.value}">
                     <!-- Muestra el tipo de alimento solo en la primera fila -->
-                    <td th:text="${aliments[0]}"></td> <!-- Dia -->
-                    <td th:text="${aliments[1]}"></td> <!-- Desayuno -->
-                    <td th:text="${aliments[2]}"></td> <!-- Almuerzo -->
-                    <td th:text="${aliments[3]}"></td> <!-- Cena -->
+                    <td th:text="${aliments.Day}"></td> <!-- Dia -->
+                    <td th:text="${aliments.Breakfast}"></td> <!-- Desayuno -->
+                    <td th:text="${aliments.Lunch}"></td> <!-- Almuerzo -->
+                    <td th:text="${aliments.Dinner}"></td> <!-- Cena -->
                 </tr>
             </tbody>
         </table>
