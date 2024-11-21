@@ -27,14 +27,11 @@
                     <td th:if="${entry.value.size() > 0}" th:text="${entry.key}" colspan="4"></td>
                     <!-- Muestra el día solo en la primera fila -->
                 </tr>
-                <!-- Iteramos sobre la lista de ejercicios dentro de cada entrada -->
-                <tr th:each="exercise, iterStat : ${entry.value}">
-                    <!-- Muestra el tipo de ejercicio solo en la primera fila -->
-                    <td th:text="${iterStat.first() ? entry.key : ''}"></td>
-                    <td th:text="${exercise[0]}"></td> <!-- Tipo Ejercicio -->
-                    <td th:text="${exercise[1]}"></td> <!-- Nombre Ejercicio -->
-                    <td th:text="${exercise[2]}"></td> <!-- Intensidad -->
-                </tr>
+                <tr th:each="log : ${entry}">
+                    <td th:text="${log.Day}"></td>
+                    <td th:text="${log.ExerciseName}"></td>
+                    <td th:text="${log.ExerciseType}"></td>
+                    <td th:text="${log.ExerciseIntensity}"></td>
             </tbody>
         </table>
     </div>
