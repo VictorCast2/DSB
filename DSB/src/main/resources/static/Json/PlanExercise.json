@@ -923,7 +923,488 @@
         "Hipertensos",
         "Sobre Peso"
       ]
-    ],  
+    ]
+  },
+  {
+    "hipertensosObesidadTipo1y2": [
+      [
+        "Lunes",
+        "Aeróbico",
+        "Saltos En Caja",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Lunes",
+        "Aeróbico",
+        "Abdominales Tipo Bicicleta",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Lunes",
+        "Pierna",
+        "Sentadillas",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Lunes",
+        "Hombro",
+        "Elevaciones Laterales Con Bandas Elásticas",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Martes",
+        "Espalda",
+        "Elevación De Cadera Con Una Pierna",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Martes",
+        "Espalda",
+        "Remo Con Bandas Elásticas En Banco Con Elevación De Cadera",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Martes",
+        "Tríceps",
+        "Extensión De Tríceps En Banco Con Bandas Elásticas Con Giro De Torso",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Martes",
+        "Tríceps",
+        "Extensión De Tríceps En Banco Con Bandas Elásticas Con Elevación De Cadera",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Miércoles",
+        "Pecho",
+        "Flexiones Hindúes",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Miércoles",
+        "Pecho",
+        "Flexiones Con Brazos Abiertos",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Miércoles",
+        "Antebrazo",
+        "Extensión De Muñeca Con Bandas Elásticas Y Giro De Torso",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Miércoles",
+        "Antebrazo",
+        "Flexión De Muñeca Con Bandas Elásticas Con Rotación",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Jueves",
+        "Abdominales",
+        "Abdominales De Doble Pierna",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Jueves",
+        "Pantorrilla",
+        "Elevaciones De Talón Con Rebote Y Salto",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Jueves",
+        "Flexibilidad",
+        "Estiramiento De Cuádriceps",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Jueves",
+        "Resistencia",
+        "Escaladores De Montaña",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Viernes",
+        "Fuerza",
+        "Sentadillas Búlgaras",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Viernes",
+        "Fortalecimiento",
+        "Elevación De Talones Con Una Pierna",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Viernes",
+        "Equilibrio",
+        "Equilibrio Con Banda Elástica Y Elevación De Pierna",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Viernes",
+        "Anaeróbico",
+        "Abdominales Tipo Bicicleta Con Bandas Elásticas",
+        "Baja",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Sábado",
+        "Flexibilidad",
+        "Estiramiento De La Parte Baja De La Espalda",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Sábado",
+        "Equilibrio",
+        "Equilibrio Con Elevación Frontal De Pierna",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Sábado",
+        "Fuerza",
+        "Peso Muerto Con Mochila Cargada",
+        "Moderada",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Sábado",
+        "Flexibilidad",
+        "Estiramiento De Hombros",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Aductores",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Cuádriceps",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Cadera",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ],
+      [
+        "Domingo",
+        "Equilibrio",
+        "Equilibrio Sobre Una Superficie Inestable",
+        "Alta",
+        "Hipertensos",
+        "Bajo Peso"
+      ]
+    ]
+  },
+  {
+    "hipertensosObesidadTipo3y4": [
+      [
+        "Lunes",
+        "Aeróbico",
+        "Saltos En Caja",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Lunes",
+        "Aeróbico",
+        "Abdominales Tipo Bicicleta",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Lunes",
+        "Pierna",
+        "Sentadillas",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Lunes",
+        "Pierna",
+        "Sentadillas Con Una Pierna En Banco",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Lunes",
+        "Hombro",
+        "Elevaciones Laterales Con Bandas Elásticas",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Martes",
+        "Espalda",
+        "Elevación De Cadera Con Una Pierna",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Martes",
+        "Espalda",
+        "Remo Con Bandas Elásticas En Banco Con Elevación De Cadera",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Martes",
+        "Tríceps",
+        "Extensión De Tríceps En Banco Con Bandas Elásticas Con Giro De Torso",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Martes",
+        "Tríceps",
+        "Extensión De Tríceps En Banco Con Bandas Elásticas Con Elevación De Cadera",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Miércoles",
+        "Pecho",
+        "Flexiones Hindúes",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Miércoles",
+        "Pecho",
+        "Flexiones Con Brazos Abiertos",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Miércoles",
+        "Pecho",
+        "Sentadillas Tipo Box",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Miércoles",
+        "Antebrazo",
+        "Extensión De Muñeca Con Bandas Elásticas Y Giro De Torso",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Miércoles",
+        "Antebrazo",
+        "Flexión De Muñeca Con Bandas Elásticas Con Rotación",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Jueves",
+        "Abdominales De Doble Pierna","Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Jueves",
+        "Pantorrilla",
+        "Elevaciones De Talón Con Rebote Y Salto",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Jueves",
+        "Flexibilidad",
+        "Estiramiento De Cuádriceps",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Jueves",
+        "Resistencia",
+        "Escaladores De Montaña",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Viernes",
+        "Fuerza",
+        "Sentadillas Búlgaras",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Viernes",
+        "Fortalecimiento",
+        "Elevación De Talones Con Una Pierna",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Viernes",
+        "Equilibrio",
+        "Equilibrio Con Banda Elástica Y Elevación De Pierna",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Viernes",
+        "Anaeróbico",
+        "Abdominales Tipo Bicicleta Con Bandas Elásticas",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Viernes",
+        "Anaeróbico",
+        "Peso Muerto Con Bandas Elásticas",
+        "Baja",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Sábado",
+        "Flexibilidad",
+        "Estiramiento De La Parte Baja De La Espalda",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Sábado",
+        "Equilibrio",
+        "Equilibrio Con Elevación Frontal De Pierna",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Sábado",
+        "Fuerza",
+        "Peso Muerto Con Mochila Cargada",
+        "Moderada",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Sábado",
+        "Flexibilidad",
+        "Estiramiento De Hombros",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Aductores",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Cuádriceps",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Domingo",
+        "Flexibilidad",
+        "Estiramiento De Cadera",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ],
+      [
+        "Domingo",
+        "Equilibrio",
+        "Equilibrio Sobre Una Superficie Inestable",
+        "Alta",
+        "Hipertensos",
+        "Obesidad Tipo III y IV"
+      ]
+    ]
+  },
+  {
+
     "diabetesTipo1BajoPeso": [
       [
         "Lunes",
