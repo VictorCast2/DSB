@@ -481,9 +481,7 @@
         "Hipertensos",
         "Bajo Peso"
       ]
-    ]
-  },
-  {
+    ], 
     "hipertensosSobrePeso": [
       [
         "Lunes",
@@ -1406,6 +1404,7 @@
     ]
   },
   {
+
     "diabetesTipo1BajoPeso": [
       [
         "Lunes",
@@ -1839,9 +1838,7 @@
         "Diabetico Tipo I",
         "Bajo Peso"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo1SobrePeso": [
       [
         "Lunes",
@@ -2227,9 +2224,7 @@
         "Diabetico Tipo I",
         "Sobre Peso"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo1ObesidadTipoIYII": [
       [
         "Lunes",
@@ -2568,9 +2563,7 @@
         "Diabetico Tipo I",
         "Obesidad Tipo I y II"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo1ObesidadTipoIIIYIV": [
       [
         "Lunes",
@@ -2909,9 +2902,8 @@
         "Diabetico Tipo I",
         "Obesidad Tipo III y IV"
       ]
-    ]
-  },
-  {
+    ],
+
     "diabetesTipo2BajoPeso": [
       [
         "Lunes",
@@ -3273,9 +3265,7 @@
         "Diabetico Tipo II",
         "Bajo Peso"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo2SobrePeso": [
       [
         "Lunes",
@@ -3565,9 +3555,7 @@
         "Diabetico Tipo II",
         "Sobre Peso"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo2ObesidadTipoIYII": [
       [
         "Lunes",
@@ -3801,9 +3789,7 @@
         "Diabético Tipo II",
         "Obesidad Tipo I y II"
       ]
-    ]
-  },
-  {
+    ],
     "diabetesTipo2ObesidadTipoIIIYIV": [
       [
         "Lunes",
