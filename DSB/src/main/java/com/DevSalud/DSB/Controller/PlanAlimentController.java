@@ -30,10 +30,14 @@ public class PlanAlimentController {
     @GetMapping("/PlanAlimentos")
     public String listAlimetos(Model model, HttpSession session) {
         try {
+
             Long userId = (Long) session.getAttribute("UsuarioId");
+
             if (userId != null) {
                 UserModel user = userService.getUserById(userId);
+
                 if (user != null) {
+
                     // Recargar el archivo JSON desde la carpeta resources
                     Resource resource = resourceLoader.getResource("classpath:/static/Json/PlanesAlimenticios.json");
                     String content = new String(Files.readAllBytes(resource.getFile().toPath()));
@@ -141,12 +145,17 @@ public class PlanAlimentController {
                             }
                         }
                     }
+
                     model.addAttribute("FoodPlans", Retorno);
+
                 } else {
+
                     model.addAttribute("error", "Usuario no encontrado.");
                     return "redirect:/Api/Users/Login";
+
                 }
             }
+            
         } catch (IOException | JsonSyntaxException e) {
             e.printStackTrace();
             model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
