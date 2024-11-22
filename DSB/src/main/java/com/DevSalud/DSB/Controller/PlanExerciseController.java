@@ -47,6 +47,14 @@ public class PlanExerciseController {
         return "/Health_Plans/Exercises/PlanesEjercicio"; // Vista donde se mostrarán los ejercicios
     }
 
+    /**
+     * Filtra los planes de ejercicio basados en la enfermedad y la clasificación de
+     * salud del usuario.
+     * 
+     * @param disease              La enfermedad del usuario.
+     * @param healthClassification La clasificación de salud del usuario.
+     * @return Un mapa de planes de ejercicio filtrados.
+     */
     private Map<String, List<List<String>>> filterPlans(String disease, String healthClassification) {
         Map<String, List<List<String>>> filteredPlans = new HashMap<>();
         Map<String, List<List<String>>> allPlans = loadPlansFromJson();
@@ -73,7 +81,15 @@ public class PlanExerciseController {
         return filteredPlans;
     }
 
-    private void filterHypertensivePlans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios hipertensos según su clasificación de salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa de planes filtrados.
+     * @param allPlans             El mapa de todos los planes de ejercicio.
+     */
+    private void filterHypertensivePlans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("hipertensosBajoDePeso", allPlans.get("hipertensosBajoDePeso"));
@@ -95,7 +111,16 @@ public class PlanExerciseController {
         }
     }
 
-    private void filterDiabetesType1Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios con diabetes tipo 1 según su clasificación de
+     * salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa de planes filtrados.
+     * @param allPlans             El mapa de todos los planes de ejercicio.
+     */
+    private void filterDiabetesType1Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("diabetesTipo1BajoPeso", allPlans.get("diabetesTipo1BajoPeso"));
@@ -117,7 +142,16 @@ public class PlanExerciseController {
         }
     }
 
-    private void filterDiabetesType2Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios con diabetes tipo 2 según su clasificación de
+     * salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa de planes filtrados.
+     * @param allPlans             El mapa de todos los planes de ejercicio.
+     */
+    private void filterDiabetesType2Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("diabetesTipo2BajoPeso", allPlans.get("diabetesTipo2BajoPeso"));
@@ -139,6 +173,12 @@ public class PlanExerciseController {
         }
     }
 
+    /**
+     * Carga los planes de ejercicio desde un archivo JSON.
+     * 
+     * @return Un mapa que contiene todos los planes de ejercicio cargados desde el
+     *         archivo JSON.
+     */
     private Map<String, List<List<String>>> loadPlansFromJson() {
         Gson gson = new Gson();
         try {

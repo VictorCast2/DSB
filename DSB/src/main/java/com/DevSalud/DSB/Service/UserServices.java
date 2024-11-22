@@ -2,7 +2,6 @@ package com.DevSalud.DSB.Service;
 
 import java.time.*;
 import java.util.List;
-
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +48,15 @@ public class UserServices {
         return userRepository.save(user);
     }
 
+    /**
+ * Busca un usuario por nombre de usuario o dirección de correo electrónico.
+ * 
+ * Este método intenta primero encontrar un usuario usando el nombre de usuario. Si no se encuentra,
+ * realiza una segunda búsqueda utilizando la dirección de correo electrónico.
+ * 
+ * @param userOrEmail El nombre de usuario o la dirección de correo electrónico que se busca.
+ * @return El usuario encontrado o null si no se encuentra ningún usuario.
+ */
     public UserModel findByUserOrEmail(String userOrEmail) {
         // First, try to find by username
         UserModel user = userRepository.findByuser(userOrEmail);

@@ -25,26 +25,31 @@ public class AlimentLogController {
     @Autowired
     private AlimentLogRepository alimentLogRepository;
 
+    // ModelAttribute que proporciona una lista de todas las categorías de comidas.
     @ModelAttribute("allCategoriaFood")
     public List<String> comidas() {
         return getComidas();
     }
 
+    // ModelAttribute que proporciona una lista de todas las categorías de alimentos.
     @ModelAttribute("allCategoriaAliments")
     public List<String> categoriaComida() {
         return getCategorias();
     }
 
+    // ModelAttribute que proporciona un mapa con los nombres de comidas categorizadas.
     @ModelAttribute("allNameAliments")
     public Map<String, List<String>> nombresComidas() {
         return getComidasPorCategoria();
     }
 
+    // Método privado que devuelve una lista de las categorías de comidas.
     private List<String> getComidas() {
         return Arrays.asList(
                 "Desayuno", "Almuerzo", "Cena");
     }
 
+    // Método privado que devuelve una lista de categorías de alimentos.
     private List<String> getCategorias() {
         return Arrays.asList(
                 "Proteinas", "Frutas", "Verduras", "Granos",
@@ -52,6 +57,7 @@ public class AlimentLogController {
                 "Harinas", "Carbohidratos");
     }
 
+    // Método privado que devuelve un mapa de nombres de comidas por categoría.
     private Map<String, List<String>> getComidasPorCategoria() {
         Map<String, List<String>> comidas = new HashMap<>();
         comidas.put("Proteinas", Arrays.asList(
@@ -106,12 +112,28 @@ public class AlimentLogController {
         return comidas;
     }
 
+    /**
+     * Muestra el formulario para registrar o editar un alimento.
+     * 
+     * @param model El modelo que se pasará a la vista.
+     * @return La vista del formulario de registro o edición de alimentos.
+     */
     @GetMapping("/RegistroYEditarAlimento")
     public String formularioRegistroAlimento(Model model) {
         model.addAttribute("alimentLog", new AlimentLogModel());
         return "/Food/FormularioRegistroAlimento";
     }
 
+    /**
+     * Procesa la creación o actualización de un registro de alimento.
+     * 
+     * @param session    La sesión HTTP para obtener el ID del usuario.
+     * @param model      El modelo que se pasará a la vista.
+     * @param alimentLog El modelo del registro de alimento que se creará o
+     *                   actualizará.
+     * @return Redirige a la tabla de alimentos si se procesa correctamente,
+     *         de lo contrario, redirige a la página de inicio de sesión.
+     */
     @PostMapping("/RegistroYEditarAlimento")
     public String createOrUpdateAlimentLog(HttpSession session, Model model,
             @ModelAttribute AlimentLogModel alimentLog) {
@@ -134,11 +156,24 @@ public class AlimentLogController {
         return "redirect:/Api/Users/Login";
     }
 
+    /**
+     * Muestra la página principal del registro de alimentos.
+     * 
+     * @return La vista de la página principal del registro de alimentos.
+     */
     @GetMapping("/Home")
     public String homeRegistroAlimento() {
         return "/Food/HomeRegistroAlimento";
     }
 
+    /**
+     * Elimina un registro de alimento por su ID.
+     * 
+     * @param id    El ID del registro de alimento a eliminar.
+     * @param model El modelo que se pasará a la vista.
+     * @return Redirige a la tabla de alimentos si se elimina correctamente,
+     *         de lo contrario, muestra un mensaje de error.
+     */
     @GetMapping("/EliminarAlimento/{id}")
     public String eliminarAlimento(@PathVariable Long id, Model model) {
         AlimentLogModel alimentLog = alimentLogService.getAlimentLogById(id);
@@ -151,6 +186,16 @@ public class AlimentLogController {
         }
     }
 
+    /**
+     * Muestra el formulario para editar un registro de alimento por su ID.
+     * 
+     * @param id    El ID del registro de alimento a editar.
+     * @param model El modelo que se pasará a la vista.
+     * @return La vista del formulario de edición de alimentos si se encuentra el
+     *         registro,
+     *         de lo contrario, redirige a la tabla de alimentos con un mensaje de
+     *         error.
+     */
     @GetMapping("/EditarAlimento/{id}")
     public String editarAlimento(@PathVariable Long id, Model model) {
         AlimentLogModel alimentLog = alimentLogService.getAlimentLogById(id);
@@ -163,6 +208,15 @@ public class AlimentLogController {
         }
     }
 
+    /**
+     * Muestra la tabla de registros de alimentos.
+     * 
+     * @param model   El modelo que se pasará a la vista.
+     * @param session La sesión HTTP para obtener el ID del usuario.
+     * @return La vista de la tabla de registros de alimentos si el usuario está
+     *         autenticado,
+     *         de lo contrario, redirige a la página de inicio de sesión.
+     */
     @GetMapping("/TablaAlimento")
     public String tableFoodLog(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
@@ -170,7 +224,7 @@ public class AlimentLogController {
             List<AlimentLogModel> foodLogs = alimentLogRepository.findAll();
             model.addAttribute("foodLogs", foodLogs);
             return "Food/TablaRegistroAlimento";
-             // Asegúrate que esta sea la ruta correcta de tu template HTML
+            // Asegúrate que esta sea la ruta correcta de tu template HTML
         } else {
             model.addAttribute("error", "Usuario no encontrado.");
             return "redirect:/Api/Users/Login";

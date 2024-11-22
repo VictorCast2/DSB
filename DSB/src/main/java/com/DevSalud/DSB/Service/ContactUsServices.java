@@ -13,6 +13,16 @@ public class ContactUsServices {
     @Autowired
     private ContactUsRepository contactUsRepository;
 
+    /**
+     * Guarda un nuevo contacto en la base de datos.
+     * 
+     * Este método recibe un objeto `ContactUsModel`, que contiene la información
+     * del contacto,
+     * y lo guarda en la base de datos usando el repositorio `contactUsRepository`.
+     * 
+     * @param contactUsModel El objeto que contiene la información del contacto a
+     *                       guardar.
+     */
     public void saveContact(ContactUsModel contactUsModel) {
         contactUsRepository.save(contactUsModel);
     }

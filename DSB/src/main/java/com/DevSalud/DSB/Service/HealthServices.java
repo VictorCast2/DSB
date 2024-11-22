@@ -6,17 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Repository.HealthRepository;
+import lombok.Data;
 
+@Data
 @Service
 public class HealthServices {
 
     @Autowired
     private final HealthRepository healthRepository;
 
-    public HealthServices(HealthRepository healthRepository) {
-        this.healthRepository = healthRepository;
-    }
-
+    /**
+     * Obtiene todos los usuarios de la base de datos.
+     * 
+     * Este método devuelve una lista de todos los usuarios almacenados en la base
+     * de datos.
+     * 
+     * @return Una lista con todos los usuarios.
+     */
     public List<UserModel> getAllUsers() {
         return healthRepository.findAll();
     }

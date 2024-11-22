@@ -18,6 +18,15 @@ public class HealthController {
     @Autowired
     private UserServices userService;
 
+    /**
+     * Muestra el estado de salud del usuario.
+     * Obtiene el usuario desde la sesión, recupera sus datos, y los pasa a la
+     * vista.
+     * 
+     * @param model   El modelo utilizado para pasar los datos a la vista.
+     * @param session La sesión HTTP para obtener el ID del usuario.
+     * @return El nombre de la vista que muestra el estado de salud del usuario.
+     */
     @GetMapping(" ")
     public String estadoSalud(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId"); // Obtén el ID del usuario desde la sesión

@@ -1,27 +1,17 @@
 package com.DevSalud.DSB.Controller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
+import org.springframework.core.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import jakarta.servlet.http.HttpSession;
 import lombok.Data;
 
@@ -36,6 +26,15 @@ public class PlanAlimentController {
     @Autowired
     private ResourceLoader resourceLoader;
 
+    /**
+     * Maneja la solicitud GET para la página de planes alimenticios.
+     * Filtra los planes alimenticios según la enfermedad y la clasificación de
+     * salud del usuario.
+     * 
+     * @param model   El modelo utilizado para pasar los datos a la vista.
+     * @param session La sesión HTTP para obtener el ID del usuario.
+     * @return Devuelve la vista donde se mostrarán los planes alimenticios.
+     */
     @GetMapping("/PlanAlimentos")
     public String listExercises(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
@@ -60,6 +59,14 @@ public class PlanAlimentController {
         return "/Health_Plans/Food/PlanesAlimenticios"; // Vista donde se mostrarán los ejercicios
     }
 
+    /**
+     * Filtra los planes alimenticios basados en la enfermedad y clasificación de
+     * salud.
+     * 
+     * @param disease              La enfermedad del usuario.
+     * @param healthClassification La clasificación de salud del usuario.
+     * @return Un mapa con los planes alimenticios filtrados.
+     */
     private Map<String, List<List<String>>> filterPlans(String disease, String healthClassification) {
         Map<String, List<List<String>>> filteredPlans = new HashMap<>();
         Map<String, List<List<String>>> allPlans = loadPlansFromJson();
@@ -86,7 +93,17 @@ public class PlanAlimentController {
         return filteredPlans;
     }
 
-    private void filterHypertensivePlans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios con hipertensión, basándose en su
+     * clasificación de salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa donde se almacenarán los planes
+     *                             filtrados.
+     * @param allPlans             Todos los planes alimenticios disponibles.
+     */
+    private void filterHypertensivePlans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("hipertensosBajoDePeso", allPlans.get("hipertensosBajoDePeso"));
@@ -108,7 +125,17 @@ public class PlanAlimentController {
         }
     }
 
-    private void filterDiabetesType1Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios con diabetes tipo 1, basándose en su
+     * clasificación de salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa donde se almacenarán los planes
+     *                             filtrados.
+     * @param allPlans             Todos los planes alimenticios disponibles.
+     */
+    private void filterDiabetesType1Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("diabetesTipo1BajoDePeso", allPlans.get("diabetesTipo1BajoDePeso"));
@@ -130,7 +157,17 @@ public class PlanAlimentController {
         }
     }
 
-    private void filterDiabetesType2Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans, Map<String, List<List<String>>> allPlans) {
+    /**
+     * Filtra los planes para usuarios con diabetes tipo 2, basándose en su
+     * clasificación de salud.
+     * 
+     * @param healthClassification La clasificación de salud del usuario.
+     * @param filteredPlans        El mapa donde se almacenarán los planes
+     *                             filtrados.
+     * @param allPlans             Todos los planes alimenticios disponibles.
+     */
+    private void filterDiabetesType2Plans(String healthClassification, Map<String, List<List<String>>> filteredPlans,
+            Map<String, List<List<String>>> allPlans) {
         switch (healthClassification) {
             case "Bajo Peso":
                 filteredPlans.put("diabetesTipo2BajoDePeso", allPlans.get("diabetesTipo2BajoDePeso"));
@@ -152,6 +189,11 @@ public class PlanAlimentController {
         }
     }
 
+    /**
+     * Carga los planes alimenticios desde un archivo JSON.
+     * 
+     * @return Un mapa con todos los planes alimenticios disponibles.
+     */
     private Map<String, List<List<String>>> loadPlansFromJson() {
         Gson gson = new Gson();
         try {
