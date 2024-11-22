@@ -79,41 +79,59 @@ public class UserController {
      * 
      */
     @PostMapping("/Registro")
-    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect, BindingResult result, Model model, HttpSession session) {
+    public String registerUser(@ModelAttribute("Users") UserModel Users, RedirectAttributes redirect,
+            BindingResult result, Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId == null) {
-            if (result.hasErrors()) {
+        // Verificar si el usuario ha aceptado los términos y condiciones
+        if (result.hasErrors()) {
+            if (userId == null) {
                 return "/Api/Users/Registro";
+            } else {
+                model.addAttribute("Users", Users);
+                return "Users/Editar";
             }
+        }
+        // Verificar la edad del usuario
+        LocalDate DateOfBirth = Users.getDateBirthday();
+        Integer calculatedAge = userService.calculateAge(DateOfBirth);
+        Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
+        System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
+
+        // Asignar los valores calculados a las propiedades del usuario
+        Users.setAge(calculatedAge);
+        Users.setBodyMass(masaCorporal);
+        Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
+
+        if (calculatedAge == null || calculatedAge <= 16) {
+            model.addAttribute("Error", "La fecha de nacimiento no es válida.");
+            return "/Api/Users/Registro";
+        }
+
+        if (userId == null) { // Proceso de registro
             // Verificar si el usuario ha aceptado los términos y condiciones
             if (!Users.isTermsAccepted()) {
                 model.addAttribute("Error", "Debes aceptar los términos y condiciones.");
                 return "/Api/Users/Registro";
             }
-            // Verificar la edad del usuario
-            LocalDate DateOfBirth = Users.getDateBirthday();
-            Integer calculatedAge = userService.calculateAge(DateOfBirth);
-            Double masaCorporal = healthService.calculateIMC(Users.getWeight(), Users.getHeight());
-            System.out.println("Calculated Age: " + calculatedAge); // Imprime la edad calculada
-            if (calculatedAge == null || calculatedAge <= 16) {
-                model.addAttribute("Error", "La fecha de nacimiento no es válida.");
-                return "/Api/Users/Registro";
-            }
-            // Asignar los valores calculados a las propiedades del usuario
-            Users.setAge(calculatedAge);
-            Users.setBodyMass(masaCorporal);
-            Users.setHealthClassification(healthService.classifyIMC(masaCorporal));
+
             // Encriptar la contraseña antes de guardar
             String hashedPassword = BCrypt.hashpw(Users.getPassword(), BCrypt.gensalt()); // Encriptar la contraseña
             Users.setPassword(hashedPassword); // Guardar la contraseña encriptada
+
             // Guardar el usuario con la contraseña encriptada
             userService.saveOrUpdateUser(Users);
+
             // Agregar un mensaje de éxito y redirigir al usuario
             redirect.addFlashAttribute("msgExito", "El Usuario ha sido agregado con éxito");
             session.setAttribute("UsuarioId", null);
             return "redirect:/"; // Redirige a la página principal
-        } else {
-            return "redirect:/DSBConection"; // Si el usuario ya está logueado, redirigir a otra página
+
+        } else { // Proceso de edición
+            // No se actualiza la contraseña aquí, por seguridad.
+            // Se podría agregar lógica adicional para actualizar la contraseña si fuera necesario
+            userService.saveOrUpdateUser(Users);
+            redirect.addFlashAttribute("msgExito", "El usuario ha sido actualizado con éxito");
+            return "redirect:/DSBConection";
         }
     }
 
@@ -233,58 +251,6 @@ public class UserController {
         // Si las credenciales son incorrectas, muestra un mensaje de error
         model.addAttribute("error", "Credenciales incorrectas");
         return "Users/Login"; // Regresa a la vista de login si las credenciales son incorrectas
-    }
-
-
-    @GetMapping("/Editar")
-    public String editarUsuario(Model model, HttpSession session) {
-        Long userId = (Long) session.getAttribute("UsuarioId");
-        if (userId != null) {
-            UserModel usuario = userService.getUserById(userId);
-            model.addAttribute("Users", usuario);
-
-            // Agregar las opciones para enfermedades crónicas y sexo desde el JSON
-            try {
-                Resource resource = resourceLoader.getResource("classpath:/static/Json/Registro.json");
-                String content = new String(Files.readAllBytes(resource.getFile().toPath()));
-                Gson gson = new Gson();
-                JsonObject jsonObject = gson.fromJson(content, JsonObject.class);
-                JsonArray sexoArray = jsonObject.getAsJsonArray("Sexo");
-                JsonArray enfermedadArray = jsonObject.getAsJsonArray("Enfermedad");
-
-                List<String> sexoOptions = new ArrayList<>();
-                List<String> enfermedadOptions = new ArrayList<>();
-
-                for (JsonElement sexo : sexoArray) {
-                    sexoOptions.add(sexo.getAsString());
-                }
-                for (JsonElement enfermedad : enfermedadArray) {
-                    enfermedadOptions.add(enfermedad.getAsString());
-                }
-
-                model.addAttribute("sexoOptions", sexoOptions);
-                model.addAttribute("enfermedadOptions", enfermedadOptions);
-            } catch (IOException e) {
-                e.printStackTrace();
-                model.addAttribute("jsonData", "Error leyendo el archivo JSON: " + e.getMessage());
-            }
-
-            return "/Users/Editar";
-        } else {
-            return "Users/Login";
-        }
-    }
-
-    @PostMapping("/Editar")
-    public String actualizarUsuario(@Validated @ModelAttribute("Users") UserModel Users, BindingResult bindingResult,
-                                    RedirectAttributes redirect, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("Users", Users);
-            return "Users/Editar";
-        }
-        userService.saveOrUpdateUser(Users);
-        redirect.addFlashAttribute("msgExito", "El usuario ha sido actualizado con éxito");
-        return "redirect:/DSBConection";
     }
 
 }
