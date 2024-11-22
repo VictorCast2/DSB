@@ -47,11 +47,11 @@
             </thead>
             <tbody>
                 <tr th:each="log : ${foodLogs}">
-                    <td th:text="${log.Foods}"></td>
-                    <td th:text="${log.AlimentsCategories}"></td>
-                    <td th:text="${log.Aliments}"></td>
-                    <td th:text="${log.StrartDate}"></td>
-                    <td>
+                    <td  data-title="Comida"  th:text="${log.Foods}"></td>
+                    <td  data-title="Categoria Alimentos"  th:text="${log.AlimentsCategories}"></td>
+                    <td  data-title="Tipo Comida"  th:text="${log.Aliments}"></td>
+                    <td  data-title="Fecha Hora Inicial"  th:text="${log.StrartDate}"></td>
+                    <td  data-title="Action">
                         <a th:href="@{/Api/Users/Food/EditarAlimento/{id}(id=${log.id})}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>

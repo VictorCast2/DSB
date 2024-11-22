@@ -210,7 +210,7 @@ td a:nth-child(2){
 
 }
 
-@media (min-width: 440px) and (max-width: 1178px) {
+@media (min-width: 440px) and (max-width: 1978px) {
     table td[data-title="Action"] {
         display: flex;
         justify-content: center;

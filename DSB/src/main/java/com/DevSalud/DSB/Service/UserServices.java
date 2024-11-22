@@ -2,6 +2,8 @@ package com.DevSalud.DSB.Service;
 
 import java.time.*;
 import java.util.List;
+
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.DevSalud.DSB.Exception.*;
@@ -35,6 +37,15 @@ public class UserServices {
      * @return El usuario guardado.
      */
     public UserModel saveOrUpdateUser(UserModel user) {
+        if (user.getDateBirthday() != null) {
+            Integer calculatedAge = calculateAge(user.getDateBirthday());
+            user.setAge(calculatedAge);
+        }
+        if (user.getPassword() != null) {
+            // Encriptar la contraseña antes de guardar
+            String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+            user.setPassword(hashedPassword);
+        }
         return userRepository.save(user);
     }
 
