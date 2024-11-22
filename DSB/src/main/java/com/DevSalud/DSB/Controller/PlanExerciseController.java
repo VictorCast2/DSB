@@ -106,7 +106,6 @@ public class PlanExerciseController {
                 filteredPlans.put("hipertensosObesidadTipo3y4", allPlans.get("hipertensosObesidadTipo3y4"));
                 break;
             default:
-                // Manejar otros casos si es necesario
                 break;
         }
     }
@@ -137,7 +136,6 @@ public class PlanExerciseController {
                 filteredPlans.put("diabetesTipo1ObesidadTipoIIIYIV", allPlans.get("diabetesTipo1ObesidadTipoIIIYIV"));
                 break;
             default:
-                // Manejar otros casos si es necesario
                 break;
         }
     }
@@ -168,7 +166,6 @@ public class PlanExerciseController {
                 filteredPlans.put("diabetesTipo2ObesidadTipoIIIYIV", allPlans.get("diabetesTipo2ObesidadTipoIIIYIV"));
                 break;
             default:
-                // Manejar otros casos si es necesario
                 break;
         }
     }

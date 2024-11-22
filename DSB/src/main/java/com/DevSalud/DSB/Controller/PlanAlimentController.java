@@ -1,13 +1,20 @@
 package com.DevSalud.DSB.Controller;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.*;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.DevSalud.DSB.Model.UserModel;
 import com.DevSalud.DSB.Service.UserServices;
 import com.google.gson.Gson;
@@ -120,7 +127,6 @@ public class PlanAlimentController {
                 filteredPlans.put("hipertensosObesidadTipo3y4", allPlans.get("hipertensosObesidadTipo3y4"));
                 break;
             default:
-                // Manejar otros casos si es necesario
                 break;
         }
     }
@@ -184,8 +190,7 @@ public class PlanAlimentController {
                 filteredPlans.put("diabetesTipo2ObesiadaTipo3y4", allPlans.get("diabetesTipo2ObesiadaTipo3y4"));
                 break;
             default:
-                // Manejar otros casos si es necesario
-                break;
+               break;
         }
     }
 
@@ -207,7 +212,6 @@ public class PlanAlimentController {
                 allPlans.putAll(plan);
             }
             return allPlans;
-            // return gson.fromJson(reader, type);
         } catch (Exception e) {
             e.printStackTrace();
             return new HashMap<>(); // Retorna un mapa vacío en caso de error
