@@ -31,13 +31,15 @@ public class AlimentLogController {
         return getComidas();
     }
 
-    // ModelAttribute que proporciona una lista de todas las categorías de alimentos.
+    // ModelAttribute que proporciona una lista de todas las categorías de
+    // alimentos.
     @ModelAttribute("allCategoriaAliments")
     public List<String> categoriaComida() {
         return getCategorias();
     }
 
-    // ModelAttribute que proporciona un mapa con los nombres de comidas categorizadas.
+    // ModelAttribute que proporciona un mapa con los nombres de comidas
+    // categorizadas.
     @ModelAttribute("allNameAliments")
     public Map<String, List<String>> nombresComidas() {
         return getComidasPorCategoria();
@@ -54,7 +56,7 @@ public class AlimentLogController {
         return Arrays.asList(
                 "Proteinas", "Frutas", "Verduras", "Granos",
                 "Productos Lacteos", "Azucares", "Grasas Saturadas",
-                "Harinas", "Carbohidratos");
+                "Harinas", "Carbohidratos", "Comidas Rapidas");
     }
 
     // Método privado que devuelve un mapa de nombres de comidas por categoría.
@@ -66,6 +68,17 @@ public class AlimentLogController {
                 "Tacos", "Pescado", "Queso", "Cerdo",
                 "Salchicha", "Jamon", "Mortadela", "Panceta",
                 "Chorizo", "Butifarra", "Yogur", "Leche"));
+        comidas.put("Comidas Rapidas", Arrays.asList(
+                "Hamburguesa",
+                "Papas fritas",
+                "Perro caliente",
+                "Pizza",
+                "Tacos",
+                "Burritos",
+                "Sándwiches",
+                "Wraps",
+                "Nuggets de pollo",
+                "Empanadas"));
         comidas.put("Frutas", Arrays.asList(
                 "Piña", "Arándanos", "Uvas", "Manzanas",
                 "Peras", "Mango", "Fresas", "Sandía",

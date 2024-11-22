@@ -1,6 +1,8 @@
 package com.DevSalud.DSB.Model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,5 +30,13 @@ public class AlimentLogModel {
     @ManyToOne
     @JoinColumn(name = "UsersId", referencedColumnName = "Id")
     private UserModel user;
+
+    public String getFormattedStartDate() {
+        if (StrartDate != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            return StrartDate.format(formatter);
+        }
+        return null;
+    }
 
 }
