@@ -3,6 +3,7 @@ package com.DevSalud.DSB.Service;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.DevSalud.DSB.Exception.*;
 import com.DevSalud.DSB.Model.ExerciseLogModel;
 import com.DevSalud.DSB.Repository.ExerciseLogRepository;
 import lombok.Data;
@@ -26,7 +27,11 @@ public class ExerciseLogServices {
      *                    ejercicio a guardar.
      */
     public void saveExerciseLog(ExerciseLogModel exerciseLog) {
-        exerciseLogRepository.save(exerciseLog);
+        try {
+            exerciseLogRepository.save(exerciseLog);
+        } catch (Exception e) {
+            throw new ValidateServiceException("Error al guardar el registro de ejercicio: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -38,7 +43,11 @@ public class ExerciseLogServices {
      * @return Una lista de todos los registros de ejercicio.
      */
     public List<ExerciseLogModel> getAllExerciseLogs() {
-        return exerciseLogRepository.findAll();
+        try {
+            return exerciseLogRepository.findAll();
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener los registros de ejercicio: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -53,18 +62,22 @@ public class ExerciseLogServices {
      * @return El registro de ejercicio actualizado, o null si no se encuentra el
      *         registro.
      */
-    public ExerciseLogModel UpdateExerciseLog(ExerciseLogModel updatedExerciseLog) {
-        Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(updatedExerciseLog.getId());
-        if (existingExerciseLog.isPresent()) {
-            ExerciseLogModel exerciseLog = existingExerciseLog.get();
-            exerciseLog.setExerciseName(updatedExerciseLog.getExerciseName());
-            exerciseLog.setExerciseType(updatedExerciseLog.getExerciseType());
-            exerciseLog.setStrartDate(updatedExerciseLog.getStrartDate());
-            exerciseLog.setFinalDate(updatedExerciseLog.getFinalDate());
-            exerciseLog.setExerciseIntensity(updatedExerciseLog.getExerciseIntensity());
-            return exerciseLogRepository.save(exerciseLog);
-        } else {
-            return null;
+    public ExerciseLogModel updateExerciseLog(ExerciseLogModel updatedExerciseLog) {
+        try {
+            Optional<ExerciseLogModel> existingExerciseLog = exerciseLogRepository.findById(updatedExerciseLog.getId());
+            if (existingExerciseLog.isPresent()) {
+                ExerciseLogModel exerciseLog = existingExerciseLog.get();
+                exerciseLog.setExerciseName(updatedExerciseLog.getExerciseName());
+                exerciseLog.setExerciseType(updatedExerciseLog.getExerciseType());
+                exerciseLog.setStrartDate(updatedExerciseLog.getStrartDate());
+                exerciseLog.setFinalDate(updatedExerciseLog.getFinalDate());
+                exerciseLog.setExerciseIntensity(updatedExerciseLog.getExerciseIntensity());
+                return exerciseLogRepository.save(exerciseLog);
+            } else {
+                throw new NoDataFoundException("El registro de ejercicio no existe.");
+            }
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al actualizar el registro de ejercicio: " + e.getMessage(), e);
         }
     }
 
@@ -79,7 +92,12 @@ public class ExerciseLogServices {
      * @return El registro de ejercicio encontrado, o null si no se encuentra.
      */
     public ExerciseLogModel getExerciseLogById(Long id) {
-        return exerciseLogRepository.findById(id).orElse(null);
+        try {
+            return exerciseLogRepository.findById(id)
+                    .orElseThrow(() -> new NoDataFoundException("No se encontró el registro de ejercicio con ID: " + id));
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener el registro de ejercicio: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -90,7 +108,15 @@ public class ExerciseLogServices {
      * @param id El ID del registro de ejercicio a eliminar.
      */
     public void DeleteExerciseLog(Long id) {
-        exerciseLogRepository.deleteById(id);
+        try {
+            if (exerciseLogRepository.existsById(id)) {
+                exerciseLogRepository.deleteById(id);
+            } else {
+                throw new NoDataFoundException("El registro de ejercicio no existe.");
+            }
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al eliminar el registro de ejercicio: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -104,7 +130,15 @@ public class ExerciseLogServices {
      * @return Una lista de los registros de ejercicio del usuario.
      */
     public List<ExerciseLogModel> getExerciseLogsByUserId(Long userId) {
-        return exerciseLogRepository.findByUserId(userId);
+        try {
+            List<ExerciseLogModel> logs = exerciseLogRepository.findByUserId(userId);
+            if (logs.isEmpty()) {
+                throw new NoDataFoundException("No se encontraron registros de ejercicio para el usuario con ID: " + userId);
+            }
+            return logs;
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener los registros de ejercicio del usuario: " + e.getMessage(), e);
+        }
     }
 
 }

@@ -42,10 +42,14 @@ public class UserServices {
         }
         if (user.getPassword() != null) {
             // Encriptar la contraseña antes de guardar
-            String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+            String hashedPassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()); // Encriptar la contraseña antes de guardar
             user.setPassword(hashedPassword);
         }
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al guardar el usuario: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -132,7 +136,11 @@ public class UserServices {
      * @return El UserModel correspondiente, o null si no se encuentra.
      */
     public UserModel getUserByUsernameOrEmail(String userOrEmail) {
-        return findByUserOrEmail(userOrEmail);
+        try {
+            return findByUserOrEmail(userOrEmail);
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al buscar el usuario por nombre de usuario o correo electrónico", e);
+        }
     }
 
     /**
@@ -143,10 +151,14 @@ public class UserServices {
      */
     public Integer calculateAge(LocalDate DateBirthday) {
         if (DateBirthday == null) {
-            throw new IllegalArgumentException("La fecha de nacimiento no puede ser nula");
+            throw new ValidateServiceException("La fecha de nacimiento no puede ser nula");
         }
-        LocalDate Today = LocalDate.now();
-        return Period.between(DateBirthday, Today).getYears();
+        try {
+            LocalDate Today = LocalDate.now();
+            return Period.between(DateBirthday, Today).getYears();
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al calcular la edad: " + e.getMessage(), e);
+        }
     }
 
 }

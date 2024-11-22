@@ -134,7 +134,7 @@ public class ExercisesController {
                 ExerciseLogModel existingExercise = exerciseLogService.getExerciseLogById(exerciseLog.getId());
                 if (existingExercise != null) {
                     // Si existe, actualizar el ejercicio
-                    exerciseLogService.UpdateExerciseLog(exerciseLog);
+                    exerciseLogService.updateExerciseLog(exerciseLog);
                     model.addAttribute("success", "Ejercicio actualizado exitosamente.");
                 } else {
                     model.addAttribute("error", "El ejercicio no existe para actualizar.");

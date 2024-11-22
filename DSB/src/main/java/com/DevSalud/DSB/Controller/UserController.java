@@ -113,10 +113,6 @@ public class UserController {
                 return "/Api/Users/Registro";
             }
 
-            // Encriptar la contraseña antes de guardar
-            String hashedPassword = BCrypt.hashpw(Users.getPassword(), BCrypt.gensalt()); // Encriptar la contraseña
-            Users.setPassword(hashedPassword); // Guardar la contraseña encriptada
-
             // Guardar el usuario con la contraseña encriptada
             userService.saveOrUpdateUser(Users);
 
@@ -127,7 +123,8 @@ public class UserController {
 
         } else { // Proceso de edición
             // No se actualiza la contraseña aquí, por seguridad.
-            // Se podría agregar lógica adicional para actualizar la contraseña si fuera necesario
+            // Se podría agregar lógica adicional para actualizar la contraseña si fuera
+            // necesario
             userService.saveOrUpdateUser(Users);
             redirect.addFlashAttribute("msgExito", "El usuario ha sido actualizado con éxito");
             return "redirect:/DSBConection";
@@ -163,7 +160,6 @@ public class UserController {
             model.addAttribute("error", "Las contraseñas no coinciden.");
             return "Users/OlvidoContraseña"; // Volver al formulario
         }
-
         // Obtener el usuario por nombre de usuario
         UserModel user = userService.findByUserOrEmail(username);
         if (user != null) {

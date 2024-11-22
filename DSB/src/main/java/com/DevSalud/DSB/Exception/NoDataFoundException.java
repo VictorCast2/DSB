@@ -3,6 +3,8 @@ package com.DevSalud.DSB.Exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+// Anotación que define el código de estado HTTP que será devuelto cuando esta excepción sea lanzada.
+// En este caso, se devolverá un estado de No Contenido (204 No Content).
 @ResponseStatus(code = HttpStatus.NO_CONTENT)
 public class NoDataFoundException extends RuntimeException {
 

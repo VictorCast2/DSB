@@ -3,6 +3,7 @@ package com.DevSalud.DSB.Service;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.DevSalud.DSB.Exception.*;
 import com.DevSalud.DSB.Model.AlimentLogModel;
 import com.DevSalud.DSB.Repository.AlimentLogRepository;
 import lombok.Data;
@@ -23,7 +24,7 @@ public class AlimentLogServices {
         try {
             return alimentLogRepository.save(alimentLog);
         } catch (Exception e) {
-            throw new RuntimeException("Error al guardar el registro de alimento: " + e.getMessage());
+            throw new GeneralServiceException("Error al guardar el registro de alimento: " + e.getMessage(), e);
         }
     }
 
@@ -37,10 +38,10 @@ public class AlimentLogServices {
             try {
                 return alimentLogRepository.save(alimentLog);
             } catch (Exception e) {
-                throw new RuntimeException("Error al actualizar el registro de alimento: " + e.getMessage());
+                throw new GeneralServiceException("Error al actualizar el registro de alimento: " + e.getMessage(), e);
             }
         } else {
-            throw new RuntimeException("El registro de alimento no existe.");
+            throw new NoDataFoundException("El registro de alimento no existe.");
         }
     }
 
@@ -50,9 +51,13 @@ public class AlimentLogServices {
      */
     public void deleteAlimentLog(Long id) {
         try {
-            alimentLogRepository.deleteById(id);
+            if (alimentLogRepository.existsById(id)) {
+                alimentLogRepository.deleteById(id);
+            } else {
+                throw new NoDataFoundException("El registro de alimento no existe.");
+            }
         } catch (Exception e) {
-            throw new RuntimeException("Error al eliminar el registro de alimento: " + e.getMessage());
+            throw new GeneralServiceException("Error al eliminar el registro de alimento: " + e.getMessage(), e);
         }
     }
 
@@ -62,13 +67,25 @@ public class AlimentLogServices {
      * @return Una lista de registros de alimentos.
      */
     public List<AlimentLogModel> getFoodLogsByUserId(Long userId) {
-        return alimentLogRepository.findByUserId(userId);
+        try {
+            List<AlimentLogModel> logs = alimentLogRepository.findByUserId(userId);
+            if (logs.isEmpty()) {
+                throw new NoDataFoundException("No se encontraron registros de alimentos para el usuario con ID: " + userId);
+            }
+            return logs;
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener los registros de alimentos: " + e.getMessage(), e);
+        }
     }
 
     // Método para obtener el alimento por su ID
     public AlimentLogModel getAlimentLogById(Long id) {
-        Optional<AlimentLogModel> alimentLog = alimentLogRepository.findById(id);
-        return alimentLog.orElse(null);  // Si no se encuentra el alimento, retorna null
+        try {
+            Optional<AlimentLogModel> alimentLog = alimentLogRepository.findById(id);
+            return alimentLog.orElseThrow(() -> new NoDataFoundException("No se encontró el registro de alimento con ID: " + id));
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener el registro de alimento: " + e.getMessage(), e);
+        }
     }
     
 }
