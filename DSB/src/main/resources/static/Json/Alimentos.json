@@ -1,25 +1,22 @@
 {
-
-    "Comida":[
-        "Desayuno", 
-        "Almuerzo", 
+    "Comida": [
+        "Desayuno",
+        "Almuerzo",
         "Cena"
     ],
-
-    "CategoriaAlimentos":[
-        "Proteinas", 
-        "Frutas", 
-        "Verduras", 
+    "CategoriaAlimentos": [
+        "Proteinas",
+        "Frutas",
+        "Verduras",
         "Granos",
-        "Productos Lacteos", 
-        "Azucares", 
+        "Productos Lacteos",
+        "Azucares",
         "Grasas Saturadas",
-        "Harinas", 
-        "Carbohidratos"
+        "Harinas",
+        "Carbohidratos",
+        "Comidas Rapidas"
     ],
-
     "Alimentos": {
-
         "Proteinas": [
             "Pollo",
             "Carnes Rojas",
@@ -45,6 +42,19 @@
             "Barras de merienda",
             "Avena"
         ],
+        
+        "Comidas Rápidas": [
+            "Hamburguesa",
+            "Papas fritas",
+            "Perro caliente",
+            "Pizza",
+            "Tacos",
+            "Burritos",
+            "Sándwiches",
+            "Wraps",
+            "Nuggets de pollo",
+            "Empanadas"
+        ],
 
         "Frutas": [
             "Piña",
@@ -61,7 +71,6 @@
             "Melocotones",
             "Guayaba"
         ],
-
         "Verduras": [
             "Cebolla",
             "Tomate",
@@ -81,7 +90,6 @@
             "Plátano Verde",
             "Plátano Amarillo"
         ],
-
         "Productos Lacteos": [
             "Leche Condensada",
             "Leche Entera",
@@ -97,7 +105,6 @@
             "Jugo De Milo",
             "Jugo De Chocolisto"
         ],
-
         "Azucares": [
             "Panela",
             "Barras de merienda",
@@ -119,7 +126,6 @@
             "Café Con Azucar",
             "Té Con Azucar"
         ],
-
         "Grasas Saturadas": [
             "Arepas Fritas",
             "Empanadas Fritas",
@@ -137,7 +143,6 @@
             "Tajaditas",
             "Salchichón Frito"
         ],
-
         "Harinas": [
             "Arroz",
             "Arepas",
@@ -156,7 +161,6 @@
             "Pancakes",
             "Waffles"
         ],
-
         "Granos": [
             "Avena",
             "Arroz",
@@ -171,7 +175,6 @@
             "Smoothie de frutas y avena",
             "Cereal integral con leche o frutas"
         ],
-
         "Carbohidratos": [
             "Arroz",
             "Pasta",
