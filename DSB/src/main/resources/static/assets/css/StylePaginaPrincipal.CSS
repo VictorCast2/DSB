@@ -476,7 +476,7 @@ a {
     width: 50%;
     height: 400px;
     float: right;
-    margin-right: 80px;
+    margin-right: 50px;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 16/9;
@@ -1021,7 +1021,7 @@ a {
     width: 50%;
     height: 400px;
     float: right;
-    margin: 80px 70px;
+    margin: 80px 50px;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 16/9;
@@ -1570,7 +1570,7 @@ a {
     width: 50%;
     height: 400px;
     float: right;
-    margin: 80px 70px;
+    margin: 80px 50px;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 16/9;
@@ -2351,7 +2351,7 @@ a {
 .icon-servicio i {
     font-size:40px ;
     color: #000033;
-    margin:0 0 25px 150px;
+    margin:0 0 25px 140px;
 }
 
 .card:hover .icon-servicio i{
@@ -3043,7 +3043,7 @@ a {
 .texto-almuerzo {
     height: 630px;
     width: 50%;
-    padding-top: 30px;
+    padding: 20px 0 0 0;
     position: relative;
 }
 
@@ -3215,7 +3215,7 @@ a {
 }
 
 .contenido-texto-ejercicio {
-    width: 45%;
+    width: 60%;
     margin: 0 80px;
     padding-top: 130px;
 }
@@ -4828,7 +4828,7 @@ a {
 
 .texto-nutricionista {
     width: 80%;
-    padding: 300px 40px 0 40px;
+    padding: 200px 40px 0 40px;
 }
 
 .texto-nutricionista h2 {
@@ -4890,7 +4890,7 @@ a {
 
 .parrafo-planesAlimento h2 {
     font-size: 40px;
-    margin: 0 0 20px 160px;
+    margin: 0 0 20px 120px;
     font-weight: 900;
     font-family: "Montserrat";
     color: #315cfd;
@@ -4898,7 +4898,7 @@ a {
 
 .parrafo-planesAlimento p {
     width: 70%;
-    margin: 0 0 0 160px;
+    margin: 0 0 0 120px;
     font-size: 15px;
     text-align: justify;
     font-weight: 500;
