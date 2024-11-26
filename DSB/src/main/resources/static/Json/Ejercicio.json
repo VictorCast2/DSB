@@ -217,6 +217,7 @@
             "Saltos En Cruz Con Elevación De Piernas",
             "Saltos En V Con Toque De Codo"
         ],
+
         "Pecho": [
             "Flexiones De Brazo",
             "Flexiones De Diamante",
@@ -1220,6 +1221,7 @@
             "Sentadillas De Sumo",
             "Burpees Con Salto"
         ]
+        
     }
 
 }

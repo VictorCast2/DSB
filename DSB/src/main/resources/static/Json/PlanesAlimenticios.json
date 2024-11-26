@@ -44,6 +44,7 @@
                 "1 Porcion De Huevo Con Espinaca, 1 Arepa Asada"
             ]
         ],
+
         "hipertensosSobrePeso": [
             [
                 "Lunes",
@@ -88,6 +89,7 @@
                 "Té De Menta, 2 Rebanadas De Pan Integral Tostado, Ajo Y Aceite De Oliva"
             ]
         ],
+
         "hipertensosObesidadTipo1y2": [
             [
                 "Lunes",
@@ -132,6 +134,7 @@
                 "1 Arepa Mediana Rellena De Pollo Hilachado Con Vegetales"
             ]
         ],
+
         "hipertensosObesidadTipo3y4": [
             [
                 "Lunes",
@@ -176,6 +179,7 @@
                 "Pavo A La Plancha Con Verduras, Pan Integral, Aceite De Oliva"
             ]
         ],
+
         "diabetesTipo1BajoDePeso": [
             [
                 "Lunes",
@@ -220,6 +224,7 @@
                 "Pechuga De Pollo A La Parrilla Con Esparragos"
             ]
         ],
+
         "diabetesTipo1SobrePeso": [
             [
                 "Lunes",
@@ -264,6 +269,7 @@
                 "Burrito De Fajitas De Pollo Con Verduras"
             ]
         ],
+
         "diabetesTipo1ObesidadTipo1y2": [
             [
                 "Lunes",
@@ -308,6 +314,7 @@
                 "Bistec A La Parrilla Con Espárragos, Puré De Batata"
             ]
         ],
+
         "diabetesTipo1ObesidadTipo3y4": [
             [
                 "Lunes",
@@ -352,6 +359,7 @@
                 "Pollo A La Parrilla Con Pimientos Y Espárragos, Arroz Integral"
             ]
         ],
+
         "diabetesTipo2BajoDePeso": [
             [
                 "Lunes",
@@ -396,6 +404,7 @@
                 "Ensalada De Atún Y Aguacate"
             ]
         ],
+
         "diabetesTipo2SobrePeso": [
             [
                 "Lunes",
@@ -440,6 +449,7 @@
                 "Camarones A La Plancha: Con Ajo Y Perejil"
             ]
         ],
+
         "diabetesTipo2ObesidadTipo1y2": [
             [
                 "Lunes",
@@ -484,6 +494,7 @@
                 "Ensalada De Salmón Con Huevo Duro Y Pepinillos"
             ]
         ],
+        
         "diabetesTipo2ObesiadaTipo3y4": [
             [
                 "Lunes",
@@ -528,5 +539,6 @@
                 "Pulpo A La Gallega, Cocido Con Paprika Y Aceite De Oliva"
             ]
         ]
+
     }
 ]
