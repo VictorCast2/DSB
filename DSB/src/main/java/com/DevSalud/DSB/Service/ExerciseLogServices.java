@@ -35,22 +35,6 @@ public class ExerciseLogServices {
     }
 
     /**
-     * Obtiene todos los registros de ejercicio almacenados en la base de datos.
-     * 
-     * Este método devuelve una lista de todos los registros de ejercicio
-     * existentes.
-     * 
-     * @return Una lista de todos los registros de ejercicio.
-     */
-    public List<ExerciseLogModel> getAllExerciseLogs() {
-        try {
-            return exerciseLogRepository.findAll();
-        } catch (Exception e) {
-            throw new GeneralServiceException("Error al obtener los registros de ejercicio: " + e.getMessage(), e);
-        }
-    }
-
-    /**
      * Actualiza un registro de ejercicio existente en la base de datos.
      * 
      * Este método recibe un objeto `ExerciseLogModel` con los datos actualizados y
@@ -97,6 +81,22 @@ public class ExerciseLogServices {
                     .orElseThrow(() -> new NoDataFoundException("No se encontró el registro de ejercicio con ID: " + id));
         } catch (Exception e) {
             throw new GeneralServiceException("Error al obtener el registro de ejercicio: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Obtiene todos los registros de ejercicios.
+     * 
+     * Este método retorna una lista con todos los registros de ejercicios
+     * almacenados en la base de datos.
+     * 
+     * @return Una lista de todos los registros de ejercicios.
+     */
+    public List<ExerciseLogModel> getAllExerciseLogs() {
+        try {
+            return exerciseLogRepository.findAll();
+        } catch (Exception e) {
+            throw new GeneralServiceException("Error al obtener los registros de ejercicios: " + e.getMessage(), e);
         }
     }
 
