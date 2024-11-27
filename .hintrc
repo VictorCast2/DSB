@@ -35,6 +35,12 @@
       }
     ],
     "no-inline-styles": "off",
-    "button-type": "off"
+    "button-type": "off",
+    "axe/keyboard": [
+      "default",
+      {
+        "nested-interactive": "off"
+      }
+    ]
   }
 }

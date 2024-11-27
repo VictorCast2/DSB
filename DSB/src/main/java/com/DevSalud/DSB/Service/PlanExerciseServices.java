@@ -22,18 +22,19 @@ public class PlanExerciseServices {
      * Verifica si el paciente ha realizado algún ejercicio no autorizado.
      * 
      * @param userId El ID del usuario.
-     * @return true si el paciente ha realizado algún ejercicio no autorizado, false
-     *         en caso contrario.
+     * @param disease La enfermedad del usuario.
+     * @return true si el paciente ha realizado algún ejercicio no autorizado, false en caso contrario.
      */
-    public boolean hasUnauthorizedExercises(Long userId, String Disease) {
+    public boolean hasUnauthorizedExercises(Long userId, String disease) {
         List<String> unauthorizedExercises;
-        if (Disease == "Hipertension") {
-            unauthorizedExercises = List.of("Aerobicos", "Fuerza", "Fortalecimiento"); // Lista de ejercicios 
-        } else{
-            unauthorizedExercises = List.of(""); // Todos los ejercicios son buenos para los diabeticos
+        if ("Hipertension".equals(disease)) {
+            unauthorizedExercises = List.of("Aerobicos", "Fuerza", "Fortalecimiento"); // Lista de ejercicios no autorizados para hipertensión
+        } else {
+            unauthorizedExercises = List.of(); // Todos los ejercicios son buenos para los diabéticos
         }
         List<ExerciseLogModel> exerciseLogs = exerciseLogRepository.findByUserId(userId);
-        return exerciseLogs.stream().anyMatch(exerciseLog -> unauthorizedExercises.contains(exerciseLog.getExerciseName()));
+        return exerciseLogs.stream()
+                .anyMatch(exerciseLog -> unauthorizedExercises.contains(exerciseLog.getExerciseName()));
     }
 
 }

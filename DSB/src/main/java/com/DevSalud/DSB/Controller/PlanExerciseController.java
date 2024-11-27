@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.DevSalud.DSB.Model.UserModel;
-import com.DevSalud.DSB.Service.UserServices;
+import com.DevSalud.DSB.Service.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jakarta.servlet.http.HttpSession;
@@ -22,6 +22,9 @@ public class PlanExerciseController {
 
     @Autowired
     private UserServices userService;
+    
+    @Autowired
+    private PlanExerciseServices PlanExerciseServices;
 
     @GetMapping("/PlanEjercicio")
     public String listExercises(Model model, HttpSession session) {
@@ -40,6 +43,13 @@ public class PlanExerciseController {
 
         String disease = user.getDisease();
         String healthClassification = user.getHealthClassification();
+
+        // Verifica si el usuario ha realizado ejercicios no autorizados
+        if (PlanExerciseServices.hasUnauthorizedExercises(userId, disease)) {
+            System.out.println("El paciente ha realizado ejercicios no autorizados.");
+            model.addAttribute("error", "El paciente ha realizado ejercicios no autorizados.");
+            return "error"; // Vista de error
+        }
 
         // Filtra los planes según la enfermedad y la clasificación de salud
         Map<String, List<List<String>>> exercisePlans = filterPlans(disease, healthClassification);
