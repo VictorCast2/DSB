@@ -248,8 +248,14 @@ public class ExercisesController {
      * @return El nombre de la vista de inicio del registro de ejercicios.
      */
     @GetMapping("/Home")
-    public String homeRegistroEjercicio() {
-        return "/Exercises/HomeRegistroEjercicio";
+    public String homeRegistroEjercicio(Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("UsuarioId");
+        if (userId != null) {
+            return "/Exercises/HomeRegistroEjercicio";
+        } else {
+            model.addAttribute("error", "Usuario no encontrado.");
+            return "redirect:/Api/Users/Login";
+        }
     }
 
 }
