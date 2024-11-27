@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds":[
+        {
+            "src":"/DSB/src/main/templates/Index.html",
+            "use":"@vercel/node"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ]
+}
