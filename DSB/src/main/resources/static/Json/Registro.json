@@ -1,4 +1,5 @@
 {
+    
     "Sexo" : [
         "Masculino",
         "Femenino",
@@ -10,4 +11,5 @@
         "Diabetes Tipo 1",
         "Diabetes Tipo 2"
     ]
+
 }
