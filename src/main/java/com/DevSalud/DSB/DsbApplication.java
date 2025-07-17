@@ -14,18 +14,4 @@ public class DsbApplication {
 		SpringApplication.run(DsbApplication.class, args);
 	}
 
-	@Configuration
-	public static class Myconfiguration{
-		@Bean
-		public WebMvcConfigurer corsConfigurer(){
-			return new WebMvcConfigurer() {
-				@Override
-				public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
-					registry.addMapping("/**")
-							.allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
-				}
-			};
-		}
-	}
-
 }

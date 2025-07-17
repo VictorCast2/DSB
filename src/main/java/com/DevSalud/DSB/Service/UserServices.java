@@ -130,20 +130,6 @@ public class UserServices {
     }
 
     /**
-     * Obtiene un usuario por su nombre de usuario o correo electrónico.
-     *
-     * @param userOrEmail El nombre de usuario o correo electrónico a buscar.
-     * @return El UserModel correspondiente, o null si no se encuentra.
-     */
-    public UserModel getUserByUsernameOrEmail(String userOrEmail) {
-        try {
-            return findByUserOrEmail(userOrEmail);
-        } catch (Exception e) {
-            throw new GeneralServiceException("Error al buscar el usuario por nombre de usuario o correo electrónico", e);
-        }
-    }
-
-    /**
      * Calcula la edad en base a la fecha de nacimiento.
      *
      * @param DateBirthday La fecha de nacimiento.

@@ -48,8 +48,6 @@ public class HealthServices {
 
     /**
      * Clasifica el IMC según las categorías estándar.
-     *
-     * @param imc El IMC.
      * @return La clasificación de salud.
      */
     public String classifyIMC(Double IMC) {
